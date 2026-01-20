@@ -1,16 +1,16 @@
 #include <iostream>
 
-// »ù´¡Çé¿ö£ºµ¥¸ö²ÎÊı
+// åŸºç¡€æƒ…å†µï¼šå•ä¸ªå‚æ•°
 template<typename T>
 void print_recursive(T arg) {
     std::cout << arg << "\n";
 }
 
-// µİ¹éÇé¿ö£ºÕ¹¿ªµÚÒ»¸ö²ÎÊı£¬µİ¹é´¦ÀíÊ£Óà²ÎÊı
+// é€’å½’æƒ…å†µï¼šå±•å¼€ç¬¬ä¸€ä¸ªå‚æ•°ï¼Œé€’å½’å¤„ç†å‰©ä½™å‚æ•°
 template<typename T, typename... Rest>
 void print_recursive(T first, Rest... rest) {
     std::cout << first << " ";
-    print_recursive(rest...);  // rest... Õ¹¿ªÎªÊ£Óà²ÎÊı
+    print_recursive(rest...);  // rest... å±•å¼€ä¸ºå‰©ä½™å‚æ•°
 }
 
 int main() {
