@@ -19,21 +19,51 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ParameterPackExpansion\FoldExpression\BinaryRightFold.cpp" />
-    <ClCompile Include="ParameterPackExpansion\FoldExpression\Func.cpp" />
-    <ClCompile Include="ParameterPackExpansion\FoldExpression\ParameterPackTypes.cpp" />
-    <ClCompile Include="ParameterPackExpansion\FoldExpression\ParameterPackTypes2.cpp" />
-    <ClCompile Include="ParameterPackExpansion\FoldExpression\UnaryLeftFold.cpp" />
-    <ClCompile Include="ParameterPackExpansion\FoldExpression\UnaryRightFold.cpp" />
-    <ClCompile Include="ParameterPackExpansion\RecursivePackUnpacking.cpp" />
-    <ClCompile Include="shared_ptr\deleter.cpp" />
-    <ClCompile Include="shared_ptr\function_para.cpp" />
-    <ClCompile Include="shared_ptr\make_shared.cpp" />
-    <ClCompile Include="shared_ptr\make_shared_array.cpp" />
-    <ClCompile Include="shared_ptr\make_shared_class.cpp" />
-    <ClCompile Include="shared_ptr\make_shared_types.cpp" />
-    <ClCompile Include="std_index_sequence\UnpackingTuples.cpp" />
-    <ClCompile Include="std_pair\std_pair.cpp" />
+    <ClCompile Include="ParameterPackExpansion\FoldExpression\BinaryRightFold.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ParameterPackExpansion\FoldExpression\Func.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ParameterPackExpansion\FoldExpression\ParameterPackTypes.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ParameterPackExpansion\FoldExpression\ParameterPackTypes2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ParameterPackExpansion\FoldExpression\UnaryLeftFold.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ParameterPackExpansion\FoldExpression\UnaryRightFold.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ParameterPackExpansion\RecursivePackUnpacking.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shared_ptr\deleter.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shared_ptr\function_para.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shared_ptr\make_shared.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shared_ptr\make_shared_array.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shared_ptr\make_shared_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="shared_ptr\make_shared_types.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_index_sequence\UnpackingTuples.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_pair\std_pair.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
