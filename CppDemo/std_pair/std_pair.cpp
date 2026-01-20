@@ -1,10 +1,10 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <utility>
 #include <string>
 #include <map>
 #include <vector>
 
-// º¯Êı·µ»ØÁ½¸öÖµ£º³É¹¦±êÖ¾ºÍ½á¹û
+// å‡½æ•°è¿”å›ä¸¤ä¸ªå€¼ï¼šæˆåŠŸæ ‡å¿—å’Œç»“æœ
 std::pair<bool, double> safeDivide(double a, double b) {
     if (b == 0) {
         return { false, 0.0 };
@@ -12,7 +12,7 @@ std::pair<bool, double> safeDivide(double a, double b) {
     return { true, a / b };
 }
 
-// º¯Êı·µ»Ø×îĞ¡ÖµºÍ×î´óÖµ
+// å‡½æ•°è¿”å›æœ€å°å€¼å’Œæœ€å¤§å€¼
 std::pair<int, int> findMinMax(const std::vector<int>& nums) {
     if (nums.empty()) return { 0, 0 };
 
@@ -28,17 +28,17 @@ std::pair<int, int> findMinMax(const std::vector<int>& nums) {
 }
 
 int main() {
-    // 1. »ù±¾´´½¨ºÍ·ÃÎÊ
-    std::cout << "=== »ù±¾ÓÃ·¨ ===" << std::endl;
+    // 1. åŸºæœ¬åˆ›å»ºå’Œè®¿é—®
+    std::cout << "=== åŸºæœ¬ç”¨æ³• ===" << std::endl;
     std::pair<int, std::string> p1(1, "hello");
     std::cout << "p1: " << p1.first << ", " << p1.second << std::endl;
 
-    // Ê¹ÓÃ make_pair
+    // ä½¿ç”¨ make_pair
     auto p2 = std::make_pair(42, 3.14);
     std::cout << "p2: " << p2.first << ", " << p2.second << std::endl;
 
-    // 2. º¯Êı·µ»Ø¶à¸öÖµ
-    std::cout << "\n=== º¯Êı·µ»ØÖµ ===" << std::endl;
+    // 2. å‡½æ•°è¿”å›å¤šä¸ªå€¼
+    std::cout << "\n=== å‡½æ•°è¿”å›å€¼ ===" << std::endl;
     auto result1 = safeDivide(10.0, 2.0);
     if (result1.first) {
         std::cout << "10 / 2 = " << result1.second << std::endl;
@@ -46,51 +46,51 @@ int main() {
 
     auto result2 = safeDivide(10.0, 0.0);
     if (!result2.first) {
-        std::cout << "³ıÒÔ0Ê§°Ü" << std::endl;
+        std::cout << "é™¤ä»¥0å¤±è´¥" << std::endl;
     }
 
-    // C++17 ½á¹¹»¯°ó¶¨
+    // C++17 ç»“æ„åŒ–ç»‘å®š
     auto [success, value] = safeDivide(20.0, 4.0);
     std::cout << "20 / 4 = " << value << std::endl;
 
-    // 3. ²éÕÒ×îĞ¡×î´óÖµ
-    std::cout << "\n=== ²éÕÒ×îĞ¡×î´óÖµ ===" << std::endl;
+    // 3. æŸ¥æ‰¾æœ€å°æœ€å¤§å€¼
+    std::cout << "\n=== æŸ¥æ‰¾æœ€å°æœ€å¤§å€¼ ===" << std::endl;
     std::vector<int> numbers = { 5, 2, 9, 1, 7, 3 };
     auto [minNum, maxNum] = findMinMax(numbers);
-    std::cout << "×îĞ¡Öµ: " << minNum << ", ×î´óÖµ: " << maxNum << std::endl;
+    std::cout << "æœ€å°å€¼: " << minNum << ", æœ€å¤§å€¼: " << maxNum << std::endl;
 
-    // 4. Óë map ÅäºÏÊ¹ÓÃ
-    std::cout << "\n=== Óë map Ê¹ÓÃ ===" << std::endl;
+    // 4. ä¸ map é…åˆä½¿ç”¨
+    std::cout << "\n=== ä¸ map ä½¿ç”¨ ===" << std::endl;
     std::map<std::string, int> ages;
 
-    // ²åÈëÔªËØ
+    // æ’å…¥å…ƒç´ 
     ages.insert(std::make_pair("Alice", 30));
     ages.insert({ "Bob", 25 });
 
-    // ±éÀú map (Ã¿¸öÔªËØÊÇ pair)
+    // éå† map (æ¯ä¸ªå…ƒç´ æ˜¯ pair)
     for (const auto& person : ages) {
-        std::cout << person.first << " µÄÄêÁäÊÇ " << person.second << std::endl;
+        std::cout << person.first << " çš„å¹´é¾„æ˜¯ " << person.second << std::endl;
     }
 
-    // C++17 ½á¹¹»¯°ó¶¨
+    // C++17 ç»“æ„åŒ–ç»‘å®š
     for (const auto& [name, age] : ages) {
-        std::cout << name << ": " << age << " Ëê" << std::endl;
+        std::cout << name << ": " << age << " å²" << std::endl;
     }
 
-    // 5. pair µÄ±È½Ï
-    std::cout << "\n=== pair ±È½Ï ===" << std::endl;
+    // 5. pair çš„æ¯”è¾ƒ
+    std::cout << "\n=== pair æ¯”è¾ƒ ===" << std::endl;
     std::pair<int, int> a(1, 2);
     std::pair<int, int> b(1, 3);
     std::pair<int, int> c(2, 1);
 
-    std::cout << "a < b: " << (a < b) << std::endl;  // true (±È½Ï second)
-    std::cout << "a < c: " << (a < c) << std::endl;  // true (±È½Ï first)
+    std::cout << "a < b: " << (a < b) << std::endl;  // true (æ¯”è¾ƒ second)
+    std::cout << "a < c: " << (a < c) << std::endl;  // true (æ¯”è¾ƒ first)
     std::cout << "a == b: " << (a == b) << std::endl; // false
 
-    // 6. ´æ´¢²»Í¬ÀàĞÍ
-    std::cout << "\n=== ²»Í¬ÀàĞÍ×éºÏ ===" << std::endl;
-    std::pair<std::string, std::vector<int>> studentScores("ÕÅÈı", { 85, 90, 92 });
-    std::cout << studentScores.first << " µÄ³É¼¨: ";
+    // 6. å­˜å‚¨ä¸åŒç±»å‹
+    std::cout << "\n=== ä¸åŒç±»å‹ç»„åˆ ===" << std::endl;
+    std::pair<std::string, std::vector<int>> studentScores("å¼ ä¸‰", { 85, 90, 92 });
+    std::cout << studentScores.first << " çš„æˆç»©: ";
     for (int score : studentScores.second) {
         std::cout << score << " ";
     }

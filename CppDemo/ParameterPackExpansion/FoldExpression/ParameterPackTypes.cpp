@@ -1,30 +1,30 @@
-#include <iostream>
+ï»¿#include <iostream>
 
-// 1. ÀàĞÍ²ÎÊı°ü£¨ÔËĞĞÊ±µÄÖµ£©
+// 1. ç±»å‹å‚æ•°åŒ…ï¼ˆè¿è¡Œæ—¶çš„å€¼ï¼‰
 template<typename... Args>
 void print_runtime(Args... args) {
-    std::cout << "ÀàĞÍ²ÎÊı°ü£¨ÔËĞĞÊ±Öµ£©: ";
+    std::cout << "ç±»å‹å‚æ•°åŒ…ï¼ˆè¿è¡Œæ—¶å€¼ï¼‰: ";
     ((std::cout << args << " "), ...);
     std::cout << std::endl;
 }
 
-// 2. ·ÇÀàĞÍ²ÎÊı°ü£¨±àÒëÆÚµÄÖµ£©
+// 2. éç±»å‹å‚æ•°åŒ…ï¼ˆç¼–è¯‘æœŸçš„å€¼ï¼‰
 template<int... nums>
 void print_compile_time() {
-    std::cout << "·ÇÀàĞÍ²ÎÊı°ü£¨±àÒëÆÚÖµ£©: ";
+    std::cout << "éç±»å‹å‚æ•°åŒ…ï¼ˆç¼–è¯‘æœŸå€¼ï¼‰: ";
     ((std::cout << nums << " "), ...);
     std::cout << std::endl;
 }
 
 int main() {
-    // ÀàĞÍ²ÎÊı°ü£º¿ÉÒÔ´«±äÁ¿
+    // ç±»å‹å‚æ•°åŒ…ï¼šå¯ä»¥ä¼ å˜é‡
     int x = 10;
     int y = 20;
-    print_runtime(x, y, 30);  // OK£ºÔËĞĞÊ±µÄÖµ
+    print_runtime(x, y, 30);  // OKï¼šè¿è¡Œæ—¶çš„å€¼
 
-    // ·ÇÀàĞÍ²ÎÊı°ü£º±ØĞëÊÇ³£Á¿
-    print_compile_time<10, 20, 30>();  // OK£º±àÒëÆÚ³£Á¿
-    // print_compile_time<x, y, 30>();  // ´íÎó£¡x ºÍ y ÊÇ±äÁ¿
+    // éç±»å‹å‚æ•°åŒ…ï¼šå¿…é¡»æ˜¯å¸¸é‡
+    print_compile_time<10, 20, 30>();  // OKï¼šç¼–è¯‘æœŸå¸¸é‡
+    // print_compile_time<x, y, 30>();  // é”™è¯¯ï¼x å’Œ y æ˜¯å˜é‡
 
     return 0;
 }

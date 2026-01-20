@@ -1,16 +1,16 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <memory>
 using namespace std;
 
 int main() {
-    // ´´½¨Ö¸Ïò int µÄ shared_ptr
+    // åˆ›å»ºæŒ‡å‘ int çš„ shared_ptr
     auto ptr1 = make_shared<int>(10);
 
-    // µÈÍ¬ÓÚ£¨µ«Ğ§ÂÊ¸üµÍ£©:
+    // ç­‰åŒäºï¼ˆä½†æ•ˆç‡æ›´ä½ï¼‰:
     // shared_ptr<int> ptr1(new int(10));
 
-    cout << "Öµ: " << *ptr1 << endl;
-    cout << "ÒıÓÃ¼ÆÊı: " << ptr1.use_count() << endl;
+    cout << "å€¼: " << *ptr1 << endl;
+    cout << "å¼•ç”¨è®¡æ•°: " << ptr1.use_count() << endl;
 
     return 0;
 }

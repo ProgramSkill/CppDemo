@@ -1,22 +1,22 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <memory>
 #include <utility>
 using namespace std;
 
 int main() {
-    // ´´½¨ int ÀàĞÍ
+    // åˆ›å»º int ç±»å‹
     auto int_ptr = make_shared<int>(100);
 
-    // ´´½¨ pair ÀàĞÍ
+    // åˆ›å»º pair ç±»å‹
     auto pair_ptr = make_shared<pair<int, int>>(30, 40);
 
-    // ´´½¨ string ÀàĞÍ
+    // åˆ›å»º string ç±»å‹
     auto str_ptr = make_shared<string>("Hello C++");
 
-    cout << "intÖµ: " << *int_ptr << endl;
-    cout << "pairÖµ: " << pair_ptr->first << ", "
+    cout << "intå€¼: " << *int_ptr << endl;
+    cout << "pairå€¼: " << pair_ptr->first << ", "
         << pair_ptr->second << endl;
-    cout << "stringÖµ: " << *str_ptr << endl;
+    cout << "stringå€¼: " << *str_ptr << endl;
 
     return 0;
 }

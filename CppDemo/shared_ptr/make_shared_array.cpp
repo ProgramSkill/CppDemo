@@ -1,17 +1,17 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <memory>
 using namespace std;
 
 int main() {
-    // C++20: ´´½¨Êı×éµÄ shared_ptr
+    // C++20: åˆ›å»ºæ•°ç»„çš„ shared_ptr
     auto arr_ptr = make_shared<int[]>(5);
 
-    // ³õÊ¼»¯Êı×é
+    // åˆå§‹åŒ–æ•°ç»„
     for (int i = 0; i < 5; ++i) {
         arr_ptr[i] = i * 10;
     }
 
-    // Êä³öÊı×é
+    // è¾“å‡ºæ•°ç»„
     for (int i = 0; i < 5; ++i) {
         cout << arr_ptr[i] << " ";
     }

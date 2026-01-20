@@ -1,4 +1,4 @@
-#include <tuple>
+ï»¿#include <tuple>
 #include <utility>
 #include <iostream>
 
@@ -10,13 +10,13 @@ void print(int a, double b, const char* c) {
 template<typename Func, typename Tuple, std::size_t... Is>
 void call_impl(Func f, Tuple t, std::index_sequence<Is...>) {
     f(std::get<Is>(t)...);
-    //Õâ²»ÊÇÕÛµş±í´ïÊ½£¨fold expression£©£¬¶øÊÇ²ÎÊı°üÕ¹¿ª£¨parameter pack expansion£©¡£
-    //ÕÛµş±í´ïÊ½£¨C++17ÒıÈë£©£º
+    //è¿™ä¸æ˜¯æŠ˜å è¡¨è¾¾å¼ï¼ˆfold expressionï¼‰ï¼Œè€Œæ˜¯å‚æ•°åŒ…å±•å¼€ï¼ˆparameter pack expansionï¼‰ã€‚
+    //æŠ˜å è¡¨è¾¾å¼ï¼ˆC++17å¼•å…¥ï¼‰ï¼š
     //(... + args)  // ((a1 + a2) + a3) + ...
     //(args + ...)  // a1 + (a2 + (a3 + ...))
     //(init + ... + args)  // ((init + a1) + a2) + ...
     //(args + ... + init)  // a1 + (a2 + (a3 + ... + init))
-    //ÕÛµş±í´ïÊ½ĞèÒª²Ù×÷·û£¨Èç +, *, , µÈ£©ÅäºÏÊ¹ÓÃ¡£
+    //æŠ˜å è¡¨è¾¾å¼éœ€è¦æ“ä½œç¬¦ï¼ˆå¦‚ +, *, , ç­‰ï¼‰é…åˆä½¿ç”¨ã€‚
 }
 
 template<typename Func, typename Tuple>

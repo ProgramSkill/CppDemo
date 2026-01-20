@@ -1,30 +1,30 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <memory>
 
 void use_shared_ptr_by_value(std::shared_ptr<int> sp) {
-    std::cout << "°´Öµ´«µÝÄÚ²¿ÒýÓÃ¼ÆÊý: " << sp.use_count() << std::endl;
+    std::cout << "æŒ‰å€¼ä¼ é€’å†…éƒ¨å¼•ç”¨è®¡æ•°: " << sp.use_count() << std::endl;
 }
 
 void use_shared_ptr_by_reference(std::shared_ptr<int>& sp) {
-    std::cout << "°´ÒýÓÃ´«µÝÄÚ²¿ÒýÓÃ¼ÆÊý: " << sp.use_count() << std::endl;
+    std::cout << "æŒ‰å¼•ç”¨ä¼ é€’å†…éƒ¨å¼•ç”¨è®¡æ•°: " << sp.use_count() << std::endl;
 }
 
 void use_raw_pointer(int* p) {
-    std::cout << "Ê¹ÓÃÔ­Ê¼Ö¸Õë£¬ÖµÎª: " << *p << std::endl;
+    std::cout << "ä½¿ç”¨åŽŸå§‹æŒ‡é’ˆï¼Œå€¼ä¸º: " << *p << std::endl;
 }
 
 int main() {
     auto sp = std::make_shared<int>(5);
-    std::cout << "³õÊ¼ÒýÓÃ¼ÆÊý: " << sp.use_count() << std::endl;  // Êä³ö: 1
+    std::cout << "åˆå§‹å¼•ç”¨è®¡æ•°: " << sp.use_count() << std::endl;  // è¾“å‡º: 1
 
-    use_shared_ptr_by_value(sp);        // º¯ÊýÄÚÊä³ö: 2£¬·µ»Øºó»Ö¸´Îª 1
-    std::cout << "µ÷ÓÃºóÒýÓÃ¼ÆÊý: " << sp.use_count() << std::endl;  // Êä³ö: 1
+    use_shared_ptr_by_value(sp);        // å‡½æ•°å†…è¾“å‡º: 2ï¼Œè¿”å›žåŽæ¢å¤ä¸º 1
+    std::cout << "è°ƒç”¨åŽå¼•ç”¨è®¡æ•°: " << sp.use_count() << std::endl;  // è¾“å‡º: 1
 
-    use_shared_ptr_by_reference(sp);    // Êä³ö: 1
-    std::cout << "µ÷ÓÃºóÒýÓÃ¼ÆÊý: " << sp.use_count() << std::endl;  // Êä³ö: 1
+    use_shared_ptr_by_reference(sp);    // è¾“å‡º: 1
+    std::cout << "è°ƒç”¨åŽå¼•ç”¨è®¡æ•°: " << sp.use_count() << std::endl;  // è¾“å‡º: 1
 
-    use_raw_pointer(sp.get());          // Êä³ö: Ê¹ÓÃÔ­Ê¼Ö¸Õë£¬ÖµÎª: 5
-    std::cout << "µ÷ÓÃºóÒýÓÃ¼ÆÊý: " << sp.use_count() << std::endl;  // Êä³ö: 1
+    use_raw_pointer(sp.get());          // è¾“å‡º: ä½¿ç”¨åŽŸå§‹æŒ‡é’ˆï¼Œå€¼ä¸º: 5
+    std::cout << "è°ƒç”¨åŽå¼•ç”¨è®¡æ•°: " << sp.use_count() << std::endl;  // è¾“å‡º: 1
 
     return 0;
 }

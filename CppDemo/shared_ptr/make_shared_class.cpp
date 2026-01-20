@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <memory>
 #include <string>
 using namespace std;
@@ -9,35 +9,35 @@ public:
     int age;
 
     Person(string n, int a) : name(n), age(a) {
-        cout << "¹¹Ôìº¯Êı±»µ÷ÓÃ: " << name << endl;
+        cout << "æ„é€ å‡½æ•°è¢«è°ƒç”¨: " << name << endl;
     }
 
     ~Person() {
-        cout << "Îö¹¹º¯Êı±»µ÷ÓÃ: " << name << endl;
+        cout << "ææ„å‡½æ•°è¢«è°ƒç”¨: " << name << endl;
     }
 
     void display() {
-        cout << "ĞÕÃû: " << name << ", ÄêÁä: " << age << endl;
+        cout << "å§“å: " << name << ", å¹´é¾„: " << age << endl;
     }
 };
 
 int main() {
     {
-        // ´´½¨ Person ¶ÔÏóµÄ shared_ptr
-        auto person1 = make_shared<Person>("ÕÅÈı", 25);
+        // åˆ›å»º Person å¯¹è±¡çš„ shared_ptr
+        auto person1 = make_shared<Person>("å¼ ä¸‰", 25);
         person1->display();
 
         {
-            // ´´½¨µÚ¶ş¸öÖ¸ÏòÍ¬Ò»¶ÔÏóµÄ shared_ptr
+            // åˆ›å»ºç¬¬äºŒä¸ªæŒ‡å‘åŒä¸€å¯¹è±¡çš„ shared_ptr
             auto person2 = person1;
-            cout << "ÒıÓÃ¼ÆÊı: " << person1.use_count() << endl;
+            cout << "å¼•ç”¨è®¡æ•°: " << person1.use_count() << endl;
         }
-        // person2 Àë¿ª×÷ÓÃÓò£¬ÒıÓÃ¼ÆÊı¼õ1
+        // person2 ç¦»å¼€ä½œç”¨åŸŸï¼Œå¼•ç”¨è®¡æ•°å‡1
 
-        cout << "ÒıÓÃ¼ÆÊı: " << person1.use_count() << endl;
+        cout << "å¼•ç”¨è®¡æ•°: " << person1.use_count() << endl;
     }
 
 
     return 0;
 }
-// person1 Àë¿ª×÷ÓÃÓò£¬¶ÔÏó±»×Ô¶¯Ïú»Ù
+// person1 ç¦»å¼€ä½œç”¨åŸŸï¼Œå¯¹è±¡è¢«è‡ªåŠ¨é”€æ¯
