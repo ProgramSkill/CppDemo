@@ -26,7 +26,6 @@ int main() {
     auto args = std::make_tuple(123, 2.71, "world");
     call_with_tuple(process, args);// Output: Received: 123, 2.71, world
 }
-
 /*
 std::tuple_size<Tuple>::value 获取元组大小
 std::make_index_sequence 生成编译时索引序列
@@ -48,5 +47,4 @@ void call_with_tuple_impl(Func f, Tuple t, std::index_sequence<Is...>) {
     // 编译器看到 Is... 但不知道它是什么
     // 无法进行参数推导
     // 错误：未定义的标识符 'Is'
-}
-*/
+}*/
