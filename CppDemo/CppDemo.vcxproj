@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\05_function_pointer.cpp" />
     <ClCompile Include="Non-typeTemplateParameter\UsageInClass\04_enum_judgment.cpp" />
     <ClCompile Include="Non-typeTemplateParameter\UsageInClass\03_if_constexpr.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
