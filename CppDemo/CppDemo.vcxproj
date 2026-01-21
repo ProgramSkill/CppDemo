@@ -19,8 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\03_if_constexpr.cpp" />
-    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\02_array_size.cpp" />
+    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\04_enum_judgment.cpp" />
+    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\03_if_constexpr.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\02_array_size.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Non-typeTemplateParameter\UsageInClass\01_direct_usage.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

@@ -78,6 +78,9 @@
     <ClCompile Include="Non-typeTemplateParameter\UsageInClass\03_if_constexpr.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\04_enum_judgment.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="file.md" />
