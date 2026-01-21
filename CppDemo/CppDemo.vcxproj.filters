@@ -36,7 +36,7 @@
     <ClCompile Include="ParameterPackExpansion\FoldExpression\UnaryRightFold.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ParameterPackExpansion\RecursivePackUnpacking.cpp">
+    <ClCompile Include="ParameterPackExpansion\01 RecursivePackUnpacking.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="shared_ptr\deleter.cpp">
@@ -58,6 +58,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="std_index_sequence\UnpackingTuples.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ParameterPackExpansion\02 TupleUnpackingWithIndexSequence.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
