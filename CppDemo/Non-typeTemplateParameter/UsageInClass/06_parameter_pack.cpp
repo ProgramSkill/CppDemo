@@ -12,7 +12,7 @@ public:
 
     void print_all() {
         std::cout << "Values: ";
-		((std::cout << Values << " "), ...);  // Unary right fold: ((cout << 10 << " "), ((cout << 20 << " "), (cout << 30 << " ")))
+        ((std::cout << Values << " "), ...);  // Unary right fold: ((cout << 10 << " "), ((cout << 20 << " "), (cout << 30 << " ")))
         std::cout << "\n";
     }
 
@@ -71,16 +71,24 @@ public:
         std::cout << "Characters: ";
         bool first = true;
         ((std::cout << (first ? "" : ", ") << Chars, first = false), ...);
+        //(expr1, expr2) Comma operator: executes expr1 first, then expr2, returns the value of expr2
+        /*
+        Expands to this sequence:
+        (
+          (std::cout << (first ? "" : ", ") << 'C', first = false),
+          (std::cout << (first ? "" : ", ") << '+', first = false),
+          (std::cout << (first ? "" : ", ") << '+', first = false),
+          (std::cout << (first ? "" : ", ") << '2', first = false),
+          (std::cout << (first ? "" : ", ") << '0', first = false)
+        )
+        Iteration	first value	    Output
+        1st 'C'	    true	        "" + C →   Output C
+        2nd '+'	    false	        ", " + + → Output , +
+        3rd '+'	    false	        ", " + + → Output , +
+        4th '2'	    false	        ", " + 2 → Output , 2
+        5th '0'	    false	        ", " + 0 → Output , 0
+        */
         std::cout << "\n";
-    }
-};
-
-// Type parameter pack (template parameter pack)
-template<typename... Types>
-class TypeInfo {
-public:
-    void show_count() {
-        std::cout << "Number of types: " << sizeof...(Types) << "\n";
     }
 };
 
@@ -116,22 +124,21 @@ namespace Helper {
 }
 
 int main() {
-    std::cout << "=== 6 Parameter Pack Expansion ===\n\n";
+    std::cout << "=== Parameter Pack Expansion ===\n\n";
 
-    // Integer parameter pack
-    std::cout << "--- Integer Parameter Pack ---\n";
-    DataSystem<10, 20, 30, 40, 50> sys1;
-    sys1.print_all();
-    sys1.sum_all();
-    sys1.product_all();
-    sys1.count();
+    // Multi-element parameter pack
+    std::cout << "\n--- Multiple Parameter Packs ---\n";
+    DataSystem<1, 1, 2, 3, 5, 8, 13> fibonacci;
+    std::cout << "Fibonacci sequence:\n";
+    fibonacci.print_all();
+    fibonacci.sum_all();
 
     std::cout << "\n";
 
-    DataSystem<5, 15, 25> sys2;
-    sys2.print_all();
-    sys2.sum_all();
-    sys2.count();
+    DataSystem<2, 4, 8, 16, 32, 64> powers_of_two;
+    std::cout << "Powers of two:\n";
+    powers_of_two.print_all();
+    powers_of_two.product_all();
 
     // Calculator
     std::cout << "\n--- Calculator with Statistics ---\n";
@@ -158,20 +165,6 @@ int main() {
     CharProcessor<'C', '+', '+', '2', '0'> char_proc2;
     char_proc2.print_with_commas();
     char_proc2.count_chars();
-
-    // Multi-element parameter pack
-    std::cout << "\n--- Multiple Parameter Packs ---\n";
-    DataSystem<1, 1, 2, 3, 5, 8, 13> fibonacci;
-    std::cout << "Fibonacci sequence:\n";
-    fibonacci.print_all();
-    fibonacci.sum_all();
-
-    std::cout << "\n";
-
-    DataSystem<2, 4, 8, 16, 32, 64> powers_of_two;
-    std::cout << "Powers of two:\n";
-    powers_of_two.print_all();
-    powers_of_two.product_all();
 
     // Floating point parameter pack (polynomial coefficients)
     std::cout << "\n--- Polynomial Coefficients ---\n";
