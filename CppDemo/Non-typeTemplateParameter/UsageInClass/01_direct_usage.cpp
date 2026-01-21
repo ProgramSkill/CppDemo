@@ -1,3 +1,4 @@
+// Direct usage of Non-Type Template Parameters in Classes
 #include <iostream>
 
 template<int Priority, std::size_t BufferSize>
@@ -50,9 +51,9 @@ public:
 };
 
 int main() {
-    std::cout << "=== ① 直接在代码中使用参数 ===\n\n";
+    std::cout << "===  Direct Usage of Parameters in Code ===\n\n";
 
-    // 实例化不同优先级和缓冲区大小的系统
+    // Instantiate systems with different priorities and buffer sizes
     std::cout << "--- System 1 ---\n";
     DataSystem<5, 256> sys1;
     sys1.display();
@@ -68,7 +69,7 @@ int main() {
     sys3.display();
     sys3.advanced_info();
 
-    // 版本信息
+    // Version information
     std::cout << "\n\n--- Version Control ---\n";
     VersionInfo<1, 2, 3> v1;
     v1.show();
@@ -80,7 +81,7 @@ int main() {
     v2.show();
     v2.detailed_info();
 
-    std::cout << "\n💡 参数值编译期确定，可直接用于条件和计算！\n";
+    std::cout << "\n Parameter values are determined at compile time and can be used directly in conditions and calculations!\n";
 
     return 0;
 }
