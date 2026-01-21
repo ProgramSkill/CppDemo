@@ -51,7 +51,7 @@ public:
 };
 
 int main() {
-    std::cout << "===  Direct Usage of Parameters in Code ===\n\n";
+    std::cout << "===  Direct Usage of Non-Type Parameters in Code ===\n\n";
 
     // Instantiate systems with different priorities and buffer sizes
     std::cout << "--- System 1 ---\n";

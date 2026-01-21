@@ -144,11 +144,11 @@ private:
 int main() {
     // Set console to UTF-8 encoding to display Unicode characters
 #ifdef _WIN32
-    SetConsoleOutputCP(CP_UTF8);//设置输出编码
-    SetConsoleCP(CP_UTF8);//设置输入编码
-    std::locale::global(std::locale("en_US.UTF-8"));//设置全局locale
+    SetConsoleOutputCP(CP_UTF8);  // Set output encoding
+    SetConsoleCP(CP_UTF8);       // Set input encoding
+    std::locale::global(std::locale("en_US.UTF-8"));  // Set global locale
 #elif __linux__
-    std::locale::global(std::locale("en_US.UTF-8"));//设置全局locale
+    std::locale::global(std::locale("en_US.UTF-8"));  // Set global locale
 #endif
     
     std::cout << "════════════════════════════════════════════════════════════\n";

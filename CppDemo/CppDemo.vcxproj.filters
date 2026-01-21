@@ -72,6 +72,9 @@
     <ClCompile Include="Non-typeTemplateParameter\UsageInClass\01_direct_usage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\02_array_size.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="file.md" />
