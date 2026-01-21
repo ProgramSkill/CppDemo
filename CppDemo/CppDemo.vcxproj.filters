@@ -63,6 +63,12 @@
     <ClCompile Include="ParameterPackExpansion\02 TupleUnpackingWithIndexSequence.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Non-typeTemplateParameter\Non-typeTemplateParameter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ParameterPackExpansion\00 IntParameterPackExpansion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="file.md" />

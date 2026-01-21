@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Non-typeTemplateParameter\Non-typeTemplateParameter.cpp" />
+    <ClCompile Include="ParameterPackExpansion\00 IntParameterPackExpansion.cpp" />
+    <ClCompile Include="Non-typeTemplateParameter\Non-typeTemplateParameter.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="ParameterPackExpansion\02 TupleUnpackingWithIndexSequence.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
