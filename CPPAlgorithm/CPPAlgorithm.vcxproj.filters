@@ -21,5 +21,8 @@
     <ClCompile Include="recursion\fibonacci.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="recursion\binary_search.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
