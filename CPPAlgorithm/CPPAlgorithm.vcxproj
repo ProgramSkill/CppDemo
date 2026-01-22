@@ -22,6 +22,7 @@
     <None Include="recursion\recursion.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="recursion\LinearRecursion\06_GreatestCommonDivisor.cpp" />
     <ClCompile Include="recursion\LinearRecursion\05_CountdownTimer.cpp" />
     <ClCompile Include="recursion\LinearRecursion\04_ReverseString.cpp" />
     <ClCompile Include="recursion\LinearRecursion\03_LinearSearch.cpp" />

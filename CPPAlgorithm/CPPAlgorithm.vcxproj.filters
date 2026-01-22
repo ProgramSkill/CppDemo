@@ -54,5 +54,8 @@
     <ClCompile Include="recursion\LinearRecursion\05_CountdownTimer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\06_GreatestCommonDivisor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
