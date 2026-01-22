@@ -22,19 +22,48 @@
     <None Include="recursion\recursion.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="recursion\LinearRecursion\06_GreatestCommonDivisor.cpp" />
-    <ClCompile Include="recursion\LinearRecursion\05_CountdownTimer.cpp" />
-    <ClCompile Include="recursion\LinearRecursion\04_ReverseString.cpp" />
-    <ClCompile Include="recursion\LinearRecursion\03_LinearSearch.cpp" />
-    <ClCompile Include="recursion\LinearRecursion\02_power.cpp" />
-    <ClCompile Include="recursion\LinearRecursion\01_factorial.cpp" />
-    <ClCompile Include="recursion\02_fibonacci.cpp" />
-    <ClCompile Include="recursion\03_binary_search.cpp" />
-    <ClCompile Include="recursion\04_tree_traversal.cpp" />
-    <ClCompile Include="recursion\05_memoization.cpp" />
-    <ClCompile Include="recursion\06_backtracking.cpp" />
-    <ClCompile Include="recursion\07_tail_recursion.cpp" />
-    <ClCompile Include="recursion\08_recursion_to_iteration.cpp" />
+    <ClCompile Include="recursion\LinearRecursion\07_ArrayMaxMin.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\06_GreatestCommonDivisor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\05_CountdownTimer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\04_ReverseString.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\03_LinearSearch.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\02_power.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\01_factorial.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\02_fibonacci.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\03_binary_search.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\04_tree_traversal.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\05_memoization.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\06_backtracking.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\07_tail_recursion.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="recursion\08_recursion_to_iteration.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

@@ -1,4 +1,4 @@
-﻿//Greatest Common Divisor -- Single-Branch Linear Recursion
+﻿// Greatest Common Divisor -- Single-Branch Linear Recursion
 #include <iostream>
 using namespace std;
 

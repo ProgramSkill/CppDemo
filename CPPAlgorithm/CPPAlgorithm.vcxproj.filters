@@ -57,5 +57,8 @@
     <ClCompile Include="recursion\LinearRecursion\06_GreatestCommonDivisor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\07_ArrayMaxMin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
