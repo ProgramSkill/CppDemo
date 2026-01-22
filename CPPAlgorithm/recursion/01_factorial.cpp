@@ -1,4 +1,4 @@
-// The code is intended to demonstrate recursion by calculating the factorial of a number.
+// recursion factorial -- Single-Branch Linear Recursion
 #include <iostream>
 using namespace std;
 
