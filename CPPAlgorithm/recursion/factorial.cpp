@@ -4,7 +4,13 @@ using namespace std;
 
 // Calculate n! = n * (n-1) * (n-2) * ... * 1
 // Example: 5! = 5 * 4 * 3 * 2 * 1 = 120
-int factorial(int n) {
+long long factorial(int n) {
+    // [Error Check] Negative numbers are invalid
+    if (n < 0) {
+        cout << "Error: factorial of negative number is undefined" << endl;
+        return -1;
+    }
+
     // [Base Case] When does the recursion stop?
     if (n == 0 || n == 1) {
         cout << "Reached base case, n = " << n << ", returning 1" << endl;
@@ -13,7 +19,7 @@ int factorial(int n) {
 
     // [Recursive Step] Break down the problem
     cout << "Computing " << n << "! = " << n << " * " << (n - 1) << "!" << endl;
-    int result = n * factorial(n - 1);  // Recursive call
+    long long result = n * factorial(n - 1);  // Recursive call
     cout << n << "! = " << result << endl;
 
     return result;
@@ -21,7 +27,8 @@ int factorial(int n) {
 
 int main() {
     int num = 5;
-    int answer = factorial(num);
+    long long answer = factorial(num);
+    cout << "\nFinal result: " << num << "! = " << answer << endl;
     return 0;
 }
 

@@ -6,7 +6,13 @@ using namespace std;
 // Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21...
 // Each number is the sum of the two preceding ones
 // f(n) = f(n-1) + f(n-2)
-int fibonacci(int n) {
+long long fibonacci(int n) {
+    // [Error Check] Negative numbers are invalid
+    if (n < 0) {
+        cout << "Error: fibonacci of negative number is undefined" << endl;
+        return -1;
+    }
+
     // [Base Case] Stop condition
     if (n <= 1) {
         cout << "Base case reached: fib(" << n << ") = " << n << endl;
@@ -15,7 +21,7 @@ int fibonacci(int n) {
 
     // [Recursive Step] Break down the problem
     cout << "Computing fib(" << n << ") = fib(" << (n - 1) << ") + fib(" << (n - 2) << ")" << endl;
-    int result = fibonacci(n - 1) + fibonacci(n - 2);  // Recursive calls
+    long long result = fibonacci(n - 1) + fibonacci(n - 2);  // Recursive calls
     cout << "fib(" << n << ") = " << result << endl;
     return result;
 }
@@ -24,7 +30,7 @@ int main() {
     cout << "=== Fibonacci Sequence ===" << endl;
     for (int i = 0; i <= 6; i++) {
         cout << "\n--- Computing fib(" << i << ") ---" << endl;
-        int answer = fibonacci(i);
+        long long answer = fibonacci(i);
         cout << "Final result: fib(" << i << ") = " << answer << "\n" << endl;
     }
     return 0;
