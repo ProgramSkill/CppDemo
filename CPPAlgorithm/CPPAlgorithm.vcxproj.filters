@@ -21,7 +21,7 @@
     <ClCompile Include="recursion\08_recursion_to_iteration.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="recursion\01_factorial.cpp">
+    <ClCompile Include="recursion\01_1_factorial.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="recursion\02_fibonacci.cpp">
@@ -40,6 +40,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="recursion\07_tail_recursion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="recursion\01_2_power.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -22,7 +22,8 @@
     <None Include="recursion\recursion.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="recursion\01_factorial.cpp" />
+    <ClCompile Include="recursion\01_2_power.cpp" />
+    <ClCompile Include="recursion\01_1_factorial.cpp" />
     <ClCompile Include="recursion\02_fibonacci.cpp" />
     <ClCompile Include="recursion\03_binary_search.cpp" />
     <ClCompile Include="recursion\04_tree_traversal.cpp" />
