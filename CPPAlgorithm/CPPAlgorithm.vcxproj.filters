@@ -15,16 +15,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="recursion\factorial.cpp">
+    <None Include="recursion\recursion.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="recursion\08_recursion_to_iteration.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="recursion\fibonacci.cpp">
+    <ClCompile Include="recursion\01_factorial.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="recursion\binary_search.cpp">
+    <ClCompile Include="recursion\02_fibonacci.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="recursion\tree_traversal.cpp">
+    <ClCompile Include="recursion\03_binary_search.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="recursion\04_tree_traversal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="recursion\05_memoization.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="recursion\06_backtracking.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="recursion\07_tail_recursion.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -19,10 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="recursion\tree_traversal.cpp" />
-    <ClCompile Include="recursion\binary_search.cpp" />
-    <ClCompile Include="recursion\fibonacci.cpp" />
-    <ClCompile Include="recursion\factorial.cpp" />
+    <None Include="recursion\recursion.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="recursion\01_factorial.cpp" />
+    <ClCompile Include="recursion\02_fibonacci.cpp" />
+    <ClCompile Include="recursion\03_binary_search.cpp" />
+    <ClCompile Include="recursion\04_tree_traversal.cpp" />
+    <ClCompile Include="recursion\05_memoization.cpp" />
+    <ClCompile Include="recursion\06_backtracking.cpp" />
+    <ClCompile Include="recursion\07_tail_recursion.cpp" />
+    <ClCompile Include="recursion\08_recursion_to_iteration.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
