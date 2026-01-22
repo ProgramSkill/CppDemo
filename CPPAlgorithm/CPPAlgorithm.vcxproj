@@ -22,6 +22,7 @@
     <None Include="recursion\recursion.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="recursion\LinearRecursion\04_ReverseString.cpp" />
     <ClCompile Include="recursion\LinearRecursion\03_LinearSearch.cpp" />
     <ClCompile Include="recursion\LinearRecursion\02_power.cpp" />
     <ClCompile Include="recursion\LinearRecursion\01_factorial.cpp" />

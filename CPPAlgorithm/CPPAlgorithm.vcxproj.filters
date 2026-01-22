@@ -48,5 +48,8 @@
     <ClCompile Include="recursion\LinearRecursion\03_LinearSearch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="recursion\LinearRecursion\04_ReverseString.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
