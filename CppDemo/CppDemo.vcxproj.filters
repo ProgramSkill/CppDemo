@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="file.md" />
+    <None Include="std_queue\std_queue.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="En-Chs.md" />
