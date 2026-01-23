@@ -17,6 +17,7 @@
   <ItemGroup>
     <None Include="recursion\recursion.md" />
     <None Include="claude.md" />
+    <None Include="TimeComplexity.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recursion\Optimization\08_recursion_to_iteration.cpp">

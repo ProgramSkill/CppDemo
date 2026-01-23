@@ -21,6 +21,7 @@
   <ItemGroup>
     <None Include="claude.md" />
     <None Include="recursion\recursion.md" />
+    <None Include="TimeComplexity.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recursion\LinearRecursion\07_ArrayMaxMin.cpp">
