@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Recursion Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+
+        .code-block {
+            background: #0f0f23;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85em;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        .keyword { color: #569cd6; }
+        .function { color: #dcdcaa; }
+        .number { color: #b5cea8; }
+        .comment { color: #6a9955; }
+        .string { color: #ce9178; }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        input[type="range"] {
+            width: 150px;
+            accent-color: #00d4ff;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: #333;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: #444;
+        }
+
+        .visualization-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .visualization-area {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 400px;
+        }
+
+        .panel-title {
+            color: #00d4ff;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .phase-badge {
+            font-size: 0.75em;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .phase-descending {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+
+        .phase-ascending {
+            background: linear-gradient(135deg, #26de81, #20bf6b);
+            color: white;
+        }
+
+        .phase-base {
+            background: linear-gradient(135deg, #ffd93d, #f9ca24);
+            color: #333;
+        }
+
+        .call-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stack-frame {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 153, 204, 0.1));
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+            transform: translateX(-100%);
+            animation: slideIn 0.4s ease forwards;
+            position: relative;
+        }
+
+        .stack-frame.base-case {
+            background: linear-gradient(135deg, rgba(255, 217, 61, 0.3), rgba(249, 202, 36, 0.1));
+            border-color: #ffd93d;
+        }
+
+        .stack-frame.returning {
+            background: linear-gradient(135deg, rgba(38, 222, 129, 0.3), rgba(32, 191, 107, 0.1));
+            border-color: #26de81;
+            animation: slideOut 0.4s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0.3;
+            }
+        }
+
+        .stack-frame .label {
+            color: #888;
+            font-size: 0.75em;
+            margin-bottom: 4px;
+        }
+
+        .stack-frame .expression {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .stack-frame .detail {
+            color: #00d4ff;
+            font-size: 0.85em;
+        }
+
+        .stack-frame .return-value {
+            color: #26de81;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .computation-tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .tree-node {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+            font-family: 'Consolas', monospace;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .tree-node.active {
+            background: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        .tree-node.base {
+            background: rgba(255, 217, 61, 0.3);
+            border-color: #ffd93d;
+        }
+
+        .tree-node.completed {
+            background: rgba(38, 222, 129, 0.2);
+            border-color: #26de81;
+        }
+
+        .tree-node .n-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .tree-node .n-label {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .tree-node .result {
+            color: #26de81;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .tree-connector {
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, #00d4ff, transparent);
+        }
+
+        .info-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .info-box .label {
+            color: #888;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .info-box .value {
+            color: #00d4ff;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .explanation {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #00d4ff;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .explanation h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .explanation p {
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 0.9em;
+        }
+
+        .explanation ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .explanation li {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.9em;
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #00d4ff;
+            font-size: 1.1em;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .formula-display {
+            text-align: center;
+            font-size: 1.2em;
+            color: #fff;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+        }
+
+        .arrow-down {
+            color: #ff6b6b;
+            font-size: 1.5em;
+            animation: bounce 1s infinite;
+        }
+
+        .arrow-up {
+            color: #26de81;
+            font-size: 1.5em;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Factorial Recursion Visualization</h1>
+        <p class="subtitle">Single-Branch Linear Recursion - n! = n × (n-1) × (n-2) × ... × 1</p>
+
+        <div class="code-block">
+            <pre><span class="comment">// Calculate n! = n * (n-1) * (n-2) * ... * 1</span>
+<span class="keyword">long long</span> <span class="function">factorial</span>(<span class="keyword">int</span> n) {
+    <span class="comment">// [Base Case] When does the recursion stop?</span>
+    <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>) {
+        <span class="keyword">return</span> <span class="number">1</span>;
+    }
+
+    <span class="comment">// [Recursive Step] Break down the problem</span>
+    <span class="keyword">return</span> n * <span class="function">factorial</span>(n - <span class="number">1</span>);
+}</pre>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="nInput">n = </label>
+                <input type="number" id="nInput" min="0" max="7" value="5" style="width: 60px; padding: 8px; border-radius: 5px; border: 1px solid #444; background: #222; color: #fff; text-align: center;">
+            </div>
+            <div class="control-group">
+                <label for="speedRange">Speed:</label>
+                <input type="range" id="speedRange" min="200" max="2000" value="800" style="direction: rtl;">
+                <span id="speedLabel" style="color: #aaa; min-width: 40px;">1x</span>
+            </div>
+            <button class="btn-primary" onclick="startVisualization()">▶ Start</button>
+            <button class="btn-secondary" onclick="resetVisualization()">↺ Reset</button>
+        </div>
+
+        <div class="visualization-area">
+            <div class="panel">
+                <div class="panel-title">
+                    <span>Call Stack</span>
+                    <span id="phaseBadge" class="phase-badge" style="display: none;">Ready</span>
+                </div>
+                <div id="callStack" class="call-stack">
+                    <p style="color: #666; text-align: center; padding: 40px;">Click "Start" to begin visualization</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">
+                    <span>Computation Tree</span>
+                    <span id="phaseBadge2" class="phase-badge" style="display: none;">Ready</span>
+                </div>
+                <div id="computationTree" class="computation-tree">
+                    <p style="color: #666; text-align: center; padding: 40px;">Click "Start" to begin visualization</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="formula-display" id="formulaDisplay" style="display: none;">
+            5! = 5 × 4 × 3 × 2 × 1 = 120
+        </div>
+
+        <div class="info-panel" id="infoPanel" style="display: none;">
+            <div class="info-box">
+                <div class="label">Current n</div>
+                <div class="value" id="currentN">-</div>
+            </div>
+            <div class="info-box">
+                <div class="label">Stack Depth</div>
+                <div class="value" id="stackDepth">-</div>
+            </div>
+            <div class="info-box">
+                <div class="label">Phase</div>
+                <div class="value" id="currentPhase" style="font-size: 1.2em;">-</div>
+            </div>
+            <div class="info-box">
+                <div class="label">Result</div>
+                <div class="value" id="currentResult">-</div>
+            </div>
+        </div>
+
+        <div class="status-message" id="statusMessage">
+            Ready to visualize factorial recursion
+        </div>
+
+        <div class="explanation">
+            <h3>Understanding Recursive Factorial</h3>
+            <p><strong>Descending Phase (Recursive Calls):</strong> The function calls itself with smaller values until reaching the base case (n = 0 or n = 1).</p>
+            <p><strong>Base Case:</strong> The stopping condition that prevents infinite recursion. Returns 1 directly.</p>
+            <p><strong>Ascending Phase (Returning Values):</strong> Each call waits for the result of (n-1)!, then multiplies it by n and returns.</p>
+            <ul>
+                <li><strong>Time Complexity:</strong> O(n) - n recursive calls</li>
+                <li><strong>Space Complexity:</strong> O(n) - call stack depth</li>
+                <li><strong>Recursion Type:</strong> Single-Branch Linear Recursion (one recursive call per function)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let animationSpeed = 800;
+        let isRunning = false;
+        let shouldStop = false;
+
+        const speedRange = document.getElementById('speedRange');
+        const speedLabel = document.getElementById('speedLabel');
+
+        speedRange.addEventListener('input', function() {
+            // Invert: higher value = slower speed (more delay)
+            animationSpeed = parseInt(this.value);
+            const speedFactor = (2000 - animationSpeed + 200) / 400;
+            speedLabel.textContent = speedFactor.toFixed(1) + 'x';
+        });
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function setPhase(phase, text) {
+            const badge = document.getElementById('phaseBadge');
+            const badge2 = document.getElementById('phaseBadge2');
+            badge.style.display = 'inline-block';
+            badge2.style.display = 'inline-block';
+            badge.className = 'phase-badge phase-' + phase;
+            badge2.className = 'phase-badge phase-' + phase;
+            badge.textContent = text;
+            badge2.textContent = text;
+        }
+
+        function updateInfo(n, depth, phase, result) {
+            document.getElementById('currentN').textContent = n !== null ? n : '-';
+            document.getElementById('stackDepth').textContent = depth !== null ? depth : '-';
+            document.getElementById('currentPhase').textContent = phase || '-';
+            document.getElementById('currentResult').textContent = result !== null ? result : '-';
+            document.getElementById('infoPanel').style.display = 'grid';
+        }
+
+        function setStatus(message) {
+            document.getElementById('statusMessage').textContent = message;
+        }
+
+        function addStackFrame(n, isBase = false, isReturning = false, returnValue = null) {
+            const stack = document.getElementById('callStack');
+
+            // Remove placeholder if exists
+            if (stack.querySelector('p')) {
+                stack.innerHTML = '';
+            }
+
+            const frame = document.createElement('div');
+            frame.className = 'stack-frame' + (isBase ? ' base-case' : '') + (isReturning ? ' returning' : '');
+            frame.id = 'frame-' + n;
+
+            if (isReturning) {
+                frame.innerHTML = `
+                    <div class="label">RETURNING factorial(${n})</div>
+                    <div class="expression">${n}! = ${n} × (${n-1})! = ${returnValue}</div>
+                    <div class="return-value">→ Returning ${returnValue} to factorial(${n+1})</div>
+                `;
+            } else if (isBase) {
+                frame.innerHTML = `
+                    <div class="label">BASE CASE factorial(${n})</div>
+                    <div class="expression">Returning 1</div>
+                    <div class="detail">Recursion stops here!</div>
+                `;
+            } else {
+                frame.innerHTML = `
+                    <div class="label">CALL factorial(${n})</div>
+                    <div class="expression">${n}! = ${n} × (${n-1})!</div>
+                    <div class="detail">Waiting for factorial(${n-1})...</div>
+                `;
+            }
+
+            stack.appendChild(frame);
+            frame.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+
+        function updateStackFrame(n, returnValue) {
+            const frame = document.getElementById('frame-' + n);
+            if (frame) {
+                frame.classList.add('returning');
+                frame.innerHTML = `
+                    <div class="label">RETURNING factorial(${n})</div>
+                    <div class="expression">${n}! = ${n} × (${n-1})! = ${returnValue}</div>
+                    <div class="return-value">→ Returning ${returnValue} to factorial(${n+1})</div>
+                `;
+            }
+        }
+
+        function addTreeNode(n, isBase = false, isCompleted = false, result = null) {
+            const tree = document.getElementById('computationTree');
+
+            // Remove placeholder if exists
+            if (tree.querySelector('p')) {
+                tree.innerHTML = '';
+            }
+
+            const node = document.createElement('div');
+            node.className = 'tree-node' + (isBase ? ' base' : '') + (isCompleted ? ' completed' : ' active');
+            node.id = 'node-' + n;
+
+            if (isCompleted || isBase) {
+                node.innerHTML = `
+                    <div class="n-value">${n}!</div>
+                    <div class="n-label">factorial(${n})</div>
+                    <div class="result">= ${result}</div>
+                `;
+            } else {
+                node.innerHTML = `
+                    <div class="n-value">${n}!</div>
+                    <div class="n-label">factorial(${n})</div>
+                `;
+            }
+
+            // Add connector if not first node
+            if (tree.querySelectorAll('.tree-node').length > 0 || tree.querySelector('.tree-connector')) {
+                const connector = document.createElement('div');
+                connector.className = 'tree-connector';
+                tree.insertBefore(connector, tree.firstChild);
+            }
+
+            tree.insertBefore(node, tree.firstChild);
+            node.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function updateTreeNode(n, result) {
+            const node = document.getElementById('node-' + n);
+            if (node) {
+                node.classList.remove('active');
+                node.classList.add('completed');
+                node.innerHTML = `
+                    <div class="n-value">${n}!</div>
+                    <div class="n-label">factorial(${n})</div>
+                    <div class="result">= ${result}</div>
+                `;
+            }
+        }
+
+        async function startVisualization() {
+            if (isRunning) return;
+            isRunning = true;
+            shouldStop = false;
+
+            const n = parseInt(document.getElementById('nInput').value);
+            if (n < 0 || n > 7) {
+                setStatus('Please enter a value between 0 and 7');
+                isRunning = false;
+                return;
+            }
+
+            // Reset displays
+            document.getElementById('callStack').innerHTML = '';
+            document.getElementById('computationTree').innerHTML = '';
+
+            // Show formula
+            const formula = document.getElementById('formulaDisplay');
+            formula.style.display = 'block';
+            formula.textContent = `${n}! = ${Array.from({length: n}, (_, i) => n - i).join(' × ')} = ?`;
+
+            setStatus(`Computing ${n}! using recursion...`);
+
+            // Descending phase - recursive calls
+            setPhase('descending', 'DESCENDING ↓');
+
+            // Store nodes for ascending phase
+            const callOrder = [];
+
+            for (let i = n; i >= 1; i--) {
+                if (shouldStop) break;
+
+                callOrder.push(i);
+
+                if (i === 0 || i === 1) {
+                    // Base case
+                    setPhase('base', 'BASE CASE ⚠');
+                    addStackFrame(i, true, false, null);
+                    addTreeNode(i, true, false, null);
+                    updateInfo(i, n - i + 2, 'Base Case', null);
+                    setStatus(`🎯 Reached base case: factorial(${i}) = 1`);
+                } else {
+                    addStackFrame(i, false, false, null);
+                    addTreeNode(i, false, false, null);
+                    updateInfo(i, n - i + 1, 'Descending', null);
+                    setStatus(`⬇ Calling factorial(${i}) = ${i} × factorial(${i-1})`);
+                }
+
+                await sleep(animationSpeed);
+            }
+
+            if (shouldStop) {
+                isRunning = false;
+                return;
+            }
+
+            // Ascending phase - returning values
+            setPhase('ascending', 'ASCENDING ↑');
+
+            let result = 1;
+            const results = {};
+
+            // Mark base case as completed
+            updateTreeNode(1, 1);
+            results[1] = 1;
+
+            await sleep(animationSpeed);
+
+            for (let i = 2; i <= n; i++) {
+                if (shouldStop) break;
+
+                result = i * results[i - 1];
+                results[i] = result;
+
+                updateStackFrame(i, result);
+                updateTreeNode(i, result);
+                updateInfo(i, n - i + 1, 'Ascending', result);
+                setStatus(`⬆ factorial(${i}) = ${i} × ${results[i-1]} = ${result}`);
+
+                await sleep(animationSpeed);
+            }
+
+            if (!shouldStop) {
+                // Final result
+                setPhase('ascending', 'COMPLETE ✓');
+                updateInfo(null, null, 'Done', result);
+                setStatus(`✅ Final Result: ${n}! = ${result}`);
+
+                // Update formula
+                formula.innerHTML = `${n}! = ${Array.from({length: n}, (_, i) => n - i).join(' × ')} = <span style="color: #26de81; font-weight: bold;">${result}</span>`;
+            }
+
+            isRunning = false;
+        }
+
+        function resetVisualization() {
+            shouldStop = true;
+            setTimeout(() => {
+                isRunning = false;
+                document.getElementById('callStack').innerHTML = '<p style="color: #666; text-align: center; padding: 40px;">Click "Start" to begin visualization</p>';
+                document.getElementById('computationTree').innerHTML = '<p style="color: #666; text-align: center; padding: 40px;">Click "Start" to begin visualization</p>';
+                document.getElementById('phaseBadge').style.display = 'none';
+                document.getElementById('phaseBadge2').style.display = 'none';
+                document.getElementById('formulaDisplay').style.display = 'none';
+                document.getElementById('infoPanel').style.display = 'none';
+                setStatus('Ready to visualize factorial recursion');
+            }, 100);
+        }
+    </script>
+</body>
+</html>

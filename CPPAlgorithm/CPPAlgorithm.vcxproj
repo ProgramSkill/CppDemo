@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="claude.md" />
+    <None Include="recursion\LinearRecursion\01_factorial.html" />
     <None Include="recursion\recursion.md" />
     <None Include="TimeComplexity.md" />
     <None Include="todo.md" />

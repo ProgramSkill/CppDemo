@@ -22,6 +22,7 @@
     <None Include="图的表示-邻接表.md" />
     <None Include="图的表示-邻接矩阵.md" />
     <None Include="图的基础知识.md" />
+    <None Include="recursion\LinearRecursion\01_factorial.html" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recursion\Optimization\08_recursion_to_iteration.cpp">
