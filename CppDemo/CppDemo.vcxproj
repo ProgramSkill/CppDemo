@@ -98,6 +98,7 @@
       <SubType>
       </SubType>
     </None>
+    <None Include="std_queue\breadth_first_search.md" />
     <None Include="std_queue\std_queue.md" />
   </ItemGroup>
   <ItemGroup>

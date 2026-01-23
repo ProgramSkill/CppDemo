@@ -94,6 +94,7 @@
   <ItemGroup>
     <None Include="file.md" />
     <None Include="std_queue\std_queue.md" />
+    <None Include="std_queue\breadth_first_search.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="En-Chs.md" />
