@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <None Include="claude.md" />
     <None Include="recursion\recursion.md" />
   </ItemGroup>
   <ItemGroup>
