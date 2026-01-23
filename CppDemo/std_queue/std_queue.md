@@ -117,7 +117,55 @@ std::queue<int, std::list<int>> q3;
 |------|------|
 | `queue()` | 默认构造函数 |
 | `explicit queue(const Container&)` | 以容器拷贝构造 |
-| `queue(queue&& other)` | 移动构造函数 (C++11) |
+| `explicit queue(Container&&)` | 以容器移动构造 (C++11) |
+| `queue(const queue&)` | 拷贝构造函数 |
+| `queue(queue&&)` | 移动构造函数 (C++11) |
+
+```cpp
+// 1. 默认构造函数
+std::queue<int> q1;
+
+// 2. 以容器拷贝构造
+std::deque<int> deq = {1, 2, 3, 4, 5};
+std::queue<int> q2(deq);  // q2 包含 {1, 2, 3, 4, 5}
+
+// 3. 以容器移动构造
+std::deque<int> deq2 = {10, 20, 30};
+std::queue<int> q3(std::move(deq2));  // q3 包含 {10, 20, 30}，deq2 现为空
+
+// 4. 拷贝构造函数
+std::queue<int> q4(q2);  // q4 是 q2 的副本，包含 {1, 2, 3, 4, 5}
+
+// 5. 移动构造函数
+std::queue<int> q5(std::move(q3));  // q5 夺取 q3 的资源，q3 现为空
+```
+
+#### 构造函数区别说明
+
+**`std::queue<int> q2(deq);` vs `std::queue<int> q4(q2);`**
+
+| 特性 | `q2(deq)` | `q4(q2)` |
+|------|-----------|----------|
+| 参数类型 | `std::deque<int>`（容器） | `std::queue<int>`（队列） |
+| 调用构造函数 | `explicit queue(const Container&)` | `queue(const queue&)` |
+| 用途 | 从底层容器构造 queue | 复制已有的 queue |
+| explicit 关键字 | ✅ 是 | ❌ 否 |
+| 拷贝初始化语法 | `❌ std::queue<int> q = deq;` | `✅ std::queue<int> q = q2;` |
+
+**示例**：
+```cpp
+std::deque<int> deq = {1, 2, 3};
+std::queue<int> q1;
+
+// 以容器构造 - explicit，不能用 =
+// std::queue<int> q2 = deq;  // ❌ 编译错误
+std::queue<int> q2(deq);      // ✅ 必须用括号
+
+// 拷贝构造 - 非 explicit，可以用 =
+std::queue<int> q3 = q1;      // ✅ 可以用 =
+std::queue<int> q4(q1);       // ✅ 也可以用括号
+```
+
 
 ### 元素访问
 
