@@ -95,8 +95,6 @@
     <None Include="file.md" />
     <None Include="std_queue\std_queue.md" />
     <None Include="std_queue\breadth_first_search.md" />
-    <None Include="std_queue\图的表示-邻接表.md" />
-    <None Include="std_queue\图的表示-邻接矩阵.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="En-Chs.md" />

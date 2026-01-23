@@ -19,6 +19,9 @@
     <None Include="claude.md" />
     <None Include="TimeComplexity.md" />
     <None Include="todo.md" />
+    <None Include="图的表示-邻接表.md" />
+    <None Include="图的表示-邻接矩阵.md" />
+    <None Include="图的基础知识.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recursion\Optimization\08_recursion_to_iteration.cpp">

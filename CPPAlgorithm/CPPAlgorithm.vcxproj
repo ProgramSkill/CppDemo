@@ -23,6 +23,9 @@
     <None Include="recursion\recursion.md" />
     <None Include="TimeComplexity.md" />
     <None Include="todo.md" />
+    <None Include="图的基础知识.md" />
+    <None Include="图的表示-邻接矩阵.md" />
+    <None Include="图的表示-邻接表.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recursion\LinearRecursion\07_ArrayMaxMin.cpp">
