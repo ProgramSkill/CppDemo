@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\06_parameter_pack.cpp" />
+    <ClCompile Include="Non-typeTemplateParameter\UsageInClass\06_parameter_pack.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Non-typeTemplateParameter\UsageInClass\05_function_pointer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -90,7 +92,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="std_queue\std_queue_demo.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +102,8 @@
     </None>
     <None Include="std_queue\breadth_first_search.md" />
     <None Include="std_queue\std_queue.md" />
+    <None Include="std_queue\std_queue_demo_BFS_visualization.html" />
+    <None Include="std_vector\std_vector.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="En-Chs.md" />

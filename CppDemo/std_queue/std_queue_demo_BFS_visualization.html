@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFS 图遍历手动步进可视化</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .canvas-wrapper {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: #e8e8e8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:disabled {
+            background: #e0e0e0;
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        .info-panel {
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #333;
+            display: inline-block;
+            min-width: 100px;
+        }
+
+        .queue-display {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            display: inline-block;
+            color: #667eea;
+        }
+
+        .visited-display {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            display: inline-block;
+            color: #764ba2;
+        }
+
+        .step-info {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #1565C0;
+        }
+
+        .step-counter {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 15px;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+
+        .completion-message {
+            text-align: center;
+            padding: 15px;
+            background: #c8e6c9;
+            border-radius: 6px;
+            color: #2e7d32;
+            font-weight: 600;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .completion-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 BFS 图遍历手动步进可视化</h1>
+        <p class="subtitle">广度优先搜索（Breadth-First Search）- 一步一步执行</p>
+
+        <div class="canvas-wrapper">
+            <canvas id="graphCanvas" width="900" height="500"></canvas>
+        </div>
+
+        <div class="controls">
+            <button class="btn-primary" id="nextBtn">⏭ 下一步</button>
+            <button class="btn-secondary" id="resetBtn">🔄 重置</button>
+        </div>
+
+        <div class="step-counter">
+            第 <span id="stepCount">0</span> 步
+        </div>
+
+        <div class="completion-message" id="completionMsg">
+            ✅ BFS 遍历完成！所有节点都已访问
+        </div>
+
+        <div class="info-panel">
+            <div class="info-item">
+                <span class="label">当前队列：</span>
+                <span class="queue-display" id="queueInfo">[ 0 ]</span>
+            </div>
+            <div class="info-item">
+                <span class="label">已访问节点：</span>
+                <span class="visited-display" id="visitedInfo">[ 0 ]</span>
+            </div>
+            <div class="info-item">
+                <span class="label">遍历顺序：</span>
+                <span class="visited-display" id="orderInfo">0</span>
+            </div>
+
+            <div class="step-info" id="stepDescription">
+                ℹ️ 点击"下一步"开始 BFS 遍历
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4CAF50;"></div>
+                    <span>起始节点</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FFC107;"></div>
+                    <span>当前处理</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #2196F3;"></div>
+                    <span>已访问</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f5f5f5; border: 2px solid #999;"></div>
+                    <span>未访问</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #E91E63; border: 2px solid #880E4F;"></div>
+                    <span>等待中</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('graphCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 图数据
+        const graph = [
+            [1, 2],      // 节点 0 的邻居
+            [0, 3, 4],   // 节点 1 的邻居
+            [0, 4],      // 节点 2 的邻居
+            [1],         // 节点 3 的邻居
+            [1, 2]       // 节点 4 的邻居
+        ];
+
+        // 节点位置（圆形排列）
+        const nodePositions = [];
+        const nodeRadius = 25;
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const circleRadius = 120;
+
+        for (let i = 0; i < graph.length; i++) {
+            const angle = (i / graph.length) * 2 * Math.PI - Math.PI / 2;
+            nodePositions.push({
+                x: centerX + circleRadius * Math.cos(angle),
+                y: centerY + circleRadius * Math.sin(angle)
+            });
+        }
+
+        // BFS 状态
+        let state = {
+            queue: [0],
+            visited: new Set([0]),
+            order: [0],
+            currentNode: null,
+            nodeStates: new Array(graph.length).fill('unvisited'),
+            stepCount: 0,
+            isCompleted: false,
+            lastProcessedNode: null
+        };
+
+        state.nodeStates[0] = 'start';
+
+        // UI 元素
+        const nextBtn = document.getElementById('nextBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const stepCountDisplay = document.getElementById('stepCount');
+        const stepDescription = document.getElementById('stepDescription');
+        const completionMsg = document.getElementById('completionMsg');
+
+        // 事件监听
+        nextBtn.addEventListener('click', executeStep);
+        resetBtn.addEventListener('click', reset);
+
+        function executeStep() {
+            if (state.queue.length === 0) {
+                return;
+            }
+
+            // 出队第一个元素
+            const current = state.queue.shift();
+            state.lastProcessedNode = current;
+            state.currentNode = current;
+            state.nodeStates[current] = 'visited';
+            state.stepCount++;
+
+            // 检查并添加邻居
+            const newNeighbors = [];
+            for (let neighbor of graph[current]) {
+                if (!state.visited.has(neighbor)) {
+                    state.visited.add(neighbor);
+                    state.queue.push(neighbor);
+                    newNeighbors.push(neighbor);
+                    state.nodeStates[neighbor] = 'waiting';
+                }
+            }
+
+            // 更新UI
+            updateInfo(current, newNeighbors);
+            draw();
+
+            // 检查是否完成
+            if (state.queue.length === 0) {
+                state.isCompleted = true;
+                nextBtn.disabled = true;
+                completionMsg.classList.add('show');
+                stepDescription.innerHTML = `✅ BFS 遍历完成！最终访问顺序: ${state.order.join(' → ')}`;
+            }
+        }
+
+        function updateInfo(processedNode, newNeighbors) {
+            // 更新步数
+            stepCountDisplay.textContent = state.stepCount;
+
+            // 更新队列显示
+            document.getElementById('queueInfo').textContent = '[ ' + state.queue.join(', ') + ' ]';
+
+            // 更新已访问显示
+            const visitedArray = Array.from(state.visited).sort((a, b) => a - b);
+            document.getElementById('visitedInfo').textContent = '[ ' + visitedArray.join(', ') + ' ]';
+
+            // 更新遍历顺序
+            document.getElementById('orderInfo').textContent = state.order.join(' → ');
+
+            // 更新说明文字
+            let description = `第 ${state.stepCount} 步：处理节点 <strong>${processedNode}</strong>`;
+            if (newNeighbors.length > 0) {
+                description += `，发现新节点 <strong>[ ${newNeighbors.join(', ')} ]</strong> 并加入队列`;
+            } else {
+                description += `，该节点没有未访问的邻居`;
+            }
+            stepDescription.innerHTML = `ℹ️ ${description}`;
+        }
+
+        function reset() {
+            state = {
+                queue: [0],
+                visited: new Set([0]),
+                order: [0],
+                currentNode: null,
+                nodeStates: new Array(graph.length).fill('unvisited'),
+                stepCount: 0,
+                isCompleted: false,
+                lastProcessedNode: null
+            };
+            state.nodeStates[0] = 'start';
+
+            nextBtn.disabled = false;
+            completionMsg.classList.remove('show');
+            stepCountDisplay.textContent = '0';
+            document.getElementById('queueInfo').textContent = '[ 0 ]';
+            document.getElementById('visitedInfo').textContent = '[ 0 ]';
+            document.getElementById('orderInfo').textContent = '0';
+            stepDescription.innerHTML = 'ℹ️ 点击"下一步"开始 BFS 遍历';
+
+            draw();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 绘制边
+            for (let i = 0; i < graph.length; i++) {
+                for (let neighbor of graph[i]) {
+                    if (i < neighbor) {
+                        drawEdge(nodePositions[i], nodePositions[neighbor], i, neighbor);
+                    }
+                }
+            }
+
+            // 绘制节点
+            for (let i = 0; i < graph.length; i++) {
+                drawNode(i);
+            }
+        }
+
+        function drawEdge(from, to, fromNode, toNode) {
+            ctx.beginPath();
+            ctx.moveTo(from.x, from.y);
+            ctx.lineTo(to.x, to.y);
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        function drawNode(nodeId) {
+            const pos = nodePositions[nodeId];
+            let fillColor = '#f5f5f5';
+            let borderColor = '#999';
+            let borderWidth = 2;
+
+            if (state.nodeStates[nodeId] === 'start') {
+                fillColor = '#4CAF50';
+                borderColor = '#2E7D32';
+                borderWidth = 3;
+            } else if (state.nodeStates[nodeId] === 'visited') {
+                fillColor = '#2196F3';
+                borderColor = '#1565C0';
+                borderWidth = 3;
+            } else if (state.nodeStates[nodeId] === 'waiting') {
+                fillColor = '#E91E63';
+                borderColor = '#880E4F';
+                borderWidth = 3;
+            }
+
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, nodeRadius, 0, 2 * Math.PI);
+            ctx.fillStyle = fillColor;
+            ctx.fill();
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = borderWidth;
+            ctx.stroke();
+
+            // 绘制节点编号
+            ctx.fillStyle = state.nodeStates[nodeId] === 'unvisited' ? '#333' : '#fff';
+            ctx.font = 'bold 18px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(nodeId, pos.x, pos.y);
+        }
+
+        // 初始化
+        draw();
+        stepCountDisplay.textContent = '0';
+    </script>
+</body>
+</html>
