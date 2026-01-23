@@ -87,6 +87,9 @@
     <ClCompile Include="Non-typeTemplateParameter\UsageInClass\06_parameter_pack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="std_queue\std_queue_demo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="file.md" />
