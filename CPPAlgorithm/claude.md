@@ -29,6 +29,9 @@ CPPAlgorithm/
 - Use lowercase with underscores: `array_sum.cpp`, `binary_search.cpp`
 - Prefix with number for ordered learning: `01_factorial.cpp`, `02_fibonacci.cpp`
 
+### File Encoding
+- All `.cpp` and `.h` files must use **UTF-8 with BOM** encoding
+
 ### Code Style
 - Use descriptive variable names
 - Add comments explaining the algorithm logic
