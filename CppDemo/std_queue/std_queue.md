@@ -159,6 +159,16 @@ q.emplace("direct");   // 更高效，避免临时对象
 
 // pop - 删除队头
 q.pop();
+
+// swap - 交换两个队列的内容
+std::queue<std::string> q1, q2;
+q1.push("one");
+q1.push("two");
+q2.push("three");
+
+q1.swap(q2);  // O(1) 操作，交换内容
+// q1 现在包含 {"three"}
+// q2 现在包含 {"one", "two"}
 ```
 
 ### 容量查询
