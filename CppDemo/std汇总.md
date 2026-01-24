@@ -73,6 +73,7 @@
 | [**std::optional**](./std_optional/std_optional.md) | `<optional>` | C++17 | 可选值 | 可能有值或无值、避免空指针 | 表示可能不存在的值 |
 | [**std::variant**](./std_variant/std_variant.md) | `<variant>` | C++17 | 类型安全的联合体 | 可存储多种类型之一、类型安全 | 需要存储多种可能类型的值 |
 | [**std::any**](./std_any/std_any.md) | `<any>` | C++17 | 类型擦除容器 | 可存储任意类型、运行时类型检查 | 需要存储未知类型的值 |
+| [**std::pair**](./std_pair/std_pair.md) | `<utility>` | C++98 | 配对容器 | 存储两个值、轻量级、零开销 | 函数返回多个值、临时数据组合 |
 | [**std::tuple**](./std_tuple/std_tuple.md) | `<tuple>` | C++11 | 元组 | 固定大小的异构容器 | 返回多个值、临时组合数据 |
 | [**std::bitset**](./std_bitset/std_bitset.md) | `<bitset>` | C++98 | 位集合 | 固定大小的位序列、位操作 | 需要高效的位操作 |
 | [**std::index_sequence**](./std_index_sequence/std_index_sequence.md) | `<utility>` | C++14 | 编译期整数序列 | 模板元编程、参数包展开 | 编译期计算、参数包操作 |
@@ -106,6 +107,7 @@
 | 按优先级处理 | `std::priority_queue` | 自动排序 |
 | 可能无值的情况 | `std::optional` | 类型安全的可选值 |
 | 多种类型之一 | `std::variant` | 类型安全的联合体 |
+| 函数返回2个值 | `std::pair` | 轻量级、零开销 |
 | 传递数组不拷贝 | `std::span` | 非拥有视图 |
 | 传递字符串不拷贝 | `std::string_view` | 字符串视图 |
 
@@ -127,7 +129,7 @@
 
 | C++版本 | 新增组件 |
 |---------|----------|
-| **C++98** | vector, array(C风格), deque, list, set, multiset, map, multimap, stack, queue, priority_queue, bitset |
+| **C++98** | vector, array(C风格), deque, list, set, multiset, map, multimap, stack, queue, priority_queue, bitset, pair |
 | **C++11** | array, forward_list, unordered_set, unordered_multiset, unordered_map, unordered_multimap, tuple |
 | **C++14** | index_sequence |
 | **C++17** | optional, variant, any, string_view |
@@ -137,12 +139,12 @@
 
 ## 总结
 
-本文档汇总了C++标准库中最常用的26个组件，涵盖了：
+本文档汇总了C++标准库中最常用的27个组件，涵盖了：
 - **5个序列容器**：提供线性存储
 - **4个关联容器**：提供有序的键值存储
 - **4个无序容器**：提供基于哈希的快速查找
 - **3个容器适配器**：提供特定的数据结构语义
-- **6个工具类型**：提供类型安全和编译期计算
+- **7个工具类型**：提供类型安全和编译期计算
 - **2个视图类型**：提供非拥有式的数据访问
 
 选择合适的容器和工具类型可以显著提升代码的性能和可维护性。建议根据具体需求参考快速参考指南和性能对比表进行选择。
