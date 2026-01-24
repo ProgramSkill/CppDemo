@@ -85,36 +85,78 @@
     <ClCompile Include="shared_ptr\make_shared_types.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="std_any\std_any_demo.cpp" />
-    <ClCompile Include="std_array\std_array_demo.cpp" />
-    <ClCompile Include="std_bitset\std_bitset_demo.cpp" />
-    <ClCompile Include="std_deque\std_deque_demo.cpp" />
-    <ClCompile Include="std_forward_list\std_forward_list_demo.cpp" />
+    <ClCompile Include="std_any\std_any_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_array\std_array_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_bitset\std_bitset_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_deque\std_deque_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_forward_list\std_forward_list_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="std_index_sequence\UnpackingTuples.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="std_list\std_list_demo.cpp" />
-    <ClCompile Include="std_map\std_map_demo.cpp" />
-    <ClCompile Include="std_multimap\std_multimap_demo.cpp" />
-    <ClCompile Include="std_multiset\std_multiset_demo.cpp" />
-    <ClCompile Include="std_optional\std_optional_demo.cpp" />
+    <ClCompile Include="std_list\std_list_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_map\std_map_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_multimap\std_multimap_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_multiset\std_multiset_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_optional\std_optional_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="std_pair\std_pair.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="std_priority_queue\std_priority_queue_demo.cpp" />
-    <ClCompile Include="std_queue\std_queue_demo.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    <ClCompile Include="std_priority_queue\std_priority_queue_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="std_set\std_set_demo.cpp" />
-    <ClCompile Include="std_span\std_span_demo.cpp" />
-    <ClCompile Include="std_stack\std_stack_demo.cpp" />
-    <ClCompile Include="std_string_view\std_string_view_demo.cpp" />
-    <ClCompile Include="std_tuple\std_tuple_demo.cpp" />
-    <ClCompile Include="std_unordered_map\std_unordered_map_demo.cpp" />
-    <ClCompile Include="std_unordered_multimap\std_unordered_multimap_demo.cpp" />
-    <ClCompile Include="std_unordered_multiset\std_unordered_multiset_demo.cpp" />
-    <ClCompile Include="std_unordered_set\std_unordered_set_demo.cpp" />
-    <ClCompile Include="std_variant\std_variant_demo.cpp" />
+    <ClCompile Include="std_queue\std_queue_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_set\std_set_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_span\std_span_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_stack\std_stack_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_string_view\std_string_view_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_tuple\std_tuple_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_unordered_map\std_unordered_map_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_unordered_multimap\std_unordered_multimap_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_unordered_multiset\std_unordered_multiset_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_unordered_set\std_unordered_set_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="std_variant\std_variant_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="file.md">
