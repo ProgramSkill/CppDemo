@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 // https://localhost:port/openapi/v1.json
 // https://localhost:port/scalar/v1
+// https://github.com/scalar/scalar
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
