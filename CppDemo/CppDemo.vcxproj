@@ -168,6 +168,7 @@
     <None Include="std_queue\std_queue.md" />
     <None Include="std_queue\std_queue_demo_BFS_visualization.html" />
     <None Include="std_vector\std_vector.md" />
+    <None Include="std汇总.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="En-Chs.md" />
