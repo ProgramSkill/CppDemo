@@ -8,4 +8,5 @@
   <Project Path="CPPAlgorithm/CPPAlgorithm.vcxproj" Id="416a2ec7-66d3-4104-ae76-5544a6c6739b" />
   <Project Path="CppDemo/CppDemo.vcxproj" Id="7944ecc6-b809-4ea8-9b45-78aae9cb1858" />
   <Project Path="CppTempTest/CppTempTest.vcxproj" Id="09acc077-4975-45a0-9443-6fbec76b7519" />
+  <Project Path="Math/Math.csproj" Id="1822e8b2-00f1-4bbc-ab74-2bef75336d77" />
 </Solution>
