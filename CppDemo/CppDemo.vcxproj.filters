@@ -160,6 +160,7 @@
     <None Include="std_queue\breadth_first_search.md" />
     <None Include="std_vector\std_vector.md" />
     <None Include="std_queue\std_queue_demo_BFS_visualization.html" />
+    <None Include="std_index_sequence\std_index_sequence.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="En-Chs.md" />

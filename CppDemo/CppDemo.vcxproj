@@ -163,6 +163,7 @@
       <SubType>
       </SubType>
     </None>
+    <None Include="std_index_sequence\std_index_sequence.md" />
     <None Include="std_queue\breadth_first_search.md" />
     <None Include="std_queue\std_queue.md" />
     <None Include="std_queue\std_queue_demo_BFS_visualization.html" />
