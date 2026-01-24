@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>论语·学而篇 - 中国传统文化经典</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Ma+Shan+Zheng&display=swap');
+
+        :root {
+            --primary-red: #C8102E;
+            --gold: #D4AF37;
+            --ink-black: #1a1a1a;
+            --paper-bg: #F5F1E8;
+            --text-dark: #2C2C2C;
+            --text-light: #666;
+            --accent-jade: #00A86B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: var(--paper-bg);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* 装饰背景 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* 顶部导航 */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(26,26,26,0.98) 0%, rgba(26,26,26,0.95) 100%);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 1.8rem;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 5px;
+        }
+
+        .nav-link {
+            color: var(--paper-bg);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--gold);
+            color: var(--ink-black);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 30px 60px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+        }
+
+        .hero-seal {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 40px;
+            background: var(--primary-red);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Ma Shan Zheng', cursive;
+            box-shadow:
+                0 0 0 5px rgba(212,175,55,0.3),
+                0 20px 60px rgba(200,16,46,0.5),
+                inset 0 0 30px rgba(0,0,0,0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-seal-text {
+            font-size: 4rem;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-seal-sub {
+            font-size: 1.5rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-shadow:
+                0 0 20px rgba(212,175,55,0.5),
+                0 4px 8px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(245,241,232,0.8);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-quote {
+            font-size: 1.8rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-left: 4px solid var(--primary-red);
+            background: rgba(212,175,55,0.1);
+            border-radius: 0 10px 10px 0;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 20px;
+            height: 30px;
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            width: 4px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+            animation: scrollDot 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes scrollDot {
+            0%, 100% { opacity: 1; top: 8px; }
+            50% { opacity: 0.5; top: 15px; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 3rem;
+            text-align: center;
+            color: var(--ink-black);
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+        }
+
+        /* Card Styles */
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary-red);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card h3::before {
+            content: '◆';
+            color: var(--gold);
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary-red) 0%, #8B0000 100%);
+            color: white;
+        }
+
+        th {
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(212,175,55,0.05);
+            transform: scale(1.01);
+        }
+
+        tbody tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        /* Chapter Cards */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .chapter-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--gold);
+        }
+
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--gold), var(--accent-jade));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .chapter-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-red), #8B0000);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .speaker {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--ink-black);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .chapter-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .vocab-section {
+            background: rgba(212,175,55,0.08);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .vocab-section h4 {
+            color: var(--primary-red);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .vocab-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .vocab-list li {
+            padding: 5px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+
+        .vocab-list li:last-child {
+            border-bottom: none;
+        }
+
+        .vocab-term {
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+
+        /* Quote Section */
+        .quotes-section {
+            background: linear-gradient(135deg, var(--ink-black) 0%, #2d1810 100%);
+            color: var(--paper-bg);
+            padding: 80px 30px;
+        }
+
+        .quotes-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quotes-section .section-title {
+            color: var(--gold);
+        }
+
+        .quotes-section .section-title::after {
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .quote-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212,175,55,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .quote-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: scale(1.02);
+            border-color: var(--gold);
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .quote-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--primary-red);
+            opacity: 0.5;
+            font-family: Georgia, serif;
+        }
+
+        .quote-meaning {
+            color: rgba(245,241,232,0.7);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-red), var(--gold), var(--accent-jade));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 450px;
+            margin-right: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 0;
+            margin-left: 50px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -69px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-red);
+            border: 4px solid var(--gold);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -69px;
+        }
+
+        .timeline-age {
+            background: var(--primary-red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            color: var(--ink-black);
+            margin-bottom: 10px;
+        }
+
+        /* Relationship Diagram */
+        .relationship-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin: 40px 0;
+            overflow-x: auto;
+        }
+
+        .relationship-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            min-width: 600px;
+        }
+
+        .person-box {
+            background: linear-gradient(135deg, var(--primary-red), #8B0000);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(200,16,46,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .person-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(200,16,46,0.5);
+        }
+
+        .person-box.main {
+            background: linear-gradient(135deg, var(--gold), #B8860B);
+            padding: 30px 50px;
+            font-size: 1.3rem;
+        }
+
+        .person-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .person-role {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .disciples-row {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .connection-line {
+            width: 3px;
+            height: 40px;
+            background: linear-gradient(180deg, var(--gold), var(--accent-jade));
+        }
+
+        /* Characters Grid */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .character-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--gold);
+        }
+
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .character-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-red), #8B0000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+            font-family: 'Ma Shan Zheng', cursive;
+            box-shadow: 0 5px 20px rgba(200,16,46,0.3);
+        }
+
+        .character-name {
+            font-size: 1.3rem;
+            color: var(--ink-black);
+            margin-bottom: 5px;
+        }
+
+        .character-zi {
+            color: var(--primary-red);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .character-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Error Notes */
+        .error-notes {
+            background: linear-gradient(135deg, rgba(200,16,46,0.1), rgba(212,175,55,0.1));
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid var(--primary-red);
+        }
+
+        .error-notes h3 {
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .note-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .note-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--primary-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .note-content strong {
+            color: var(--primary-red);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--ink-black);
+            color: var(--paper-bg);
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .footer-seal {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-red);
+            border-radius: 15px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Scroll Progress */
+        .progress-bar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--gold));
+            width: 0%;
+            z-index: 999;
+            transition: width 0.1s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-quote {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .chapters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 20px;
+                right: auto;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--ink-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-seal {
+            width: 150px;
+            height: 150px;
+            background: var(--primary-red);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .loading-seal span {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 4rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-seal">
+            <span>論</span>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">論</div>
+                论语·学而
+            </a>
+            <div class="nav-links">
+                <a href="#intro" class="nav-link">篇名说明</a>
+                <a href="#history" class="nav-link">历史背景</a>
+                <a href="#characters" class="nav-link">主要人物</a>
+                <a href="#chapters" class="nav-link">全文解析</a>
+                <a href="#quotes" class="nav-link">名句赏析</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-seal">
+                <div class="hero-seal-text">論</div>
+                <div class="hero-seal-sub">语</div>
+            </div>
+            <h1 class="hero-title">学而篇</h1>
+            <p class="hero-subtitle">《论语》首篇 · 君子修身之本</p>
+            <div class="hero-quote">
+                "学而时习之，不亦说乎？<br>
+                有朋自远方来，不亦乐乎？<br>
+                人不知而不愠，不亦君子乎？"
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            向下滚动
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="intro">
+        <h2 class="section-title">篇名说明</h2>
+        <div class="info-card">
+            <h3>命名由来</h3>
+            <p>本篇以首章"子曰：学而时习之"的前两字"学而"命名。《论语》各篇皆以篇首前二三字命名，这是古籍的常见命名方式。</p>
+        </div>
+        <div class="info-card">
+            <h3>主要内容</h3>
+            <p>本篇共16章，主要论述学习的重要性和方法、仁德修养的根本、孝悌之道、君子品格、处世之道等核心思想，是理解儒家思想的入门钥匙。</p>
+        </div>
+        <div class="info-card">
+            <h3>章节逻辑</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>章节范围</th>
+                            <th>主题侧重</th>
+                            <th>核心思想</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第1-4章</td>
+                            <td>学习与修身</td>
+                            <td>学习的快乐、自省、仁德修养</td>
+                        </tr>
+                        <tr>
+                            <td>第5-8章</td>
+                            <td>处世与为政</td>
+                            <td>治国之道、修身原则、交友之道</td>
+                        </tr>
+                        <tr>
+                            <td>第9-16章</td>
+                            <td>孝悌礼信</td>
+                            <td>孝道、礼制、诚信、人伦关系</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history">
+        <h2 class="section-title">历史背景</h2>
+
+        <div class="info-card">
+            <h3>春秋末期的社会剧变</h3>
+            <p>《论语》成书于春秋末期（约公元前5世纪），这一时期的社会剧变深刻影响了孔子的思想与言论。从制度崩塌到思想觉醒，这是一个礼崩乐坏却又思想解放的时代。</p>
+        </div>
+
+        <h3 style="text-align: center; margin: 50px 0 30px; color: var(--primary-red);">社会变革对照</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>变革领域</th>
+                        <th>西周时期</th>
+                        <th>春秋末期</th>
+                        <th>核心变化</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>政治格局</strong></td>
+                        <td>周天子权威稳固<br>分封制有效运作</td>
+                        <td>周天子沦为名义共主<br>春秋五霸崛起</td>
+                        <td><strong>"礼崩乐坏"</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>经济变革</strong></td>
+                        <td>井田制（土地国有）<br>固定阶层</td>
+                        <td>私田合法化<br>阶层流动加速</td>
+                        <td><strong>社会结构变动</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>思想文化</strong></td>
+                        <td>官学垄断<br>血缘准入</td>
+                        <td>私学勃兴<br>有教无类</td>
+                        <td><strong>从官学到私学</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="text-align: center; margin: 50px 0 30px; color: var(--primary-red);">孔子人生轨迹</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-age">幼年-30岁</span>
+                    <h4 class="timeline-title">早年经历</h4>
+                    <p>出身鲁国没落贵族，父亲早逝，做过基层官职。30岁开始创办私学，深刻体会平民疾苦。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-age">51-55岁</span>
+                    <h4 class="timeline-title">政治实践</h4>
+                    <p>担任鲁国司寇，推行政治主张，触动贵族利益被迫辞职，认识推行仁政之艰难。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-age">55-68岁</span>
+                    <h4 class="timeline-title">周游列国</h4>
+                    <p>历时14年周游列国，阐述治国理念。思想被视为"迂远而阔于事情"，未得重用。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-age">68-73岁</span>
+                    <h4 class="timeline-title">晚年归鲁</h4>
+                    <p>专注整理古代典籍与教育弟子，修订六经，《学而》篇作为《论语》开篇集中体现思想核心框架。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters">
+        <h2 class="section-title">主要人物</h2>
+
+        <h3 style="text-align: center; margin: 40px 0 30px; color: var(--ink-black);">人物关系图</h3>
+        <div class="relationship-container">
+            <div class="relationship-diagram">
+                <div class="person-box main">
+                    <div class="person-name">孔子（子）</div>
+                    <div class="person-role">孔丘，字仲尼 · 儒家学派创始人</div>
+                </div>
+                <div class="connection-line"></div>
+                <div class="disciples-row">
+                    <div class="person-box">
+                        <div class="person-name">有子</div>
+                        <div class="person-role">有若 · 被推举为首领</div>
+                    </div>
+                    <div class="person-box">
+                        <div class="person-name">曾子</div>
+                        <div class="person-role">曾参 · 学说传承人</div>
+                    </div>
+                    <div class="person-box">
+                        <div class="person-name">子贡</div>
+                        <div class="person-role">端木赐 · 言语科代表</div>
+                    </div>
+                    <div class="person-box">
+                        <div class="person-name">子夏</div>
+                        <div class="person-role">卜商 · 文学科代表</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin: 50px 0 30px; color: var(--ink-black);">人物详细介绍</h3>
+        <div class="characters-grid">
+            <div class="character-card">
+                <div class="character-avatar">子</div>
+                <h4 class="character-name">孔子</h4>
+                <p class="character-zi">孔丘，字仲尼</p>
+                <p class="character-desc">孔子本人，儒家学派创始人，《论语》的对话中心人物。本篇8章发言，核心思想阐述者。</p>
+            </div>
+            <div class="character-card">
+                <div class="character-avatar">有</div>
+                <h4 class="character-name">有子</h4>
+                <p class="character-zi">有若，字子有</p>
+                <p class="character-desc">孔子弟子，鲁国人，比孔子小33岁。因容貌和言论酷似孔子，死后曾被弟子推举为首领。</p>
+            </div>
+            <div class="character-card">
+                <div class="character-avatar">曾</div>
+                <h4 class="character-name">曾子</h4>
+                <p class="character-zi">曾参，字子舆</p>
+                <p class="character-desc">孔子晚年弟子，比孔子小46岁。以孝道著称，是孔子学说的主要传承人，相传《孝经》为他所作。</p>
+            </div>
+            <div class="character-card">
+                <div class="character-avatar">贡</div>
+                <h4 class="character-name">子贡</h4>
+                <p class="character-zi">端木赐，字子贡</p>
+                <p class="character-desc">孔子著名弟子，卫国人，比孔子小31岁。擅长辞令和经商，是"孔门十哲"中"言语科"代表。</p>
+            </div>
+            <div class="character-card">
+                <div class="character-avatar">夏</div>
+                <h4 class="character-name">子夏</h4>
+                <p class="character-zi">卜商，字子夏</p>
+                <p class="character-desc">孔子弟子，卫国人，比孔子小44岁。以文学著称，后魏文侯尊为师。</p>
+            </div>
+            <div class="character-card">
+                <div class="character-avatar">禽</div>
+                <h4 class="character-name">子禽</h4>
+                <p class="character-zi">陈亢，字子禽</p>
+                <p class="character-desc">孔子弟子，陈国人，曾向子贡请教孔子学问，本篇1章提问。</p>
+            </div>
+        </div>
+
+        <div class="error-notes">
+            <h3>易错点提示</h3>
+            <div class="note-item">
+                <div class="note-icon">!</div>
+                <div class="note-content">
+                    <strong>易混淆字词：</strong><br>
+                    弟（tì）同"悌"，敬爱兄长 ≠ 弟（dì）兄弟<br>
+                    省（xǐng）反省 ≠ 省（shěng）省份<br>
+                    说（yuè）通"悦" ≠ 说（shuō）说话<br>
+                    乐（lè）快乐 ≠ 乐（yuè）音乐
+                </div>
+            </div>
+            <div class="note-item">
+                <div class="note-icon">!</div>
+                <div class="note-content">
+                    <strong>易误解语句：</strong><br>
+                    "无友不如己者"：主流解读"不要结交不如自己的人"，另一说"没有朋友是完全不如自己的"<br>
+                    "贤贤易色"：重视贤者而轻视女色（易：轻视）<br>
+                    "三年无改于父之道"："三年"指古代守丧制度（实为25个月）
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters Section -->
+    <section id="chapters">
+        <h2 class="section-title">全文解析</h2>
+
+        <div class="chapters-grid">
+            <!-- Chapter 1 -->
+            <div class="chapter-card">
+                <div class="chapter-number">1</div>
+                <span class="speaker">子（孔子）</span>
+                <div class="chapter-text">
+                    学而时习之，不亦说乎？<br>
+                    有朋自远方来，不亦乐乎？<br>
+                    人不知而不愠，不亦君子乎？
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">时习</span> - 时常温习</li>
+                        <li><span class="vocab-term">朋</span> - 志同道合的人</li>
+                        <li><span class="vocab-term">愠（yùn）</span> - 怨恨、生气</li>
+                        <li><span class="vocab-term">说（yuè）</span> - 通"悦"，高兴</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 2 -->
+            <div class="chapter-card">
+                <div class="chapter-number">2</div>
+                <span class="speaker">有子</span>
+                <div class="chapter-text">
+                    其为人也孝弟，而好犯上者，鲜矣；<br>
+                    不好犯上，而好作乱者，未之有也。<br>
+                    君子务本，本立而道生。<br>
+                    孝弟也者，其为仁之本与！
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">孝弟（tì）</span> - 孝顺父母，敬爱兄长</li>
+                        <li><span class="vocab-term">犯上</span> - 冒犯上级</li>
+                        <li><span class="vocab-term">鲜（xiǎn）</span> - 少</li>
+                        <li><span class="vocab-term">务本</span> - 致力于根本</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 3 -->
+            <div class="chapter-card">
+                <div class="chapter-number">3</div>
+                <span class="speaker">子（孔子）</span>
+                <div class="chapter-text">
+                    巧言令色，鲜矣仁！
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">巧言</span> - 花言巧语</li>
+                        <li><span class="vocab-term">令色</span> - 刻意装出的和善脸色</li>
+                        <li><span class="vocab-term">鲜（xiǎn）</span> - 少</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 4 -->
+            <div class="chapter-card">
+                <div class="chapter-number">4</div>
+                <span class="speaker">曾子</span>
+                <div class="chapter-text">
+                    吾日三省吾身：<br>
+                    为人谋而不忠乎？<br>
+                    与朋友交而不信乎？<br>
+                    传不习乎？
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">三省（xǐng）</span> - 多次反省</li>
+                        <li><span class="vocab-term">忠</span> - 尽心尽力</li>
+                        <li><span class="vocab-term">信</span> - 诚信</li>
+                        <li><span class="vocab-term">传（chuán）</span> - 老师传授的知识</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 5 -->
+            <div class="chapter-card">
+                <div class="chapter-number">5</div>
+                <span class="speaker">子（孔子）</span>
+                <div class="chapter-text">
+                    道千乘之国，敬事而信，<br>
+                    节用而爱人，使民以时。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">道</span> - 治理</li>
+                        <li><span class="vocab-term">千乘（shèng）之国</span> - 拥有千辆兵车的诸侯国</li>
+                        <li><span class="vocab-term">敬事</span> - 严肃认真对待政事</li>
+                        <li><span class="vocab-term">使民以时</span> - 按恰当时节役使百姓</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 6 -->
+            <div class="chapter-card">
+                <div class="chapter-number">6</div>
+                <span class="speaker">子（孔子）</span>
+                <div class="chapter-text">
+                    弟子入则孝，出则弟，谨而信，<br>
+                    泛爱众，而亲仁。<br>
+                    行有余力，则以学文。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">弟（tì）</span> - 同"悌"，敬爱兄长</li>
+                        <li><span class="vocab-term">泛爱</span> - 广泛爱护</li>
+                        <li><span class="vocab-term">亲仁</span> - 亲近有仁德的人</li>
+                        <li><span class="vocab-term">文</span> - 文献典籍</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 7 -->
+            <div class="chapter-card">
+                <div class="chapter-number">7</div>
+                <span class="speaker">子夏</span>
+                <div class="chapter-text">
+                    贤贤易色；事父母，能竭其力；<br>
+                    事君，能致其身；<br>
+                    与朋友交，言而有信。<br>
+                    虽曰未学，吾必谓之学矣。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">贤贤</span> - 尊重贤者（第一个"贤"作动词）</li>
+                        <li><span class="vocab-term">易（yì）</span> - 轻视</li>
+                        <li><span class="vocab-term">致其身</span> - 奉献生命</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 8 -->
+            <div class="chapter-card">
+                <div class="chapter-number">8</div>
+                <span class="speaker">子（孔子）</span>
+                <div class="chapter-text">
+                    君子不重，则不威；学则不固。<br>
+                    主忠信。无友不如己者。<br>
+                    过则勿惮改。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">重（zhòng）</span> - 庄重</li>
+                        <li><span class="vocab-term">主忠信</span> - 以忠信为主</li>
+                        <li><span class="vocab-term">惮（dàn）</span> - 害怕</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 9 -->
+            <div class="chapter-card">
+                <div class="chapter-number">9</div>
+                <span class="speaker">曾子</span>
+                <div class="chapter-text">
+                    慎终追远，民德归厚矣。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">慎终</span> - 谨慎对待父母的丧事</li>
+                        <li><span class="vocab-term">追远</span> - 追念祭祀远代祖先</li>
+                        <li><span class="vocab-term">厚</span> - 淳厚</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 10 -->
+            <div class="chapter-card">
+                <div class="chapter-number">10</div>
+                <span class="speaker">子禽问子贡</span>
+                <div class="chapter-text">
+                    子禽：夫子至于是邦也，必闻其政，求之与，抑与之与？<br>
+                    <br>
+                    子贡：夫子温、良、恭、俭、让以得之。<br>
+                    夫子之求之也，其诸异乎人之求之与？
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">夫子</span> - 对老师的尊称（孔子）</li>
+                        <li><span class="vocab-term">温良恭俭让</span> - 温和、善良、恭敬、节俭、谦让</li>
+                        <li><span class="vocab-term">诸（zhū）</span> - 之乎的合音</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 11 -->
+            <div class="chapter-card">
+                <div class="chapter-number">11</div>
+                <span class="speaker">子（孔子）</span>
+                <div class="chapter-text">
+                    父在，观其志；父没，观其行；<br>
+                    三年无改于父之道，可谓孝矣。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">没（mò）</span> - 去世</li>
+                        <li><span class="vocab-term">三年</span> - 古代三年之丧（实为25个月）</li>
+                        <li><span class="vocab-term">道</span> - 原则、做法（符合道义的原则）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 12 -->
+            <div class="chapter-card">
+                <div class="chapter-number">12</div>
+                <span class="speaker">有子</span>
+                <div class="chapter-text">
+                    礼之用，和为贵。<br>
+                    先王之道，斯为美；小大由之。<br>
+                    有所不行，知和而和，<br>
+                    不以礼节之，亦不可行也。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">礼</span> - 礼制、礼仪</li>
+                        <li><span class="vocab-term">和</span> - 和谐、恰当</li>
+                        <li><span class="vocab-term">节</span> - 节制、规范</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 13 -->
+            <div class="chapter-card">
+                <div class="chapter-number">13</div>
+                <span class="speaker">有子</span>
+                <div class="chapter-text">
+                    信近于义，言可复也。<br>
+                    恭近于礼，远耻辱也。<br>
+                    因不失其亲，亦可宗也。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">复（fù）</span> - 实践、兑现</li>
+                        <li><span class="vocab-term">远（yuàn）</span> - 远离、避免</li>
+                        <li><span class="vocab-term">宗</span> - 尊崇、效法</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 14 -->
+            <div class="chapter-card">
+                <div class="chapter-number">14</div>
+                <span class="speaker">子（孔子）</span>
+                <div class="chapter-text">
+                    君子食无求饱，居无求安，<br>
+                    敏于事而慎于言，<br>
+                    就有道而正焉，可谓好学也已。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">敏</span> - 勤勉、敏捷</li>
+                        <li><span class="vocab-term">慎</span> - 谨慎</li>
+                        <li><span class="vocab-term">有道</span> - 有道德学问的人</li>
+                        <li><span class="vocab-term">正</span> - 匡正</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 15 -->
+            <div class="chapter-card">
+                <div class="chapter-number">15</div>
+                <span class="speaker">子贡问孔子</span>
+                <div class="chapter-text">
+                    子贡：贫而无谄，富而无骄，何如？<br>
+                    <br>
+                    子曰：可也。未若贫而乐，富而好礼者也。<br>
+                    <br>
+                    子贡：《诗》云：'如切如磋，如琢如磨'，其斯之谓与？<br>
+                    <br>
+                    子曰：赐也，始可与言《诗》已矣，告诸往而知来者。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">谄（chǎn）</span> - 巴结奉承</li>
+                        <li><span class="vocab-term">贫而乐</span> - 贫穷却乐于道</li>
+                        <li><span class="vocab-term">切磋琢磨</span> - 比喻修养德行</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 16 -->
+            <div class="chapter-card">
+                <div class="chapter-number">16</div>
+                <span class="speaker">子（孔子）</span>
+                <div class="chapter-text">
+                    不患人之不己知，患不知人也。
+                </div>
+                <div class="vocab-section">
+                    <h4>重点词汇</h4>
+                    <ul class="vocab-list">
+                        <li><span class="vocab-term">患</span> - 担心</li>
+                        <li><span class="vocab-term">人之不己知</span> - 别人不了解自己（宾语前置）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section class="quotes-section" id="quotes">
+        <div class="quotes-container">
+            <h2 class="section-title">名句赏析</h2>
+
+            <div class="quote-card">
+                <div class="quote-text">
+                    学而时习之，不亦说乎？
+                </div>
+                <div class="quote-meaning">
+                    强调学习要不断温习实践，将所学付诸行动。学习不仅仅是知识的积累，更是品德的修养。知行合一，才是真正的学习。
+                </div>
+            </div>
+
+            <div class="quote-card">
+                <div class="quote-text">
+                    吾日三省吾身
+                </div>
+                <div class="quote-meaning">
+                    提倡自我反省，每天多次反省自己的行为：为人谋是否忠心？与朋友交往是否诚信？老师传授的知识是否温习？这是自我修养的重要方法。
+                </div>
+            </div>
+
+            <div class="quote-card">
+                <div class="quote-text">
+                    君子务本，本立而道生
+                </div>
+                <div class="quote-meaning">
+                    强调根本的重要性。君子致力于根本的根本，根本确立了，道就会自然产生。孝悌就是仁的根本，从家庭伦理做起，才能建立社会秩序。
+                </div>
+            </div>
+
+            <div class="quote-card">
+                <div class="quote-text">
+                    礼之用，和为贵
+                </div>
+                <div class="quote-meaning">
+                    礼的运用以和谐为贵。礼制的最终目标是和谐，但如果只知道追求和谐而不用礼来节制，也是不可行的。和谐需要礼的规范。
+                </div>
+            </div>
+
+            <div class="quote-card">
+                <div class="quote-text">
+                    不患人之不己知，患不知人也
+                </div>
+                <div class="quote-meaning">
+                    不要担心别人不了解自己，而要担心自己不了解别人。强调内在修养重于外在认可，自我完善比寻求他人的理解更重要。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-seal">論</div>
+        <p class="footer-text">
+            《论语·学而篇》是中国传统文化的重要经典，<br>
+            影响了中国两千多年的政治、教育、伦理与社会生活。<br>
+            <br>
+            学习经典，传承文明，修身齐家，治国平天下。
+        </p>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Active Navigation Link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth Scroll for Navigation Links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                const offsetTop = targetSection.offsetTop - 70;
+
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.chapter-card, .info-card, .character-card, .quote-card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Dynamic Date in Footer
+        const yearSpan = document.createElement('span');
+        yearSpan.textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
