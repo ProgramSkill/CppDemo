@@ -291,8 +291,10 @@ The linker first searches for library files in system standard paths, then searc
 ### Linking Flags
 - `-l<library>`: Link with library
 - `-L<dir>`: Add library search directory
-- `-static`: Force static linking
-- `-shared`: Create shared library
+- `-static`: Force static linking - Forces the linker to use static libraries (`.a` files) instead of shared libraries (`.so` files). Static linking copies the library code directly into the executable.
+  - Example: `g++ -static main.cpp -o program` creates a statically linked executable with all library code embedded
+- `-shared`: Create shared library - Used to create shared library files (`.so`) instead of executable programs. This flag is typically used when writing library code. The generated `.so` file can be shared and used by multiple programs.
+  - Example: `g++ -shared -fPIC mylib.cpp -o libmylib.so` creates a shared library named `libmylib.so`
 
 ---
 
