@@ -322,7 +322,7 @@ The linker first searches for library files in system standard paths, then searc
 For large projects, manually compiling each file is impractical. Build systems automate the compilation process:
 
 - **Make**: Uses Makefiles to define build rules
-- **CMake**: Cross-platform build system generator
+- **CMake**: Cross-platform build system generator that uses CMakeLists.txt to generate platform-specific build files
 - **Ninja**: Fast build system focused on speed
 - **MSBuild**: Microsoft's build system for Visual Studio
 
