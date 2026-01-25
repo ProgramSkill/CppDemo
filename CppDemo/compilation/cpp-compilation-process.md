@@ -4,6 +4,15 @@
 
 The C++ compilation process transforms human-readable source code into executable machine code through four distinct stages. Understanding these stages is essential for debugging compilation errors, optimizing build times, and comprehending how C++ programs are constructed.
 
+## Quick Reference: Compiler Flags
+
+| Flag | Stage | Output | Purpose |
+|------|-------|--------|---------|
+| `-E` | Preprocessing | `.i` / `.ii` | Debug macro expansion and includes |
+| `-S` | Compilation | `.s` | View assembly code |
+| `-c` | Assembly | `.o` / `.obj` | Separate compilation (create object files) |
+| (none) | All stages | executable | Generate final program |
+
 ## The Four Stages of Compilation
 
 ### 1. Preprocessing
