@@ -162,8 +162,8 @@
     <None Include="std_queue\std_queue_demo_BFS_visualization.html" />
     <None Include="std_index_sequence\std_index_sequence.md" />
     <None Include="std汇总.md" />
-    <None Include="cpp-compilation-process.md" />
-    <None Include="cross-compilation-guide.md" />
+    <None Include="compilation\cpp-compilation-process.md" />
+    <None Include="compilation\cross-compilation-guide.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="En-Chs.md" />

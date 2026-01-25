@@ -159,8 +159,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp-compilation-process.md" />
-    <None Include="cross-compilation-guide.md" />
+    <None Include="compilation\cpp-compilation-process.md" />
+    <None Include="compilation\cross-compilation-guide.md" />
     <None Include="file.md">
       <SubType>
       </SubType>
