@@ -295,6 +295,7 @@ The linker first searches for library files in system standard paths, then searc
   - Example: `g++ -static main.cpp -o program` creates a statically linked executable with all library code embedded
 - `-shared`: Create shared library - Used to create shared library files (`.so`) instead of executable programs. This flag is typically used when writing library code. The generated `.so` file can be shared and used by multiple programs.
   - Example: `g++ -shared -fPIC mylib.cpp -o libmylib.so` creates a shared library named `libmylib.so`
+  - **`-fPIC`** stands for Position Independent Code. It tells the compiler to generate code that can be loaded into any address in memory, rather than a fixed address. This is required for shared libraries.
 
 ---
 
