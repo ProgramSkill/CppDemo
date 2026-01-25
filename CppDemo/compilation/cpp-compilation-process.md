@@ -24,6 +24,11 @@ The preprocessor is the first stage of compilation. It processes all directives 
 g++ -E source.cpp -o source.i
 ```
 
+**The `-E` flag:**
+- Only executes the preprocessing stage
+- Does not perform compilation, assembly, or linking
+- Outputs the preprocessed result to standard output or a specified file
+
 **Example:**
 ```cpp
 // Before preprocessing
