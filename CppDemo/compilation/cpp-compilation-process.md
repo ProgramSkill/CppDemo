@@ -222,16 +222,51 @@ g++ file1.o file2.o file3.o -o program
 
 ### Example 3: Using Libraries
 
+#### The `-l` Parameter (Link Libraries)
+
+The `-l` parameter tells the linker which library to link against. When you write `-lm`, g++ searches for a file named `libm.so` (dynamic library) or `libm.a` (static library) in standard library directories (such as `/usr/lib` and `/usr/local/lib`).
+
+**Command 1: Link with math library**
 ```bash
-# Link with math library
 g++ main.cpp -o program -lm
+```
 
-# Link with multiple libraries
+- `-lm` links the math library (`libm`), which contains mathematical functions like `sqrt()` (square root), `sin()` (sine), `cos()` (cosine), etc.
+- If your code uses these mathematical functions, you must link this library.
+
+**Command 2: Link with multiple libraries**
+```bash
 g++ main.cpp -o program -lpthread -lm
+```
 
-# Specify library search path
+- `-lpthread` links the POSIX threads library for multi-threaded programming support
+- `-lm` links the math library
+- You can link multiple libraries by adding multiple `-l` parameters
+
+#### The `-L` Parameter (Specify Library Search Path)
+
+The `-L` parameter adds custom library search directories. By default, the linker only searches in system standard directories, but if your library is in a custom location, you need to specify it with `-L`.
+
+**Command 3: Specify library search path**
+```bash
 g++ main.cpp -o program -L/path/to/libs -lmylib
 ```
+
+- `-L/path/to/libs` tells the linker to search for library files in the `/path/to/libs` directory
+- `-lmylib` will search for `libmylib.so` or `libmylib.a` in both standard directories and `/path/to/libs`
+- This is very useful when using self-compiled libraries or third-party libraries
+
+#### Library Naming Convention
+
+Library files must follow the naming convention: `lib[name].so` (dynamic library) or `lib[name].a` (static library), but in the `-l` parameter you only specify the `[name]` part. For example:
+
+- Math library file is `libm.so`, use `-lm`
+- Thread library file is `libpthread.so`, use `-lpthread`
+- Custom library `libmylib.so`, use `-lmylib`
+
+#### Search Order
+
+The linker first searches for library files in system standard paths, then searches all paths specified by `-L` parameters. If there are multiple `-L` parameters, they are searched in the order they appear on the command line.
 
 ---
 
