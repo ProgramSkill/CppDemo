@@ -332,6 +332,8 @@ For large projects, manually compiling each file is impractical. Build systems a
 - **Use Ninja**: Large projects where build speed is critical (typically used with CMake as backend: `cmake -G Ninja`)
 - **Use MSBuild**: Windows-only projects, Visual Studio integration, .NET and C++ projects on Windows
 
+**Note**: CMake itself does not execute compilation, it only generates build files. What really affects compilation speed is the executor (Make or Ninja), with Ninja being faster.
+
 ---
 
 ## Conclusion
