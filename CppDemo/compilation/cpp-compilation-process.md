@@ -65,6 +65,12 @@ The compilation stage converts preprocessed C++ code into assembly language. Thi
 g++ -S source.cpp -o source.s
 ```
 
+**The `-S` flag:**
+- Executes preprocessing and compilation stages
+- Stops before the assembly stage
+- Outputs assembly language code (`.s` file)
+- Does not create object files or executables
+
 **Example assembly output (x86-64):**
 ```assembly
 main:
@@ -93,6 +99,12 @@ The assembler converts human-readable assembly language into machine code (binar
 ```bash
 g++ -c source.cpp -o source.o
 ```
+
+**The `-c` flag:**
+- Executes preprocessing, compilation, and assembly stages
+- Stops before the linking stage
+- Outputs object file (`.o` on Linux/macOS, `.obj` on Windows)
+- Does not create an executable
 
 **Object file contents:**
 - Machine code instructions
