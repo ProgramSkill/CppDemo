@@ -694,6 +694,445 @@ int sum_divide(int arr[], int left, int right) {
 
 ---
 
+## 13. 经典递归问题详解
+
+### 13.1 阶乘（Factorial）
+
+**问题**：计算 n! = n × (n-1) × ... × 1
+
+```cpp
+// 递归解法
+int factorial(int n) {
+    if (n <= 1) return 1;  // 终止条件
+    return n * factorial(n - 1);
+}
+
+// 迭代解法（对比）
+int factorial_iterative(int n) {
+    int result = 1;
+    for (int i = 2; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+```
+
+**复杂度分析**：
+- 时间复杂度：O(n)
+- 空间复杂度：O(n) （递归栈深度）
+
+---
+
+### 13.2 斐波那契数列（Fibonacci）
+
+**问题**：F(n) = F(n-1) + F(n-2)，F(0)=0, F(1)=1
+
+```cpp
+// ❌ 朴素递归（低效，重复计算）
+int fib(int n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+// 时间复杂度：O(2^n) - 指数级！
+
+// ✅ 记忆化递归（推荐）
+vector<int> memo;
+int fib_memo(int n) {
+    if (n <= 1) return n;
+    if (memo[n] != -1) return memo[n];  // 已计算，直接返回
+    return memo[n] = fib_memo(n - 1) + fib_memo(n - 2);
+}
+// 时间复杂度：O(n)
+
+// ✅ 迭代解法（最优）
+int fib_iterative(int n) {
+    if (n <= 1) return n;
+    int prev2 = 0, prev1 = 1, curr;
+    for (int i = 2; i <= n; i++) {
+        curr = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = curr;
+    }
+    return prev1;
+}
+```
+
+**递归树可视化（fib(5)）**：
+
+```
+                    fib(5)
+                  /        \
+            fib(4)          fib(3)
+           /      \         /     \
+       fib(3)    fib(2)   fib(2)  fib(1)
+      /    \    /     \   /    \
+  fib(2) fib(1) fib(1) fib(0) ...
+ /     \
+fib(1) fib(0)
+```
+
+**问题**：fib(3) 被计算了多次！→ 使用记忆化解决
+
+---
+
+### 13.3 汉诺塔（Tower of Hanoi）
+
+**问题**：将 n 个盘子从 A 柱移动到 C 柱，每次只能移动一个盘子，大盘不能压小盘。
+
+```cpp
+void hanoi(int n, char from, char to, char aux) {
+    if (n == 1) {
+        cout << "移动盘子 1 从 " << from << " 到 " << to << endl;
+        return;
+    }
+
+    // 步骤 1：将 n-1 个盘子从 from 移到 aux
+    hanoi(n - 1, from, aux, to);
+
+    // 步骤 2：将第 n 个盘子从 from 移到 to
+    cout << "移动盘子 " << n << " 从 " << from << " 到 " << to << endl;
+
+    // 步骤 3：将 n-1 个盘子从 aux 移到 to
+    hanoi(n - 1, aux, to, from);
+}
+
+// 调用示例：hanoi(3, 'A', 'C', 'B');
+```
+
+**时间复杂度**：O(2^n)
+**移动次数**：2^n - 1 次
+
+---
+
+### 13.4 二叉树遍历
+
+```cpp
+struct TreeNode {
+    int val;
+    TreeNode *left, *right;
+};
+
+// 前序遍历：根 -> 左 -> 右
+void preorder(TreeNode* root) {
+    if (!root) return;           // 终止条件
+    cout << root->val << " ";    // 访问根节点
+    preorder(root->left);        // 递归左子树
+    preorder(root->right);       // 递归右子树
+}
+
+// 中序遍历：左 -> 根 -> 右
+void inorder(TreeNode* root) {
+    if (!root) return;
+    inorder(root->left);
+    cout << root->val << " ";
+    inorder(root->right);
+}
+
+// 后序遍历：左 -> 右 -> 根
+void postorder(TreeNode* root) {
+    if (!root) return;
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->val << " ";
+}
+```
+
+---
+
+### 13.5 二分查找（Binary Search）
+
+```cpp
+int binarySearch(vector<int>& arr, int target, int left, int right) {
+    if (left > right) return -1;  // 终止条件：未找到
+
+    int mid = left + (right - left) / 2;
+
+    if (arr[mid] == target) {
+        return mid;  // 找到目标
+    } else if (arr[mid] > target) {
+        return binarySearch(arr, target, left, mid - 1);  // 搜左半
+    } else {
+        return binarySearch(arr, target, mid + 1, right); // 搜右半
+    }
+}
+```
+
+**时间复杂度**：O(log n)
+
+---
+
+### 13.6 全排列（Permutations）
+
+```cpp
+void permute(vector<int>& nums, int start) {
+    if (start == nums.size() - 1) {
+        // 打印或存储当前排列
+        for (int num : nums) cout << num << " ";
+        cout << endl;
+        return;
+    }
+
+    for (int i = start; i < nums.size(); i++) {
+        swap(nums[start], nums[i]);      // 选择
+        permute(nums, start + 1);        // 递归
+        swap(nums[start], nums[i]);      // 回溯（撤销选择）
+    }
+}
+
+// 调用：permute(nums, 0);
+```
+
+---
+
+### 13.7 组合（Combinations）
+
+```cpp
+// 从 n 个数中选 k 个的所有组合
+void combine(int n, int k, int start, vector<int>& path) {
+    if (path.size() == k) {
+        // 找到一个组合
+        for (int num : path) cout << num << " ";
+        cout << endl;
+        return;
+    }
+
+    for (int i = start; i <= n; i++) {
+        path.push_back(i);           // 选择 i
+        combine(n, k, i + 1, path);  // 递归
+        path.pop_back();             // 回溯
+    }
+}
+```
+
+---
+
+### 13.8 快速排序（Quick Sort）
+
+```cpp
+void quickSort(vector<int>& arr, int low, int high) {
+    if (low >= high) return;  // 终止条件
+
+    // 分区
+    int pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    int pi = i + 1;
+
+    // 递归排序左右两部分
+    quickSort(arr, low, pi - 1);
+    quickSort(arr, pi + 1, high);
+}
+```
+
+**时间复杂度**：
+- 平均：O(n log n)
+- 最坏：O(n²) （数组已排序）
+
+---
+
+### 13.9 归并排序（Merge Sort）
+
+```cpp
+void mergeSort(vector<int>& arr, int left, int right) {
+    if (left >= right) return;  // 终止条件
+
+    int mid = left + (right - left) / 2;
+
+    // 分
+    mergeSort(arr, left, mid);
+    mergeSort(arr, mid + 1, right);
+
+    // 治
+    merge(arr, left, mid, right);
+}
+
+void merge(vector<int>& arr, int left, int mid, int right) {
+    vector<int> temp(right - left + 1);
+    int i = left, j = mid + 1, k = 0;
+
+    while (i <= mid && j <= right) {
+        if (arr[i] <= arr[j]) temp[k++] = arr[i++];
+        else temp[k++] = arr[j++];
+    }
+
+    while (i <= mid) temp[k++] = arr[i++];
+    while (j <= right) temp[k++] = arr[j++];
+
+    for (int i = 0; i < temp.size(); i++) {
+        arr[left + i] = temp[i];
+    }
+}
+```
+
+**时间复杂度**：O(n log n) （稳定）
+
+---
+
+### 13.10 爬楼梯问题
+
+**问题**：每次可以爬 1 或 2 个台阶，爬到 n 阶有多少种方法？
+
+```cpp
+int climbStairs(int n) {
+    if (n <= 2) return n;  // 终止条件
+
+    // 选择爬 1 阶 + 选择爬 2 阶
+    return climbStairs(n - 1) + climbStairs(n - 2);
+}
+
+// 记忆化版本
+vector<int> memo(1000, -1);
+int climbStairsMemo(int n) {
+    if (n <= 2) return n;
+    if (memo[n] != -1) return memo[n];
+    return memo[n] = climbStairsMemo(n - 1) + climbStairsMemo(n - 2);
+}
+```
+
+---
+
+### 13.11 二叉树的最大深度
+
+```cpp
+int maxDepth(TreeNode* root) {
+    if (!root) return 0;  // 空树深度为 0
+
+    int leftDepth = maxDepth(root->left);
+    int rightDepth = maxDepth(root->right);
+
+    return max(leftDepth, rightDepth) + 1;
+}
+```
+
+---
+
+### 13.12 二叉树的所有路径
+
+```cpp
+void binaryTreePaths(TreeNode* root, string path, vector<string>& result) {
+    if (!root) return;
+
+    path += to_string(root->val);
+
+    if (!root->left && !root->right) {
+        // 叶子节点，保存路径
+        result.push_back(path);
+        return;
+    }
+
+    path += "->";
+    binaryTreePaths(root->left, path, result);
+    binaryTreePaths(root->right, path, result);
+}
+```
+
+---
+
+## 14. 递归的数学理论
+
+### 14.1 递推关系式（Recurrence Relation）
+
+描述递归算法的运行时间。
+
+**常见递推关系**：
+
+1. **线性递归**：T(n) = T(n-1) + O(1) → O(n)
+2. **二分递归**：T(n) = 2T(n/2) + O(1) → O(n)
+3. **分治递归**：T(n) = 2T(n/2) + O(n) → O(n log n)
+4. **指数递归**：T(n) = T(n-1) + T(n-2) + O(1) → O(2^n)
+
+### 14.2 主定理（Master Theorem）
+
+用于分析分治算法的递推关系：
+
+**T(n) = aT(n/b) + f(n)**
+
+其中：
+- a = 子问题数量
+- b = 子问题规模缩小的倍数
+- f(n) = 分解和合并的代价
+
+**三种情况**：
+1. 如果 f(n) = O(n^log_b(a-ε))，则 T(n) = Θ(n^log_b(a))
+2. 如果 f(n) = Θ(n^log_b(a))，则 T(n) = Θ(n^log_b(a) * log n)
+3. 如果 f(n) = Ω(n^log_b(a+ε))，则 T(n) = Θ(f(n))
+
+---
+
+## 15. 实战练习题
+
+### 基础题
+1. [ ] 阶乘计算
+2. [ ] 斐波那契数列（记忆化）
+3. [ ] 爬楼梯问题
+4. [ ] 二进制中 1 的个数
+
+### 中等题
+5. [ ] 汉诺塔问题
+6. [ ] 二叉树的最大深度
+7. [ ] 二叉树的所有路径
+8. [ ] 子集生成（Subsets）
+
+### 困难题
+9. [ ] 全排列（Permutations）
+10. [ ] N 皇后问题
+11. [ ] 数独求解
+12. [ ] 正则表达式匹配
+
+---
+
+## 16. 递归优化技巧补充
+
+### 16.1 剪枝（Pruning）
+
+提前终止不必要的递归分支。
+
+```cpp
+void solve() {
+    if (当前状态不合法) return;      // 剪枝
+    if (已找到答案) return;           // 剪枝
+    if (当前解不可能更优) return;      // 剪枝
+
+    // 继续递归
+    for (int choice : allChoices) {
+        // ...
+    }
+}
+```
+
+**应用场景**：
+- 回溯算法优化
+- 搜索树剪枝
+- 博弈树剪枝（Alpha-Beta 剪枝）
+
+### 16.2 减少递归深度
+
+使用分治减少递归深度。
+
+```cpp
+// 线性递归：深度 O(n)
+int sum(int arr[], int n) {
+    if (n == 0) return 0;
+    return arr[n-1] + sum(arr, n-1);
+}
+
+// 分治递归：深度 O(log n)
+int sum_divide(int arr[], int left, int right) {
+    if (left > right) return 0;
+    if (left == right) return arr[left];
+    int mid = (left + right) / 2;
+    return sum_divide(arr, left, mid) + sum_divide(arr, mid+1, right);
+}
+```
+
+---
+
 ## 调试递归的技巧
 
 ### 1. 打印调用信息
