@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>论语·学而篇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Serif SC", "STSong", "SimSun", serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #fffef8, #f9f6f0);
+            padding: 40px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, #c0392b, #8b0000, #c0392b);
+        }
+
+        .container::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, #c0392b, #8b0000, #c0392b);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .title {
+            flex: 1;
+        }
+
+        .title h1 {
+            font-size: 4.5em;
+            font-weight: normal;
+            letter-spacing: 0.4em;
+            color: #8b0000;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .title .subtitle {
+            font-size: 1.5em;
+            color: #666;
+            letter-spacing: 0.3em;
+            font-style: italic;
+        }
+
+        .seal-mark {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #c0392b;
+            color: #c0392b;
+            font-size: 2em;
+            line-height: 88px;
+            border-radius: 12px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            background: rgba(192, 57, 43, 0.05);
+            transform: rotate(-5deg);
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.3);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .chapter {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #c0392b;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(192, 57, 43, 0.25);
+        }
+
+        .chapter-number {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #c0392b, #8b0000);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(139, 0, 0, 0.4);
+        }
+
+        .speaker {
+            color: #8b0000;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.15em;
+        }
+
+        .content {
+            font-size: 1.3em;
+            line-height: 1.9;
+            color: #2c3e50;
+            flex: 1;
+            text-align: justify;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 3px solid rgba(192, 57, 43, 0.3);
+            color: #999;
+            font-size: 1.2em;
+            letter-spacing: 0.2em;
+        }
+
+        @media screen and (max-width: 1400px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .title h1 {
+                font-size: 3.5em;
+            }
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 1cm;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <h1>論語·學而篇</h1>
+                <div class="subtitle">THE ANALECTS OF CONFUCIUS - BOOK I</div>
+            </div>
+            <div class="seal-mark">論語</div>
+        </div>
+
+        <div class="grid-container">
+            <div class="chapter">
+                <div class="chapter-number">1</div>
+                <div class="speaker">子曰</div>
+                <div class="content">學而時習之，不亦說乎？有朋自遠方來，不亦樂乎？人不知而不慍，不亦君子乎？</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">2</div>
+                <div class="speaker">有子曰</div>
+                <div class="content">其為人也孝弟，而好犯上者，鮮矣；不好犯上，而好作亂者，未之有也。君子務本，本立而道生。孝弟也者，其為仁之本與！</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">3</div>
+                <div class="speaker">子曰</div>
+                <div class="content">巧言令色，鮮矣仁！</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">4</div>
+                <div class="speaker">曾子曰</div>
+                <div class="content">吾日三省吾身：為人謀而不忠乎？與朋友交而不信乎？傳不習乎？</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">5</div>
+                <div class="speaker">子曰</div>
+                <div class="content">道千乘之國，敬事而信，節用而愛人，使民以時。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">6</div>
+                <div class="speaker">子曰</div>
+                <div class="content">弟子入則孝，出則弟，謹而信，泛愛眾，而親仁。行有餘力，則以學文。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">7</div>
+                <div class="speaker">子夏曰</div>
+                <div class="content">賢賢易色；事父母，能竭其力；事君，能致其身；與朋友交，言而有信。雖曰未學，吾必謂之學矣。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">8</div>
+                <div class="speaker">子曰</div>
+                <div class="content">君子不重，則不威；學則不固。主忠信。無友不如己者。過則勿憚改。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">9</div>
+                <div class="speaker">曾子曰</div>
+                <div class="content">慎終追遠，民德歸厚矣。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">10</div>
+                <div class="speaker">子禽問於子貢曰</div>
+                <div class="content">夫子至於是邦也，必聞其政，求之與，抑與之與？子貢曰：夫子溫、良、恭、儉、讓以得之。夫子之求之也，其諸異乎人之求之與？</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">11</div>
+                <div class="speaker">子曰</div>
+                <div class="content">父在，觀其志；父沒，觀其行；三年無改於父之道，可謂孝矣。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">12</div>
+                <div class="speaker">有子曰</div>
+                <div class="content">禮之用，和為貴。先王之道，斯為美；小大由之。有所不行，知和而和，不以禮節之，亦不可行也。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">13</div>
+                <div class="speaker">有子曰</div>
+                <div class="content">信近於義，言可復也。恭近於禮，遠恥辱也。因不失其親，亦可宗也。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">14</div>
+                <div class="speaker">子曰</div>
+                <div class="content">君子食無求飽，居無求安，敏於事而慎於言，就有道而正焉，可謂好學也已。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">15</div>
+                <div class="speaker">子貢曰</div>
+                <div class="content">貧而無諂，富而無驕，何如？子曰：可也。未若貧而樂，富而好禮者也。子貢曰：《詩》云：如切如磋，如琢如磨，其斯之謂與？子曰：賜也，始可與言詩已矣，告諸往而知來者。</div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-number">16</div>
+                <div class="speaker">子曰</div>
+                <div class="content">不患人之不己知，患不知人也。</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            春秋戰國 · 孔門弟子記錄整理 · 學而第一
+        </div>
+    </div>
+</body>
+</html>
