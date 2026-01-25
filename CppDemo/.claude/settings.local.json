@@ -6,7 +6,12 @@
       "Bash(git push:*)",
       "Bash(dir:*)",
       "Bash(findstr:*)",
-      "Bash(winget install:*)"
+      "Bash(winget install:*)",
+      "Bash(pip show:*)",
+      "Bash(pip install:*)",
+      "Bash(python -m pip install:*)",
+      "Bash(python:*)",
+      "Bash(cmd:*)"
     ]
   }
 }
