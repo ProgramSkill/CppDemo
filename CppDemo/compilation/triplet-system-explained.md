@@ -484,13 +484,13 @@ x86_64-w64-mingw32
 
 ### MinGW vs 其他 Windows 开发方案
 
-| 方案 | 全称 | 支持位数 | 依赖 | 性能 | 用途 |
-|------|------|---------|------|------|------|
-| **MinGW** | Minimalist GNU for Windows | 仅 32位 | 无 | 原生 | 已过时 |
-| **MinGW-w64** | MinGW Windows 64-bit | 32位 + 64位 | 无 | 原生 | **推荐** |
-| **Cygwin** | Cygnus Windows | 32位 + 64位 | cygwin1.dll | 较慢 | POSIX 兼容 |
-| **MSVC** | Microsoft Visual C++ | 32位 + 64位 | MSVCRT | 原生 | Windows 官方 |
-| **MSYS2** | Minimal SYStem 2 | 32位 + 64位 | 无 | 原生 | 开发环境 |
+| 工具 | 全称 | 32位 | 64位 | 依赖 | 性能 | 状态/特点 |
+|------|------|------|------|------|------|----------|
+| **MinGW** | Minimalist GNU for Windows | ✓ | ✗ | 无 | 原生 | GCC 停留在 4.8.1，已停止更新 |
+| **MinGW-w64** | MinGW Windows 64-bit | ✓ | ✓ | 无 | 原生 | **活跃维护，推荐使用** |
+| **Cygwin** | Cygnus Windows | ✓ | ✓ | cygwin1.dll | 较慢 | POSIX 兼容，但性能较慢 |
+| **MSVC** | Microsoft Visual C++ | ✓ | ✓ | MSVCRT | 原生 | Windows 官方工具链 |
+| **MSYS2** | Minimal SYStem 2 | ✓ | ✓ | 无 | 原生 | 集成包管理器，基于 MinGW-w64 |
 
 **MinGW-w64 的优势：**
 - ✅ 完全开源免费
