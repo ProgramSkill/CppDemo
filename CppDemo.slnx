@@ -9,5 +9,6 @@
   <Project Path="CppDemo/CppDemo.vcxproj" Id="7944ecc6-b809-4ea8-9b45-78aae9cb1858" />
   <Project Path="CppTempTest/CppTempTest.vcxproj" Id="09acc077-4975-45a0-9443-6fbec76b7519" />
   <Project Path="Electronic/Electronic.csproj" Id="45676747-d177-4334-a491-4e90d40d22ea" />
+  <Project Path="Embedded/Embedded.csproj" Id="d064273f-07ab-4839-9b89-8c2f5a4e0067" />
   <Project Path="Math/Math.csproj" Id="1822e8b2-00f1-4bbc-ab74-2bef75336d77" />
 </Solution>
