@@ -12,7 +12,8 @@
       "Bash(python -m pip install:*)",
       "Bash(python:*)",
       "Bash(cmd:*)",
-      "Bash(git mv:*)"
+      "Bash(git mv:*)",
+      "Bash(git pull:*)"
     ]
   }
 }
