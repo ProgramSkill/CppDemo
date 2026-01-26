@@ -316,7 +316,136 @@ i686-w64-mingw32-g++ app.cpp -o app32.exe -static -luser32
 wine app.exe
 ```
 
-### Example 3: Cross-Compiling with CMake
+### Example 3: Cross-Compiling for STM32 from Windows
+
+**Target:** STM32 microcontroller (ARM Cortex-M, bare-metal)
+
+**Toolchain:** `arm-none-eabi-gcc` (ARM bare-metal, no OS)
+
+#### Step 1: Install Toolchain on Windows
+
+**Option A: Using MSYS2 (Recommended)**
+
+```bash
+# Open MSYS2 terminal
+pacman -S mingw-w64-x86_64-arm-none-eabi-gcc
+pacman -S mingw-w64-x86_64-arm-none-eabi-newlib
+```
+
+**Option B: Official ARM GNU Toolchain**
+
+1. Download from [ARM Developer](https://developer.arm.com/downloads/-/gnu-rm)
+2. Install and add to PATH: `C:\Program Files (x86)\GNU Arm Embedded Toolchain\bin`
+
+**Verify installation:**
+```bash
+arm-none-eabi-gcc --version
+arm-none-eabi-g++ --version
+```
+
+#### Step 2: Simple STM32 Blink Example
+
+**Source code** (`main.c`):
+```c
+#include <stdint.h>
+
+// STM32F103 Register definitions (example)
+#define RCC_APB2ENR   (*(volatile uint32_t*)0x40021018)
+#define GPIOC_CRH     (*(volatile uint32_t*)0x4001100C)
+#define GPIOC_ODR     (*(volatile uint32_t*)0x40011010)
+
+void delay(volatile uint32_t count) {
+    while(count--);
+}
+
+int main(void) {
+    // Enable GPIOC clock
+    RCC_APB2ENR |= (1 << 4);
+
+    // Configure PC13 as output (LED pin)
+    GPIOC_CRH &= ~(0xF << 20);
+    GPIOC_CRH |= (0x2 << 20);
+
+    // Blink LED
+    while(1) {
+        GPIOC_ODR ^= (1 << 13);  // Toggle PC13
+        delay(500000);
+    }
+
+    return 0;
+}
+```
+
+#### Step 3: Linker Script
+
+**Create linker script** (`STM32F103C8.ld`):
+```ld
+MEMORY
+{
+    FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 64K
+    RAM (rwx)  : ORIGIN = 0x20000000, LENGTH = 20K
+}
+
+SECTIONS
+{
+    .text : {
+        *(.isr_vector)
+        *(.text*)
+        *(.rodata*)
+    } > FLASH
+
+    .data : {
+        *(.data*)
+    } > RAM AT> FLASH
+
+    .bss : {
+        *(.bss*)
+        *(COMMON)
+    } > RAM
+}
+```
+
+#### Step 4: Compile
+
+**Compilation command:**
+```bash
+# Compile
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -O0 \
+    -T STM32F103C8.ld \
+    -nostartfiles \
+    main.c -o firmware.elf
+
+# Generate binary
+arm-none-eabi-objcopy -O binary firmware.elf firmware.bin
+
+# Check size
+arm-none-eabi-size firmware.elf
+```
+
+**Compiler flags explanation:**
+- `-mcpu=cortex-m3`: Target Cortex-M3 processor
+- `-mthumb`: Use Thumb instruction set
+- `-T STM32F103C8.ld`: Linker script
+- `-nostartfiles`: Don't use standard startup files
+
+#### Step 5: Flash to STM32
+
+**Using ST-Link:**
+```bash
+# Install st-flash (via MSYS2)
+pacman -S mingw-w64-x86_64-stlink
+
+# Flash the binary
+st-flash write firmware.bin 0x08000000
+```
+
+**Using OpenOCD:**
+```bash
+openocd -f interface/stlink.cfg -f target/stm32f1x.cfg \
+    -c "program firmware.elf verify reset exit"
+```
+
+### Example 4: Cross-Compiling with CMake
 
 **Project structure:**
 ```
