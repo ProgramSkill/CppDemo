@@ -6,6 +6,84 @@ The 8051 microcontroller is a complete computer system on a single chip, integra
 
 ### Main Components
 
+#### Architecture Diagram (Mermaid)
+
+The following diagram shows the 8051 microcontroller architecture with all major components and their interconnections:
+
+```mermaid
+graph TB
+    %% External Clock Circuit
+    XTAL[External Clock Circuit<br/>Crystal 12MHz<br/>C1, C2: 15-33pF]
+
+    %% CPU Core
+    CPU[CPU<br/>ALU + Clock]
+
+    %% Internal Bus System
+    BUS[Internal Bus System<br/>Address & Data Bus]
+
+    %% Memory Components
+    ROM[Internal ROM<br/>4KB<br/>0000H-0FFFH]
+    RAM[Internal RAM<br/>128 Bytes<br/>00H-7FH]
+
+    %% SFR Region with subcomponents
+    subgraph SFR["SFR (80H-FFH)"]
+        direction TB
+        TIMER[Timer 0/1<br/>TH0/TL0/TH1/TL1<br/>TCON/TMOD]
+        SERIAL[Serial Port<br/>SBUF/SCON]
+        INTERRUPT[Interrupt Control<br/>IE/IP]
+        PORTREG[Port Registers<br/>P0/P1/P2/P3]
+        OTHERFR[Other SFRs<br/>PSW/ACC/B/SP/DPTR]
+    end
+
+    %% Port Latches
+    LATCH[Port Latches<br/>Through Internal Bus]
+
+    %% Physical Ports
+    P0["Port 0 (P0)<br/>AD0-7<br/>Address/Data Multiplex"]
+    P1["Port 1 (P1)<br/>General I/O"]
+    P2["Port 2 (P2)<br/>A8-15<br/>High Address"]
+    P3["Port 3 (P3)<br/>P3.0: RXD<br/>P3.1: TXD<br/>P3.2: INT0<br/>P3.3: INT1<br/>P3.4: T0<br/>P3.5: T1<br/>P3.6: WR<br/>P3.7: RD"]
+
+    %% Connections
+    XTAL -->|XTAL1/XTAL2| CPU
+    CPU --> BUS
+    BUS --> ROM
+    BUS --> RAM
+    BUS --> SFR
+    PORTREG --> LATCH
+    LATCH --> P0
+    LATCH --> P1
+    LATCH --> P2
+    LATCH --> P3
+
+    %% Styling
+    classDef cpuClass fill:#ffcccc,stroke:#cc0000,stroke-width:3px,color:#000
+    classDef busClass fill:#ccccff,stroke:#0000cc,stroke-width:2px,color:#000
+    classDef memClass fill:#ccffcc,stroke:#00cc00,stroke-width:2px,color:#000
+    classDef sfrClass fill:#ffffcc,stroke:#cccc00,stroke-width:2px,color:#000
+    classDef portClass fill:#ffccff,stroke:#cc00cc,stroke-width:2px,color:#000
+    classDef extClass fill:#e6e6e6,stroke:#666666,stroke-width:2px,color:#000
+
+    class CPU cpuClass
+    class BUS busClass
+    class ROM,RAM memClass
+    class SFR,TIMER,SERIAL,INTERRUPT,PORTREG,OTHERFR sfrClass
+    class LATCH,P0,P1,P2,P3 portClass
+    class XTAL extClass
+```
+
+**Diagram Notes:**
+- **External Clock**: Crystal oscillator with load capacitors (C1, C2) connects to CPU via XTAL1/XTAL2 pins
+- **CPU**: Central processing unit with ALU and clock generation circuitry
+- **Internal Bus**: All components communicate through the address and data bus system
+- **SFR Region**: Special Function Registers mapped at 80H-FFH contain peripheral control registers
+- **Port Latches**: Port registers in SFR control physical I/O ports through latches
+- **Color Coding**: CPU (red), Bus (blue), Memory (green), SFR (yellow), Ports (purple), External (gray)
+
+#### Architecture Diagram (ASCII - Fallback)
+
+For environments that don't support Mermaid diagrams, here's an ASCII version:
+
 ```
                     External Clock Circuit
                     ┌──────────────────┐
