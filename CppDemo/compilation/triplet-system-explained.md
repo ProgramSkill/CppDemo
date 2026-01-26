@@ -509,6 +509,206 @@ x86_64-w64-mingw32
 
 ---
 
+### 如何选择合适的工具链？
+
+根据项目类型和需求，选择最适合的 Windows 开发工具链。
+
+#### 决策流程图
+
+```
+你的项目是什么类型？
+│
+├─ 跨平台项目（Linux + Windows）
+│  └─ 选择：MinGW-w64 ✅
+│     理由：统一工具链，CI/CD 友好
+│
+├─ 纯 Windows 项目
+│  │
+│  ├─ 需要 Windows 特定功能？
+│  │  ├─ 是 → 选择：MSVC
+│  │  │   示例：DirectX、COM、Windows SDK 特性
+│  │  │
+│  │  └─ 否 → 选择：MinGW-w64 ✅
+│  │      理由：轻量、免费、现代化
+│  │
+│  └─ 团队已有 Visual Studio？
+│     ├─ 是 → 选择：MSVC
+│     │   理由：集成度高，调试体验好
+│     │
+│     └─ 否 → 选择：MinGW-w64 ✅
+│         理由：无需安装 VS，快速上手
+│
+└─ 需要 Unix 工具和包管理？
+   └─ 选择：MSYS2（内含 MinGW-w64）
+      理由：完整开发环境 + pacman 包管理器
+```
+
+---
+
+#### 各场景详细说明
+
+**1. 跨平台项目（推荐 MinGW-w64）**
+
+**什么是跨平台项目？**
+- 需要在 Windows、Linux、macOS 等多个系统上运行
+- 同一份代码，编译到不同平台
+- 示例：VS Code、Chrome、Git、FFmpeg
+
+**为什么选 MinGW-w64？**
+- ✅ 在 Linux 上就能编译 Windows 版本（交叉编译）
+- ✅ 统一使用 GCC 工具链，代码兼容性好
+- ✅ CI/CD 友好，一台服务器构建所有平台
+- ✅ 不需要 Windows 机器和 Visual Studio
+
+**实际案例：**
+```bash
+# 在 Linux CI 服务器上
+# 编译 Linux 版本
+g++ -o app main.cpp
+
+# 交叉编译 Windows 版本
+x86_64-w64-mingw32-g++ -o app.exe main.cpp
+
+# 一次构建，两个平台！
+```
+
+---
+
+**2. 纯 Windows 项目 - 需要 Windows 特定功能（推荐 MSVC）**
+
+**什么是 Windows 特定功能？**
+- DirectX（游戏开发）
+- COM/ActiveX（组件对象模型）
+- Windows SDK 特有 API
+- MFC/ATL（微软基础类库）
+- UWP（通用 Windows 平台）
+
+**为什么选 MSVC？**
+- ✅ 官方支持，文档完善
+- ✅ 与 Windows SDK 深度集成
+- ✅ 最佳的 Windows 调试体验
+- ✅ Visual Studio 强大的 IDE
+
+**示例项目：**
+- Windows 桌面应用（Win32、WPF）
+- DirectX 游戏
+- Windows 系统工具
+- 企业内部 Windows 软件
+
+---
+
+**3. 纯 Windows 项目 - 不需要特定功能（推荐 MinGW-w64）**
+
+**适用场景：**
+- 标准 C++ 项目
+- 命令行工具
+- 不依赖 Windows 特定 API
+- 个人或小团队项目
+
+**为什么选 MinGW-w64？**
+- ✅ 轻量级，安装快速
+- ✅ 完全免费，无许可证限制
+- ✅ 支持最新 C++ 标准（C++20/23）
+- ✅ 与 Linux 开发环境一致
+
+**示例：**
+```cpp
+// 标准 C++ 代码，不依赖 Windows API
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> data = {3, 1, 4, 1, 5};
+    std::sort(data.begin(), data.end());
+
+    for (int n : data) {
+        std::cout << n << " ";
+    }
+    return 0;
+}
+```
+
+---
+
+**4. 团队已有 Visual Studio（推荐 MSVC）**
+
+**适用场景：**
+- 团队成员已熟悉 Visual Studio
+- 现有项目使用 MSVC
+- 公司已购买 Visual Studio 许可证
+
+**优势：**
+- ✅ 无需学习新工具
+- ✅ 项目配置已就绪
+- ✅ 团队协作顺畅
+- ✅ 充分利用现有投资
+
+---
+
+**5. 团队没有 Visual Studio（推荐 MinGW-w64）**
+
+**适用场景：**
+- 新项目，从零开始
+- 个人开发者
+- 开源项目
+- 预算有限
+
+**优势：**
+- ✅ 无需购买许可证
+- ✅ 安装简单，体积小
+- ✅ 快速上手
+- ✅ 跨平台开发能力
+
+---
+
+**6. 需要 Unix 工具和包管理（推荐 MSYS2）**
+
+**什么是 MSYS2？**
+- 在 Windows 上提供类 Unix 开发环境
+- 包含 MinGW-w64 工具链
+- 提供 pacman 包管理器（类似 Linux）
+- 大量预编译的库和工具
+
+**适用场景：**
+- 需要 bash、make、grep 等 Unix 工具
+- 需要方便地安装依赖库
+- 从 Linux 迁移到 Windows 开发
+- 需要完整的开发环境
+
+**示例：**
+```bash
+# 使用 pacman 安装库
+pacman -S mingw-w64-x86_64-boost
+pacman -S mingw-w64-x86_64-opencv
+pacman -S mingw-w64-x86_64-qt5
+
+# 使用 Unix 工具
+make
+./configure
+grep -r "pattern" .
+```
+
+---
+
+#### 快速推荐总结
+
+| 项目类型 | 推荐工具 | 核心理由 |
+|---------|---------|---------|
+| 跨平台项目 | **MinGW-w64** ✅ | 统一工具链，CI/CD 友好 |
+| 标准 C++ 项目 | **MinGW-w64** ✅ | 轻量、免费、现代化 |
+| Windows 特定功能 | **MSVC** | 官方支持，深度集成 |
+| 已有 Visual Studio | **MSVC** | 充分利用现有环境 |
+| 个人/开源项目 | **MinGW-w64** ✅ | 无许可证限制 |
+| 需要 Unix 环境 | **MSYS2** | 完整开发环境 + 包管理 |
+
+**一句话建议：**
+- 🎯 **90% 的项目选 MinGW-w64 就对了！**
+- 🎯 **只有明确需要 Windows 特定功能时才选 MSVC**
+- 🎯 **需要 Unix 工具时选 MSYS2（它包含 MinGW-w64）**
+
+---
+
 ### 实际使用示例
 
 **安装 MinGW-w64：**
