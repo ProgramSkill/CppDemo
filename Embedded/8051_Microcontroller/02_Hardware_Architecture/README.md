@@ -232,6 +232,110 @@ The 8051 can access external memory for both program and data.
 - **RD**: Read strobe for external data memory
 - **WR**: Write strobe for external data memory
 
+### External Memory Access Timing
+
+#### External Program Memory Read Cycle
+
+```mermaid
+gantt
+    title External Program Memory Read Timing (PSEN)
+    dateFormat X
+    axisFormat %L
+
+    section Clock
+    CLK High    :0, 6
+    CLK Low     :6, 12
+
+    section ALE
+    ALE High    :0, 3
+    ALE Low     :3, 12
+
+    section Address
+    Address Valid :0, 12
+
+    section P0
+    Address A0-A7 :0, 3
+    Data D0-D7    :7, 12
+
+    section PSEN
+    PSEN High   :0, 4
+    PSEN Low    :4, 10
+    PSEN High   :10, 12
+```
+
+**Timing Sequence:**
+1. **T1 (0-3)**: ALE goes high, P0 outputs low address (A0-A7), P2 outputs high address (A8-A15)
+2. **T2 (3-4)**: ALE goes low, address latched by external latch
+3. **T3 (4-10)**: PSEN goes low, external memory outputs data on P0
+4. **T4 (7-12)**: CPU reads data from P0, PSEN returns high
+
+#### External Data Memory Read Cycle
+
+```mermaid
+gantt
+    title External Data Memory Read Timing (RD)
+    dateFormat X
+    axisFormat %L
+
+    section Clock
+    CLK Cycle   :0, 12
+
+    section ALE
+    ALE Pulse   :0, 3
+
+    section P0
+    Address     :0, 3
+    Data In     :7, 12
+
+    section RD
+    RD High     :0, 4
+    RD Low      :4, 10
+    RD High     :10, 12
+```
+
+**Read Timing (MOVX A, @DPTR):**
+- ALE latches address from P0
+- RD signal goes low
+- External memory drives data onto P0
+- CPU reads data before RD goes high
+
+#### External Data Memory Write Cycle
+
+```mermaid
+gantt
+    title External Data Memory Write Timing (WR)
+    dateFormat X
+    axisFormat %L
+
+    section Clock
+    CLK Cycle   :0, 12
+
+    section ALE
+    ALE Pulse   :0, 3
+
+    section P0
+    Address     :0, 3
+    Data Out    :4, 12
+
+    section WR
+    WR High     :0, 5
+    WR Low      :5, 11
+    WR High     :11, 12
+```
+
+**Write Timing (MOVX @DPTR, A):**
+- ALE latches address from P0
+- CPU outputs data on P0
+- WR signal goes low to strobe data into memory
+- WR returns high after data is stable
+
+**Key Timing Parameters:**
+- **Machine Cycle**: 12 oscillator periods
+- **ALE Pulse Width**: ~3 oscillator periods
+- **PSEN/RD/WR Active Time**: ~6 oscillator periods
+- **Data Setup Time**: Data must be valid before control signal goes inactive
+- **Data Hold Time**: Data must remain valid after control signal goes inactive
+
 ## CPU Architecture
 
 ### CPU Core Components
@@ -767,6 +871,79 @@ The 8051 has a full-duplex serial port for asynchronous communication. It can op
 - Same as Mode 2 but with variable baud rate
 - Baud rate set by Timer 1
 
+### Serial Communication Timing
+
+**Mode 1 (8-bit UART) Data Frame Timing:**
+
+```mermaid
+gantt
+    title Serial Port Mode 1 Transmission Timing
+    dateFormat X
+    axisFormat %L
+
+    section TXD Line
+    Start Bit (0)    :0, 1
+    Data Bit 0       :1, 2
+    Data Bit 1       :2, 3
+    Data Bit 2       :3, 4
+    Data Bit 3       :4, 5
+    Data Bit 4       :5, 6
+    Data Bit 5       :6, 7
+    Data Bit 6       :7, 8
+    Data Bit 7       :8, 9
+    Stop Bit (1)     :9, 10
+
+    section TI Flag
+    TI = 0           :0, 9
+    TI = 1 (Set)     :9, 10
+```
+
+**Timing Parameters:**
+- **Start Bit**: Logic 0, marks beginning of frame
+- **Data Bits**: 8 bits (D0-D7), LSB first
+- **Stop Bit**: Logic 1, marks end of frame
+- **TI Flag**: Set by hardware at the beginning of stop bit transmission
+- **Bit Time**: 1/Baud Rate (e.g., 104μs @ 9600 baud)
+- **Frame Time**: 10 bit times for complete frame
+
+**Mode 1 Reception Timing:**
+
+```mermaid
+gantt
+    title Serial Port Mode 1 Reception Timing
+    dateFormat X
+    axisFormat %L
+
+    section RXD Line
+    Idle (1)         :0, 1
+    Start Bit (0)    :1, 2
+    Data Bit 0       :2, 3
+    Data Bit 1       :3, 4
+    Data Bit 2       :4, 5
+    Data Bit 3       :5, 6
+    Data Bit 4       :6, 7
+    Data Bit 5       :7, 8
+    Data Bit 6       :8, 9
+    Data Bit 7       :9, 10
+    Stop Bit (1)     :10, 11
+
+    section RI Flag
+    RI = 0           :0, 10
+    RI = 1 (Set)     :10, 11
+
+    section Sampling
+    Sample Start     :1, 2
+    Sample D0-D7     :2, 10
+    Sample Stop      :10, 11
+```
+
+**Reception Notes:**
+- **Start Bit Detection**: RXD line transition from 1 to 0
+- **Sampling**: Each bit sampled at mid-bit time
+- **RI Flag**: Set by hardware when stop bit received
+- **Data Available**: Read SBUF after RI flag set
+- **Error Detection**: Stop bit must be 1, otherwise framing error
+
 ### Serial Control Registers
 
 **SCON (Serial Control) - Address: 98H (Bit-addressable)**
@@ -1128,6 +1305,57 @@ Instruction Time = 1 or 2 Machine Cycles (most instructions)
 - @ 12 MHz: Machine Cycle = 1 µs, Instruction = 1-2 µs
 - @ 11.0592 MHz: Machine Cycle = 1.085 µs
 - @ 24 MHz: Machine Cycle = 0.5 µs
+
+### Machine Cycle Timing Diagram
+
+**One Machine Cycle = 12 Oscillator Periods = 6 States (S1-S6):**
+
+```mermaid
+gantt
+    title Machine Cycle Timing (12 Oscillator Periods)
+    dateFormat X
+    axisFormat %L
+
+    section Oscillator
+    P1  :0, 1
+    P2  :1, 2
+    P3  :2, 3
+    P4  :3, 4
+    P5  :4, 5
+    P6  :5, 6
+    P7  :6, 7
+    P8  :7, 8
+    P9  :8, 9
+    P10 :9, 10
+    P11 :10, 11
+    P12 :11, 12
+
+    section States
+    S1 (P1-P2)   :0, 2
+    S2 (P3-P4)   :2, 4
+    S3 (P5-P6)   :4, 6
+    S4 (P7-P8)   :6, 8
+    S5 (P9-P10)  :8, 10
+    S6 (P11-P12) :10, 12
+
+    section ALE
+    ALE High     :0, 4
+    ALE Low      :4, 12
+```
+
+**State Functions:**
+- **S1 (P1-P2)**: Sample interrupt inputs, ALE goes high
+- **S2 (P3-P4)**: Address setup on P0/P2, ALE goes low at end
+- **S3 (P5-P6)**: Address latched by external latch on ALE falling edge
+- **S4 (P7-P8)**: Read/Write control signals activated (RD/WR/PSEN)
+- **S5 (P9-P10)**: Data transfer occurs, read data sampled
+- **S6 (P11-P12)**: Control signals deactivated, prepare for next cycle
+
+**Timing Notes:**
+- Each state = 2 oscillator periods
+- ALE pulse width = 2 states (4 oscillator periods)
+- Most instructions execute in 1 or 2 machine cycles
+- MUL and DIV instructions take 4 machine cycles
 
 ### ALE (Address Latch Enable)
 
