@@ -7,7 +7,8 @@
       "Bash(grep:*)",
       "Bash(wc:*)",
       "Bash(tail:*)",
-      "Bash(move:*)"
+      "Bash(move:*)",
+      "Bash(git restore:*)"
     ]
   }
 }
