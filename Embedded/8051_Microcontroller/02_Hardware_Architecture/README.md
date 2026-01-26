@@ -80,91 +80,6 @@ graph TB
 - **Port Latches**: Port registers in SFR control physical I/O ports through latches
 - **Color Coding**: CPU (red), Bus (blue), Memory (green), SFR (yellow), Ports (purple), External (gray)
 
-#### Architecture Diagram (ASCII - Fallback)
-
-For environments that don't support Mermaid diagrams, here's an ASCII version:
-
-```
-                    External Clock Circuit
-                    ┌──────────────────┐
-                    │   C1             │
-              XTAL1─┤├──┬─[Crystal]─┬──┤├─XTAL2
-                    │   │  12 MHz   │  │ C2
-                    │  GND          GND │
-                    └───┼──────────────┼┘
-                        │              │
-┌───────────────────────┼──────────────┼───────────────────────────────┐
-│                       │              │                                │
-│                  8051 MICROCONTROLLER                                 │
-│                       │              │                                │
-│                      ┌┴──────────────┴┐                              │
-│                      │      CPU       │                              │
-│                      │  (ALU + Clock) │                              │
-│                      └────────┬───────┘                              │
-│                               │                                       │
-│                  ┌────────────┼────────────┐                         │
-│                  │  Internal Bus System    │                         │
-│                  │  (Address & Data Bus)   │                         │
-│                  └────────────┬────────────┘                         │
-│                               │                                       │
-│           ┌───────────────────┼──────────────────────┐               │
-│           │                   │                      │               │
-│      ┌────▼─────┐      ┌──────▼──────┐    ┌─────────▼──────────┐   │
-│      │ Internal │      │  Internal   │    │   SFR (80H-FFH)    │   │
-│      │   ROM    │      │    RAM      │    │ ┌────────────────┐ │   │
-│      │  (4KB)   │      │  (00H-7FH)  │    │ │  Timer 0/1     │ │   │
-│      └──────────┘      └─────────────┘    │ │  (TH0/TL0/     │ │   │
-│                                            │ │   TH1/TL1)     │ │   │
-│                                            │ ├────────────────┤ │   │
-│                                            │ │  Serial Port   │ │   │
-│                                            │ │  (SBUF/SCON)   │ │   │
-│                                            │ ├────────────────┤ │   │
-│                                            │ │  Interrupt     │ │   │
-│                                            │ │  Control       │ │   │
-│                                            │ │  (IE/IP)       │ │   │
-│                                            │ ├────────────────┤ │   │
-│                                            │ │  Port Regs     │ │   │
-│                                            │ │  (P0-P3)       │ │   │
-│                                            │ └────────┬───────┘ │   │
-│                                            └──────────┼─────────┘   │
-│                                                       │              │
-│                                              Port Latches            │
-│                                            (Through Internal Bus)    │
-│                                                       │              │
-│                 ┌─────────────┬───────────────────────┼──────────┐  │
-│                 │             │             │         │          │  │
-│  ┌──────────────▼──┐  ┌───────▼──────┐  ┌──▼────────┐  ┌───────▼─┐│
-│  │    Port 0       │  │   Port 1     │  │  Port 2   │  │ Port 3  ││
-│  │    (P0)         │  │   (P1)       │  │  (P2)     │  │ (P3)    ││
-│  │                 │  │              │  │           │  │Alt Funcs││
-│  │    AD0-7        │  │    I/O       │  │  A8-15    │  │RXD/TXD/ ││
-│  │                 │  │              │  │           │  │INT0/INT1││
-│  │                 │  │              │  │           │  │T0/T1/   ││
-│  │                 │  │              │  │           │  │WR/RD    ││
-│  └────────┬────────┘  └──────┬───────┘  └─────┬─────┘  └────┬────┘│
-│      │              │                 │               │         │  │
-└──────┼──────────────┼─────────────────┼───────────────┼─────────┼──┘
-       │              │                 │               │         │
-       ▼              ▼                 ▼               ▼         │
-    P0.0-7         P1.0-7            P2.0-7       P3.0(RXD)       │
-    (AD0-7)        (I/O)             (A8-15)      P3.1(TXD)       │
-                                                  P3.2(INT0)      │
-                                                  P3.3(INT1)      │
-                                                  P3.4(T0)        │
-                                                  P3.5(T1)        │
-                                                  P3.6(WR)        │
-                                                  P3.7(RD)        │
-                                                                  │
-                                     ─────────────────────────────┘
-```
-
-**Architecture Notes:**
-- **CPU as Central Hub**: All data transfers go through the CPU via the internal bus system
-- **Memory Spaces**: Internal RAM (00H-7FH) and SFR (80H-FFH) are separate address spaces
-- **Timer Registers**: Timer 0/1 registers (TH0/TL0/TH1/TL1) are part of the SFR area, not the 128-byte RAM
-- **Bus-Based Communication**: No direct connections between peripherals; all communication is CPU-mediated through the address and data buses
-- **External Clock Circuit**: Crystal oscillator with load capacitors C1 and C2 (typically 15-33pF, depending on crystal specifications). Common values: 15pF, 18pF, 20pF, 22pF, or 30pF. Always refer to the crystal datasheet for the correct load capacitance (CL)
-
 ### Core Features
 
 - **8-bit CPU**: Harvard architecture with separate program and data memory
@@ -460,6 +375,49 @@ SETB P1.0            ; Set bit 0 of Port 1
 CLR C                ; Clear carry flag
 MOV C, 20H.3         ; Move bit 3 of address 20H to carry
 ```
+
+## Special Function Registers (SFR)
+
+Complete list of SFRs with addresses:
+
+| Address | Symbol | Category | Name | Bit-Addressable |
+|---------|--------|----------|------|-----------------|
+| 80H | P0 | I/O Port | Port 0 | Yes |
+| 81H | SP | Memory Pointer | Stack Pointer | No |
+| 82H | DPL | Memory Pointer | Data Pointer Low | No |
+| 83H | DPH | Memory Pointer | Data Pointer High | No |
+| 87H | PCON | Power Control | Power Control | No |
+| 88H | TCON | Timer/Counter | Timer Control | Yes |
+| 89H | TMOD | Timer/Counter | Timer Mode | No |
+| 8AH | TL0 | Timer/Counter | Timer 0 Low | No |
+| 8BH | TL1 | Timer/Counter | Timer 1 Low | No |
+| 8CH | TH0 | Timer/Counter | Timer 0 High | No |
+| 8DH | TH1 | Timer/Counter | Timer 1 High | No |
+| 90H | P1 | I/O Port | Port 1 | Yes |
+| 98H | SCON | Serial Comm | Serial Control | Yes |
+| 99H | SBUF | Serial Comm | Serial Buffer | No |
+| A0H | P2 | I/O Port | Port 2 | Yes |
+| A8H | IE | Interrupt | Interrupt Enable | Yes |
+| B0H | P3 | I/O Port | Port 3 | Yes |
+| B8H | IP | Interrupt | Interrupt Priority | Yes |
+| D0H | PSW | CPU Status | Program Status Word | Yes |
+| E0H | ACC | CPU Register | Accumulator | Yes |
+| F0H | B | CPU Register | B Register | Yes |
+
+### Bit-Addressable SFRs
+
+SFRs at addresses ending in 0H or 8H are bit-addressable:
+- P0 (80H): Bits 80H-87H
+- TCON (88H): Bits 88H-8FH
+- P1 (90H): Bits 90H-97H
+- SCON (98H): Bits 98H-9FH
+- P2 (A0H): Bits A0H-A7H
+- IE (A8H): Bits A8H-AFH
+- P3 (B0H): Bits B0H-B7H
+- IP (B8H): Bits B8H-BFH
+- PSW (D0H): Bits D0H-D7H
+- ACC (E0H): Bits E0H-E7H
+- B (F0H): Bits F0H-F7H
 
 ## I/O Ports
 
@@ -1241,49 +1199,6 @@ Instruction Time = 1 or 2 Machine Cycles (most instructions)
 **ALE (Address Latch Enable):**
 - Pulses at 1/6 oscillator frequency
 - Latches low-order address from P0
-
-## Special Function Registers (SFR)
-
-Complete list of SFRs with addresses:
-
-| Address | Symbol | Category | Name | Bit-Addressable |
-|---------|--------|----------|------|-----------------|
-| 80H | P0 | I/O Port | Port 0 | Yes |
-| 81H | SP | Memory Pointer | Stack Pointer | No |
-| 82H | DPL | Memory Pointer | Data Pointer Low | No |
-| 83H | DPH | Memory Pointer | Data Pointer High | No |
-| 87H | PCON | Power Control | Power Control | No |
-| 88H | TCON | Timer/Counter | Timer Control | Yes |
-| 89H | TMOD | Timer/Counter | Timer Mode | No |
-| 8AH | TL0 | Timer/Counter | Timer 0 Low | No |
-| 8BH | TL1 | Timer/Counter | Timer 1 Low | No |
-| 8CH | TH0 | Timer/Counter | Timer 0 High | No |
-| 8DH | TH1 | Timer/Counter | Timer 1 High | No |
-| 90H | P1 | I/O Port | Port 1 | Yes |
-| 98H | SCON | Serial Comm | Serial Control | Yes |
-| 99H | SBUF | Serial Comm | Serial Buffer | No |
-| A0H | P2 | I/O Port | Port 2 | Yes |
-| A8H | IE | Interrupt | Interrupt Enable | Yes |
-| B0H | P3 | I/O Port | Port 3 | Yes |
-| B8H | IP | Interrupt | Interrupt Priority | Yes |
-| D0H | PSW | CPU Status | Program Status Word | Yes |
-| E0H | ACC | CPU Register | Accumulator | Yes |
-| F0H | B | CPU Register | B Register | Yes |
-
-### Bit-Addressable SFRs
-
-SFRs at addresses ending in 0H or 8H are bit-addressable:
-- P0 (80H): Bits 80H-87H
-- TCON (88H): Bits 88H-8FH
-- P1 (90H): Bits 90H-97H
-- SCON (98H): Bits 98H-9FH
-- P2 (A0H): Bits A0H-A7H
-- IE (A8H): Bits A8H-AFH
-- P3 (B0H): Bits B0H-B7H
-- IP (B8H): Bits B8H-BFH
-- PSW (D0H): Bits D0H-D7H
-- ACC (E0H): Bits E0H-E7H
-- B (F0H): Bits F0H-F7H
 
 ## Summary
 
