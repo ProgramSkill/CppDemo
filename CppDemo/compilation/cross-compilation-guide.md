@@ -180,26 +180,6 @@ Use Linux toolchains directly on Windows.
    sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
    ```
 
-**Option 3: Visual Studio (for ARM Windows)**
-
-For cross-compiling to ARM Windows devices (Windows on ARM).
-
-1. **Install Visual Studio 2022:**
-   - Download from [https://visualstudio.microsoft.com/](https://visualstudio.microsoft.com/)
-   - Select "Desktop development with C++"
-
-2. **Install ARM build tools:**
-   - In Visual Studio Installer, go to "Individual components"
-   - Check:
-     - ✅ MSVC v143 - VS 2022 C++ ARM build tools
-     - ✅ MSVC v143 - VS 2022 C++ ARM64 build tools
-
-3. **Use from Developer Command Prompt:**
-   ```cmd
-   REM Open "Developer Command Prompt for VS 2022"
-   REM ARM64 compilation is configured through project settings
-   ```
-
 #### 2. **LLVM/Clang**
 Modern compiler with excellent cross-compilation support.
 
