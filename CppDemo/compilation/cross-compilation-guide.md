@@ -162,7 +162,10 @@ MSYS2 provides a complete Unix-like environment with package management on Windo
    **Note:** For ARM Linux cross-compilation, use WSL (Option 2) instead.
 
 4. **Add to PATH:**
+
    Add `C:\msys64\mingw64\bin` to your system PATH environment variable.
+
+   **Note:** If you installed MSYS2 to a custom location, replace `C:\msys64` with your actual installation path. For example, if installed to `D:\msys64`, use `D:\msys64\mingw64\bin`.
 
 **Option 2: WSL (Windows Subsystem for Linux)**
 
