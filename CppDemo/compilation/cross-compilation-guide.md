@@ -129,6 +129,77 @@ sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 sudo apt-get install gcc-mingw-w64 g++-mingw-w64
 ```
 
+**Installation on Windows:**
+
+**Option 1: MSYS2 (Recommended)**
+
+MSYS2 provides a complete Unix-like environment with package management on Windows.
+
+1. **Download and install MSYS2:**
+   - Visit [https://www.msys2.org/](https://www.msys2.org/)
+   - Download the installer and run it
+   - Follow the installation wizard
+
+2. **Update package database:**
+   ```bash
+   pacman -Syu
+   ```
+
+3. **Install cross-compilation toolchains:**
+   ```bash
+   # ARM 32-bit Linux
+   pacman -S mingw-w64-x86_64-arm-none-eabi-gcc
+
+   # ARM 64-bit (for embedded/bare-metal)
+   pacman -S mingw-w64-x86_64-arm-none-eabi-gcc
+
+   # MinGW toolchains (for Windows targets)
+   # 64-bit Windows target
+   pacman -S mingw-w64-x86_64-gcc
+
+   # 32-bit Windows target
+   pacman -S mingw-w64-i686-gcc
+   ```
+
+4. **Add to PATH:**
+   Add `C:\msys64\mingw64\bin` to your system PATH environment variable.
+
+**Option 2: WSL (Windows Subsystem for Linux)**
+
+Use Linux toolchains directly on Windows.
+
+1. **Install WSL:**
+   ```powershell
+   wsl --install
+   ```
+
+2. **Inside WSL, follow Ubuntu/Debian instructions:**
+   ```bash
+   sudo apt-get update
+   sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+   sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+   ```
+
+**Option 3: Visual Studio (for ARM Windows)**
+
+For cross-compiling to ARM Windows devices (Windows on ARM).
+
+1. **Install Visual Studio 2022:**
+   - Download from [https://visualstudio.microsoft.com/](https://visualstudio.microsoft.com/)
+   - Select "Desktop development with C++"
+
+2. **Install ARM build tools:**
+   - In Visual Studio Installer, go to "Individual components"
+   - Check:
+     - ✅ MSVC v143 - VS 2022 C++ ARM build tools
+     - ✅ MSVC v143 - VS 2022 C++ ARM64 build tools
+
+3. **Use from Developer Command Prompt:**
+   ```cmd
+   REM Open "Developer Command Prompt for VS 2022"
+   REM ARM64 compilation is configured through project settings
+   ```
+
 #### 2. **LLVM/Clang**
 Modern compiler with excellent cross-compilation support.
 
