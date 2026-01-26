@@ -147,11 +147,9 @@ MSYS2 provides a complete Unix-like environment with package management on Windo
 
 3. **Install cross-compilation toolchains:**
    ```bash
-   # ARM 32-bit Linux
+   # ARM bare-metal (for STM32, embedded systems)
    pacman -S mingw-w64-x86_64-arm-none-eabi-gcc
-
-   # ARM 64-bit (for embedded/bare-metal)
-   pacman -S mingw-w64-x86_64-arm-none-eabi-gcc
+   pacman -S mingw-w64-x86_64-arm-none-eabi-newlib
 
    # MinGW toolchains (for Windows targets)
    # 64-bit Windows target
@@ -160,6 +158,8 @@ MSYS2 provides a complete Unix-like environment with package management on Windo
    # 32-bit Windows target
    pacman -S mingw-w64-i686-gcc
    ```
+
+   **Note:** For ARM Linux cross-compilation, use WSL (Option 2) instead.
 
 4. **Add to PATH:**
    Add `C:\msys64\mingw64\bin` to your system PATH environment variable.
