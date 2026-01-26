@@ -407,6 +407,158 @@ lipo -create app_x86_64 app_arm64 -output app_universal
 
 ---
 
+## MinGW 和 mingw32 命名详解 (MinGW and mingw32 Naming Explained)
+
+### MinGW 是什么？
+
+**MinGW** = **Min**imalist **G**NU for **W**indows（用于 Windows 的极简 GNU 工具集）
+
+**缩写解析：**
+- **Min** - Minimalist（极简主义）
+  - 轻量级工具集
+  - 只提供必要的编译工具
+  - 不像 Cygwin 那样提供完整的 POSIX 环境
+
+- **G** - GNU
+  - 使用 GNU 工具链（GCC 编译器）
+  - 包括 GNU binutils（汇编器、链接器等）
+  - 遵循 GNU 项目的开源理念
+
+- **W** - Windows
+  - 目标平台是 Windows
+  - 生成原生 Windows 可执行文件
+  - 直接调用 Windows API
+
+---
+
+### 为什么叫 "mingw32"？（最容易混淆的地方）
+
+这是最让人困惑的命名问题：**为什么 64位 Windows 的三元组中有 "mingw32"？**
+
+**历史原因：**
+
+1. **最初的 MinGW 项目**（约 2000年）
+   - 只支持 32位 Windows
+   - 环境名称就叫 "mingw32"
+   - 当时 64位 Windows 还不普及
+
+2. **MinGW-w64 项目诞生**（2007年）
+   - 原始 MinGW 项目发展缓慢，不支持 64位
+   - 新项目 "MinGW-w64" 创建
+   - **"w64" 表示支持 Windows 64位**
+   - 但为了兼容性，环境名称保留了 "mingw32"
+
+**关键理解：**
+- `mingw32` 只是**环境名称**，不代表 32位
+- 真正的位数看架构部分（第一部分）
+- `w64` 才表示这是 MinGW-w64 项目
+
+---
+
+### 三元组命名可视化解析
+
+**32位 Windows 三元组：**
+```
+i686-w64-mingw32
+││   │   └─────── 环境名称（历史遗留，不表示位数！）
+││   └─────────── MinGW-w64 项目（支持 64位）
+│└─────────────── 供应商标识
+└──────────────── 32位 x86 架构 ← 这才是真正的位数！
+```
+
+**64位 Windows 三元组：**
+```
+x86_64-w64-mingw32
+│      │   └─────── 环境名称（历史遗留，不表示位数！）
+│      └─────────── MinGW-w64 项目（支持 64位）
+└────────────────── 64位 x86 架构 ← 这才是真正的位数！
+```
+
+**记忆要点：**
+- ✅ 看第一部分判断位数：`i686` = 32位，`x86_64` = 64位
+- ✅ `w64` 表示 MinGW-w64 项目
+- ❌ `mingw32` 不代表 32位，只是环境名称
+- ❌ 不要被 "32" 误导！
+
+---
+
+### MinGW vs 其他 Windows 开发方案
+
+| 方案 | 全称 | 支持位数 | 依赖 | 性能 | 用途 |
+|------|------|---------|------|------|------|
+| **MinGW** | Minimalist GNU for Windows | 仅 32位 | 无 | 原生 | 已过时 |
+| **MinGW-w64** | MinGW Windows 64-bit | 32位 + 64位 | 无 | 原生 | **推荐** |
+| **Cygwin** | Cygnus Windows | 32位 + 64位 | cygwin1.dll | 较慢 | POSIX 兼容 |
+| **MSVC** | Microsoft Visual C++ | 32位 + 64位 | MSVCRT | 原生 | Windows 官方 |
+| **MSYS2** | Minimal SYStem 2 | 32位 + 64位 | 无 | 原生 | 开发环境 |
+
+**MinGW-w64 的优势：**
+- ✅ 完全开源免费
+- ✅ 跨平台开发（Linux 上编译 Windows 程序）
+- ✅ 无运行时依赖（可静态链接）
+- ✅ 支持最新 GCC 特性
+- ✅ CI/CD 友好
+
+**MinGW-w64 vs Cygwin：**
+- MinGW-w64：生成原生 Windows 程序，直接调用 Windows API
+- Cygwin：提供 POSIX 兼容层，需要 cygwin1.dll
+
+**MinGW-w64 vs MSVC：**
+- MinGW-w64：开源，跨平台，使用 GCC
+- MSVC：Windows 官方，更好的 Windows 集成
+
+---
+
+### 实际使用示例
+
+**安装 MinGW-w64：**
+
+**Ubuntu/Debian:**
+```bash
+# 安装 32位和 64位工具链
+sudo apt install mingw-w64
+
+# 这会安装：
+# - i686-w64-mingw32-gcc (32位)
+# - x86_64-w64-mingw32-gcc (64位)
+```
+
+**Windows (MSYS2):**
+```bash
+# 安装 64位工具链
+pacman -S mingw-w64-x86_64-gcc
+
+# 安装 32位工具链
+pacman -S mingw-w64-i686-gcc
+```
+
+**编译示例：**
+
+```bash
+# 编译 64位 Windows 程序
+x86_64-w64-mingw32-g++ -o app.exe -static -std=c++17 main.cpp
+
+# 编译 32位 Windows 程序
+i686-w64-mingw32-g++ -o app.exe -static main.cpp
+
+# -static: 静态链接，不依赖外部 DLL
+```
+
+---
+
+### 常见问题解答
+
+**Q: 为什么不改名去掉 "32"？**
+- A: 历史兼容性。大量现有脚本和构建系统依赖这个命名，改名会破坏兼容性。
+
+**Q: 如何区分 32位和 64位？**
+- A: 看三元组的第一部分：`i686` = 32位，`x86_64` = 64位
+
+**Q: MinGW-w64 和 MSVC 哪个好？**
+- A: 取决于需求。跨平台开发选 MinGW-w64，纯 Windows 开发可选 MSVC。
+
+---
+
 ## 组件说明 (Component Explanation)
 
 ### 架构 (Architecture) - 第一部分
