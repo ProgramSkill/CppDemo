@@ -7,40 +7,49 @@ The 8051 microcontroller is a complete computer system on a single chip, integra
 ### Main Components
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    8051 MICROCONTROLLER                      │
+                    External Clock Circuit
+                    ┌──────────────────┐
+                    │   C1             │
+              XTAL1─┤├──┬─[Crystal]─┬──┤├─XTAL2
+                    │   │  12 MHz   │  │ C2
+                    │  GND          GND │
+                    └───┼──────────────┼┘
+                        │              │
+┌───────────────────────┼──────────────┼───────────────────────┐
+│                       │              │                        │
+│                  8051 MICROCONTROLLER                         │
+│                       │              │                        │
+│                      ┌┴──────────────┴┐                      │
+│                      │      CPU       │                      │
+│                      │  (ALU + Clock) │                      │
+│                      └────────┬───────┘                      │
+│                               │                               │
+│                  ┌────────────┼────────────┐                 │
+│                  │  Internal Bus System    │                 │
+│                  │  (Address & Data Bus)   │                 │
+│                  └────────────┬────────────┘                 │
+│                               │                               │
+│           ┌───────────────────┼───────────────────┐          │
+│           │                   │                   │          │
+│      ┌────▼─────┐      ┌──────▼──────┐    ┌──────▼──────┐  │
+│      │ Internal │      │  Internal   │    │    SFR      │  │
+│      │   ROM    │      │    RAM      │    │  (80H-FFH)  │  │
+│      │  (4KB)   │      │  (00H-7FH)  │    │             │  │
+│      └──────────┘      └─────────────┘    │ • Timers    │  │
+│                                            │ • Serial    │  │
+│                                            │ • Ports     │  │
+│                                            │ • Control   │  │
+│                                            └─────────────┘  │
 │                                                              │
-│                      ┌──────────┐                           │
-│                      │   CPU    │                           │
-│                      │  (ALU)   │                           │
-│                      └────┬─────┘                           │
-│                           │                                  │
-│              ┌────────────┼────────────┐                    │
-│              │  Internal Bus System    │                    │
-│              │  (Address & Data Bus)   │                    │
-│              └────────────┬────────────┘                    │
-│                           │                                  │
-│       ┌───────────────────┼───────────────────┐            │
-│       │                   │                   │            │
-│  ┌────▼─────┐      ┌──────▼──────┐    ┌──────▼──────┐    │
-│  │ Internal │      │  Internal   │    │    SFR      │    │
-│  │   ROM    │      │    RAM      │    │  (80H-FFH)  │    │
-│  │  (4KB)   │      │  (00H-7FH)  │    │             │    │
-│  └──────────┘      └─────────────┘    │ • Timers    │    │
-│                                        │ • Serial    │    │
-│                                        │ • Ports     │    │
-│                                        │ • Control   │    │
-│                                        └─────────────┘    │
-│                                                              │
-│  ┌────────┐  ┌────────┐  ┌────────┐  ┌────────┐          │
-│  │ Port 0 │  │ Port 1 │  │ Port 2 │  │ Port 3 │          │
-│  │ (P0)   │  │ (P1)   │  │ (P2)   │  │ (P3)   │          │
-│  └───┬────┘  └───┬────┘  └───┬────┘  └───┬────┘          │
-│      │           │           │           │                  │
-└──────┼───────────┼───────────┼───────────┼─────────────────┘
-       │           │           │           │
-       ▼           ▼           ▼           ▼
-    P0.0-P0.7  P1.0-P1.7  P2.0-P2.7  P3.0-P3.7
+│    ┌────────┐  ┌────────┐  ┌────────┐  ┌────────┐         │
+│    │ Port 0 │  │ Port 1 │  │ Port 2 │  │ Port 3 │         │
+│    │ (P0)   │  │ (P1)   │  │ (P2)   │  │ (P3)   │         │
+│    └───┬────┘  └───┬────┘  └───┬────┘  └───┬────┘         │
+│        │           │           │           │                │
+└────────┼───────────┼───────────┼───────────┼────────────────┘
+         │           │           │           │
+         ▼           ▼           ▼           ▼
+      P0.0-P0.7  P1.0-P1.7  P2.0-P2.7  P3.0-P3.7
 ```
 
 **Architecture Notes:**
@@ -48,6 +57,7 @@ The 8051 microcontroller is a complete computer system on a single chip, integra
 - **Memory Spaces**: Internal RAM (00H-7FH) and SFR (80H-FFH) are separate address spaces
 - **Timer Registers**: Timer 0/1 registers (TH0/TL0/TH1/TL1) are part of the SFR area, not the 128-byte RAM
 - **Bus-Based Communication**: No direct connections between peripherals; all communication is CPU-mediated through the address and data buses
+- **External Clock Circuit**: Crystal oscillator with load capacitors C1 and C2 (typically 15-33pF, depending on crystal specifications). Common values: 15pF, 18pF, 20pF, 22pF, or 30pF. Always refer to the crystal datasheet for the correct load capacitance (CL)
 
 ### Core Features
 
@@ -1019,7 +1029,9 @@ The 8051 requires an external clock source to operate.
 **Clock Options:**
 1. **Crystal Oscillator** (most common)
    - Connect crystal between XTAL1 and XTAL2
-   - Add two 30pF capacitors to ground
+   - Add two load capacitors (C1, C2) to ground
+   - Capacitor values: typically 15-33pF (15pF, 18pF, 20pF, 22pF, or 30pF)
+   - Value depends on crystal's load capacitance specification (CL)
    - Typical frequencies: 11.0592 MHz, 12 MHz, 16 MHz
 
 2. **External Clock Source**
@@ -1028,10 +1040,13 @@ The 8051 requires an external clock source to operate.
 
 **Crystal Circuit:**
 ```
-        30pF
+         C1
 XTAL1 ──┤├──┬──[Crystal]──┬──┤├── XTAL2
-            │              │  30pF
+            │              │   C2
            GND            GND
+
+Note: C1 = C2 = 15-33pF (typically 20-22pF for 12MHz crystal)
+      Actual value depends on crystal's load capacitance (CL)
 ```
 
 ### Machine Cycle
