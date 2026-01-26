@@ -10,19 +10,27 @@ The 8051 microcontroller is a complete computer system on a single chip, integra
 ┌─────────────────────────────────────────────────────────────┐
 │                    8051 MICROCONTROLLER                      │
 │                                                              │
-│  ┌──────────┐    ┌──────────────┐    ┌─────────────┐      │
-│  │   CPU    │◄──►│  Internal    │◄──►│   Timer 0   │      │
-│  │  (ALU)   │    │  RAM (128B)  │    │   Timer 1   │      │
-│  └────┬─────┘    └──────────────┘    └─────────────┘      │
-│       │                                                      │
-│       │          ┌──────────────┐    ┌─────────────┐      │
-│       └─────────►│  Internal    │    │   Serial    │      │
-│                  │  ROM (4KB)   │    │    Port     │      │
-│                  └──────────────┘    └─────────────┘      │
-│                                                              │
-│  ┌──────────────────────────────────────────────────┐      │
-│  │         Special Function Registers (SFR)         │      │
-│  └──────────────────────────────────────────────────┘      │
+│                      ┌──────────┐                           │
+│                      │   CPU    │                           │
+│                      │  (ALU)   │                           │
+│                      └────┬─────┘                           │
+│                           │                                  │
+│              ┌────────────┼────────────┐                    │
+│              │  Internal Bus System    │                    │
+│              │  (Address & Data Bus)   │                    │
+│              └────────────┬────────────┘                    │
+│                           │                                  │
+│       ┌───────────────────┼───────────────────┐            │
+│       │                   │                   │            │
+│  ┌────▼─────┐      ┌──────▼──────┐    ┌──────▼──────┐    │
+│  │ Internal │      │  Internal   │    │    SFR      │    │
+│  │   ROM    │      │    RAM      │    │  (80H-FFH)  │    │
+│  │  (4KB)   │      │  (00H-7FH)  │    │             │    │
+│  └──────────┘      └─────────────┘    │ • Timers    │    │
+│                                        │ • Serial    │    │
+│                                        │ • Ports     │    │
+│                                        │ • Control   │    │
+│                                        └─────────────┘    │
 │                                                              │
 │  ┌────────┐  ┌────────┐  ┌────────┐  ┌────────┐          │
 │  │ Port 0 │  │ Port 1 │  │ Port 2 │  │ Port 3 │          │
@@ -34,6 +42,12 @@ The 8051 microcontroller is a complete computer system on a single chip, integra
        ▼           ▼           ▼           ▼
     P0.0-P0.7  P1.0-P1.7  P2.0-P2.7  P3.0-P3.7
 ```
+
+**Architecture Notes:**
+- **CPU as Central Hub**: All data transfers go through the CPU via the internal bus system
+- **Memory Spaces**: Internal RAM (00H-7FH) and SFR (80H-FFH) are separate address spaces
+- **Timer Registers**: Timer 0/1 registers (TH0/TL0/TH1/TL1) are part of the SFR area, not the 128-byte RAM
+- **Bus-Based Communication**: No direct connections between peripherals; all communication is CPU-mediated through the address and data buses
 
 ### Core Features
 
