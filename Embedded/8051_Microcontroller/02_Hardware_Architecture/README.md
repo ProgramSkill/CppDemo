@@ -1158,29 +1158,29 @@ Instruction Time = 1 or 2 Machine Cycles (most instructions)
 
 Complete list of SFRs with addresses:
 
-| Address | Symbol | Name | Bit-Addressable |
-|---------|--------|------|-----------------|
-| 80H | P0 | Port 0 | Yes |
-| 81H | SP | Stack Pointer | No |
-| 82H | DPL | Data Pointer Low | No |
-| 83H | DPH | Data Pointer High | No |
-| 87H | PCON | Power Control | No |
-| 88H | TCON | Timer Control | Yes |
-| 89H | TMOD | Timer Mode | No |
-| 8AH | TL0 | Timer 0 Low | No |
-| 8BH | TL1 | Timer 1 Low | No |
-| 8CH | TH0 | Timer 0 High | No |
-| 8DH | TH1 | Timer 1 High | No |
-| 90H | P1 | Port 1 | Yes |
-| 98H | SCON | Serial Control | Yes |
-| 99H | SBUF | Serial Buffer | No |
-| A0H | P2 | Port 2 | Yes |
-| A8H | IE | Interrupt Enable | Yes |
-| B0H | P3 | Port 3 | Yes |
-| B8H | IP | Interrupt Priority | Yes |
-| D0H | PSW | Program Status Word | Yes |
-| E0H | ACC | Accumulator | Yes |
-| F0H | B | B Register | Yes |
+| Address | Symbol | Category | Name | Bit-Addressable |
+|---------|--------|----------|------|-----------------|
+| 80H | P0 | I/O Port | Port 0 | Yes |
+| 81H | SP | Memory Pointer | Stack Pointer | No |
+| 82H | DPL | Memory Pointer | Data Pointer Low | No |
+| 83H | DPH | Memory Pointer | Data Pointer High | No |
+| 87H | PCON | Power Control | Power Control | No |
+| 88H | TCON | Timer/Counter | Timer Control | Yes |
+| 89H | TMOD | Timer/Counter | Timer Mode | No |
+| 8AH | TL0 | Timer/Counter | Timer 0 Low | No |
+| 8BH | TL1 | Timer/Counter | Timer 1 Low | No |
+| 8CH | TH0 | Timer/Counter | Timer 0 High | No |
+| 8DH | TH1 | Timer/Counter | Timer 1 High | No |
+| 90H | P1 | I/O Port | Port 1 | Yes |
+| 98H | SCON | Serial Comm | Serial Control | Yes |
+| 99H | SBUF | Serial Comm | Serial Buffer | No |
+| A0H | P2 | I/O Port | Port 2 | Yes |
+| A8H | IE | Interrupt | Interrupt Enable | Yes |
+| B0H | P3 | I/O Port | Port 3 | Yes |
+| B8H | IP | Interrupt | Interrupt Priority | Yes |
+| D0H | PSW | CPU Status | Program Status Word | Yes |
+| E0H | ACC | CPU Register | Accumulator | Yes |
+| F0H | B | CPU Register | B Register | Yes |
 
 ### Bit-Addressable SFRs
 
