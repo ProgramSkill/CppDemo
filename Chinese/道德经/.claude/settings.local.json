@@ -4,7 +4,21 @@
       "Bash(git commit:*)",
       "Bash(git add:*)",
       "WebSearch",
-      "Bash(git mv:*)"
+      "Bash(git mv:*)",
+      "Bash(fi:*)",
+      "Bash(done:*)",
+      "Bash(ls:*)",
+      "Bash(xargs:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(for file in [0-9][0-9]-*.md)",
+      "Bash(do if [[ \"$file\" != \"00-\"* ]])",
+      "Bash(then if ! grep -q \"^## 原文\" \"$file\")",
+      "Bash(then echo \"缺少原文部分: $file\")",
+      "Bash(if ! grep -q \"^## 译文\" \"$file\")",
+      "Bash(then echo \"缺少译文部分: $file\")",
+      "Bash(if ! grep -q \"^## 解析\" \"$file\")",
+      "Bash(then echo \"缺少解析部分: $file\")"
     ]
   }
 }
