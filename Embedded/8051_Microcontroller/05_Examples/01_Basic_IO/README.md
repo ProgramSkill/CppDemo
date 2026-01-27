@@ -959,7 +959,64 @@ See full tutorial: [Relay_Control.md](./Relay_Control.md)
 
 ---
 
-## Example 5: Traffic Light (Coming Soon)
+## Example 5: Buzzer Control
+
+### 📝 Complete Source Code
+
+**File:** [Buzzer_Control.md](./Buzzer_Control.md)
+
+Comprehensive guide to controlling buzzers for audio feedback, alarms, and music with 8051 microcontroller.
+
+**What You'll Learn:**
+- Active vs passive buzzers
+- Tone generation and frequency control
+- PWM volume control
+- Musical note frequencies
+- Song data structures
+- Timer-based sound generation
+
+**Hardware Required:**
+- 1× Active buzzer (easiest) OR passive buzzer + transistor
+- 1× NPN transistor (2N2222/BC547) if using passive buzzer
+- 1× Resistor 1kΩ (base resistor)
+- Optional: Push buttons for sound effects
+
+**Quick Preview:**
+```c
+sbit BUZZER = P1^0;
+
+void main() {
+    while(1) {
+        // Generate 440Hz tone (A4 note)
+        BUZZER = 0; delay_us(1136);  // Half period
+        BUZZER = 1; delay_us(1136);  // Half period
+    }
+}
+```
+
+**Examples Include:**
+1. Simple beep (active buzzer)
+2. Tone generator (passive buzzer)
+3. PWM-based volume control
+4. Music player (songs, melodies)
+5. Button-controlled sounds
+6. SOS signal (Morse code)
+7. Doorbell chime
+8. Siren and alarm effects
+
+**Applications:**
+- Button feedback sounds
+- Alarm and warning systems
+- Doorbells
+- Simple musical instruments
+- Timer alerts
+- Morse code communication
+
+See full tutorial: [Buzzer_Control.md](./Buzzer_Control.md)
+
+---
+
+## Example 6: Traffic Light (Coming Soon)
 
 ---
 
