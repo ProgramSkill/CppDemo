@@ -47,7 +47,7 @@ void main() {
 
 ---
 
-### 🔌 Hardware Connection
+## 🔌 Hardware Connection
 
 ```
          8051                    Button Circuit
@@ -84,7 +84,7 @@ void main() {
 
 ---
 
-### 🔬 Button Circuit Principles
+## 🔬 Button Circuit Principles
 
 #### 1. **Why Use Active Low Configuration?**
 
@@ -128,7 +128,7 @@ Button Closed: Current flows VCC → 10kΩ → GND (~0.5mA, P3.2 pulled to 0V)
 
 ---
 
-### 📖 Code Explanation
+## 📖 Code Explanation
 
 #### 1. Pin Declarations
 ```c
@@ -201,7 +201,7 @@ Program Exec:               Detect→Toggle→Debounce→Wait Release
 
 ---
 
-### 🛠️ Testing and Troubleshooting
+## 🛠️ Testing and Troubleshooting
 
 #### Expected Behavior
 - LED initial state: OFF (dark)
@@ -256,7 +256,7 @@ void main() {
 
 ---
 
-### 📊 Variations and Extensions
+## 📊 Variations and Extensions
 
 #### Variation 1: Multiple LEDs with One Button
 ```c
@@ -373,7 +373,7 @@ void main() {
 
 ---
 
-### ⚡ Hardware Considerations
+## ⚡ Hardware Considerations
 
 #### Button Types
 1. **Normally Open (NO)**: Most common, open circuit when not pressed
@@ -400,7 +400,7 @@ P3 = 0xFF;  // Enable internal pull-up
 
 ---
 
-### 🔍 Polling vs Interrupt (Preview)
+## 🔍 Polling vs Interrupt (Preview)
 
 **Current code uses polling method:**
 ```c
@@ -432,7 +432,7 @@ void main() {
 
 ---
 
-### 📚 What You've Learned
+## 📚 What You've Learned
 
 ✅ **Digital Input**
 - Reading button state
@@ -456,7 +456,7 @@ void main() {
 
 ---
 
-### 🚀 Next Steps
+## 🚀 Next Steps
 
 1. **Modify the Code:**
    - Add multiple buttons
