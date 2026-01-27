@@ -53,6 +53,43 @@ This document provides English-Chinese translation for all important terms in Ba
 
 ---
 
+## 🔘 Button Related Terms / 按钮相关术语
+
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Button | 按钮 | 输入控制元件 |
+| Push button | 按键 | 瞬时接触开关 |
+| Normally Open (NO) | 常开 | 未按下时断开，按下时导通 |
+| Normally Closed (NC) | 常闭 | 未按下时导通，按下时断开 |
+| Momentary switch | 瞬动开关 | 按下时导通，松开后自动复位 |
+| Latch switch | 自锁开关 | 第一次按下锁定，第二次按下释放 |
+| Pull-up resistor | 上拉电阻 | 将引脚拉至高电平的电阻 |
+| Pull-down resistor | 下拉电阻 | 将引脚拉至低电平的电阻 |
+| Active low | 低电平有效 | 按下时引脚为低电平 |
+| Active high | 高电平有效 | 按下时引脚为高电平 |
+| Switch bounce | 开关抖动 | 机械触点接触时的抖动现象 |
+| Debouncing | 去抖动 | 消除开关抖动影响 |
+| Debounce delay | 去抖动延时 | 软件去抖动的延时时间 |
+| Edge detection | 边沿检测 | 检测信号变化沿 |
+| Press detection | 按下检测 | 检测按钮被按下 |
+| Release detection | 释放检测 | 检测按钮被释放 |
+| Long press | 长按 | 按钮持续按下较长时间 |
+| Short press | 短按 | 按钮快速按下并释放 |
+| Single click | 单击 | 按钮按下一次 |
+| Double click | 双击 | 按钮快速按两次 |
+| Polling | 轮询 | 循环检测输入状态 |
+| Interrupt | 中断 | 事件触发的响应机制 |
+| Floating pin | 悬空引脚 | 未连接的引脚，状态不确定 |
+| Weak pull-up | 弱上拉 | 内部小电流上拉（约60µA） |
+| Strong pull-up | 强上拉 | 外部大电流上拉（可达mA级） |
+| EMI | 电磁干扰 | Electromagnetic Interference |
+| Noise immunity | 抗干扰性 | 抵抗噪声的能力 |
+| Fail-safe design | 故障安全设计 | 故障时自动进入安全状态 |
+| Contact bounce | 触点抖动 | 开关触点的机械抖动 |
+| Bounce period | 抖动周期 | 开关抖动持续的时间（10-50ms） |
+
+---
+
 ## ⌨️ Programming Terms / 编程术语
 
 | English | 中文 | 说明 / Notes |
@@ -68,6 +105,8 @@ This document provides English-Chinese translation for all important terms in Ba
 | Assignment | 赋值 | 给变量赋值 |
 | Toggle/Invert | 取反 | 0 变 1，1 变 0 |
 | Shift operation | 位移 | << 或 >> |
+| State machine | 状态机 | 按状态转换的程序结构 |
+| Switch statement | Switch语句 | 多分支选择语句 |
 
 ---
 
@@ -389,6 +428,12 @@ This document provides English-Chinese translation for all important terms in Ba
 ### LED Connection Memory / LED 连接记忆
 - **Active low strong sinking**：低电平有效拉电流强（20mA），推电流弱（60µA）
 - **Long positive short negative**：LED 长脚接正极，短脚接负极
+
+### Button Connection Memory / 按钮连接记忆
+- **Pull-up button reads low**：上拉电阻按钮按下时读低电平
+- **Pull-down button reads high**：下拉电阻按钮按下时读高电平
+- **10kΩ is the sweet spot**：10kΩ 是平衡功耗和抗干扰的最佳值
+- **Debounce 200ms**：软件去抖动延时约 200ms
 
 ### Bit Operation Memory / 位操作记忆
 - **OR to set**：OR 用于置 1（Set bit）
