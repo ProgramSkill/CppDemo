@@ -13,7 +13,7 @@ The following diagram shows the 8051 microcontroller architecture with all major
 ```mermaid
 graph TB
     %% External Clock Circuit
-    XTAL[External Clock Circuit<br/>Crystal 12MHz<br/>C1, C2: 15-33pF]
+    XTAL[External Clock Circuit<br/>Crystal 12MHz<br/>C1, C2: 18-30pF]
 
     %% CPU Core
     CPU[CPU<br/>ALU + Clock]
@@ -192,6 +192,44 @@ FFH  ┌─────────────────┐
 | 0   | 1   | 1    | 08H-0FH       |
 | 1   | 0   | 2    | 10H-17H       |
 | 1   | 1   | 3    | 18H-1FH       |
+
+**Memory Usage Visualization:**
+
+```mermaid
+graph TB
+    subgraph RAM ["Internal RAM (00H-FFH)"]
+        direction TB
+        RBS[Register Banks<br/>00H-1FH<br/>🟢 32 bytes]
+        BAA[Bit-Addressable Area<br/>20H-2FH<br/>🔵 16 bytes]
+        GPR[General Purpose RAM<br/>30H-7FH<br/>🟡 80 bytes]
+        SFR[Special Function Registers<br/>80H-FFH<br/>🟠 Control Registers]
+    end
+
+    subgraph RBDetail ["Register Banks Detail"]
+        direction LR
+        RB0[Bank 0<br/>00H-07H<br/>R0-R7]
+        RB1[Bank 1<br/>08H-0FH<br/>R0-R7]
+        RB2[Bank 2<br/>10H-17H<br/>R0-R7]
+        RB3[Bank 3<br/>18H-1FH<br/>R0-R7]
+    end
+
+    RBS --> RBDetail
+
+    style RBS fill:#e8f5e9
+    style BAA fill:#e3f2fd
+    style GPR fill:#fffde7
+    style SFR fill:#fff3e0
+    style RB0 fill:#c8e6c9
+    style RB1 fill:#c8e6c9
+    style RB2 fill:#c8e6c9
+    style RB3 fill:#c8e6c9
+```
+
+**Legend:**
+- 🟢 **Register Banks**: Fast context switching for interrupts
+- 🔵 **Bit-Addressable**: Individual bit access (SETB, CLR, JB)
+- 🟡 **General Purpose**: Variables, stack, buffers
+- 🟠 **SFR**: Control and status registers
 
 **Bit-Addressable Area (20H-2FH):**
 - 16 bytes = 128 individually addressable bits
@@ -420,6 +458,27 @@ PSW.4 (RS1) | PSW.3 (RS0) | Active Bank | Address Range
 
 The 8051 uses a 12-clock machine cycle for most instructions.
 
+**Instruction Execution Flow:**
+
+```mermaid
+flowchart TD
+    A[Fetch Opcode from ROM] --> B[Decode Instruction]
+    B --> C{Operand Required?}
+    C -->|Yes| D[Fetch Operand]
+    C -->|No| E[Execute Instruction]
+    D --> E
+    E --> F[Update Flags in PSW]
+    F --> G[Increment PC]
+    G --> H[Next Instruction]
+
+    style A fill:#e1f5ff
+    style E fill:#ffe1e1
+    style F fill:#fff4e1
+    style G fill:#e1ffe1
+```
+
+**Cycle Breakdown:**
+
 **Machine Cycle:**
 - 1 Machine Cycle = 12 Oscillator Periods
 - At 12 MHz: 1 Machine Cycle = 1 µs
@@ -484,29 +543,31 @@ MOV C, 20H.3         ; Move bit 3 of address 20H to carry
 
 Complete list of SFRs with addresses:
 
-| Address | Symbol | Category | Name | Bit-Addressable |
-|---------|--------|----------|------|-----------------|
-| 80H | P0 | I/O Port | Port 0 | Yes |
-| 81H | SP | Memory Pointer | Stack Pointer | No |
-| 82H | DPL | Memory Pointer | Data Pointer Low | No |
-| 83H | DPH | Memory Pointer | Data Pointer High | No |
-| 87H | PCON | Power Control | Power Control | No |
-| 88H | TCON | Timer/Counter | Timer Control | Yes |
-| 89H | TMOD | Timer/Counter | Timer Mode | No |
-| 8AH | TL0 | Timer/Counter | Timer 0 Low | No |
-| 8BH | TL1 | Timer/Counter | Timer 1 Low | No |
-| 8CH | TH0 | Timer/Counter | Timer 0 High | No |
-| 8DH | TH1 | Timer/Counter | Timer 1 High | No |
-| 90H | P1 | I/O Port | Port 1 | Yes |
-| 98H | SCON | Serial Comm | Serial Control | Yes |
-| 99H | SBUF | Serial Comm | Serial Buffer | No |
-| A0H | P2 | I/O Port | Port 2 | Yes |
-| A8H | IE | Interrupt | Interrupt Enable | Yes |
-| B0H | P3 | I/O Port | Port 3 | Yes |
-| B8H | IP | Interrupt | Interrupt Priority | Yes |
-| D0H | PSW | CPU Status | Program Status Word | Yes |
-| E0H | ACC | CPU Register | Accumulator | Yes |
-| F0H | B | CPU Register | B Register | Yes |
+The 8051 SFRs can be categorized into: **CPU Core Registers**, **I/O Port Registers**, **Timer/Counter Registers**, **Serial Port Registers**, **Interrupt Control Registers**, and **Power Control Registers**.
+
+| Address | Symbol | Category | Name | Bit-Addressable | Reset Value | Purpose |
+|---------|--------|----------|------|-----------------|-------------|---------|
+| 80H | P0 | I/O Port | Port 0 | Yes | FFH | Address/Data multiplexed I/O or low byte bus |
+| 81H | SP | CPU Core Register | Stack Pointer | No | 07H | Points to top of stack (grows upward) |
+| 82H | DPL | CPU Core Register | Data Pointer Low | No | 00H | Low byte of external memory address pointer |
+| 83H | DPH | CPU Core Register | Data Pointer High | No | 00H | High byte of external memory address pointer |
+| 87H | PCON | Power Control | Power Control Register | No | 0××××××× | Power modes, SMOD baud rate doubler |
+| 88H | TCON | Timer/Counter | Timer Control Register | Yes | 00H | Timer run control, overflow flags, ext interrupt edge flags |
+| 89H | TMOD | Timer/Counter | Timer Mode Register | No | 00H | Timer mode selection (gate, C/T, M1, M0) |
+| 8AH | TL0 | Timer/Counter | Timer 0 Low Byte | No | 00H | Timer 0 low byte counter |
+| 8BH | TL1 | Timer/Counter | Timer 1 Low Byte | No | 00H | Timer 1 low byte counter |
+| 8CH | TH0 | Timer/Counter | Timer 0 High Byte | No | 00H | Timer 0 high byte counter |
+| 8DH | TH1 | Timer/Counter | Timer 1 High Byte | No | 00H | Timer 1 high byte counter or baud rate generator |
+| 90H | P1 | I/O Port | Port 1 | Yes | FFH | General-purpose I/O (user port) |
+| 98H | SCON | Serial Port | Serial Control Register | Yes | 00H | Serial mode, receive enable, interrupt flags |
+| 99H | SBUF | Serial Port | Serial Data Buffer | No | — | Transmit/receive data buffer (indeterminate at reset) |
+| A0H | P2 | I/O Port | Port 2 | Yes | FFH | General I/O or high byte address bus (A8-A15) |
+| A8H | IE | Interrupt Control | Interrupt Enable Register | Yes | 00H | Global enable (EA) and individual interrupt enables |
+| B0H | P3 | I/O Port | Port 3 | Yes | FFH | General I/O with alternate functions (RXD, TXD, INT0-1, T0-1, WR, RD) |
+| B8H | IP | Interrupt Control | Interrupt Priority Register | Yes | ×××00000 | Interrupt priority levels (high/low) |
+| D0H | PSW | CPU Status Register | Program Status Word | Yes | 00H | Flags (CY, AC, OV, P) and register bank selection (RS1, RS0) |
+| E0H | ACC | CPU Core Register | Accumulator | Yes | 00H | Primary arithmetic/logic register |
+| F0H | B | CPU Core Register | B Register | Yes | 00H | Multiplication/division, general-purpose |
 
 ### Bit-Addressable SFRs
 
@@ -588,13 +649,18 @@ CLR P0.7             ; Clear bit 7 low
 - Pure I/O port with no alternate functions
 - Ideal for connecting switches, LEDs, sensors
 - Each pin can source ~60µA or sink ~10mA
+  - **Note**: The 60µA "source" capability is NOT active drive capability
+  - In quasi-bidirectional mode, writing '1' enables a weak pull-up resistor (~50kΩ)
+  - The ~60µA is leakage current through this pull-up when pin is pulled low externally
+  - For driving external loads HIGH, add external pull-up or buffer circuit
+  - Writing '0' provides strong sink capability (~10mA) with active pull-down transistor
 
 **Electrical Characteristics:**
-- Output LOW voltage: < 0.45V @ 1.6mA
-- Output HIGH voltage: > 2.4V @ 60µA
+- Output LOW voltage: < 0.45V @ 1.6mA (strong pull-down)
+- Output HIGH voltage: > 2.4V @ 60µA (weak pull-up, not suitable for driving loads)
 - Input LOW voltage: < 0.2VDD
 - Input HIGH voltage: > 0.8VDD
-- Internal pull-up: ~50kΩ
+- Internal pull-up: ~50kΩ (weak, for maintaining logic HIGH only)
 
 **Example Usage:**
 ```assembly
@@ -678,7 +744,49 @@ All port operations use read-modify-write sequence:
 2. Modify the value
 3. Write back to port
 
-**Important:** This can cause issues with external devices that change pin states.
+**Read-Modify-Write Flow:**
+
+```mermaid
+flowchart LR
+    A[Instruction: SETB P1.1] --> B[CPU Reads Entire P1 Latch]
+    B --> C{Latch Value?}
+    C --> D[CPU Modifies Bit 1<br/>Sets it to 1]
+    D --> E[CPU Writes Entire Byte<br/>Back to P1 Latch]
+    E --> F[Port Outputs Updated]
+
+    style B fill:#ffe1e1
+    style D fill:#e1f5ff
+    style E fill:#fff4e1
+```
+
+**The Problem Visualization:**
+
+```mermaid
+sequenceDiagram
+    participant CPU as 8051 CPU
+    participant Latch as P1 Latch
+    participant Pin as P1.0 Pin
+    participant Ext as External Device
+
+    Note over CPU,Pin: Initial State: P1.0 = 1, P1.1 = 0
+
+    CPU->>Latch: SETB P1.0 (Write 1 to latch)
+    Latch->>Pin: Output 1
+    Pin-->>Ext: Pin is HIGH
+
+    Note over Ext: External circuit pulls pin LOW
+    Ext->>Pin: Strong pull-down
+    Pin-->>Latch: Pin reads 0 externally
+
+    Note over CPU,Pin: Problem begins here
+    CPU->>Latch: SETB P1.1 instruction
+    Latch->>Latch: Read entire latch (sees P1.0=0!)
+    Latch->>Latch: Set P1.1=1, keep P1.0=0
+    Latch->>Latch: Write back entire byte
+
+    Note over CPU,Pin: Result: P1.0 incorrectly becomes 0
+    Latch->>Pin: P1.0 = 0, P1.1 = 1
+```
 
 **Example Problem:**
 ```assembly
@@ -689,7 +797,11 @@ SETB P1.1            ; This reads P1 (sees P1.0=0), sets P1.1, writes back
                      ; Result: P1.0 becomes 0 in latch!
 ```
 
-**Solution:** Use separate variables to track intended port states.
+**Solutions:**
+1. Use separate variables to track intended port states
+2. Use bit-oriented instructions when possible (directly modify latch bit)
+3. Read pins instead of latch for input operations
+4. Avoid external circuits that can override port outputs
 
 ## Timers/Counters
 
@@ -721,6 +833,71 @@ Both timers support four operating modes controlled by TMOD register:
 - TL0 becomes 8-bit timer (uses Timer 0 control bits)
 - TH0 becomes separate 8-bit timer (uses Timer 1 control bits)
 - Timer 1 can still be used in modes 0, 1, or 2
+
+**Timer Mode Visualization:**
+
+```mermaid
+graph TB
+    subgraph Mode0 ["Mode 0: 13-bit Timer"]
+        direction LR
+        M0_TH[THx<br/>8 bits]
+        M0_TL[TLx<br/>Lower 5 bits]
+        M0_TH --> M0_TL
+        M0_TL -->|Overflow| M0_Flag[TFx Flag Set]
+    end
+
+    subgraph Mode1 ["Mode 1: 16-bit Timer (Most Common)"]
+        direction LR
+        M1_TH[THx<br/>High 8 bits]
+        M1_TL[TLx<br/>Low 8 bits]
+        M1_TH --> M1_TL
+        M1_TL -->|Overflow FFFFH → 0000H| M1_Flag[TFx Flag Set<br/>Must Reload]
+    end
+
+    subgraph Mode2 ["Mode 2: 8-bit Auto-Reload"]
+        direction LR
+        M2_TH[THx<br/>Reload Value<br/>Static]
+        M2_TL[TLx<br/>Counter 8 bits]
+        M2_TH -->|Auto Reload| M2_TL
+        M2_TL -->|Overflow FFH → 00H| M2_TL
+        M2_TL -->|Overflow| M2_Flag[TFx Flag Set<br/>Auto Reloads]
+    end
+
+    subgraph Mode3 ["Mode 3: Split Timer (Timer 0 Only)"]
+        direction TB
+        M3_TL[TL0<br/>8-bit Timer<br/>Uses T0 Control]
+        M3_TH[TH0<br/>8-bit Timer<br/>Uses T1 Control]
+        M3_TL -->|Overflow| M3_F0[TF0 Flag]
+        M3_TH -->|Overflow| M3_F1[TF1 Flag]
+    end
+
+    style Mode1 fill:#c8e6c9
+    style Mode2 fill:#fff9c4
+    style M1_Flag fill:#ffccbc
+    style M2_Flag fill:#ffccbc
+```
+
+**Timer Operation Flow (Mode 1 - 16-bit):**
+
+```mermaid
+stateDiagram-v2
+    [*] --> Stopped: TR0 = 0
+    Stopped --> Running: TR0 = 1
+    Running --> Counting: TH0:TL0 increment every machine cycle
+    Counting --> Counting: TH0:TL0 < 65536
+    Counting --> Overflow: TH0:TL0 = 65536 (rolls to 0000H)
+    Overflow --> TF_Set: TF0 flag set by hardware
+    TF_Set --> Interrupt: ET0 = 1 & EA = 1
+    TF_Set --> Polling: ET0 = 0 or EA = 0
+    Interrupt --> ISR_Execute: Timer0 ISR executes
+    ISR_Execute --> Reload: Software reloads TH0:TL0
+    Polling --> Reload: Software clears TF0 and reloads
+    Reload --> Counting: TR0 still = 1
+    Running --> Stopped: TR0 = 0
+
+    note right of Counting: At 12MHz:<br/>1 count = 1µs
+    note right of Reload: Required in Mode 1<br/>Automatic in Mode 2
+```
 
 ### Timer Control Registers
 
@@ -785,11 +962,12 @@ Bit:  7    6    5    4    3    2    1    0
 ```assembly
 ; Generate 50ms delay @ 12MHz (1µs per cycle)
 ; 50ms = 50,000 cycles
-; Timer value = 65536 - 50000 = 15536 = 3CB0H
+; Timer value = 65536 - 50000 = 15536
+; High byte: 3CH (60), Low byte: B0H (176)
 
 MOV TMOD, #01H       ; Timer 0, Mode 1
-MOV TL0, #0B0H       ; Load low byte
 MOV TH0, #3CH        ; Load high byte
+MOV TL0, #0B0H       ; Load low byte
 SETB TR0             ; Start timer
 
 WAIT:
@@ -1012,7 +1190,10 @@ Baud Rate = (2^SMOD / 32) × (Oscillator / (12 × [256 - TH1]))
 **Mode 2 (Fixed Baud Rate):**
 ```
 Baud Rate = (2^SMOD / 64) × Oscillator Frequency
-Example @ 12MHz, SMOD=0: Baud Rate = 375 kbps
+
+Examples @ 12MHz:
+- SMOD=0: Baud Rate = (1/64) × 12MHz = 187.5 kbaud
+- SMOD=1: Baud Rate = (2/64) × 12MHz = 375 kbaud
 ```
 
 ### Serial Communication Examples
@@ -1149,6 +1330,63 @@ Bit:  7    6    5    4    3    2    1    0
 - High priority interrupts can interrupt low priority ISRs
 - Same priority interrupts cannot interrupt each other
 
+### Interrupt Response Flow
+
+**Complete Interrupt Handling Process:**
+
+```mermaid
+flowchart TD
+    A[Interrupt Event Occurs<br/>Timer Overflow / External Signal / Serial Event] --> B{Flag Set?}
+    B -->|No| C[Ignore Event]
+    B -->|Yes| D{Interrupt Enabled?<br/>EA = 1 & Individual Enable = 1}
+    D -->|No| C
+    D -->|Yes| E{Currently in ISR?}
+    E -->|No| F[Check Priority]
+    E -->|Yes| G{New Interrupt<br/>Higher Priority?}
+    G -->|No| C
+    G -->|Yes| F
+
+    F --> H[Complete Current Instruction]
+    H --> I[Save PC to Stack<br/>PUSH PC Low, PUSH PC High]
+    I --> J[Clear Interrupt Flag<br/>if auto-clear]
+    J --> K[Jump to Vector Address<br/>0003H / 000BH / 0013H / 001BH / 0023H]
+    K --> L[Execute ISR]
+    L --> M[RETI Instruction]
+    M --> N[Pop PC from Stack<br/>POP PC High, POP PC Low]
+    N --> O[Resume Main Program]
+
+    style A fill:#e1f5ff
+    style D fill:#fff4e1
+    style G fill:#ffe1e1
+    style I fill:#e1ffe1
+    style K fill:#f5e1ff
+    style M fill:#ffe1f5
+```
+
+**Interrupt Priority Decision Tree:**
+
+```mermaid
+graph TD
+    A[Interrupt Request] --> B{Current Priority}
+    B -->|No ISR Active| C[Accept Interrupt]
+    B -->|Low Priority ISR| D{New Request<br/>Priority?}
+    B -->|High Priority ISR| E[Reject<br/>Wait for Completion]
+
+    D -->|High| F[Nest Interrupt<br/>Save Current State]
+    D -->|Low| E
+
+    F --> G[Service New ISR]
+    G --> H[Return to Original ISR]
+
+    C --> I[Service ISR]
+    I --> J[Return to Main]
+
+    style C fill:#c8e6c9
+    style E fill:#ffcdd2
+    style F fill:#fff9c4
+    style I fill:#b3e5fc
+```
+
 ### Interrupt Priority Order
 
 When multiple interrupts occur simultaneously, they are serviced in this order:
@@ -1212,9 +1450,11 @@ INT0_ISR:
 **Example 2: Timer 0 interrupt for periodic task**
 ```assembly
 ; Configure Timer 0 for 50ms interrupt @ 12MHz
+; Timer value = 65536 - 50000 = 15536
+; High byte: 3CH, Low byte: B0H
 MOV TMOD, #01H       ; Timer 0, Mode 1
-MOV TH0, #3CH        ; Load timer value
-MOV TL0, #0B0H       ; 65536 - 50000 = 15536 = 3CB0H
+MOV TH0, #3CH        ; Load high byte
+MOV TL0, #0B0H       ; Load low byte
 SETB ET0             ; Enable Timer 0 interrupt
 SETB TR0             ; Start timer
 SETB EA              ; Enable global interrupts
@@ -1225,9 +1465,9 @@ ORG 000BH
 
 ORG 0040H
 TIMER0_ISR:
-    ; Reload timer
-    MOV TH0, #3CH
-    MOV TL0, #0B0H
+    ; Reload timer values for next 50ms
+    MOV TH0, #3CH    ; Reload high byte
+    MOV TL0, #0B0H   ; Reload low byte
 
     ; Periodic task (every 50ms)
     CPL P1.7         ; Toggle LED
@@ -1271,7 +1511,7 @@ The 8051 requires an external clock source to operate.
 1. **Crystal Oscillator** (most common)
    - Connect crystal between XTAL1 and XTAL2
    - Add two load capacitors (C1, C2) to ground
-   - Capacitor values: typically 15-33pF (15pF, 18pF, 20pF, 22pF, or 30pF)
+   - Capacitor values: typically 18-30pF (18pF, 20pF, 22pF, or 30pF)
    - Value depends on crystal's load capacitance specification (CL)
    - Typical frequencies: 11.0592 MHz, 12 MHz, 16 MHz
 
@@ -1286,7 +1526,7 @@ XTAL1 ──┤├──┬──[Crystal]──┬──┤├── XTAL2
             │              │   C2
            GND            GND
 
-Note: C1 = C2 = 15-33pF (typically 20-22pF for 12MHz crystal)
+Note: C1 = C2 = 18-30pF (typically 20-22pF for 12MHz crystal)
       Actual value depends on crystal's load capacitance (CL)
 ```
 
@@ -1399,7 +1639,7 @@ gantt
 | 1-8 | P1.0-P1.7 | I/O | Port 1: 8-bit I/O with internal pull-ups |
 | 9 | RST | Input | Reset (active high) |
 | 10-17 | P3.0-P3.7 | I/O | Port 3: 8-bit I/O with alternate functions |
-| 18 | XTAL2 | Output | Crystal oscillator output |
+| 18 | XTAL2 | Output | Crystal oscillator output (leave unconnected when using external clock) |
 | 19 | XTAL1 | Input | Crystal oscillator input |
 | 20 | GND | Power | Ground (0V) |
 | 21-28 | P2.0-P2.7 | I/O | Port 2: 8-bit I/O or high-order address |
@@ -1415,6 +1655,80 @@ gantt
 - Active high reset
 - Hold high for at least 2 machine cycles
 - Typical circuit: 10µF capacitor + 10kΩ resistor
+
+**Reset Process Flow:**
+
+```mermaid
+flowchart TD
+    A[Power On OR External Reset Triggered] --> B[RST Pin Goes HIGH]
+    B --> C{RST HIGH ≥ 2<br/>Machine Cycles?}
+    C -->|No| D[Wait for Reset Condition]
+    C -->|Yes| E[CPU Initiates Reset Sequence]
+    E --> F[All SFRs Reset to Default Values]
+    F --> G[PC = 0000H]
+    G --> H[SP = 07H]
+    H --> I[Port Latches = FFH<br/>All ports as inputs]
+    I --> J[All Registers Cleared<br/>Except SP]
+    J --> K[All Interrupts Disabled<br/>EA = 0]
+    K --> L[All Timers Stopped<br/>TR0 = TR1 = 0]
+    L --> M[RST Pin Goes LOW]
+    M --> N[CPU Fetches First<br/>Instruction from 0000H]
+    N --> O[Normal Execution Begins]
+
+    style B fill:#ffcdd2
+    style E fill:#fff9c4
+    style F fill:#c8e6c9
+    style N fill:#b3e5fc
+    style O fill:#e1ffe1
+```
+
+**Reset Values Visualization:**
+
+```mermaid
+graph TB
+    subgraph ResetState ["8051 Reset State Summary"]
+        direction TB
+
+        subgraph PC_SP ["Program Control"]
+            PC[PC = 0000H<br/>🔄 Execution starts here]
+            SP[SP = 07H<br/>📊 Stack pointer default]
+        end
+
+        subgraph Ports ["I/O Ports"]
+            P0L[P0 Latch = FFH<br/>Input mode]
+            P1L[P1 Latch = FFH<br/>Input mode]
+            P2L[P2 Latch = FFH<br/>Input mode]
+            P3L[P3 Latch = FFH<br/>Input mode]
+        end
+
+        subgraph Registers ["Registers"]
+            ACC[ACC = 00H<br/>B = 00H<br/>PSW = 00H]
+            DPTR[DPH = 00H<br/>DPL = 00H]
+            TMOD[TMOD = 00H<br/>TCON = 00H<br/>All timers stopped]
+        end
+
+        subgraph Interrupts ["Interrupt System"]
+            IE[IE = 00H<br/>All interrupts disabled]
+            IP[IP = ×××00000<br/>All low priority]
+            Flags[All interrupt flags cleared]
+        end
+    end
+
+    style PC fill:#e1f5ff
+    style SP fill:#fff4e1
+    style P0L fill:#c8e6c9
+    style P1L fill:#c8e6c9
+    style P2L fill:#c8e6c9
+    style P3L fill:#c8e6c9
+    style IE fill:#ffcdd2
+```
+
+**Key Reset Values to Remember:**
+- **PC = 0000H**: Program execution starts from address 0
+- **SP = 07H**: Stack starts above Register Bank 0 (⚠️ Move to 30H if using Bank 0)
+- **Ports = FFH**: All ports configured as inputs initially
+- **IE = 00H**: All interrupts disabled (must set EA = 1 to enable)
+- **Timers stopped**: Must set TR0/TR1 to start timing
 
 **EA (External Access):**
 - EA = 1: Execute from internal ROM
