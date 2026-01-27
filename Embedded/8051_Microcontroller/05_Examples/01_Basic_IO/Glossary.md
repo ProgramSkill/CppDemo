@@ -62,7 +62,7 @@ This document provides English-Chinese translation for all important terms in Ba
 | Normally Open (NO) | 常开 | 未按下时断开，按下时导通 |
 | Normally Closed (NC) | 常闭 | 未按下时导通，按下时断开 |
 | Momentary switch | 瞬动开关 | 按下时导通，松开后自动复位 |
-| Latch switch | 自锁开关 | 第一次按下锁定，第二次按下释放 |
+| Latch switch | 自锁开关 | 第一次按下锁定，再次按下释放 |
 | Pull-up resistor | 上拉电阻 | 将引脚拉至高电平的电阻 |
 | Pull-down resistor | 下拉电阻 | 将引脚拉至低电平的电阻 |
 | Active low | 低电平有效 | 按下时引脚为低电平 |
@@ -168,7 +168,7 @@ This document provides English-Chinese translation for all important terms in Ba
 | Wrong connection | 连接错误 | 接线错误 |
 | Compilation error | 编译错误 | 代码语法错误 |
 | Programming/Flashing | 烧录 | 将代码写入芯片 |
-| Multimeter | 万用表 | 测量电压、电流的工具 |
+| Multimeter | 万用表 | 测量电压、电流、电阻的工具 |
 | Oscilloscope | 示波器 | 查看波形的工具 |
 
 ---
@@ -289,8 +289,8 @@ This document provides English-Chinese translation for all important terms in Ba
 | Rated value | 额定值 | 正常工作时的标准值 |
 | Safe value | 安全值 | 不会损坏元件的安全范围 |
 | Typical value | 典型值 | 典型工况下的代表值 |
-| Maximum value | 最大值 |  |
-| Minimum value | 最小值 |  |
+| Maximum value | 最大值 | 允许的最大极限值 |
+| Minimum value | 最小值 | 允许的最小极限值 |
 | Recommended value | 推荐值 | 建议的最佳工作值 |
 
 ---
