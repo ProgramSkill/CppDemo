@@ -42,8 +42,8 @@ This document provides English-Chinese translation for all important terms in Ba
 | Light Emitting Diode (LED) | 发光二极管 | 发光元件 |
 | Active low | 低电平有效 | 0 = 开启，1 = 关闭 |
 | Active high | 高电平有效 | 1 = 开启，0 = 关闭 |
-| Current sink | 灌电流 | 电流流入端口（低电平） |
-| Current source | 拉电流 | 电流流出端口（高电平） |
+| Current sink | 灌电流 | 电流从外部流入端口（低电平吸入电流） |
+| Current source | 拉电流 | 电流从端口流出到外部（高电平输出电流） |
 | Anode | 阳极 | LED 正极 |
 | Cathode | 阴极 | LED 负极 |
 | Resistor | 电阻 | 限流元件 |
@@ -286,12 +286,12 @@ This document provides English-Chinese translation for all important terms in Ba
 |---------|------|--------------|
 | Active low | 低电平有效 | 低电平激活 |
 | Active high | 高电平有效 | 高电平激活 |
-| Rated value | 额定值 |  |
-| Safe value | 安全值 |  |
-| Typical value | 典型值 |  |
+| Rated value | 额定值 | 正常工作时的标准值 |
+| Safe value | 安全值 | 不会损坏元件的安全范围 |
+| Typical value | 典型值 | 典型工况下的代表值 |
 | Maximum value | 最大值 |  |
 | Minimum value | 最小值 |  |
-| Recommended value | 推荐值 |  |
+| Recommended value | 推荐值 | 建议的最佳工作值 |
 
 ---
 
