@@ -484,29 +484,29 @@ MOV C, 20H.3         ; Move bit 3 of address 20H to carry
 
 Complete list of SFRs with addresses:
 
-| Address | Symbol | Category | Name | Bit-Addressable |
-|---------|--------|----------|------|-----------------|
-| 80H | P0 | I/O Port | Port 0 | Yes |
-| 81H | SP | CPU Register | Stack Pointer | No |
-| 82H | DPL | CPU Register | Data Pointer Low | No |
-| 83H | DPH | CPU Register | Data Pointer High | No |
-| 87H | PCON | Power Control | Power Control Register | No |
-| 88H | TCON | Timer/Counter | Timer Control Register | Yes |
-| 89H | TMOD | Timer/Counter | Timer Mode Register | No |
-| 8AH | TL0 | Timer/Counter | Timer 0 Low Byte | No |
-| 8BH | TL1 | Timer/Counter | Timer 1 Low Byte | No |
-| 8CH | TH0 | Timer/Counter | Timer 0 High Byte | No |
-| 8DH | TH1 | Timer/Counter | Timer 1 High Byte | No |
-| 90H | P1 | I/O Port | Port 1 | Yes |
-| 98H | SCON | Serial Comm | Serial Control Register | Yes |
-| 99H | SBUF | Serial Comm | Serial Data Buffer | No |
-| A0H | P2 | I/O Port | Port 2 | Yes |
-| A8H | IE | Interrupt | Interrupt Enable Register | Yes |
-| B0H | P3 | I/O Port | Port 3 | Yes |
-| B8H | IP | Interrupt | Interrupt Priority Register | Yes |
-| D0H | PSW | CPU Status | Program Status Word | Yes |
-| E0H | ACC | CPU Register | Accumulator | Yes |
-| F0H | B | CPU Register | B Register | Yes |
+| Address | Symbol | Category | Name | Bit-Addressable | Reset Value | Purpose |
+|---------|--------|----------|------|-----------------|-------------|---------|
+| 80H | P0 | I/O Port | Port 0 | Yes | FFH | Address/Data multiplexed I/O or low byte bus |
+| 81H | SP | CPU Register | Stack Pointer | No | 07H | Points to top of stack (grows upward) |
+| 82H | DPL | CPU Register | Data Pointer Low | No | 00H | Low byte of external memory address pointer |
+| 83H | DPH | CPU Register | Data Pointer High | No | 00H | High byte of external memory address pointer |
+| 87H | PCON | Power Control | Power Control Register | No | 0××××××× | Power modes, SMOD baud rate doubler |
+| 88H | TCON | Timer/Counter | Timer Control Register | Yes | 00H | Timer run control, overflow flags, ext interrupt edge flags |
+| 89H | TMOD | Timer/Counter | Timer Mode Register | No | 00H | Timer mode selection (gate, C/T, M1, M0) |
+| 8AH | TL0 | Timer/Counter | Timer 0 Low Byte | No | 00H | Timer 0 low byte counter |
+| 8BH | TL1 | Timer/Counter | Timer 1 Low Byte | No | 00H | Timer 1 low byte counter |
+| 8CH | TH0 | Timer/Counter | Timer 0 High Byte | No | 00H | Timer 0 high byte counter |
+| 8DH | TH1 | Timer/Counter | Timer 1 High Byte | No | 00H | Timer 1 high byte counter or baud rate generator |
+| 90H | P1 | I/O Port | Port 1 | Yes | FFH | General-purpose I/O (user port) |
+| 98H | SCON | Serial Comm | Serial Control Register | Yes | 00H | Serial mode, receive enable, interrupt flags |
+| 99H | SBUF | Serial Comm | Serial Data Buffer | No | — | Transmit/receive data buffer (indeterminate at reset) |
+| A0H | P2 | I/O Port | Port 2 | Yes | FFH | General I/O or high byte address bus (A8-A15) |
+| A8H | IE | Interrupt | Interrupt Enable Register | Yes | 00H | Global enable (EA) and individual interrupt enables |
+| B0H | P3 | I/O Port | Port 3 | Yes | FFH | General I/O with alternate functions (RXD, TXD, INT0-1, T0-1, WR, RD) |
+| B8H | IP | Interrupt | Interrupt Priority Register | Yes | ×××00000 | Interrupt priority levels (high/low) |
+| D0H | PSW | CPU Status | Program Status Word | Yes | 00H | Flags (CY, AC, OV, P) and register bank selection (RS1, RS0) |
+| E0H | ACC | CPU Register | Accumulator | Yes | 00H | Primary arithmetic/logic register |
+| F0H | B | CPU Register | B Register | Yes | 00H | Multiplication/division, general-purpose |
 
 ### Bit-Addressable SFRs
 
