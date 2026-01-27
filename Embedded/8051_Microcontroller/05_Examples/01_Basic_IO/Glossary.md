@@ -284,14 +284,14 @@ This document provides English-Chinese translation for all important terms in Ba
 
 | English | 中文 | 说明 / Notes |
 |---------|------|--------------|
-| Active low | 活动低 | 低电平激活 |
-| Active high | 活动高 | 高电平激活 |
-| Rated value | 额定值 | 标准工作值 |
-| Safe value | 安全值 | 不会损坏元件的值 |
-| Typical value | 典型值 | 常用值 |
-| Maximum value | 最大值 | 上限 |
-| Minimum value | 最小值 | 下限 |
-| Recommended value | 推荐值 | 建议使用的值 |
+| Active low | 低电平有效 | 低电平激活 |
+| Active high | 高电平有效 | 高电平激活 |
+| Rated value | 额定值 |  |
+| Safe value | 安全值 |  |
+| Typical value | 典型值 |  |
+| Maximum value | 最大值 |  |
+| Minimum value | 最小值 |  |
+| Recommended value | 推荐值 |  |
 
 ---
 
