@@ -433,7 +433,7 @@ This document provides English-Chinese translation for all important terms in Ba
 - **Pull-up button reads low**：上拉电阻按钮按下时读低电平
 - **Pull-down button reads high**：下拉电阻按钮按下时读高电平
 - **10kΩ is the sweet spot**：10kΩ 是平衡功耗和抗干扰的最佳值
-- **Debounce 20ms**：软件去抖动延时约 10–50ms（常用20ms）
+- **Debounce 50ms**：软件去抖动延时约 20–50ms（常用50ms）
 
 ### Bit Operation Memory / 位操作记忆
 - **OR to set**：OR 用于置 1（Set bit）
