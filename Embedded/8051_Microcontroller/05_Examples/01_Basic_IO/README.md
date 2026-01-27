@@ -699,24 +699,35 @@ void main() {
 ```c
 void main() {
     unsigned int click_count = 0;
+    unsigned int timeout;
     LED = 1;
     while(1) {
         if(BUTTON == 0) {
             delay(50);           // Debounce delay
-            while(BUTTON == 0);
+            while(BUTTON == 0);  // Wait for release
             click_count++;
 
-            if(click_count == 1) {
-                delay(300);  // Wait for second click
+            // Wait for potential second click (300ms window)
+            timeout = 0;
+            while(timeout < 300) {
+                if(BUTTON == 0) {
+                    // Second click detected
+                    delay(50);           // Debounce
+                    while(BUTTON == 0);  // Wait for release
+                    click_count++;
+                    break;
+                }
+                delay(1);
+                timeout++;
             }
 
+            // Process clicks
             if(click_count >= 2) {
                 LED = ~LED;  // Double click action
-                click_count = 0;
-            } else if(click_count == 1 && BUTTON == 0) {
-                // Single click action (after timeout)
-                LED = 0;
+            } else {
+                LED = 0;     // Single click action
             }
+            click_count = 0;
         }
     }
 }
