@@ -566,7 +566,7 @@ The 8051 SFRs can be categorized into: **CPU Core Registers**, **I/O Port Regist
 | B0H | P3 | I/O Port | Port 3 | Yes | FFH | General I/O with alternate functions (RXD, TXD, INT0-1, T0-1, WR, RD) |
 | B8H | IP | Interrupt Control | Interrupt Priority Register | Yes | ×××00000 | Interrupt priority levels (high/low) |
 | D0H | PSW | CPU Status Register | Program Status Word | Yes | 00H | Flags (CY, AC, OV, P) and register bank selection (RS1, RS0) |
-| E0H | ACC | CPU Core Register | Accumulator | Yes | 00H | Primary arithmetic/logic register |
+| E0H | ACC(A) | CPU Core Register | Accumulator | Yes | 00H | Primary arithmetic/logic register |
 | F0H | B | CPU Core Register | B Register | Yes | 00H | Multiplication/division, general-purpose |
 
 ### Bit-Addressable SFRs
