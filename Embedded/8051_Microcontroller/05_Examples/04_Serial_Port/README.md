@@ -225,25 +225,287 @@ Hello World!
 
 ---
 
-## Upcoming Examples
+## More Examples
 
-#### Serial_Transmit.c
-String transmission with formatting
+### Serial_Transmit.c
+**Difficulty:** ⭐⭐ Intermediate
 
-#### Serial_Receive.c
-Buffered receive with processing
+**Description:**
+Demonstrates formatted string transmission including numbers in different formats (decimal, hexadecimal, binary). This example shows how to create a complete output library for serial communication.
 
-#### Serial_Interrupt.c
-Interrupt-driven serial I/O
+**Features:**
+- String transmission
+- Decimal byte/word formatting (0-65535)
+- Signed decimal (-128 to 127)
+- Hexadecimal output (byte and word)
+- Binary output (8-bit)
+- Mixed formatting examples
+- Data table generation
 
-#### Serial_Commands.c
-Command parser and processor
+**Key Functions:**
+- `serial_send_decimal_byte()` - Format 0-255
+- `serial_send_decimal_word()` - Format 0-65535
+- `serial_send_hex()` - 2-digit hex
+- `serial_send_binary()` - 8-bit binary
 
-#### Bluetooth_HC05.c
-Wireless communication via Bluetooth
+**Use For:**
+- Debugging output
+- Data logging
+- Status displays
+- User interfaces
 
-#### GPS_Interface.c
-NMEA data parsing from GPS module
+---
+
+### Serial_Receive.c
+**Difficulty:** ⭐⭐⭐ Advanced
+
+**Description:**
+Buffered serial data reception with line-by-line processing. Implements a circular receive buffer with interrupt-driven data collection and command parsing.
+
+**Features:**
+- Circular receive buffer (64 bytes)
+- Interrupt-driven reception
+- Line buffering and processing
+- Command parsing system
+- Built-in commands (HELP, STATUS, CLEAR)
+- Echo with backspace support
+- Overflow detection
+
+**Key Concepts:**
+- Ring buffer implementation
+- Interrupt service routines
+- Line termination handling
+- Buffer overflow protection
+
+**Built-in Commands:**
+- `HELP` - Show command list
+- `STATUS` - Display buffer statistics
+- `CLEAR` - Clear receive buffers
+- `HELLO` - Test greeting
+
+**Use For:**
+- Command-line interfaces
+- Data logging systems
+- Protocol implementations
+
+---
+
+### Serial_Interrupt.c
+**Difficulty:** ⭐⭐⭐⭐ Expert
+
+**Description:**
+Full-duplex serial communication using interrupts for both transmission and reception. Provides non-blocking I/O with dual circular buffers.
+
+**Features:**
+- Full-duplex operation (TX and RX)
+- Non-blocking I/O
+- Dual circular buffers (64 bytes each)
+- Interrupt-driven transmit and receive
+- Buffer space monitoring
+- Overflow detection
+- Status reporting
+
+**Key Functions:**
+- `serial_write()` - Non-blocking write
+- `serial_write_string()` - Write string to buffer
+- `serial_read()` - Read from buffer
+- `serial_available()` - Check for data
+- `serial_flush()` - Wait for TX complete
+- `serial_tx_count()` - Get TX buffer usage
+- `serial_rx_count()` - Get RX buffer usage
+
+**Interrupt Handler:**
+```c
+void serial_isr(void) interrupt 4
+{
+    if (RI) { /* Receive */ }
+    if (TI) { /* Transmit */ }
+}
+```
+
+**Built-in Commands:**
+- `STATUS` - Show buffer status
+- `ECHO` - Test transmission
+- `CLEAR` - Clear buffers
+- `FLUSH` - Wait for TX complete
+
+**Use For:**
+- High-speed communication
+- Real-time systems
+- Multi-tasking applications
+- Background data transfer
+
+---
+
+### Serial_Commands.c
+**Difficulty:** ⭐⭐⭐⭐ Expert
+
+**Description:**
+Complete command-line interface with argument parsing, LED control, port I/O, and multiple command types. Demonstrates building a user interface over serial.
+
+**Features:**
+- Command parser with arguments
+- Case-insensitive command matching
+- LED control (individual and patterns)
+- Port I/O operations
+- Number conversion utilities
+- Help system
+- Error handling
+
+**Available Commands:**
+- `HELP` - Display command list
+- `LED <num> <state>` - Control individual LED
+- `LEDS <value>` - Set all LEDs (0-255)
+- `PATTERN <type>` - LED patterns (CHASE/BLINK/ALL)
+- `STATUS` - Show system status
+- `READ <port>` - Read port (0-3)
+- `WRITE <port> <val>` - Write port (0-3, 0-255)
+- `CLEAR` - Clear screen
+- `ECHO <text>` - Echo text back
+- `HEX <value>` - Convert to hex/bin
+
+**Key Functions:**
+- `parse_command()` - Split command line
+- `strcmp_i()` - Case-insensitive compare
+- `ascii_to_byte()` - String to integer
+
+**Examples:**
+```
+LED 0 ON          # Turn on LED 0
+LEDS 0xAA         # Set pattern 10101010
+PATTERN CHASE     # Run chase pattern
+STATUS            # Show port states
+HEX 255           # Display 0xFF 11111111
+```
+
+**Use For:**
+- User interfaces
+- Configuration tools
+- Debugging consoles
+- Control systems
+
+---
+
+### Bluetooth_HC05.c
+**Difficulty:** ⭐⭐⭐ Advanced
+
+**Description:**
+Wireless communication using HC-05 Bluetooth module. Includes AT command mode for configuration and data mode for communication.
+
+**Hardware Connections:**
+```
+8051 TXD (P3.1) -> HC-05 RXD
+8051 RXD (P3.0) <- HC-05 TXD
+8051 P3.2      -> HC-05 KEY  (AT mode)
+8051 P3.7      -> HC-05 EN   (Enable)
+```
+
+**Features:**
+- AT command mode entry/exit
+- Module configuration
+- Name/address/version queries
+- Data mode communication
+- Connection status monitoring
+- LED feedback indicator
+
+**Available Commands:**
+- `AT` - Enter AT command mode
+- `DATA` - Exit to data mode
+- `NAME` - Get module name
+- `ADDR` - Get module address
+- `VER` - Get firmware version
+- `TEST` - Send test message
+- `STATUS` - Show connection status
+
+**Key Functions:**
+- `hc05_init()` - Initialize module
+- `hc05_enter_at_mode()` - Enter configuration mode
+- `hc05_send_at_command()` - Send AT command
+- `hc05_get_name()` - Query module name
+- `hc05_get_address()` - Query MAC address
+
+**Common AT Commands:**
+```
+AT+NAME<name>     - Set module name
+AT+PSWD<password> - Set PIN (default 1234)
+AT+UART<baud>,0,0 - Set baud rate
+AT+ROLE=<role>    - 0=slave, 1=master
+```
+
+**Use For:**
+- Wireless control
+- Remote monitoring
+- Smartphone interfaces
+- Wireless sensor networks
+
+---
+
+### GPS_Interface.c
+**Difficulty:** ⭐⭐⭐⭐ Expert
+
+**Description:**
+GPS module interface with NMEA sentence parsing. Supports multiple NMEA message types (GPGGA, GPRMC, GPGSA, GPGSV) and extracts position, time, date, and satellite data.
+
+**Hardware Connections:**
+```
+8051 RXD (P3.0) <- GPS TXD
+GPS VCC         <- 3.3V or 5V
+GPS GND         <- GND
+```
+
+**Supported NMEA Sentences:**
+- **GPGGA** - Fix data (time, position, fix type, satellites, altitude)
+- **GPRMC** - Recommended minimum (time, date, position, speed, course)
+- **GPGSA** - Satellite data (fix type, PDOP, satellites in use)
+- **GPGSV** - Satellites in view (count, elevation, azimuth, SNR)
+
+**Features:**
+- NMEA sentence parsing
+- Multiple sentence type support
+- Position validation
+- Time and date extraction
+- Speed and course tracking
+- Satellite count monitoring
+- Raw sentence display
+
+**Data Extracted:**
+- UTC time
+- Date (DDMMYY)
+- Latitude (DDMM.MMMM)
+- Longitude (DDDMM.MMMM)
+- North/South indicator
+- East/West indicator
+- Fix quality (0=none, 1=GPS, 2=DGPS)
+- Number of satellites
+- Altitude (meters)
+- Speed over ground (knots)
+- Course over ground (degrees)
+
+**Available Commands:**
+- `DATA` - Show parsed GPS data
+- `RAW` - Show raw NMEA sentence
+- `STATUS` - Show fix status and satellite count
+- `TIME` - Show UTC time
+- `POS` - Show position (lat/lon/alt)
+
+**Key Functions:**
+- `parse_gpgga()` - Parse fix data
+- `parse_gprmc()` - Parse minimum data
+- `parse_nmea_field()` - Extract comma-separated field
+- `process_nmea_sentence()` - Route to correct parser
+
+**Example NMEA Sentences:**
+```
+$GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,*47
+$GPRMC,123519,A,4807.038,N,01131.000,E,022.4,084.4,230394,003.1,W*6A
+```
+
+**Use For:**
+- Navigation systems
+- Vehicle tracking
+- Time synchronization
+- Location-based services
+- Data logging
 
 ---
 
