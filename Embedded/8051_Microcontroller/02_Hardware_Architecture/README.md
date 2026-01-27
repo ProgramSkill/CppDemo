@@ -1013,7 +1013,10 @@ Baud Rate = (2^SMOD / 32) × (Oscillator / (12 × [256 - TH1]))
 **Mode 2 (Fixed Baud Rate):**
 ```
 Baud Rate = (2^SMOD / 64) × Oscillator Frequency
-Example @ 12MHz, SMOD=0: Baud Rate = 375 kbps
+
+Examples @ 12MHz:
+- SMOD=0: Baud Rate = (1/64) × 12MHz = 187.5 kbaud
+- SMOD=1: Baud Rate = (2/64) × 12MHz = 375 kbaud
 ```
 
 ### Serial Communication Examples
