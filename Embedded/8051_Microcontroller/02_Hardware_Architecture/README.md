@@ -487,23 +487,23 @@ Complete list of SFRs with addresses:
 | Address | Symbol | Category | Name | Bit-Addressable |
 |---------|--------|----------|------|-----------------|
 | 80H | P0 | I/O Port | Port 0 | Yes |
-| 81H | SP | Memory Pointer | Stack Pointer | No |
-| 82H | DPL | Memory Pointer | Data Pointer Low | No |
-| 83H | DPH | Memory Pointer | Data Pointer High | No |
-| 87H | PCON | Power Control | Power Control | No |
-| 88H | TCON | Timer/Counter | Timer Control | Yes |
-| 89H | TMOD | Timer/Counter | Timer Mode | No |
-| 8AH | TL0 | Timer/Counter | Timer 0 Low | No |
-| 8BH | TL1 | Timer/Counter | Timer 1 Low | No |
-| 8CH | TH0 | Timer/Counter | Timer 0 High | No |
-| 8DH | TH1 | Timer/Counter | Timer 1 High | No |
+| 81H | SP | CPU Register | Stack Pointer | No |
+| 82H | DPL | CPU Register | Data Pointer Low | No |
+| 83H | DPH | CPU Register | Data Pointer High | No |
+| 87H | PCON | Power Control | Power Control Register | No |
+| 88H | TCON | Timer/Counter | Timer Control Register | Yes |
+| 89H | TMOD | Timer/Counter | Timer Mode Register | No |
+| 8AH | TL0 | Timer/Counter | Timer 0 Low Byte | No |
+| 8BH | TL1 | Timer/Counter | Timer 1 Low Byte | No |
+| 8CH | TH0 | Timer/Counter | Timer 0 High Byte | No |
+| 8DH | TH1 | Timer/Counter | Timer 1 High Byte | No |
 | 90H | P1 | I/O Port | Port 1 | Yes |
-| 98H | SCON | Serial Comm | Serial Control | Yes |
-| 99H | SBUF | Serial Comm | Serial Buffer | No |
+| 98H | SCON | Serial Comm | Serial Control Register | Yes |
+| 99H | SBUF | Serial Comm | Serial Data Buffer | No |
 | A0H | P2 | I/O Port | Port 2 | Yes |
-| A8H | IE | Interrupt | Interrupt Enable | Yes |
+| A8H | IE | Interrupt | Interrupt Enable Register | Yes |
 | B0H | P3 | I/O Port | Port 3 | Yes |
-| B8H | IP | Interrupt | Interrupt Priority | Yes |
+| B8H | IP | Interrupt | Interrupt Priority Register | Yes |
 | D0H | PSW | CPU Status | Program Status Word | Yes |
 | E0H | ACC | CPU Register | Accumulator | Yes |
 | F0H | B | CPU Register | B Register | Yes |
@@ -785,11 +785,12 @@ Bit:  7    6    5    4    3    2    1    0
 ```assembly
 ; Generate 50ms delay @ 12MHz (1µs per cycle)
 ; 50ms = 50,000 cycles
-; Timer value = 65536 - 50000 = 15536 = 3CB0H
+; Timer value = 65536 - 50000 = 15536
+; High byte: 3CH (60), Low byte: B0H (176)
 
 MOV TMOD, #01H       ; Timer 0, Mode 1
-MOV TL0, #0B0H       ; Load low byte
 MOV TH0, #3CH        ; Load high byte
+MOV TL0, #0B0H       ; Load low byte
 SETB TR0             ; Start timer
 
 WAIT:
@@ -1212,9 +1213,11 @@ INT0_ISR:
 **Example 2: Timer 0 interrupt for periodic task**
 ```assembly
 ; Configure Timer 0 for 50ms interrupt @ 12MHz
+; Timer value = 65536 - 50000 = 15536
+; High byte: 3CH, Low byte: B0H
 MOV TMOD, #01H       ; Timer 0, Mode 1
-MOV TH0, #3CH        ; Load timer value
-MOV TL0, #0B0H       ; 65536 - 50000 = 15536 = 3CB0H
+MOV TH0, #3CH        ; Load high byte
+MOV TL0, #0B0H       ; Load low byte
 SETB ET0             ; Enable Timer 0 interrupt
 SETB TR0             ; Start timer
 SETB EA              ; Enable global interrupts
@@ -1225,9 +1228,9 @@ ORG 000BH
 
 ORG 0040H
 TIMER0_ISR:
-    ; Reload timer
-    MOV TH0, #3CH
-    MOV TL0, #0B0H
+    ; Reload timer values for next 50ms
+    MOV TH0, #3CH    ; Reload high byte
+    MOV TL0, #0B0H   ; Reload low byte
 
     ; Periodic task (every 50ms)
     CPL P1.7         ; Toggle LED
