@@ -13,7 +13,7 @@ The following diagram shows the 8051 microcontroller architecture with all major
 ```mermaid
 graph TB
     %% External Clock Circuit
-    XTAL[External Clock Circuit<br/>Crystal 12MHz<br/>C1, C2: 15-33pF]
+    XTAL[External Clock Circuit<br/>Crystal 12MHz<br/>C1, C2: 18-30pF]
 
     %% CPU Core
     CPU[CPU<br/>ALU + Clock]
@@ -1277,7 +1277,7 @@ The 8051 requires an external clock source to operate.
 1. **Crystal Oscillator** (most common)
    - Connect crystal between XTAL1 and XTAL2
    - Add two load capacitors (C1, C2) to ground
-   - Capacitor values: typically 15-33pF (15pF, 18pF, 20pF, 22pF, or 30pF)
+   - Capacitor values: typically 18-30pF (18pF, 20pF, 22pF, or 30pF)
    - Value depends on crystal's load capacitance specification (CL)
    - Typical frequencies: 11.0592 MHz, 12 MHz, 16 MHz
 
@@ -1292,7 +1292,7 @@ XTAL1 ──┤├──┬──[Crystal]──┬──┤├── XTAL2
             │              │   C2
            GND            GND
 
-Note: C1 = C2 = 15-33pF (typically 20-22pF for 12MHz crystal)
+Note: C1 = C2 = 18-30pF (typically 20-22pF for 12MHz crystal)
       Actual value depends on crystal's load capacitance (CL)
 ```
 
@@ -1405,7 +1405,7 @@ gantt
 | 1-8 | P1.0-P1.7 | I/O | Port 1: 8-bit I/O with internal pull-ups |
 | 9 | RST | Input | Reset (active high) |
 | 10-17 | P3.0-P3.7 | I/O | Port 3: 8-bit I/O with alternate functions |
-| 18 | XTAL2 | Output | Crystal oscillator output |
+| 18 | XTAL2 | Output | Crystal oscillator output (leave unconnected when using external clock) |
 | 19 | XTAL1 | Input | Crystal oscillator input |
 | 20 | GND | Power | Ground (0V) |
 | 21-28 | P2.0-P2.7 | I/O | Port 2: 8-bit I/O or high-order address |
