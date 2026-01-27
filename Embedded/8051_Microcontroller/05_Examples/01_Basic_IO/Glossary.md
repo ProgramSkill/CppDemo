@@ -130,7 +130,7 @@ This document provides English-Chinese translation for all important terms in Ba
 | English | 中文 | 说明 / Notes |
 |---------|------|--------------|
 | Circuit diagram | 电路图 | 连接示意图 |
-| Breadboard | 万能板 | 用于原型开发 |
+| Breadboard | 面包板 | 用于原型开发 |
 | Jumper wire | 跳线 | 连接导线 |
 | Power supply (VCC) | 电源 | 正电源，通常 5V |
 | Ground (GND) | 地 | 零电位参考 |
@@ -426,7 +426,7 @@ This document provides English-Chinese translation for all important terms in Ba
 ## 💡 Memory Aids / 记忆口诀
 
 ### LED Connection Memory / LED 连接记忆
-- **Active low strong sinking**：低电平有效拉电流强（20mA），推电流弱（60µA）
+- **Sinking is strong, sourcing is weak**：灌电流强（20mA），拉电流弱（60µA）
 - **Long positive short negative**：LED 长脚接正极，短脚接负极
 
 ### Button Connection Memory / 按钮连接记忆
