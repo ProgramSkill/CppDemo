@@ -847,29 +847,56 @@ void main() {
 
 ---
 
-## Example 3: Traffic Light (Coming Soon)
+## Example 3: Seven-Segment Display
 
-**Description:** Simulate traffic light with Red, Yellow, Green LEDs
+### 📝 Complete Source Code
 
-**Preview:**
+**File:** [Seven_Segment_Display.md](./Seven_Segment_Display.md)
+
+A comprehensive guide to controlling seven-segment LED displays with 8051 microcontroller.
+
+**What You'll Learn:**
+- Common cathode vs common anode displays
+- Segment mapping and pattern generation
+- Single and multi-digit display control
+- Display multiplexing (scanning) technique
+- Brightness control and current limiting
+
+**Hardware Required:**
+- 1× Common cathode 7-segment display (or 4× for multi-digit example)
+- 8× Resistors 220Ω (one per segment)
+- Breadboard and jumper wires
+
+**Quick Preview:**
 ```c
-sbit RED = P1^0;
-sbit YELLOW = P1^1;
-sbit GREEN = P1^2;
+unsigned char code digit_pattern[10] = {
+    0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F
+};
 
 void main() {
+    unsigned char i;
     while(1) {
-        GREEN = 0; YELLOW = 1; RED = 1;    // Green ON
-        delay(5000);                         // 5 seconds
-
-        YELLOW = 0; GREEN = 1;              // Yellow ON
-        delay(2000);                         // 2 seconds
-
-        RED = 0; YELLOW = 1;                // Red ON
-        delay(5000);                         // 5 seconds
+        for(i = 0; i < 10; i++) {
+            P1 = digit_pattern[i];  // Display digit
+            delay(1000);             // 1 second
+        }
     }
 }
 ```
+
+**Examples Include:**
+1. Single digit counter (0-9)
+2. 4-digit display with multiplexing
+3. Digital clock display
+4. Button-controlled counter
+5. Letters display (A-F)
+6. Brightness control with PWM
+
+See full tutorial: [Seven_Segment_Display.md](./Seven_Segment_Display.md)
+
+---
+
+## Example 4: Traffic Light (Coming Soon)
 
 ---
 

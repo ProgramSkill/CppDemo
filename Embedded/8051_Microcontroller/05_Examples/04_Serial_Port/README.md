@@ -63,12 +63,165 @@ Simple echo program - receives character and sends it back. Demonstrates:
 - TI/RI flag checking
 - SBUF read/write operations
 
-**Code Size:** ~60 lines
+**Complete Code:**
+
+```c
+/**
+ * Serial_Echo.c
+ * 8051 Serial Port Echo Program
+ *
+ * Description: Receives characters from serial port and echoes them back
+ * Hardware: 8051 @ 11.0592MHz, MAX232 level shifter
+ * Baud Rate: 9600 (8N1)
+ */
+
+#include <reg51.h>
+
+/* Baud rate reload value for 9600 baud @ 11.0592MHz */
+#define BAUD_9600 0xFD
+
+/**
+ * Initialize serial port for 9600 baud, 8N1
+ * Mode 1: 8-bit UART with variable baud rate
+ */
+void serial_init(void)
+{
+    /* Configure Timer 1 as baud rate generator */
+    TMOD &= 0x0F;        /* Clear Timer 1 mode bits (keep Timer 0) */
+    TMOD |= 0x20;        /* Timer 1, Mode 2 (8-bit auto-reload) */
+
+    TH1 = BAUD_9600;     /* Set baud rate reload value */
+    TL1 = BAUD_9600;     /* Initial load (auto-reloads from TH1) */
+    TR1 = 1;             /* Start Timer 1 */
+
+    /* Configure Serial Control Register */
+    SCON = 0x50;         /* Mode 1 (8-bit UART), Receive enabled */
+    /*   SM0 = 0, SM1 = 1: Mode 1 selected */
+    /*   SM2 = 0: Disable multiprocessor mode */
+    /*   REN = 1: Enable receiver */
+    /*   TB8, RB8: Not used in Mode 1 */
+    /*   TI, RI: Cleared to 0 */
+
+    /* Clear interrupt flags (for polled operation) */
+    TI = 0;              /* Clear Transmit Interrupt flag */
+    RI = 0;              /* Clear Receive Interrupt flag */
+}
+
+/**
+ * Transmit a single byte via serial port
+ * Polled mode: waits until transmission completes
+ */
+void serial_send(unsigned char data)
+{
+    SBUF = data;         /* Write data to serial buffer */
+    while (!TI);         /* Wait for transmission to complete */
+    TI = 0;              /* Clear transmit interrupt flag */
+}
+
+/**
+ * Receive a single byte from serial port
+ * Polled mode: waits until data is received
+ */
+unsigned char serial_receive(void)
+{
+    while (!RI);         /* Wait for reception to complete */
+    RI = 0;              /* Clear receive interrupt flag */
+    return SBUF;         /* Return received data */
+}
+
+/**
+ * Transmit a null-terminated string
+ */
+void serial_send_string(unsigned char *str)
+{
+    while (*str != '\0')
+    {
+        serial_send(*str);
+        str++;
+    }
+}
+
+/**
+ * Main program - echo received characters
+ */
+void main(void)
+{
+    unsigned char received_char;
+
+    /* Initialize serial port */
+    serial_init();
+
+    /* Send welcome message */
+    serial_send_string("8051 Serial Echo Program\r\n");
+    serial_send_string("Type characters and see them echoed back\r\n");
+    serial_send_string("Press Ctrl+C to stop\r\n\r\n");
+
+    /* Main loop - echo characters */
+    while (1)
+    {
+        /* Wait for character */
+        received_char = serial_receive();
+
+        /* Echo it back */
+        serial_send(received_char);
+
+        /* Optional: echo with prompt for visual feedback */
+        if (received_char == '\r')
+        {
+            /* If Enter key pressed, add line feed */
+            serial_send('\n');
+        }
+    }
+}
+```
+
+**Code Breakdown:**
+
+1. **Timer 1 Configuration** (Lines 23-26)
+   - Timer 1 in Mode 2 (8-bit auto-reload)
+   - TH1 holds reload value (0xFD for 9600 baud)
+   - Timer generates baud rate clock
+
+2. **SCON Register** (Lines 29-36)
+   - Sets UART to Mode 1
+   - Enables receiver (REN = 1)
+   - Clears interrupt flags
+
+3. **Transmit Function** (Lines 46-51)
+   - Writes data to SBUF
+   - Waits for TI flag (transmission complete)
+   - Clears TI flag for next transmission
+
+4. **Receive Function** (Lines 57-62)
+   - Waits for RI flag (data received)
+   - Clears RI flag
+   - Returns data from SBUF
+
+5. **String Function** (Lines 67-74)
+   - Helper to send complete strings
+   - Iterates until null terminator
+
+6. **Main Loop** (Lines 79-104)
+   - Sends startup message
+   - Continuously echoes received characters
+   - Handles carriage return for proper line endings
 
 **Testing:**
-1. Open terminal at 9600 baud, 8N1
-2. Type characters
-3. Should see echo back
+1. Connect 8051 to PC via MAX232/USB-serial
+2. Open terminal at 9600 baud, 8N1
+3. Reset 8051 - should see welcome message
+4. Type characters - should see echo back
+5. Press Enter - should get new line
+
+**Expected Output:**
+```
+8051 Serial Echo Program
+Type characters and see them echoed back
+Press Ctrl+C to stop
+
+Hello World!
+Hello World!
+```
 
 ---
 
