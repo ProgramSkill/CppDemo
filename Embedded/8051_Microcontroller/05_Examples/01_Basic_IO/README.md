@@ -421,7 +421,7 @@ void main() {
     while(1) {  // Infinite loop
         if(BUTTON == 0) {        // Button pressed (active low)
             LED = ~LED;          // Toggle LED state
-            delay(200);          // Debounce delay
+            delay(50);           // Debounce delay (50ms for most switches)
             while(BUTTON == 0);  // Wait for button release
         }
     }
@@ -526,7 +526,7 @@ sbit BUTTON = P3^2;  // Button connected to P3.2 (INT0)
 while(1) {  // Infinite loop
     if(BUTTON == 0) {        // Check button pressed
         LED = ~LED;          // Toggle LED state
-        delay(200);          // Debounce delay
+        delay(50);           // Debounce delay (50ms for most switches)
         while(BUTTON == 0);  // Wait for release
     }
 }
@@ -543,7 +543,7 @@ while(1) {  // Infinite loop
 - If LED=0 (ON), it becomes LED=1 (OFF)
 - If LED=1 (OFF), it becomes LED=0 (ON)
 
-**Step 3: Debounce Delay - `delay(200)`**
+**Step 3: Debounce Delay - `delay(50)`**
 - **Why is debouncing necessary?**
   - Mechanical buttons produce 10-50ms bounce when pressed/released
   - Can cause multiple triggers, mistaken as multiple presses
@@ -555,7 +555,7 @@ while(1) {  // Infinite loop
 
   Program Read:  ┌────────────────────┐
   5V ────────────┘                    └───────
-                ←200ms masks bounce→
+                ←50ms masks bounce→
   ```
 
 **Step 4: Wait for Release - `while(BUTTON == 0)`**
@@ -597,7 +597,7 @@ Program Exec:               Detect→Toggle→Debounce→Wait Release
 | Problem | Possible Cause | Solution |
 |---------|----------------|----------|
 | LED has no response | Button not connected properly | Check button connection and pull-up resistor |
-| LED toggles multiple times per press | Debounce delay too short | Increase delay to 200-300ms |
+| LED toggles multiple times per press | Debounce delay too short | Increase delay to 50-100ms |
 | Must press quickly to work | Missing wait-for-release | Add while(BUTTON==0) |
 | Self-triggering (false trigger) | Pin floating or interference | Ensure pull-up resistor connected |
 | Button not sensitive | Pull-up resistor too large | Use 4.7kΩ-10kΩ resistor |
@@ -660,7 +660,7 @@ void main() {
                 case 2: P1 = 0x55;      break;  // Pattern 2
                 case 3: P1 = 0x00;      break;  // All ON
             }
-            delay(200);
+            delay(50);           // Debounce delay
             while(BUTTON == 0);
         }
     }
@@ -702,7 +702,7 @@ void main() {
     LED = 1;
     while(1) {
         if(BUTTON == 0) {
-            delay(200);
+            delay(50);           // Debounce delay
             while(BUTTON == 0);
             click_count++;
 
@@ -735,7 +735,7 @@ void main() {
         if(BUTTON == 0) {
             STATUS_LED = 0;     // Button pressed indicator
             CONTROL_LED = ~CONTROL_LED;
-            delay(200);
+            delay(50);           // Debounce delay
             while(BUTTON == 0);
             STATUS_LED = 1;     // Button released
         }
@@ -1016,7 +1016,72 @@ See full tutorial: [Buzzer_Control.md](./Buzzer_Control.md)
 
 ---
 
-## Example 6: Traffic Light (Coming Soon)
+## Example 6: Matrix Keypad
+
+### 📝 Complete Source Code
+
+**File:** [Matrix_Keypad.md](./Matrix_Keypad.md)
+
+Comprehensive guide to interfacing 4×4 and 4×3 matrix keypads with 8051 microcontroller using efficient scanning techniques.
+
+**What You'll Learn:**
+- Matrix keypad scanning principles
+- Row and column scanning technique
+- Switch debouncing for keypads
+- Key mapping and detection
+- Pin-efficient design (8 pins for 16 keys)
+- Advanced features (multi-key, long press, repeat)
+
+**Hardware Required:**
+- 1× 4×4 or 4×3 matrix keypad
+- 4× Resistors 10kΩ (pull-ups on columns, optional but recommended)
+- Connectors and jumper wires
+
+**Quick Preview:**
+```c
+// Scan 4×4 keypad
+for(row = 0; row < 4; row++) {
+    // Activate current row
+    switch(row) {
+        case 0: ROW1 = 0; ROW2 = 1; ROW3 = 1; ROW4 = 1; break;
+        // ... other rows
+    }
+    // Check columns
+    if(COL1 == 0) return key_map[row][0];
+    // ... other columns
+}
+```
+
+**Examples Include:**
+1. 4×4 matrix keypad (basic scanning)
+2. Enhanced debouncing techniques
+3. 4×3 telephone-style keypad
+4. Password entry system
+5. Keypad to 7-segment display
+6. Multi-key detection
+7. Long press detection
+8. Key repeat (typematic)
+9. Menu navigation system
+
+**Applications:**
+- Security systems (PIN entry)
+- Calculators and numeric input
+- Industrial control panels
+- Menu-driven interfaces
+- Door access control
+- User input systems
+
+**Advantages:**
+- Pin efficient: 8 pins for 16 keys (50% reduction)
+- Cost-effective for multiple buttons
+- Standard interface for many applications
+- Easy to program and use
+
+See full tutorial: [Matrix_Keypad.md](./Matrix_Keypad.md)
+
+---
+
+## Example 7: Traffic Light (Coming Soon)
 
 ---
 
