@@ -896,7 +896,70 @@ See full tutorial: [Seven_Segment_Display.md](./Seven_Segment_Display.md)
 
 ---
 
-## Example 4: Traffic Light (Coming Soon)
+## Example 4: Relay Control
+
+### ⚠️ Safety Warning
+
+**WARNING:** This example involves controlling high-power loads. Always start with low-voltage DC loads (5V-12V) when learning. Never work on live AC circuits without proper training and safety equipment.
+
+### 📝 Complete Source Code
+
+**File:** [Relay_Control.md](./Relay_Control.md)
+
+Comprehensive guide to controlling relays with 8051 microcontroller for switching high-power/high-voltage loads.
+
+**What You'll Learn:**
+- Relay working principles (NO/NC contacts)
+- Transistor driver circuit design
+- ULN2003 Darlington array usage
+- Flyback diode protection
+- Optocoupler isolation
+- Multiple relay control
+- Timer-based automation
+
+**Hardware Required:**
+- 1× 5V relay module (with optocoupler) OR discrete relay + transistor
+- 1× NPN transistor (2N2222/BC547) if using discrete relay
+- 1× Diode (1N4007) for flyback protection
+- 1× Resistor 1kΩ (base resistor)
+- Load device (LED strip, small motor, etc.)
+
+**Quick Preview:**
+```c
+sbit RELAY = P1^0;
+
+void main() {
+    while(1) {
+        RELAY = 0;      // Turn ON relay (active low)
+        delay(2000);    // Keep ON for 2 seconds
+        RELAY = 1;      // Turn OFF relay
+        delay(2000);    // Keep OFF for 2 seconds
+    }
+}
+```
+
+**Examples Include:**
+1. Basic ON/OFF control
+2. Button-controlled relay
+3. Multiple relay sequencing
+4. Timer-based automatic control
+5. Temperature fan control
+6. Motor direction control (2 relays)
+7. Pulse output (door lock)
+8. Sequential automation
+
+**Applications:**
+- Home automation (lights, fans)
+- Industrial control (motors, solenoids)
+- Automotive systems
+- Power switching
+- Timer circuits
+
+See full tutorial: [Relay_Control.md](./Relay_Control.md)
+
+---
+
+## Example 5: Traffic Light (Coming Soon)
 
 ---
 
