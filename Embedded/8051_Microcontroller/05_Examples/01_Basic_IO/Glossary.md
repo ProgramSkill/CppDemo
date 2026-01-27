@@ -80,8 +80,8 @@ This document provides English-Chinese translation for all important terms in Ba
 | Polling | 轮询 | 循环检测输入状态 |
 | Interrupt | 中断 | 事件触发的响应机制 |
 | Floating pin | 悬空引脚 | 未连接的引脚，状态不确定 |
-| Weak pull-up | 弱上拉 | 内部小电流上拉（约60µA） |
-| Strong pull-up | 强上拉 | 外部大电流上拉（可达mA级） |
+| Weak pull-up | 弱上拉 | 内部小电流上拉，典型8051约60µA |
+| Strong pull-up | 强上拉 | 外部大电流上拉，典型8051可达mA级 |
 | EMI | 电磁干扰 | Electromagnetic Interference |
 | Noise immunity | 抗干扰性 | 抵抗噪声的能力 |
 | Fail-safe design | 故障安全设计 | 故障时自动进入安全状态 |
@@ -193,11 +193,11 @@ This document provides English-Chinese translation for all important terms in Ba
 
 | English | 中文 | 代码示例 / Code Example |
 |---------|------|------------------------|
-| Set bit | 置位 | `P1 \|= (1 << 0)` 或 `P1_0 = 1` |
+| Set bit | 置位 | `P1 |= (1 << 0)` 或 `P1_0 = 1` |
 | Clear bit | 清零 | `P1 &= ~(1 << 0)` 或 `P1_0 = 0` |
 | Toggle bit | 取反 | `P1 ^= (1 << 0)` 或 `P1_0 = ~P1_0` |
 | Test bit | 测试位 | `if(P1_0)` |
-| Bitwise OR | 按位或 | `\|` |
+| Bitwise OR | 按位或 | `|` |
 | Bitwise AND | 按位与 | `&` |
 | Bitwise XOR | 按位异或 | `^` |
 | Bitwise NOT | 按位取反 | `~` |
@@ -426,14 +426,14 @@ This document provides English-Chinese translation for all important terms in Ba
 ## 💡 Memory Aids / 记忆口诀
 
 ### LED Connection Memory / LED 连接记忆
-- **Sinking is strong, sourcing is weak**：灌电流强（20mA），拉电流弱（60µA）
+- **Sinking is strong, sourcing is weak**：灌电流强，拉电流弱（典型8051：20mA vs 60µA）
 - **Long positive short negative**：LED 长脚接正极，短脚接负极
 
 ### Button Connection Memory / 按钮连接记忆
 - **Pull-up button reads low**：上拉电阻按钮按下时读低电平
 - **Pull-down button reads high**：下拉电阻按钮按下时读高电平
 - **10kΩ is the sweet spot**：10kΩ 是平衡功耗和抗干扰的最佳值
-- **Debounce 200ms**：软件去抖动延时约 200ms
+- **Debounce 20ms**：软件去抖动延时约 10–50ms（常用20ms）
 
 ### Bit Operation Memory / 位操作记忆
 - **OR to set**：OR 用于置 1（Set bit）
