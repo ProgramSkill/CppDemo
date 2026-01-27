@@ -82,7 +82,7 @@ This document provides English-Chinese translation for all important terms in Ba
 | Floating pin | 悬空引脚 | 未连接的引脚，状态不确定 |
 | Weak pull-up | 弱上拉 | 内部小电流上拉，典型8051约60µA |
 | Strong pull-up | 强上拉 | 外部大电流上拉，典型8051可达mA级 |
-| EMI | 电磁干扰 | Electromagnetic Interference |
+| EMI | 电磁干扰 | Electromagnetic Interference，外部电磁噪声对电路的干扰 |
 | Noise immunity | 抗干扰性 | 抵抗噪声的能力 |
 | Fail-safe design | 故障安全设计 | 故障时自动进入安全状态 |
 | Contact bounce | 触点抖动 | 开关触点的机械抖动 |
