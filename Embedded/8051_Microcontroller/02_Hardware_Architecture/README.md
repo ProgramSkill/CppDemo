@@ -649,13 +649,18 @@ CLR P0.7             ; Clear bit 7 low
 - Pure I/O port with no alternate functions
 - Ideal for connecting switches, LEDs, sensors
 - Each pin can source ~60µA or sink ~10mA
+  - **Note**: The 60µA "source" capability is NOT active drive capability
+  - In quasi-bidirectional mode, writing '1' enables a weak pull-up resistor (~50kΩ)
+  - The ~60µA is leakage current through this pull-up when pin is pulled low externally
+  - For driving external loads HIGH, add external pull-up or buffer circuit
+  - Writing '0' provides strong sink capability (~10mA) with active pull-down transistor
 
 **Electrical Characteristics:**
-- Output LOW voltage: < 0.45V @ 1.6mA
-- Output HIGH voltage: > 2.4V @ 60µA
+- Output LOW voltage: < 0.45V @ 1.6mA (strong pull-down)
+- Output HIGH voltage: > 2.4V @ 60µA (weak pull-up, not suitable for driving loads)
 - Input LOW voltage: < 0.2VDD
 - Input HIGH voltage: > 0.8VDD
-- Internal pull-up: ~50kΩ
+- Internal pull-up: ~50kΩ (weak, for maintaining logic HIGH only)
 
 **Example Usage:**
 ```assembly
