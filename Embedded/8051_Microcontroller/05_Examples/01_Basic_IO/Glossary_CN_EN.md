@@ -1,406 +1,406 @@
+# Basic I/O Terminology Glossary
 # Basic I/O 术语中英文对照表
-# Basic I/O Terminology - Chinese-English Glossary
 
-本文档提供 Basic I/O 示例中所有重要术语的中英文对照。
-This document provides Chinese-English translation for all important terms in Basic I/O examples.
-
----
-
-## 📚 基础概念 / Basic Concepts
-
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 输入/输出 | Input/Output (I/O) | 数据进出微控制器的接口 |
-| 端口 | Port | 一组引脚，如 P0, P1, P2, P3 |
-| 引脚 | Pin | 单个物理连接点 |
-| 位 | Bit | 最小数据单位，0 或 1 |
-| 字节 | Byte | 8 位数据 |
-| 特殊功能寄存器 | Special Function Register (SFR) | 控制硬件的寄存器 |
-| 位寻址 | Bit-addressable | 可单独访问每个位的特性 |
+本文档提供 Basic I/O 示例中所有重要术语的英中对照。
+This document provides English-Chinese translation for all important terms in Basic I/O examples.
 
 ---
 
-## 🔌 端口与引脚 / Ports and Pins
+## 📚 Basic Concepts / 基础概念
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| P0 口 | Port 0 (P0) | 8 位双向 I/O 端口 |
-| P1 口 | Port 1 (P1) | 8 位准双向 I/O 端口 |
-| P2 口 | Port 2 (P2) | 8 位准双向 I/O 端口 |
-| P3 口 | Port 3 (P3) | 8 位准双向 I/O 端口，具有复用功能 |
-| 准双向端口 | Quasi-bidirectional port | 8051 特有的端口类型 |
-| 双向端口 | Bidirectional port | 可同时输入和输出 |
-| 位操作 | Bit manipulation | 对单个位进行操作 |
-| 端口操作 | Port operation | 对整个端口进行操作 |
-
----
-
-## 💡 LED 相关术语 / LED Related Terms
-
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 发光二极管 | Light Emitting Diode (LED) | 发光元件 |
-| 低电平有效 | Active low | 0 = 开启，1 = 关闭 |
-| 高电平有效 | Active high | 1 = 开启，0 = 关闭 |
-| 灌电流 | Current sink | 电流流入端口（低电平） |
-| 拉电流 | Current source | 电流流出端口（高电平） |
-| 阳极 | Anode | LED 正极 |
-| 阴极 | Cathode | LED 负极 |
-| 电阻 | Resistor | 限流元件 |
-| 限流电阻 | Current limiting resistor | 保护 LED 的电阻 |
-| 闪烁 | Blink/Flash | 周期性亮灭 |
-| 跑马灯 | Running LED/Chaser | LED 依次点亮的效果 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Input/Output (I/O) | 输入/输出 | 数据进出微控制器的接口 |
+| Port | 端口 | 一组引脚，如 P0, P1, P2, P3 |
+| Pin | 引脚 | 单个物理连接点 |
+| Bit | 位 | 最小数据单位，0 或 1 |
+| Byte | 字节 | 8 位数据 |
+| Special Function Register (SFR) | 特殊功能寄存器 | 控制硬件的寄存器 |
+| Bit-addressable | 位寻址 | 可单独访问每个位的特性 |
 
 ---
 
-## ⌨️ 编程术语 / Programming Terms
+## 🔌 Ports and Pins / 端口与引脚
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 头文件 | Header file | .h 文件，包含声明 |
-| 寄存器定义 | Register definition | SFR 的定义 |
-| 单个位声明 | Single bit declaration | sbit 关键字 |
-| 主函数 | Main function | 程序入口点 |
-| 无限循环 | Infinite loop | while(1) 或 for(;;) |
-| 延时函数 | Delay function | 产生时间延迟 |
-| 嵌套循环 | Nested loop | 循环内套循环 |
-| 条件语句 | Conditional statement | if-else 语句 |
-| 赋值 | Assignment | 给变量赋值 |
-| 取反 | Toggle/Invert | 0 变 1，1 变 0 |
-| 位移 | Shift operation | << 或 >> |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Port 0 (P0) | P0 口 | 8 位双向 I/O 端口 |
+| Port 1 (P1) | P1 口 | 8 位准双向 I/O 端口 |
+| Port 2 (P2) | P2 口 | 8 位准双向 I/O 端口 |
+| Port 3 (P3) | P3 口 | 8 位准双向 I/O 端口，具有复用功能 |
+| Quasi-bidirectional port | 准双向端口 | 8051 特有的端口类型 |
+| Bidirectional port | 双向端口 | 可同时输入和输出 |
+| Bit manipulation | 位操作 | 对单个位进行操作 |
+| Port operation | 端口操作 | 对整个端口进行操作 |
 
 ---
 
-## 🕐 时间与定时 / Timing
+## 💡 LED Related Terms / LED 相关术语
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 毫秒 | Millisecond (ms) | 千分之一秒 |
-| 微秒 | Microsecond (µs) | 百万分之一秒 |
-| 机器周期 | Machine cycle | 8051 的基本时间单位 |
-| 晶振频率 | Crystal frequency | 时钟频率，如 12MHz |
-| 软件延时 | Software delay | 用循环实现的延时 |
-| 硬件定时器 | Hardware timer | 精确定时的硬件模块 |
-| 时间精度 | Timing precision | 延时的准确性 |
-| 校准 | Calibration | 调整延时以匹配实际时间 |
-
----
-
-## 🔧 硬件连接 / Hardware Connections
-
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 电路图 | Circuit diagram | 连接示意图 |
-| 万能板 | Breadboard | 用于原型开发 |
-| 跳线 | Jumper wire | 连接导线 |
-| 电源 | Power supply (VCC) | 正电源，通常 5V |
-| 地 | Ground (GND) | 零电位参考 |
-| 极性 | Polarity | 元件的方向性 |
-| 正极 | Positive terminal | 高电位端 |
-| 负极 | Negative terminal | 低电位端 |
-| 负载 | Load | 消耗功率的元件 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Light Emitting Diode (LED) | 发光二极管 | 发光元件 |
+| Active low | 低电平有效 | 0 = 开启，1 = 关闭 |
+| Active high | 高电平有效 | 1 = 开启，0 = 关闭 |
+| Current sink | 灌电流 | 电流流入端口（低电平） |
+| Current source | 拉电流 | 电流流出端口（高电平） |
+| Anode | 阳极 | LED 正极 |
+| Cathode | 阴极 | LED 负极 |
+| Resistor | 电阻 | 限流元件 |
+| Current limiting resistor | 限流电阻 | 保护 LED 的电阻 |
+| Blink/Flash | 闪烁 | 周期性亮灭 |
+| Running LED/Chaser | 跑马灯 | LED 依次点亮的效果 |
 
 ---
 
-## ⚡ 电源与电流 / Power and Current
+## ⌨️ Programming Terms / 编程术语
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 电流 | Current (I) | 单位：安培(A)、毫安(mA)、微安(µA) |
-| 电压 | Voltage (V) | 单位：伏特(V) |
-| 功率 | Power (P) | 单位：瓦特(W) |
-| 电流限制 | Current limit | 最大允许电流 |
-| 额定电流 | Rated current | 正常工作电流 |
-| 峰值电流 | Peak current | 瞬间最大电流 |
-| 总电流 | Total current | 所有引脚电流之和 |
-| 电源电流 | Supply current | 芯片消耗的总电流 |
-
----
-
-## 🐛 调试与故障排除 / Debugging and Troubleshooting
-
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 调试 | Debugging | 查找和修复错误 |
-| 故障排除 | Troubleshooting | 解决问题的过程 |
-| 预期行为 | Expected behavior | 程序应有的表现 |
-| 实际行为 | Actual behavior | 程序实际的表现 |
-| 极性错误 | Wrong polarity | LED 接反了 |
-| 连接错误 | Wrong connection | 接线错误 |
-| 编译错误 | Compilation error | 代码语法错误 |
-| 烧录 | Programming/Flash | 将代码写入芯片 |
-| 万用表 | Multimeter | 测量电压、电流的工具 |
-| 示波器 | Oscilloscope | 查看波形的工具 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Header file | 头文件 | .h 文件，包含声明 |
+| Register definition | 寄存器定义 | SFR 的定义 |
+| Single bit declaration | 单个位声明 | sbit 关键字 |
+| Main function | 主函数 | 程序入口点 |
+| Infinite loop | 无限循环 | while(1) 或 for(;;) |
+| Delay function | 延时函数 | 产生时间延迟 |
+| Nested loop | 嵌套循环 | 循环内套循环 |
+| Conditional statement | 条件语句 | if-else 语句 |
+| Assignment | 赋值 | 给变量赋值 |
+| Toggle/Invert | 取反 | 0 变 1，1 变 0 |
+| Shift operation | 位移 | << 或 >> |
 
 ---
 
-## 📊 代码模式与变化 / Code Patterns and Variations
+## 🕐 Timing / 时间与定时
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 多路 LED | Multiple LEDs | 控制多个 LED |
-| 跑马灯 | Running LED/Chaser | LED 依次点亮 |
-| 摩斯码 | Morse code | 用长短信号表示字符 |
-| SOS 求救信号 | SOS distress signal | 求救信号：··· --- ··· |
-| 点 | Dot | 短信号 |
-| 划 | Dash | 长信号 |
-| 速度控制 | Speed control | 改变闪烁速度 |
-| 花样 | Pattern | LED 显示的模式 |
-| 移位 | Shift | 位向左或向右移动 |
-
----
-
-## 🔬 位操作详解 / Bit Operations Details
-
-| 中文 | English | 代码示例 / Code Example |
-|------|---------|------------------------|
-| 置位 | Set bit | `P1 \|= (1 << 0)` 或 `P1_0 = 1` |
-| 清零 | Clear bit | `P1 &= ~(1 << 0)` 或 `P1_0 = 0` |
-| 取反 | Toggle bit | `P1 ^= (1 << 0)` 或 `P1_0 = ~P1_0` |
-| 测试位 | Test bit | `if(P1_0)` |
-| 按位或 | Bitwise OR | `\|` |
-| 按位与 | Bitwise AND | `&` |
-| 按位异或 | Bitwise XOR | `^` |
-| 按位取反 | Bitwise NOT | `~` |
-| 左移 | Left shift | `<<` |
-| 右移 | Right shift | `>>` |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Millisecond (ms) | 毫秒 | 千分之一秒 |
+| Microsecond (µs) | 微秒 | 百万分之一秒 |
+| Machine cycle | 机器周期 | 8051 的基本时间单位 |
+| Crystal frequency | 晶振频率 | 时钟频率，如 12MHz |
+| Software delay | 软件延时 | 用循环实现的延时 |
+| Hardware timer | 硬件定时器 | 精确定时的硬件模块 |
+| Timing precision | 时间精度 | 延时的准确性 |
+| Calibration | 校准 | 调整延时以匹配实际时间 |
 
 ---
 
-## 📖 C 语言关键字 / C Language Keywords
+## 🔧 Hardware Connections / 硬件连接
 
-| 中文 | English | 用途 / Usage |
-|------|---------|-------------|
-| include | Include | 包含头文件 |
-| define | Define | 定义宏 |
-| sbit | Single bit | 声明位变量 |
-| void | Void | 无返回值 |
-| unsigned | Unsigned | 无符号数 |
-| char | Char | 字符型（8位） |
-| int | Int | 整型（16位） |
-| if | If | 条件判断 |
-| else | Else | 否则分支 |
-| while | While | 当型循环 |
-| for | For | 计数循环 |
-| return | Return | 返回 |
-| volatile | Volatile | 防止编译器优化 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Circuit diagram | 电路图 | 连接示意图 |
+| Breadboard | 万能板 | 用于原型开发 |
+| Jumper wire | 跳线 | 连接导线 |
+| Power supply (VCC) | 电源 | 正电源，通常 5V |
+| Ground (GND) | 地 | 零电位参考 |
+| Polarity | 极性 | 元件的方向性 |
+| Positive terminal | 正极 | 高电位端 |
+| Negative terminal | 负极 | 低电位端 |
+| Load | 负载 | 消耗功率的元件 |
 
 ---
 
-## 🎯 编程最佳实践 / Programming Best Practices
+## ⚡ Power and Current / 电源与电流
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 代码注释 | Code comments | 解释代码的文本 |
-| 函数原型 | Function prototype | 函数声明 |
-| 参数 | Parameter | 函数输入 |
-| 返回值 | Return value | 函数输出 |
-| 局部变量 | Local variable | 函数内部变量 |
-| 全局变量 | Global variable | 整个程序可访问的变量 |
-| 命名规范 | Naming convention | 变量命名规则 |
-| 代码缩进 | Code indentation | 代码层级结构 |
-| 模块化 | Modularity | 将代码分成模块 |
-| 可读性 | Readability | 代码易读性 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Current (I) | 电流 | 单位：安培(A)、毫安(mA)、微安(µA) |
+| Voltage (V) | 电压 | 单位：伏特(V) |
+| Power (P) | 功率 | 单位：瓦特(W) |
+| Current limit | 电流限制 | 最大允许电流 |
+| Rated current | 额定电流 | 正常工作电流 |
+| Peak current | 峰值电流 | 瞬间最大电流 |
+| Total current | 总电流 | 所有引脚电流之和 |
+| Supply current | 电源电流 | 芯片消耗的总电流 |
 
 ---
 
-## 🔍 特殊寄存器位 / Special Register Bits
+## 🐛 Debugging and Troubleshooting / 调试与故障排除
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| P0^0 - P0^7 | Port 0 bits | P0 口的 8 个位 |
-| P1^0 - P1^7 | Port 1 bits | P1 口的 8 个位 |
-| P2^0 - P2^7 | Port 2 bits | P2 口的 8 个位 |
-| P3^0 - P3^7 | Port 3 bits | P3 口的 8 个位 |
-| P1_0 | P1 bit 0 | P1.0 的另一种写法 |
-| 位掩码 | Bit mask | 用于位操作的掩码值 |
-
----
-
-## 📐 计算公式 / Calculation Formulas
-
-| 中文 | English | 公式 / Formula |
-|------|---------|----------------|
-| LED 电流计算 | LED current calculation | I = (VCC - VLED) / R |
-| 欧姆定律 | Ohm's law | V = I × R |
-| 功率计算 | Power calculation | P = V × I |
-| 机器周期 | Machine cycle | T = 12 / 晶振频率 |
-| 延时估算 | Delay estimation | 时间 ≈ 循环次数 × 机器周期 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Debugging | 调试 | 查找和修复错误 |
+| Troubleshooting | 故障排除 | 解决问题的过程 |
+| Expected behavior | 预期行为 | 程序应有的表现 |
+| Actual behavior | 实际行为 | 程序实际的表现 |
+| Wrong polarity | 极性错误 | LED 接反了 |
+| Wrong connection | 连接错误 | 接线错误 |
+| Compilation error | 编译错误 | 代码语法错误 |
+| Programming/Flashing | 烧录 | 将代码写入芯片 |
+| Multimeter | 万用表 | 测量电压、电流的工具 |
+| Oscilloscope | 示波器 | 查看波形的工具 |
 
 ---
 
-## 🎓 学习路径 / Learning Path
+## 📊 Code Patterns and Variations / 代码模式与变化
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 基础 I/O | Basic I/O | 端口输入输出 |
-| 定时器 | Timers | 精确定时 |
-| 中断 | Interrupts | 事件驱动 |
-| 串口通信 | Serial communication | 数据传输 |
-| 高级应用 | Advanced applications | 综合运用 |
-
----
-
-## 💬 常用短语 / Common Phrases
-
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 活动低 | Active low | 低电平激活 |
-| 活动高 | Active high | 高电平激活 |
-| 额定值 | Rated value | 标准工作值 |
-| 安全值 | Safe value | 不会损坏元件的值 |
-| 典型值 | Typical value | 常用值 |
-| 最大值 | Maximum value | 上限 |
-| 最小值 | Minimum value | 下限 |
-| 推荐值 | Recommended value | 建议使用的值 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Multiple LEDs | 多路 LED | 控制多个 LED |
+| Running LED/Chaser | 跑马灯 | LED 依次点亮 |
+| Morse code | 摩斯码 | 用长短信号表示字符 |
+| SOS distress signal | SOS 求救信号 | 求救信号：··· --- ··· |
+| Dot | 点 | 短信号 |
+| Dash | 划 | 长信号 |
+| Speed control | 速度控制 | 改变闪烁速度 |
+| Pattern | 花样 | LED 显示的模式 |
+| Shift | 移位 | 位向左或向右移动 |
 
 ---
 
-## 📏 测量单位 / Measurement Units
+## 🔬 Bit Operations Details / 位操作详解
 
-| 中文 | English | 符号 / Symbol |
-|------|---------|---------------|
-| 伏特 | Volt | V |
-| 安培 | Ampere | A |
-| 毫安 | Milliampere | mA |
-| 微安 | Microampere | µA |
-| 欧姆 | Ohm | Ω |
-| 千欧 | Kilo-ohm | kΩ |
-| 兆欧 | Mega-ohm | MΩ |
-| 赫兹 | Hertz | Hz |
-| 千赫 | Kilohertz | kHz |
-| 兆赫 | Megahertz | MHz |
-| 秒 | Second | s |
-| 毫秒 | Millisecond | ms |
-| 微秒 | Microsecond | µs |
-| 瓦特 | Watt | W |
-| 毫瓦 | Milliwatt | mW |
+| English | 中文 | 代码示例 / Code Example |
+|---------|------|------------------------|
+| Set bit | 置位 | `P1 \|= (1 << 0)` 或 `P1_0 = 1` |
+| Clear bit | 清零 | `P1 &= ~(1 << 0)` 或 `P1_0 = 0` |
+| Toggle bit | 取反 | `P1 ^= (1 << 0)` 或 `P1_0 = ~P1_0` |
+| Test bit | 测试位 | `if(P1_0)` |
+| Bitwise OR | 按位或 | `\|` |
+| Bitwise AND | 按位与 | `&` |
+| Bitwise XOR | 按位异或 | `^` |
+| Bitwise NOT | 按位取反 | `~` |
+| Left shift | 左移 | `<<` |
+| Right shift | 右移 | `>>` |
 
 ---
 
-## 🔧 工具与设备 / Tools and Equipment
+## 📖 C Language Keywords / C 语言关键字
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 编译器 | Compiler | 将代码转换为机器码 |
-| 仿真器 | Simulator | 模拟芯片运行 |
-| 烧录器 | Programmer | 将程序写入芯片 |
-| 开发板 | Development board | 用于学习和开发 |
-| 面包板 | Breadboard | 无需焊接的连接板 |
-| 万用表 | Multimeter | 测量电压、电流、电阻 |
-| 逻辑分析仪 | Logic analyzer | 查看数字信号 |
-| 示波器 | Oscilloscope | 查看模拟信号 |
-
----
-
-## 📝 文档类型 / Document Types
-
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 数据手册 | Datasheet | 芯片的技术规格 |
-| 参考手册 | Reference manual | 详细功能说明 |
-| 应用笔记 | Application note | 实际应用指南 |
-| 用户指南 | User guide | 使用说明 |
-| 教程 | Tutorial | 学习材料 |
-| 示例代码 | Example code | 参考程序 |
-| 技术文档 | Technical documentation | 技术说明 |
+| English | 中文 | 用途 / Usage |
+|---------|------|-------------|
+| Include | 包含 | 包含头文件 |
+| Define | 定义 | 定义宏 |
+| sbit | 单个位 | 声明位变量 |
+| void | 空 | 无返回值 |
+| unsigned | 无符号 | 无符号数 |
+| char | 字符型 | 字符型（8位） |
+| int | 整型 | 整型（16位） |
+| if | 如果 | 条件判断 |
+| else | 否则 | 否则分支 |
+| while | 当...时 | 当型循环 |
+| for | 循环 | 计数循环 |
+| return | 返回 | 返回 |
+| volatile | 易失性 | 防止编译器优化 |
 
 ---
 
-## 🚀 常用开发工具 / Common Development Tools
+## 🎯 Programming Best Practices / 编程最佳实践
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| Keil C51 | Keil C51 | 商业 8051 编译器 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Code comments | 代码注释 | 解释代码的文本 |
+| Function prototype | 函数原型 | 函数声明 |
+| Parameter | 参数 | 函数输入 |
+| Return value | 返回值 | 函数输出 |
+| Local variable | 局部变量 | 函数内部变量 |
+| Global variable | 全局变量 | 整个程序可访问的变量 |
+| Naming convention | 命名规范 | 变量命名规则 |
+| Code indentation | 代码缩进 | 代码层级结构 |
+| Modularity | 模块化 | 将代码分成模块 |
+| Readability | 可读性 | 代码易读性 |
+
+---
+
+## 🔍 Special Register Bits / 特殊寄存器位
+
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Port 0 bits | P0^0 - P0^7 | P0 口的 8 个位 |
+| Port 1 bits | P1^0 - P1^7 | P1 口的 8 个位 |
+| Port 2 bits | P2^0 - P2^7 | P2 口的 8 个位 |
+| Port 3 bits | P3^0 - P3^7 | P3 口的 8 个位 |
+| P1 bit 0 | P1_0 | P1.0 的另一种写法 |
+| Bit mask | 位掩码 | 用于位操作的掩码值 |
+
+---
+
+## 📐 Calculation Formulas / 计算公式
+
+| English | 中文 | 公式 / Formula |
+|---------|------|----------------|
+| LED current calculation | LED 电流计算 | I = (VCC - VLED) / R |
+| Ohm's law | 欧姆定律 | V = I × R |
+| Power calculation | 功率计算 | P = V × I |
+| Machine cycle | 机器周期 | T = 12 / 晶振频率 |
+| Delay estimation | 延时估算 | 时间 ≈ 循环次数 × 机器周期 |
+
+---
+
+## 🎓 Learning Path / 学习路径
+
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Basic I/O | 基础 I/O | 端口输入输出 |
+| Timers | 定时器 | 精确定时 |
+| Interrupts | 中断 | 事件驱动 |
+| Serial communication | 串口通信 | 数据传输 |
+| Advanced applications | 高级应用 | 综合运用 |
+
+---
+
+## 💬 Common Phrases / 常用短语
+
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Active low | 活动低 | 低电平激活 |
+| Active high | 活动高 | 高电平激活 |
+| Rated value | 额定值 | 标准工作值 |
+| Safe value | 安全值 | 不会损坏元件的值 |
+| Typical value | 典型值 | 常用值 |
+| Maximum value | 最大值 | 上限 |
+| Minimum value | 最小值 | 下限 |
+| Recommended value | 推荐值 | 建议使用的值 |
+
+---
+
+## 📏 Measurement Units / 测量单位
+
+| English | 中文 | 符号 / Symbol |
+|---------|------|---------------|
+| Volt | 伏特 | V |
+| Ampere | 安培 | A |
+| Milliampere | 毫安 | mA |
+| Microampere | 微安 | µA |
+| Ohm | 欧姆 | Ω |
+| Kilo-ohm | 千欧 | kΩ |
+| Mega-ohm | 兆欧 | MΩ |
+| Hertz | 赫兹 | Hz |
+| Kilohertz | 千赫 | kHz |
+| Megahertz | 兆赫 | MHz |
+| Second | 秒 | s |
+| Millisecond | 毫秒 | ms |
+| Microsecond | 微秒 | µs |
+| Watt | 瓦特 | W |
+| Milliwatt | 毫瓦 | mW |
+
+---
+
+## 🔧 Tools and Equipment / 工具与设备
+
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Compiler | 编译器 | 将代码转换为机器码 |
+| Simulator | 仿真器 | 模拟芯片运行 |
+| Programmer | 烧录器 | 将程序写入芯片 |
+| Development board | 开发板 | 用于学习和开发 |
+| Breadboard | 面包板 | 无需焊接的连接板 |
+| Multimeter | 万用表 | 测量电压、电流、电阻 |
+| Logic analyzer | 逻辑分析仪 | 查看数字信号 |
+| Oscilloscope | 示波器 | 查看模拟信号 |
+
+---
+
+## 📝 Document Types / 文档类型
+
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Datasheet | 数据手册 | 芯片的技术规格 |
+| Reference manual | 参考手册 | 详细功能说明 |
+| Application note | 应用笔记 | 实际应用指南 |
+| User guide | 用户指南 | 使用说明 |
+| Tutorial | 教程 | 学习材料 |
+| Example code | 示例代码 | 参考程序 |
+| Technical documentation | 技术文档 | 技术说明 |
+
+---
+
+## 🚀 Common Development Tools / 常用开发工具
+
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Keil C51 | Keil C51 编译器 | 商业 8051 编译器 |
 | SDCC | SDCC | 开源 8051 编译器 |
 | Proteus | Proteus | 电路仿真软件 |
 | USBasp | USBasp | USB 烧录器 |
-| ISP 编程器 | ISP programmer | 在系统编程器 |
+| ISP programmer | ISP 编程器 | 在系统编程器 |
 
 ---
 
-## 📊 LED 常见颜色 / Common LED Colors
+## 📊 Common LED Colors / LED 常见颜色
 
-| 中文 | English | 典型电压降 / Typical Vf |
-|------|---------|----------------------|
-| 红色 LED | Red LED | 1.8V - 2.2V |
-| 绿色 LED | Green LED | 1.9V - 2.4V |
-| 黄色 LED | Yellow LED | 2.0V - 2.4V |
-| 蓝色 LED | Blue LED | 2.8V - 3.3V |
-| 白色 LED | White LED | 2.8V - 3.3V |
-
----
-
-## 🎯 编程技巧 / Programming Tips
-
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 宏定义 | Macro definition | 使用 #define 定义常量 |
-| 位操作 | Bit operation | 高效的位控制 |
-| 函数封装 | Function encapsulation | 将功能封装为函数 |
-| 代码复用 | Code reuse | 避免重复代码 |
-| 注释清晰 | Clear comments | 便于理解 |
-| 模块化设计 | Modular design | 分层设计 |
+| English | 中文 | 典型电压降 / Typical Vf |
+|---------|------|----------------------|
+| Red LED | 红色 LED | 1.8V - 2.2V |
+| Green LED | 绿色 LED | 1.9V - 2.4V |
+| Yellow LED | 黄色 LED | 2.0V - 2.4V |
+| Blue LED | 蓝色 LED | 2.8V - 3.3V |
+| White LED | 白色 LED | 2.8V - 3.3V |
 
 ---
 
-## 🔍 常见错误类型 / Common Error Types
+## 🎯 Programming Tips / 编程技巧
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 语法错误 | Syntax error | 代码不符合语法 |
-| 逻辑错误 | Logic error | 程序逻辑不对 |
-| 运行时错误 | Runtime error | 运行时出错 |
-| 编译错误 | Compilation error | 编译失败 |
-| 链接错误 | Link error | 链接失败 |
-| 警告 | Warning | 非致命问题，但需注意 |
-
----
-
-## 📚 学习建议 / Learning Tips
-
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 从简单开始 | Start simple | 先学基础 |
-| 动手实践 | Hands-on practice | 实际操作 |
-| 理论结合 | Theory with practice | 理论与实践结合 |
-| 阅读代码 | Read code | 阅读他人代码 |
-| 修改实验 | Modify and experiment | 尝试修改 |
-| 记录笔记 | Take notes | 做好笔记 |
-| 问问题 | Ask questions | 不懂就问 |
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Macro definition | 宏定义 | 使用 #define 定义常量 |
+| Bit operation | 位操作 | 高效的位控制 |
+| Function encapsulation | 函数封装 | 将功能封装为函数 |
+| Code reuse | 代码复用 | 避免重复代码 |
+| Clear comments | 注释清晰 | 便于理解 |
+| Modular design | 模块化设计 | 分层设计 |
 
 ---
 
-## 📞 获取帮助 / Getting Help
+## 🔍 Common Error Types / 常见错误类型
 
-| 中文 | English | 说明 / Notes |
-|------|---------|--------------|
-| 论坛 | Forum | 在线社区 |
-| 文档 | Documentation | 技术资料 |
-| 数据手册 | Datasheet | 芯片规格书 |
-| 参考设计 | Reference design | 设计参考 |
-| 示例代码 | Example code | 代码示例 |
-| 技术支持 | Technical support | 专业帮助 |
-
----
-
-## 💡 记忆口诀 / Memory Aids
-
-### LED 连接记忆
-- **低电平有效强**：Active low 拉电流强（20mA），推电流弱（60µA）
-- **长正短负**：LED 长脚接正极，短脚接负极
-
-### 位操作记忆
-- **或置位**：OR 用于置 1（Set bit）
-- **与清零**：AND 用于清 0（Clear bit）
-- **异或取反**：XOR 用于取反（Toggle bit）
-
-### 延时计算
-- **12MHz 1 微秒**：12MHz 晶振，1 个机器周期 = 1µs
-- **循环约 10**：每次循环约 10 个机器周期
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Syntax error | 语法错误 | 代码不符合语法 |
+| Logic error | 逻辑错误 | 程序逻辑不对 |
+| Runtime error | 运行时错误 | 运行时出错 |
+| Compilation error | 编译错误 | 编译失败 |
+| Link error | 链接错误 | 链接失败 |
+| Warning | 警告 | 非致命问题，但需注意 |
 
 ---
 
-**说明：** 本词汇表涵盖了 Basic I/O 示例中的所有关键术语。建议初学者在学习过程中随时查阅。
+## 📚 Learning Tips / 学习建议
 
-**Note:** This glossary covers all key terms in Basic I/O examples. Beginners are encouraged to refer to it frequently during learning.
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Start simple | 从简单开始 | 先学基础 |
+| Hands-on practice | 动手实践 | 实际操作 |
+| Theory with practice | 理论结合 | 理论与实践结合 |
+| Read code | 阅读代码 | 阅读他人代码 |
+| Modify and experiment | 修改实验 | 尝试修改 |
+| Take notes | 记录笔记 | 做好笔记 |
+| Ask questions | 问问题 | 不懂就问 |
+
+---
+
+## 📞 Getting Help / 获取帮助
+
+| English | 中文 | 说明 / Notes |
+|---------|------|--------------|
+| Forum | 论坛 | 在线社区 |
+| Documentation | 文档 | 技术资料 |
+| Datasheet | 数据手册 | 芯片规格书 |
+| Reference design | 参考设计 | 设计参考 |
+| Example code | 示例代码 | 代码示例 |
+| Technical support | 技术支持 | 专业帮助 |
+
+---
+
+## 💡 Memory Aids / 记忆口诀
+
+### LED Connection Memory / LED 连接记忆
+- **Active low strong sinking**：低电平有效拉电流强（20mA），推电流弱（60µA）
+- **Long positive short negative**：LED 长脚接正极，短脚接负极
+
+### Bit Operation Memory / 位操作记忆
+- **OR to set**：OR 用于置 1（Set bit）
+- **AND to clear**：AND 用于清 0（Clear bit）
+- **XOR to toggle**：XOR 用于取反（Toggle bit）
+
+### Delay Calculation / 延时计算
+- **12MHz 1 microsecond**：12MHz 晶振，1 个机器周期 = 1µs
+- **Loop about 10 cycles**：每次循环约 10 个机器周期
+
+---
+
+**说明：** 本词汇表涵盖了 Basic I/O 示例中的所有关键术语，按英中对照排列。建议初学者在学习过程中随时查阅。
+
+**Note:** This glossary covers all key terms in Basic I/O examples, arranged in English-Chinese order. Beginners are encouraged to refer to it frequently during learning.
