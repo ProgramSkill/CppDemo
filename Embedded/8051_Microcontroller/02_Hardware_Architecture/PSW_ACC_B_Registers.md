@@ -425,7 +425,7 @@ EXTRACT_BITS:
     ; A = 00000011b
     ANL A, #00001111b            ; Clear upper nibble
     ; A = 00000011b (extracted value = 3)
-    ; Note: SWAP + ANL 提取高 4 位，相当于 C 语言的 (byte >> 4) & 0x0F
+    ; Note: SWAP + ANL extracts high 4 bits, equivalent to (byte >> 4) & 0x0F in C
     RET
 ```
 
@@ -571,7 +571,7 @@ DIVIDE_8BIT:
 
 DIV_ERROR:
     ; Handle division by zero
-    CLR OV                       ; 8051 不会自动恢复 OV=0，因此 error path 中主动 CLR OV 是必要的
+    CLR OV                       ; 8051 doesn't auto-clear OV, so manual CLR OV in error path is necessary
     ; ... error handling
     RET
 ```
@@ -669,8 +669,8 @@ BCD_CALCULATOR:
     ADD A, R4                    ; Add ones digits
     DA A                         ; Decimal adjust
     MOV R3, A                    ; Save ones result
-    ; Note: 在某些 BCD 算法中，也可以直接用 CY 作为 '十位进位'，
-    ;       这里示例演示了另一种把中间结果的高位放入进位的方法
+    ; Note: In some BCD algorithms, CY can be used directly as 'tens carry',
+    ;       this example demonstrates an alternative method of putting the high bit into carry
     MOV C, ACC.4                 ; Save carry to tens (bit 4 indicates tens carry after DA)
 
     ; Add tens digits (upper nibbles)
