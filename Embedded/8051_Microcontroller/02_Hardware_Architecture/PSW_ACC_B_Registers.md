@@ -33,7 +33,7 @@ The 8051 microcontroller has three fundamental Special Function Registers that f
 - Multiplier/multiplicand for MUL operation
 - Divisor for DIV operation
 - General-purpose register for temporary storage
-- Can be used as a second accumulator
+- Occasionally used as a general-purpose 8-bit register when MUL/DIV are not involved
 
 ## PSW - Program Status Word Register (0D0H)
 
