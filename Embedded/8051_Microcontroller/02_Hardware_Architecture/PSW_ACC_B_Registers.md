@@ -213,6 +213,8 @@ ORG 000BH
     LJMP TIMER0_ISR
 
 TIMER0_ISR:
+    ; Note: This template assumes no nested interrupts; if nesting is enabled,
+    ;       additional pushes (ACC, B, DPH, DPL, etc.) may be required
     PUSH PSW                     ; Save PSW (includes bank selection)
     MOV PSW, #08H                ; Select Bank 1 (RS1=0, RS0=1)
 
@@ -736,6 +738,8 @@ MAIN_LOOP:
 
 ; Timer 0 ISR - Uses Bank 1
 TIMER0_ISR:
+    ; Note: This template assumes no nested interrupts; if nesting is enabled,
+    ;       additional pushes (ACC, B, DPH, DPL, etc.) may be required
     PUSH PSW                     ; Save PSW (Bank 0 selection)
     MOV PSW, #08H                ; Switch to Bank 1 (RS1=0, RS0=1)
 
@@ -755,6 +759,8 @@ TIMER0_ISR:
 
 ; INT0 ISR - Uses Bank 2
 INT0_ISR:
+    ; Note: This template assumes no nested interrupts; if nesting is enabled,
+    ;       additional pushes (ACC, B, DPH, DPL, etc.) may be required
     PUSH PSW                     ; Save PSW
     MOV PSW, #10H                ; Switch to Bank 2 (RS1=1, RS0=0)
 
@@ -970,6 +976,8 @@ TIMER0_ISR:
 ```assembly
 ; Correct: Always save and restore PSW
 TIMER0_ISR:
+    ; Note: This template assumes no nested interrupts; if nesting is enabled,
+    ;       additional pushes (ACC, B, DPH, DPL, etc.) may be required
     PUSH PSW                     ; Save PSW (includes bank selection)
     MOV PSW, #08H                ; Switch to Bank 1
 
