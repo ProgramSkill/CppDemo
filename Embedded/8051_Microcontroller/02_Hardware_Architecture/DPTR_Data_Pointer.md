@@ -81,7 +81,7 @@ MOV DPTR, #1234H         ; DPTR = 1234H
                          ; DPH = 12H, DPL = 34H
 
 MOV DPTR, #8000H         ; DPTR = 8000H (external RAM start)
-MOV DPTR, #0FFFFH        ; DPTR = FFFFH (maximum address)
+MOV DPTR, #FFFFH         ; DPTR = FFFFH (maximum address)
 ```
 
 **Loading Process Visualization:**
@@ -176,7 +176,7 @@ MOV DPTR, #12FFH         ; DPTR = 12FFH
 INC DPTR                 ; DPTR = 1300H (DPH=13H, DPL=00H)
 
 ; Example 3: Rollover at maximum
-MOV DPTR, #0FFFFH        ; DPTR = FFFFH
+MOV DPTR, #FFFFH         ; DPTR = FFFFH
 INC DPTR                 ; DPTR = 0000H (rolls over)
 ```
 
@@ -279,7 +279,7 @@ flowchart LR
 ORG 1000H
 LOOKUP_TABLE:
     DB 00H, 10H, 20H, 30H, 40H, 50H, 60H, 70H
-    DB 80H, 90H, 0A0H, 0B0H, 0C0H, 0D0H, 0E0H, 0F0H
+    DB 80H, 90H, A0H, B0H, C0H, D0H, E0H, F0H
 
 ; Read from lookup table
 ORG 0100H
@@ -475,7 +475,7 @@ DISPLAY_LOOP:
 **Problem:**
 ```assembly
 ; Reading beyond 64KB boundary
-MOV DPTR, #0FFFFH
+MOV DPTR, #FFFFH
 MOVX A, @DPTR                ; Read from FFFFH
 INC DPTR                     ; DPTR = 0000H (wraps around!)
 MOVX A, @DPTR                ; Reads from 0000H, not 10000H
@@ -484,13 +484,13 @@ MOVX A, @DPTR                ; Reads from 0000H, not 10000H
 **Solution:**
 ```assembly
 ; Check for boundary conditions
-MOV DPTR, #0FFFFH
+MOV DPTR, #FFFFH
 MOVX A, @DPTR
 ; Check if at end of memory
 MOV A, DPH
-CJNE A, #0FFH, NOT_END
+CJNE A, #FFH, NOT_END
 MOV A, DPL
-CJNE A, #0FFH, NOT_END
+CJNE A, #FFH, NOT_END
 ; Handle end of memory condition
 SJMP END_OF_MEMORY
 NOT_END:
@@ -619,9 +619,9 @@ LOOP:
     MOVX A, @DPTR
     ; Check if DPTR reached limit
     MOV A, DPH
-    CJNE A, #0FFH, CONTINUE
+    CJNE A, #FFH, CONTINUE
     MOV A, DPL
-    CJNE A, #0FFH, CONTINUE
+    CJNE A, #FFH, CONTINUE
     SJMP TRANSFER_DONE       ; Reached end
 CONTINUE:
     INC DPTR
