@@ -18,7 +18,7 @@ The 8051 microcontroller has three fundamental Special Function Registers that f
 - Carry flag (CY) for arithmetic operations
 - Auxiliary carry (AC) for BCD operations
 - Overflow flag (OV) for signed arithmetic
-- Parity flag (P) for error detection
+- Parity flag (P) indicates accumulator parity and can be used in software-implemented error detection
 - Register bank selection (RS1, RS0)
 - User-defined flag (F0)
 
@@ -1168,7 +1168,7 @@ By understanding and properly using the PSW, ACC, and B registers, you can imple
 
 - **Interrupt System (IE, IP)**: PSW must be saved in ISRs to preserve flags and register bank selection
 - **Timer Registers (TMOD, TCON, TH0/TL0, TH1/TL1)**: Timer operations often use accumulator for calculations
-- **Serial Port (SCON, SBUF)**: Parity flag (P) used for serial communication error detection
+- **Serial Port (SCON, SBUF)**: Accumulator used for serial data transmission/reception; P flag can be used by software for data parity checking
 - **Internal RAM**: Register banks (00H-1FH) selected by PSW.RS1 and PSW.RS0
 - **Stack Pointer (SP)**: Used for PUSH PSW and POP PSW operations in ISRs
 - **Addressing Modes**: Accumulator used in various addressing modes (immediate, direct, indirect)
