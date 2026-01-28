@@ -667,7 +667,9 @@ BCD_CALCULATOR:
     ADD A, R4                    ; Add ones digits
     DA A                         ; Decimal adjust
     MOV R3, A                    ; Save ones result
-    MOV C, ACC.4                 ; Save carry to tens
+    ; Note: 在某些 BCD 算法中，也可以直接用 CY 作为 '十位进位'，
+    ;       这里示例演示了另一种把中间结果的高位放入进位的方法
+    MOV C, ACC.4                 ; Save carry to tens (bit 4 indicates tens carry after DA)
 
     ; Add tens digits (upper nibbles)
     MOV A, R0                    ; First number
