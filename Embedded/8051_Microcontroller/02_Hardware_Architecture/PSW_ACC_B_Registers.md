@@ -130,11 +130,11 @@ BCD_ADD:
     ; A now contains correct BCD result
     RET
 
-; Example: 09H + 08H = 11H (BCD)
-; Without DA: 09H + 08H = 11H (correct)
-; Example: 09H + 09H = 12H (BCD)
-; Without DA: 09H + 09H = 12H (wrong, should be 18H)
-; With DA: 09H + 09H → 12H → 18H (correct BCD)
+; Example: 09H + 08H = 17 (decimal)
+; Without DA: 09H + 08H = 11H (correct BCD for decimal 17)
+; Example: 09H + 09H = 18 (decimal)
+; Without DA: 09H + 09H = 12H (incorrect BCD, should be 18H for decimal 18)
+; With DA: 09H + 09H → 12H → 18H (correct BCD for decimal 18)
 ```
 
 ### User Flag (F0) - Bit 5
