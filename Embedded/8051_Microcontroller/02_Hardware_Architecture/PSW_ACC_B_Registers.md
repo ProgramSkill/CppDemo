@@ -423,6 +423,7 @@ EXTRACT_BITS:
     ; A = 00000011b
     ANL A, #00001111b            ; Clear upper nibble
     ; A = 00000011b (extracted value = 3)
+    ; Note: SWAP + ANL 提取高 4 位，相当于 C 语言的 (byte >> 4) & 0x0F
     RET
 ```
 
