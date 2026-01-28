@@ -130,11 +130,15 @@ BCD_ADD:
     ; A now contains correct BCD result
     RET
 
-; Example: 09H + 08H = 17 (decimal)
-; Without DA: 09H + 08H = 11H (correct BCD for decimal 17)
 ; Example: 09H + 09H = 18 (decimal)
 ; Without DA: 09H + 09H = 12H (incorrect BCD, should be 18H for decimal 18)
 ; With DA: 09H + 09H → 12H → 18H (correct BCD for decimal 18)
+; Note: DA A adds 6 when low nibble > 9 or AC = 1
+
+; Example: 29H + 15H = 44 (decimal)
+; Without DA: 29H + 15H = 3EH (incorrect BCD, should be 44H for decimal 44)
+; With DA: 29H + 15H → 3EH → 44H (correct BCD for decimal 44)
+; Note: DA A adjusts both nibbles when needed
 ```
 
 ### User Flag (F0) - Bit 5
@@ -245,6 +249,8 @@ flowchart TD
     style D fill:#ffcdd2
 ```
 
+**Note:** This implements the classic 8051 overflow detection rule: **OV = C6 ⊕ C7** (carry into bit 7 XOR carry out of bit 7), where C6 is the carry from bit 6 to bit 7, and C7 is the carry out of bit 7. This formula is commonly found in 8051 reference manuals.
+
 **Example - Signed Arithmetic:**
 
 ```assembly
@@ -279,12 +285,12 @@ OVERFLOW_ERROR:
 
 ### Parity Flag (P) - Bit 0
 
-The Parity flag is an even-parity bit maintained by hardware such that (ACC ones count + P) is always even.
+P is an even-parity bit for ACC: hardware sets P so that the total number of 1-bits in ACC plus P is even.
 
 **Characteristics:**
 - **Read-only**: Set by hardware, cannot be modified by software
-- **P = 1**: When accumulator has odd number of 1s (makes total even)
-- **P = 0**: When accumulator has even number of 1s (total already even)
+- **P = 1**: When ACC has odd number of 1s (total 1s including P is even)
+- **P = 0**: When ACC has even number of 1s (total 1s including P is even)
 - Updated automatically whenever accumulator changes
 
 **Parity Calculation:**
@@ -296,8 +302,8 @@ Where ⊕ is XOR operation
 ```
 
 **Use Cases:**
-- Serial communication error detection
-- Data integrity checking
+- Software-implemented parity checks for serial data (e.g., comparing P flag with a received parity bit)
+- Data integrity checking in software
 - Simple checksum verification
 
 **Example - Parity Check:**
@@ -316,11 +322,11 @@ PROCESS_DATA:
     ; ... process data
 
 ; Example values:
-; A = 00H (00000000b): 0 ones → P = 0 (even)
-; A = 01H (00000001b): 1 one  → P = 1 (odd)
-; A = 03H (00000011b): 2 ones → P = 0 (even)
-; A = 07H (00000111b): 3 ones → P = 1 (odd)
-; A = FFH (11111111b): 8 ones → P = 0 (even)
+; A = 00H (00000000b): 0 ones → P = 0 (total 1s including P is even: 0)
+; A = 01H (00000001b): 1 one  → P = 1 (total 1s including P is even: 2)
+; A = 03H (00000011b): 2 ones → P = 0 (total 1s including P is even: 2)
+; A = 07H (00000111b): 3 ones → P = 1 (total 1s including P is even: 4)
+; A = FFH (11111111b): 8 ones → P = 0 (total 1s including P is even: 8)
 ```
 
 ## ACC - Accumulator Register (0E0H)
@@ -357,16 +363,16 @@ The accumulator is the primary register for all arithmetic operations.
 
 **Arithmetic Instructions:**
 
-| Instruction | Operation | Flags Affected | Description |
-|-------------|-----------|----------------|-------------|
-| ADD A, src | A ← A + src | CY, AC, OV | Add without carry |
-| ADDC A, src | A ← A + src + CY | CY, AC, OV | Add with carry |
-| SUBB A, src | A ← A - src - CY | CY, AC, OV | Subtract with borrow |
-| INC A | A ← A + 1 | None | Increment |
-| DEC A | A ← A - 1 | None | Decrement |
-| MUL AB | A:B ← A × B | CY=0, OV | Multiply (result in A:B) |
-| DIV AB | A ← A ÷ B, B ← remainder | CY=0, OV | Divide |
-| DA A | Decimal adjust | CY | BCD correction |
+| Instruction | Operation | Flags Affected | Description | Typical Usage |
+|-------------|-----------|----------------|-------------|---------------|
+| ADD A, src | A ← A + src | CY, AC, OV | Add without carry | Basic single-byte addition |
+| ADDC A, src | A ← A + src + CY | CY, AC, OV | Add with carry | Multi-byte addition, propagating carry between bytes |
+| SUBB A, src | A ← A - src - CY | CY, AC, OV | Subtract with borrow | Multi-byte subtraction with borrow propagation |
+| INC A | A ← A + 1 | None | Increment | Loop counters, pointer manipulation |
+| DEC A | A ← A - 1 | None | Decrement | Loop counters, countdown operations |
+| MUL AB | A:B ← A × B | CY=0, OV | Multiply (result in A:B) | 8-bit multiplication producing 16-bit result |
+| DIV AB | A ← A ÷ B, B ← remainder | CY=0, OV | Divide | Division with quotient and remainder |
+| DA A | Decimal adjust | CY | BCD correction | BCD arithmetic correction after ADD/ADDC |
 
 **Example - Multi-byte Subtraction:**
 
