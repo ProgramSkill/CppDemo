@@ -632,7 +632,7 @@ OVERFLOW_32BIT:
     ; ... error handling
     RET
 
-; Example: 0x12345678 + 0xABCDEF01 = 0xBE02457A (with carry)
+; Example: 0x12345678 + 0xABCDEF01 = 0xBE024579 (no carry)
 ; R0:R1:R2:R3 = 12H:34H:56H:78H
 ; R4:R5:R6:R7 = ABH:CDH:EFH:01H
 ; Result: R0:R1:R2:R3 = BEH:02H:45H:79H, CY = 0
