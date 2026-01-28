@@ -802,51 +802,58 @@ Visualized as partial products:
 ; Input: R2:R3 = multiplicand (high:low)
 ;        R4:R5 = multiplier (high:low)
 ; Output: R0:R1:R2:R3 = 32-bit product (MSB to LSB)
-; Note: Optimized for space, not the simplest to read
+; Uses: R6, R7 as temporary storage for original input values
 
 MUL_16BIT:
+    ; Save original input values (critical: must preserve before overwriting)
+    MOV R6, R2                   ; R6 = original high byte of multiplicand
+    MOV R7, R3                   ; R7 = original low byte of multiplicand
+
     ; Clear result registers
     MOV R0, #00H
     MOV R1, #00H
 
-    ; Step 1: R3 × R5 (low × low)
-    MOV A, R3
+    ; Step 1: R7 × R5 (original_low × low)
+    MOV A, R7                    ; Use saved R7 (original R3)
     MOV B, R5
-    MUL AB                       ; A:B = R3 × R5
-    MOV R3, A                    ; Save low byte
-    MOV R6, B                    ; Save high byte (partial result)
+    MUL AB                       ; A:B = R7 × R5
+    MOV R3, A                    ; Save low byte to result
+    MOV R2, B                    ; Save high byte to result
 
-    ; Step 2: R3 × R4 (low × high)
-    MOV A, R3
+    ; Step 2: R7 × R4 (original_low × high)
+    MOV A, R7                    ; Use saved R7 (original R3)
     MOV B, R4
-    MUL AB                       ; A:B = R3 × R4
-    ADD A, R6                    ; Add to partial result
-    MOV R2, A                    ; Save to R2
-    MOV A, B
-    ADDC A, #00H                 ; Add carry
-    MOV R1, A                    ; Save to R1
-
-    ; Step 3: R2 × R5 (high × low)
-    MOV A, R2
-    MOV B, R5
-    MUL AB                       ; A:B = R2 × R5
-    ADD A, R2                    ; Add to R2
+    MUL AB                       ; A:B = R7 × R4
+    ADD A, R2                    ; Add to R2 (middle byte)
     MOV R2, A
     MOV A, B
-    ADDC A, R1                   ; Add to R1 with carry
+    ADDC A, R1                   ; Add carry to R1
     MOV R1, A
-    MOV A, #00H
-    ADDC A, R0                   ; Add carry to R0
+    CLR A
+    ADDC A, R0                   ; Propagate carry to R0
     MOV R0, A
 
-    ; Step 4: R2 × R4 (high × high)
-    MOV A, R2
+    ; Step 3: R6 × R5 (original_high × low)
+    MOV A, R6                    ; Use saved R6 (original R2)
+    MOV B, R5
+    MUL AB                       ; A:B = R6 × R5
+    ADD A, R2                    ; Add to R2 (middle byte)
+    MOV R2, A
+    MOV A, B
+    ADDC A, R1                   ; Add carry to R1
+    MOV R1, A
+    CLR A
+    ADDC A, R0                   ; Propagate carry to R0
+    MOV R0, A
+
+    ; Step 4: R6 × R4 (original_high × high)
+    MOV A, R6                    ; Use saved R6 (original R2)
     MOV B, R4
-    MUL AB                       ; A:B = R2 × R4
-    ADD A, R1                    ; Add to R1
+    MUL AB                       ; A:B = R6 × R4
+    ADD A, R1                    ; Add to R1 (high-middle byte)
     MOV R1, A
     MOV A, B
-    ADDC A, R0                   ; Add to R0 with carry
+    ADDC A, R0                   ; Add to R0 (highest byte)
     MOV R0, A
 
     RET
