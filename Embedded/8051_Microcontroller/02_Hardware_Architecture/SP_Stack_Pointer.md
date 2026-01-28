@@ -168,6 +168,65 @@ After POP ACC (A = 55H):
 
 ## Default Reset Value and Initialization
 
+### Why is the Reset Value 07H?
+
+The 8051's default stack pointer value of **07H** after reset is a deliberate design choice with historical reasons.
+
+**Memory Layout at Reset:**
+
+```
+┌──────┬─────────────────────────────┐
+│ Addr │ Content                     │
+├──────┼─────────────────────────────┤
+│ 1FH  │ Register Bank 3 (R0-R7)     │
+│ 18H  │                             │
+├──────┼─────────────────────────────┤
+│ 17H  │ Register Bank 2 (R0-R7)     │
+│ 10H  │                             │
+├──────┼─────────────────────────────┤
+│ 0FH  │ Register Bank 1 (R0-R7)     │
+│ 08H  │                             │
+├──────┼─────────────────────────────┤
+│ 07H  │ Register Bank 0 (R7)        │ ← SP reset value
+│ 06H  │ Register Bank 0 (R6)        │
+│ 05H  │ Register Bank 0 (R5)        │
+│ 04H  │ Register Bank 0 (R4)        │
+│ 03H  │ Register Bank 0 (R3)        │
+│ 02H  │ Register Bank 0 (R2)        │
+│ 01H  │ Register Bank 0 (R1)        │
+│ 00H  │ Register Bank 0 (R0)        │
+└──────┴─────────────────────────────┘
+```
+
+**Design Rationale:**
+
+| Reason | Explanation |
+|--------|-------------|
+| **Register Bank 0 Alignment** | Reset activates Register Bank 0 (RS1=0, RS0=0) which occupies 00H-07H. SP is initialized to point to the last register (R7 at 07H). |
+| **Minimal Initialization** | Early 8051 programs (1980s) were often simple and only used R0-R7. Minimal stack space was needed. |
+| **Backward Compatibility** | Maintains compatibility with original Intel 8051 designs. Changing the default would break legacy code. |
+| **Programmer Responsibility** | The design assumes programmers will reinitialize SP based on their stack requirements. |
+
+**Historical Context:**
+
+When the Intel 8051 was designed in the early 1980s:
+- Programs were typically small and simple
+- Many applications used only the default Register Bank 0
+- Stack depth requirements were minimal (few subroutine calls, no nested interrupts)
+- The 07H value provided a small buffer above the working registers
+
+**How PUSH Works with SP = 07H:**
+
+```
+Initial State:     SP = 07H
+After PUSH ACC:    1. SP increments: 07H → 08H
+                   2. ACC value written to address 08H
+
+Result: First stack item at 08H (start of Register Bank 1!)
+```
+
+This design creates a potential problem for modern programs that require deeper stacks, which is explained in the next section.
+
 ### The Problem with Default SP = 07H
 
 After reset, the Stack Pointer is initialized to **07H**. This creates a potential problem:
