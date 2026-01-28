@@ -7,7 +7,7 @@ The Stack Pointer (SP) is an 8-bit Special Function Register that manages the st
 **Register Details:**
 - **Address**: 81H
 - **Bit-Addressable**: No
-- **Reset Value**: 07H
+- **Reset Value**: 07H (see [Why is the Reset Value 07H?](#why-is-the-reset-value-07h) section below for explanation)
 - **Size**: 8-bit (can address 00H-FFH)
 - **Access**: Read/Write
 
