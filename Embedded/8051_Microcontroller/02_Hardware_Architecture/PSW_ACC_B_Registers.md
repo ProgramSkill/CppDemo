@@ -569,7 +569,7 @@ DIVIDE_8BIT:
 
 DIV_ERROR:
     ; Handle division by zero
-    CLR OV
+    CLR OV                       ; 8051 不会自动恢复 OV=0，因此 error path 中主动 CLR OV 是必要的
     ; ... error handling
     RET
 ```
