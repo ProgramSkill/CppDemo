@@ -777,11 +777,32 @@ INT0_ISR:
 
 Implement 16-bit multiplication using 8-bit MUL instruction and bit shifts.
 
+**Mathematical Decomposition:**
+
+To multiply two 16-bit numbers, we decompose them into high and low bytes:
+```
+(R2*256 + R3) × (R4*256 + R5) = R2*R4*65536 + R2*R5*256 + R3*R4*256 + R3*R5
+
+Visualized as partial products:
+                    R2      R3      (multiplicand)
+                ×   R4      R5      (multiplier)
+                ─────────────────
+                    [R3×R5]         Step 1: low × low (16-bit result)
+            [R3×R4]                 Step 2: low × high (shifted left 8 bits)
+            [R2×R5]                 Step 3: high × low (shifted left 8 bits)
+    [R2×R4]                         Step 4: high × high (shifted left 16 bits)
+    ─────────────────────────────
+    R0      R1      R2      R3      (32-bit result)
+```
+
+**Note:** The code below is optimized for minimal register usage and reuses input registers (R2, R3) for intermediate results. This makes it space-efficient but harder to follow. Each step performs one 8×8 multiplication and adds the result to the appropriate position in the 32-bit accumulator.
+
 ```assembly
 ; Multiply two 16-bit numbers
 ; Input: R2:R3 = multiplicand (high:low)
 ;        R4:R5 = multiplier (high:low)
 ; Output: R0:R1:R2:R3 = 32-bit product (MSB to LSB)
+; Note: Optimized for space, not the simplest to read
 
 MUL_16BIT:
     ; Clear result registers
