@@ -18,7 +18,7 @@ The 8051 microcontroller has three fundamental Special Function Registers that f
 - Carry flag (CY) for arithmetic operations
 - Auxiliary carry (AC) for BCD operations
 - Overflow flag (OV) for signed arithmetic
-- Parity flag (P) for error detection
+- Parity flag (P) indicates accumulator parity and can be used in software-implemented error detection
 - Register bank selection (RS1, RS0)
 - User-defined flag (F0)
 
@@ -130,11 +130,11 @@ BCD_ADD:
     ; A now contains correct BCD result
     RET
 
-; Example: 09H + 08H = 11H (BCD)
-; Without DA: 09H + 08H = 11H (correct)
-; Example: 09H + 09H = 12H (BCD)
-; Without DA: 09H + 09H = 12H (wrong, should be 18H)
-; With DA: 09H + 09H → 12H → 18H (correct BCD)
+; Example: 09H + 08H = 17 (decimal)
+; Without DA: 09H + 08H = 11H (correct BCD for decimal 17)
+; Example: 09H + 09H = 18 (decimal)
+; Without DA: 09H + 09H = 12H (incorrect BCD, should be 18H for decimal 18)
+; With DA: 09H + 09H → 12H → 18H (correct BCD for decimal 18)
 ```
 
 ### User Flag (F0) - Bit 5
@@ -632,7 +632,7 @@ OVERFLOW_32BIT:
     ; ... error handling
     RET
 
-; Example: 0x12345678 + 0xABCDEF01 = 0xBE02457A (with carry)
+; Example: 0x12345678 + 0xABCDEF01 = 0xBE024579 (no carry)
 ; R0:R1:R2:R3 = 12H:34H:56H:78H
 ; R4:R5:R6:R7 = ABH:CDH:EFH:01H
 ; Result: R0:R1:R2:R3 = BEH:02H:45H:79H, CY = 0
@@ -1168,7 +1168,7 @@ By understanding and properly using the PSW, ACC, and B registers, you can imple
 
 - **Interrupt System (IE, IP)**: PSW must be saved in ISRs to preserve flags and register bank selection
 - **Timer Registers (TMOD, TCON, TH0/TL0, TH1/TL1)**: Timer operations often use accumulator for calculations
-- **Serial Port (SCON, SBUF)**: Parity flag (P) used for serial communication error detection
+- **Serial Port (SCON, SBUF)**: Accumulator used for serial data transmission/reception; P flag can be used by software for data parity checking
 - **Internal RAM**: Register banks (00H-1FH) selected by PSW.RS1 and PSW.RS0
 - **Stack Pointer (SP)**: Used for PUSH PSW and POP PSW operations in ISRs
 - **Addressing Modes**: Accumulator used in various addressing modes (immediate, direct, indirect)

@@ -80,8 +80,8 @@ MOV DPTR, #data16        ; Load 16-bit immediate value into DPTR
 MOV DPTR, #1234H         ; DPTR = 1234H
                          ; DPH = 12H, DPL = 34H
 
-MOV DPTR, #8000H         ; DPTR = 8000H (external RAM start)
-MOV DPTR, #0FFFFH        ; DPTR = FFFFH (maximum address)
+MOV DPTR, #8000H         ; DPTR = 8000H (example: assuming external RAM starts here)
+MOV DPTR, #FFFFH         ; DPTR = FFFFH (maximum address)
 ```
 
 **Loading Process Visualization:**
@@ -176,7 +176,7 @@ MOV DPTR, #12FFH         ; DPTR = 12FFH
 INC DPTR                 ; DPTR = 1300H (DPH=13H, DPL=00H)
 
 ; Example 3: Rollover at maximum
-MOV DPTR, #0FFFFH        ; DPTR = FFFFH
+MOV DPTR, #FFFFH         ; DPTR = FFFFH
 INC DPTR                 ; DPTR = 0000H (rolls over)
 ```
 
@@ -230,7 +230,7 @@ sequenceDiagram
 
 ```assembly
 ; Read from external RAM
-MOV DPTR, #8000H         ; Point to external RAM address 8000H
+MOV DPTR, #8000H         ; Point to external RAM (example address 8000H)
 MOVX A, @DPTR            ; Read byte from 8000H into A
 MOV R0, A                ; Save to register
 
@@ -279,14 +279,14 @@ flowchart LR
 ORG 1000H
 LOOKUP_TABLE:
     DB 00H, 10H, 20H, 30H, 40H, 50H, 60H, 70H
-    DB 80H, 90H, 0A0H, 0B0H, 0C0H, 0D0H, 0E0H, 0F0H
+    DB 80H, 90H, A0H, B0H, C0H, D0H, E0H, F0H
 
 ; Read from lookup table
 ORG 0100H
 MAIN:
     MOV DPTR, #LOOKUP_TABLE  ; Point to table base
     MOV A, #05H              ; Index = 5
-    MOVC A, @A+DPTR          ; Read table[5] = 50H
+    MOVC A, @A+DPTR          ; Read table[5] = 50H (A used as index, then overwritten with data)
     ; A now contains 50H
 ```
 
@@ -306,7 +306,7 @@ Transfer a block of data from external RAM to internal RAM.
 ```assembly
 ; Transfer 10 bytes from external RAM (8000H) to internal RAM (30H)
 BLOCK_TRANSFER:
-    MOV DPTR, #8000H         ; Source address (external RAM)
+    MOV DPTR, #8000H         ; Source address (example: external RAM at 8000H)
     MOV R0, #30H             ; Destination address (internal RAM)
     MOV R7, #10              ; Byte count
 
@@ -349,11 +349,11 @@ DISPLAY_STRING:
     CLR A                    ; Index = 0
 
 DISPLAY_LOOP:
-    MOVC A, @A+DPTR          ; Read character
+    MOVC A, @A+DPTR          ; Read character (A used as index=0, then overwritten with data)
     JZ DISPLAY_DONE          ; If null terminator, done
     ACALL SEND_CHAR          ; Send character via serial
     INC DPTR                 ; Next character
-    CLR A                    ; Reset index
+    CLR A                    ; Reset index to 0 for next iteration
     SJMP DISPLAY_LOOP
 
 DISPLAY_DONE:
@@ -390,7 +390,7 @@ DIGIT_TO_SEG7:
     ; Input: A = digit (0-9)
     ; Output: A = 7-segment code
     MOV DPTR, #SEG7_TABLE    ; Point to table
-    MOVC A, @A+DPTR          ; Read code
+    MOVC A, @A+DPTR          ; Read code (A used as index, then overwritten with 7-seg code)
     RET
 
 ; Usage example
@@ -463,7 +463,7 @@ DISPLAY_LOOP:
 ; Correct: Reset index after each read
 DISPLAY_LOOP:
     CLR A                    ; Reset index to 0
-    MOVC A, @A+DPTR          ; Read character
+    MOVC A, @A+DPTR          ; Read character (A used as index=0, then overwritten with data)
     JZ DONE
     ; ... process character
     INC DPTR                 ; Move to next position
@@ -475,7 +475,7 @@ DISPLAY_LOOP:
 **Problem:**
 ```assembly
 ; Reading beyond 64KB boundary
-MOV DPTR, #0FFFFH
+MOV DPTR, #FFFFH
 MOVX A, @DPTR                ; Read from FFFFH
 INC DPTR                     ; DPTR = 0000H (wraps around!)
 MOVX A, @DPTR                ; Reads from 0000H, not 10000H
@@ -484,13 +484,13 @@ MOVX A, @DPTR                ; Reads from 0000H, not 10000H
 **Solution:**
 ```assembly
 ; Check for boundary conditions
-MOV DPTR, #0FFFFH
+MOV DPTR, #FFFFH
 MOVX A, @DPTR
 ; Check if at end of memory
 MOV A, DPH
-CJNE A, #0FFH, NOT_END
+CJNE A, #FFH, NOT_END
 MOV A, DPL
-CJNE A, #0FFH, NOT_END
+CJNE A, #FFH, NOT_END
 ; Handle end of memory condition
 SJMP END_OF_MEMORY
 NOT_END:
@@ -602,8 +602,8 @@ MOV DPH, A
 ```assembly
 ; Always reset A when using MOVC in loops
 LOOP:
-    CLR A                    ; Reset index
-    MOVC A, @A+DPTR          ; Read from code memory
+    CLR A                    ; Reset index to 0
+    MOVC A, @A+DPTR          ; Read from code memory (A used as index=0, then overwritten with data)
     ; Process data
     INC DPTR
     SJMP LOOP
@@ -619,9 +619,9 @@ LOOP:
     MOVX A, @DPTR
     ; Check if DPTR reached limit
     MOV A, DPH
-    CJNE A, #0FFH, CONTINUE
+    CJNE A, #FFH, CONTINUE
     MOV A, DPL
-    CJNE A, #0FFH, CONTINUE
+    CJNE A, #FFH, CONTINUE
     SJMP TRANSFER_DONE       ; Reached end
 CONTINUE:
     INC DPTR
