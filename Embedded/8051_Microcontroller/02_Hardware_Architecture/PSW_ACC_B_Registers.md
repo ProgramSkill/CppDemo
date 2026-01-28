@@ -60,7 +60,7 @@ Bit:  7    6    5    4    3    2    1    0
 | 3 | RS0 | Register Bank Select 0 | Register bank selection bit 0 | Software | Software |
 | 2 | OV | Overflow Flag | Overflow in signed arithmetic operations | Hardware | Software |
 | 1 | -- | Reserved | Reserved for future use | -- | -- |
-| 0 | P | Parity Flag | Even parity of accumulator (read-only) | Hardware | Hardware |
+| 0 | P | Parity Flag | Hardware maintains (ACC ones count + P) as even (even-parity bit, read-only) | Hardware | Hardware |
 
 **Note:** PSW is bit-addressable, allowing direct bit operations like `SETB CY` or `CLR OV`.
 
@@ -279,12 +279,12 @@ OVERFLOW_ERROR:
 
 ### Parity Flag (P) - Bit 0
 
-The Parity flag indicates the parity (even or odd) of the accumulator.
+The Parity flag is an even-parity bit maintained by hardware such that (ACC ones count + P) is always even.
 
 **Characteristics:**
 - **Read-only**: Set by hardware, cannot be modified by software
-- **Even parity**: P = 1 if accumulator has odd number of 1s
-- **Odd parity**: P = 0 if accumulator has even number of 1s
+- **P = 1**: When accumulator has odd number of 1s (makes total even)
+- **P = 0**: When accumulator has even number of 1s (total already even)
 - Updated automatically whenever accumulator changes
 
 **Parity Calculation:**
