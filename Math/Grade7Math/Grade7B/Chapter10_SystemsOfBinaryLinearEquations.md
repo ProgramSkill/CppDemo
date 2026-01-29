@@ -14,6 +14,9 @@
 | V | Practice | 20 problems organized by difficulty level |
 | VI | Answers | Complete answer key |
 | VII | Summary | Key formulas and study path |
+| VIII | Techniques | Essential problem-solving techniques with clear explanations |
+| IX | Real Problems | Historical competition problems (竞赛真题) with detailed solutions |
+| X | Reference | Essential formulas quick reference table |
 
 ---
 
@@ -1112,3 +1115,515 @@ Integer solutions → Parameters → Competition techniques
 ---
 
 **End of Chapter 10**
+
+---
+
+# Part VIII: Essential Problem-Solving Techniques (With Clear Explanations)
+
+This section focuses on **understanding the "why"** behind each technique, not just the "how".
+
+## 8.1 The "Substitution of Whole Expressions" Technique
+
+### 8.1.1 Why This Works
+
+Sometimes equations look complicated, but they contain **repeated patterns**. Instead of expanding everything, we can treat the pattern as a single unit.
+
+**Analogy**: If you see "apple + orange = 5" and "2×apple + 2×orange = ?", you don't need to know individual values—just multiply the first equation by 2!
+
+### 8.1.2 Basic Example
+
+**Problem**: If $x + y = 5$ and $x - y = 3$, find $x^2 - y^2$.
+
+**Beginner approach** (works but slow):
+```
+Solve: x = 4, y = 1
+Then: x² - y² = 16 - 1 = 15
+```
+
+**Smart approach** (use the pattern):
+```
+Notice: x² - y² = (x+y)(x-y)
+So: x² - y² = 5 × 3 = 15
+```
+
+**Key insight**: We used the **factorization identity** without solving for x and y!
+
+### 8.1.3 Common Identities to Remember
+
+| Expression | Factored Form |
+|------------|---------------|
+| $x^2 - y^2$ | $(x+y)(x-y)$ |
+| $x^2 + 2xy + y^2$ | $(x+y)^2$ |
+| $x^2 - 2xy + y^2$ | $(x-y)^2$ |
+
+**Useful derived formulas**:
+- $x^2 + y^2 = (x+y)^2 - 2xy$
+- $x^2 + y^2 = (x-y)^2 + 2xy$
+
+### 8.1.4 Practice Problem
+
+**Problem**: If $x + y = 7$ and $xy = 12$, find $x^2 + y^2$.
+
+**Solution**:
+$$x^2 + y^2 = (x+y)^2 - 2xy = 49 - 24 = 25$$
+
+---
+
+## 8.2 The "Set But Don't Solve" Technique
+
+### 8.2.1 The Core Idea
+
+Sometimes we need to find a **combination** of unknowns, not the unknowns themselves. We can set up equations and manipulate them directly.
+
+### 8.2.2 Example
+
+**Problem**: The sum of two numbers is 10, their difference is 4. Find the sum of their squares.
+
+**Solution**:
+Let $x + y = 10$ and $x - y = 4$
+
+We want $x^2 + y^2$. Use the identity:
+$$x^2 + y^2 = \frac{(x+y)^2 + (x-y)^2}{2} = \frac{100 + 16}{2} = 58$$
+
+**Why this identity works**:
+$(x+y)^2 = x^2 + 2xy + y^2$
+$(x-y)^2 = x^2 - 2xy + y^2$
+Adding: $(x+y)^2 + (x-y)^2 = 2x^2 + 2y^2$
+
+---
+
+## 8.3 Using Sum and Product (Vieta's Connection)
+
+### 8.3.1 The Key Insight
+
+If we know $x + y = s$ and $xy = p$, then $x$ and $y$ are roots of:
+$$t^2 - st + p = 0$$
+
+**Why?** If $x, y$ are roots, then by Vieta's formulas:
+- Sum of roots = $s$
+- Product of roots = $p$
+
+### 8.3.2 Example
+
+**Problem**: Find two numbers whose sum is 5 and product is 6.
+
+**Solution**: The numbers are roots of $t^2 - 5t + 6 = 0$
+$(t-2)(t-3) = 0$
+**Answer**: 2 and 3
+
+### 8.3.3 When to Use This Technique
+
+This technique is powerful when:
+1. You're given sum and product directly
+2. You can transform a system into sum/product form
+3. You need to check if real solutions exist (discriminant ≥ 0)
+
+**Existence Check**: For $x + y = s$ and $xy = p$ to have real solutions:
+$$\Delta = s^2 - 4p \geq 0$$
+
+**Example**: Do real numbers $x, y$ exist with $x + y = 3$ and $xy = 5$?
+
+Check: $\Delta = 9 - 20 = -11 < 0$
+
+**Answer**: No real solutions exist.
+
+---
+
+## 8.4 Classification Discussion (分类讨论)
+
+### 8.4.1 Why Classification is Needed
+
+Some problems have different answers depending on conditions. Competition problems often test whether students can identify all cases.
+
+**Key Principle**: When a problem involves:
+- Division (denominator might be zero)
+- Absolute values
+- Parameters with unknown signs
+- "At least one" or "at most one" conditions
+
+You must consider ALL possible cases.
+
+### 8.4.2 Example: Parameter in Coefficient
+
+**Problem**: For what values of $k$ does the system have a unique solution?
+$$\begin{cases} kx + y = 1 \\ x + ky = 1 \end{cases}$$
+
+**Analysis**: Using Cramer's Rule, unique solution exists when determinant ≠ 0:
+$$D = k \cdot k - 1 \cdot 1 = k^2 - 1 \neq 0$$
+
+So $k \neq 1$ and $k \neq -1$.
+
+**What happens at boundary cases?**
+
+**Case 1**: $k = 1$
+$$\begin{cases} x + y = 1 \\ x + y = 1 \end{cases}$$
+Same equation! Infinitely many solutions.
+
+**Case 2**: $k = -1$
+$$\begin{cases} -x + y = 1 \\ x - y = 1 \end{cases}$$
+Adding: $0 = 2$ — Contradiction! No solution.
+
+**Answer**: Unique solution when $k \neq 1$ and $k \neq -1$.
+
+### 8.4.3 Example: Absolute Value
+
+**Problem**: Solve $|x| + y = 3$ and $x + |y| = 3$ for non-negative solutions.
+
+**Analysis**: Since we want non-negative solutions, $x \geq 0$ and $y \geq 0$.
+
+When $x \geq 0$: $|x| = x$
+When $y \geq 0$: $|y| = y$
+
+The system becomes:
+$$\begin{cases} x + y = 3 \\ x + y = 3 \end{cases}$$
+
+**Answer**: All points $(x, y)$ where $x + y = 3$, $x \geq 0$, $y \geq 0$.
+
+---
+
+## 8.5 The Construction Method (构造法)
+
+### 8.5.1 What is Construction?
+
+Sometimes the direct approach is difficult. Instead, we "construct" a new equation or system that makes the problem easier.
+
+**Key Idea**: Create something new (an equation, expression, or relationship) that reveals the answer.
+
+### 8.5.2 Example: Constructing a Sum
+
+**Problem**: Given $\frac{1}{x} + \frac{1}{y} = \frac{1}{2}$ and $\frac{1}{x} - \frac{1}{y} = \frac{1}{6}$, find $x$ and $y$.
+
+**Construction**: Let $u = \frac{1}{x}$ and $v = \frac{1}{y}$
+
+The system becomes:
+$$\begin{cases} u + v = \frac{1}{2} \\ u - v = \frac{1}{6} \end{cases}$$
+
+Adding: $2u = \frac{2}{3}$, so $u = \frac{1}{3}$
+
+Subtracting: $2v = \frac{1}{3}$, so $v = \frac{1}{6}$
+
+Back to original: $x = 3$, $y = 6$
+
+**Why this works**: We transformed a complex system into a simple one by substitution.
+
+### 8.5.3 Example: Constructing a Quadratic
+
+**Problem**: Find positive integers $x, y$ such that $xy + x + y = 23$.
+
+**Construction**: Add 1 to both sides:
+$$xy + x + y + 1 = 24$$
+$$(x+1)(y+1) = 24$$
+
+**Why add 1?** Because $xy + x + y + 1$ factors perfectly as $(x+1)(y+1)$.
+
+Now find factor pairs of 24 where both factors > 1:
+- $24 = 2 \times 12$: $(x,y) = (1, 11)$
+- $24 = 3 \times 8$: $(x,y) = (2, 7)$
+- $24 = 4 \times 6$: $(x,y) = (3, 5)$
+
+**Answer**: $(1,11), (2,7), (3,5)$ and their symmetric pairs.
+
+---
+
+## 8.6 Symmetry in Systems (对称性)
+
+### 8.6.1 Recognizing Symmetric Systems
+
+A system is **symmetric** if swapping $x$ and $y$ gives the same system.
+
+**Example of symmetric system**:
+$$\begin{cases} x + y = 5 \\ xy = 6 \end{cases}$$
+
+Swap $x \leftrightarrow y$: same equations!
+
+### 8.6.2 Using Symmetry
+
+**Key Insight**: If $(a, b)$ is a solution to a symmetric system, then $(b, a)$ is also a solution.
+
+**Strategy**: For symmetric systems, use $s = x + y$ and $p = xy$ as new variables.
+
+### 8.6.3 Example
+
+**Problem**: Solve $x + y = 7$ and $x^2 + y^2 = 25$.
+
+**Solution using symmetry**:
+Let $s = x + y = 7$
+
+We know: $x^2 + y^2 = (x+y)^2 - 2xy = s^2 - 2p$
+
+So: $25 = 49 - 2p$, giving $p = xy = 12$
+
+Now $x, y$ are roots of $t^2 - 7t + 12 = 0$
+$(t-3)(t-4) = 0$
+
+**Answer**: $(x,y) = (3,4)$ or $(4,3)$
+
+---
+
+## 8.7 Bounding and Estimation (估算与界)
+
+### 8.7.1 Why Bounds Matter
+
+In integer problems, we often need to limit the search range. Bounds help us find all solutions efficiently.
+
+**Key Principle**: Use inequalities to restrict possible values.
+
+### 8.7.2 Example: Finding Integer Solutions
+
+**Problem**: Find all positive integer solutions to $3x + 5y = 47$.
+
+**Step 1**: Find bounds for $x$
+- Since $y \geq 1$: $3x \leq 47 - 5 = 42$, so $x \leq 14$
+- Since $x \geq 1$: $x \geq 1$
+
+**Step 2**: Find which values work
+From $3x + 5y = 47$: $y = \frac{47 - 3x}{5}$
+
+For $y$ to be a positive integer, $(47 - 3x)$ must be divisible by 5 and positive.
+
+$47 - 3x \equiv 0 \pmod{5}$
+$2 - 3x \equiv 0 \pmod{5}$
+$3x \equiv 2 \pmod{5}$
+$x \equiv 4 \pmod{5}$
+
+So $x \in \{4, 9, 14\}$
+
+Check:
+- $x = 4$: $y = (47-12)/5 = 7$ ✓
+- $x = 9$: $y = (47-27)/5 = 4$ ✓
+- $x = 14$: $y = (47-42)/5 = 1$ ✓
+
+**Answer**: $(4,7), (9,4), (14,1)$
+
+---
+
+# Part IX: Historical Competition Problems (竞赛真题精选)
+
+This section contains problems from actual mathematics competitions with detailed solutions.
+
+---
+
+## 9.1 Entry-Level Competition Problems
+
+### Problem 9.1.1 (Regional Competition)
+
+**Problem**: If $x + y = 10$ and $x^2 - y^2 = 40$, find $x - y$.
+
+**Analysis**: This looks complex, but there's a simple approach.
+
+**Key Insight**: $x^2 - y^2 = (x+y)(x-y)$
+
+**Solution**:
+$$x^2 - y^2 = (x+y)(x-y)$$
+$$40 = 10 \cdot (x-y)$$
+$$x - y = 4$$
+
+**Answer**: $x - y = 4$
+
+**Lesson**: Always look for factorization before expanding.
+
+---
+
+### Problem 9.1.2 (Provincial Selection)
+
+**Problem**: Solve the system:
+$$\begin{cases} x + 2y = 5 \\ 2x + 4y = 10 \end{cases}$$
+
+**Analysis**: Notice that the second equation is exactly 2 times the first!
+
+**Solution**:
+Equation ②: $2x + 4y = 10$
+Divide by 2: $x + 2y = 5$
+
+This is identical to equation ①.
+
+**Answer**: Infinitely many solutions. Any $(x, y)$ satisfying $x + 2y = 5$.
+
+**Lesson**: Always check if equations are multiples of each other.
+
+---
+
+## 9.2 Intermediate Competition Problems
+
+### Problem 9.2.1 (全国初中数学联赛 Style)
+
+**Problem**: Find all integer solutions to $\frac{1}{x} + \frac{1}{y} = \frac{1}{6}$.
+
+**Analysis**: This is a classic Diophantine equation in disguise.
+
+**Solution**:
+Multiply both sides by $6xy$:
+$$6y + 6x = xy$$
+$$xy - 6x - 6y = 0$$
+
+Add 36 to both sides (Simon's Favorite Factoring Trick):
+$$xy - 6x - 6y + 36 = 36$$
+$$(x-6)(y-6) = 36$$
+
+Find factor pairs of 36:
+| $(x-6)$ | $(y-6)$ | $x$ | $y$ |
+|---------|---------|-----|-----|
+| 1 | 36 | 7 | 42 |
+| 2 | 18 | 8 | 24 |
+| 3 | 12 | 9 | 18 |
+| 4 | 9 | 10 | 15 |
+| 6 | 6 | 12 | 12 |
+| -1 | -36 | 5 | -30 |
+| -2 | -18 | 4 | -12 |
+| -3 | -12 | 3 | -6 |
+| -6 | -6 | 0 | 0 |
+
+Note: $(0, 0)$ is invalid (division by zero).
+
+**Answer**: $(7,42), (8,24), (9,18), (10,15), (12,12)$ and symmetric pairs, plus negative solutions.
+
+---
+
+### Problem 9.2.2 (Competition Classic)
+
+**Problem**: If $a + b = 2$ and $ab = -3$, find $a^3 + b^3$.
+
+**Analysis**: We need to express $a^3 + b^3$ using $a + b$ and $ab$.
+
+**Key Formula**: $a^3 + b^3 = (a+b)^3 - 3ab(a+b)$
+
+**Why this formula?**
+$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 = a^3 + b^3 + 3ab(a+b)$
+
+So: $a^3 + b^3 = (a+b)^3 - 3ab(a+b)$
+
+**Solution**:
+$$a^3 + b^3 = (2)^3 - 3(-3)(2) = 8 + 18 = 26$$
+
+**Answer**: $a^3 + b^3 = 26$
+
+---
+
+## 9.3 Advanced Competition Problems
+
+### Problem 9.3.1 (全国初中数学联赛)
+
+**Problem**: Find all positive integer solutions to $x^2 - y^2 = 91$.
+
+**Analysis**: Factor the left side.
+
+**Solution**:
+$$x^2 - y^2 = (x+y)(x-y) = 91$$
+
+Since $x, y$ are positive integers and $x > y$ (for positive result):
+- $x + y > x - y > 0$
+- Both factors have the same parity (both odd or both even)
+
+$91 = 7 \times 13 = 1 \times 91$
+
+**Case 1**: $x + y = 91$, $x - y = 1$
+Adding: $2x = 92$, so $x = 46$, $y = 45$
+
+**Case 2**: $x + y = 13$, $x - y = 7$
+Adding: $2x = 20$, so $x = 10$, $y = 3$
+
+**Answer**: $(46, 45)$ and $(10, 3)$
+
+---
+
+### Problem 9.3.2 (Competition Final)
+
+**Problem**: Given the system:
+$$\begin{cases} x + y + z = 6 \\ xy + yz + zx = 11 \\ xyz = 6 \end{cases}$$
+
+Find $x^2 + y^2 + z^2$.
+
+**Analysis**: Use the identity relating these symmetric expressions.
+
+**Key Identity**:
+$$x^2 + y^2 + z^2 = (x+y+z)^2 - 2(xy+yz+zx)$$
+
+**Solution**:
+$$x^2 + y^2 + z^2 = 6^2 - 2(11) = 36 - 22 = 14$$
+
+**Answer**: $x^2 + y^2 + z^2 = 14$
+
+**Bonus**: What are $x, y, z$?
+They are roots of $t^3 - 6t^2 + 11t - 6 = 0$
+$(t-1)(t-2)(t-3) = 0$
+So $\{x, y, z\} = \{1, 2, 3\}$
+
+---
+
+## 9.4 Problem-Solving Strategy Summary
+
+### When facing a competition problem:
+
+1. **Read carefully** - Identify what type of problem it is
+2. **Look for patterns** - Symmetry, special forms, factorization
+3. **Choose the right technique**:
+   - Sum/difference given → Use identities
+   - Product form possible → Factor
+   - Integer solutions needed → Use divisibility
+   - Parameters present → Classify cases
+
+4. **Check your answer** - Substitute back into original equations
+5. **Consider all cases** - Don't miss negative or zero solutions
+
+---
+
+# Part X: Essential Formulas Reference (公式速查表)
+
+## 10.1 Basic Identities
+
+| Identity | Formula |
+|----------|---------|
+| Square of sum | $(a+b)^2 = a^2 + 2ab + b^2$ |
+| Square of difference | $(a-b)^2 = a^2 - 2ab + b^2$ |
+| Difference of squares | $a^2 - b^2 = (a+b)(a-b)$ |
+| Sum of squares | $a^2 + b^2 = (a+b)^2 - 2ab$ |
+| Sum of squares (alt) | $a^2 + b^2 = \frac{(a+b)^2 + (a-b)^2}{2}$ |
+
+## 10.2 Cubic Identities
+
+| Identity | Formula |
+|----------|---------|
+| Cube of sum | $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$ |
+| Sum of cubes | $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$ |
+| Difference of cubes | $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$ |
+| Sum of cubes (alt) | $a^3 + b^3 = (a+b)^3 - 3ab(a+b)$ |
+
+## 10.3 Three-Variable Identities
+
+| Identity | Formula |
+|----------|---------|
+| Square of sum | $(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+bc+ca)$ |
+| Sum of squares | $a^2+b^2+c^2 = (a+b+c)^2 - 2(ab+bc+ca)$ |
+| Sum of cubes | $a^3+b^3+c^3 - 3abc = (a+b+c)(a^2+b^2+c^2-ab-bc-ca)$ |
+
+## 10.4 Vieta's Formulas
+
+For quadratic $ax^2 + bx + c = 0$ with roots $r, s$:
+- Sum: $r + s = -\frac{b}{a}$
+- Product: $rs = \frac{c}{a}$
+
+## 10.5 Cramer's Rule
+
+For system $\begin{cases} ax + by = e \\ cx + dy = f \end{cases}$:
+
+$$x = \frac{ed - bf}{ad - bc}, \quad y = \frac{af - ec}{ad - bc}$$
+
+Condition: $ad - bc \neq 0$
+
+## 10.6 Diophantine Equations
+
+For $ax + by = c$ where $\gcd(a,b) = d$:
+- Solutions exist if and only if $d | c$
+- General solution: $x = x_0 + \frac{b}{d}t$, $y = y_0 - \frac{a}{d}t$
+
+## 10.7 Simon's Favorite Factoring Trick
+
+$$xy + ax + by + ab = (x+b)(y+a)$$
+
+To factor $xy + ax + by = c$, add $ab$ to both sides.
+
+---
+
+**End of Chapter 10**
+
+*This document covers systems of linear equations from beginner level through National Junior High School Mathematics Competition (全国初中数学联赛) level.*
