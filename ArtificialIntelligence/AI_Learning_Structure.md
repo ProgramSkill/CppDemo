@@ -148,7 +148,28 @@ ArtificialIntelligence/
 │       ├── VisionTransformer/               # Vision Transformer：ViT、DeiT、Swin Transformer
 │       └── UniversalSegmentation/           # 通用分割：Segment Anything (SAM)、Mask2Former
 │
-├── 06_Multimodal/                           # 多模态学习
+├── 06_Speech/                               # 语音处理
+│   ├── Fundamentals/                        # 基础知识
+│   │   ├── AudioSignal/                     # 音频信号：采样率、频谱、MFCC、Mel频谱
+│   │   ├── Phonetics/                       # 语音学基础：音素、声学模型、语言模型
+│   │   └── AudioAugmentation/               # 音频增强：SpecAugment、噪声注入、时间拉伸
+│   ├── SpeechRecognition/                   # 语音识别
+│   │   ├── Classical/                       # 经典方法：HMM-GMM、WFST
+│   │   ├── EndToEnd/                        # 端到端：CTC、RNN-T、Attention-based
+│   │   └── LargeModels/                     # 大模型：Whisper、Wav2Vec 2.0、HuBERT
+│   ├── SpeechSynthesis/                     # 语音合成
+│   │   ├── TTS/                             # 文本转语音：Tacotron、FastSpeech、VITS
+│   │   ├── Vocoder/                         # 声码器：WaveNet、WaveGlow、HiFi-GAN
+│   │   └── VoiceCloning/                    # 语音克隆：零样本TTS、说话人适应
+│   ├── SpeakerRecognition/                  # 说话人识别
+│   │   ├── Verification/                    # 说话人验证：x-vector、d-vector、ECAPA-TDNN
+│   │   └── Diarization/                     # 说话人分离：谁在什么时候说话
+│   └── Applications/                        # 应用场景
+│       ├── VoiceAssistant/                  # 语音助手：唤醒词检测、意图识别
+│       ├── SpeechTranslation/               # 语音翻译：端到端语音翻译
+│       └── EmotionRecognition/              # 情感识别：语音情感分析、韵律特征
+│
+├── 07_Multimodal/                           # 多模态学习
 │   ├── VisionLanguage/                      # 视觉-语言模型
 │   │   ├── CLIP/                            # CLIP：对比学习、零样本分类
 │   │   ├── ALIGN/                           # ALIGN：大规模视觉-语言预训练
@@ -161,12 +182,16 @@ ArtificialIntelligence/
 │   │   ├── SpeechRecognition/               # 语音识别：Whisper、多模态ASR
 │   │   ├── VideoUnderstanding/              # 视频理解：视频问答、视频字幕
 │   │   └── AudioGeneration/                 # 音频生成：文本转语音、音乐生成
+│   ├── SpeechLanguage/                      # 语音-语言模型
+│   │   ├── SpeechToText/                    # 语音转文本：端到端ASR、语音理解
+│   │   ├── TextToSpeech/                    # 文本转语音：多模态TTS
+│   │   └── SpeechLM/                        # 语音语言模型：AudioLM、VALL-E
 │   └── FusionTechniques/                    # 融合技术
 │       ├── EarlyFusion/                     # 早期融合：特征级融合
 │       ├── LateFusion/                      # 晚期融合：决策级融合
 │       └── AttentionFusion/                 # 注意力融合：交叉注意力、协同注意力
 │
-├── 07_TimeSeries/                           # 时间序列分析
+├── 08_TimeSeries/                           # 时间序列分析
 │   ├── Classical/                           # 经典方法
 │   │   ├── ARIMA/                           # ARIMA：自回归移动平均
 │   │   ├── ExponentialSmoothing/            # 指数平滑：Holt-Winters
@@ -184,7 +209,7 @@ ArtificialIntelligence/
 │       ├── Weather/                         # 气象：天气预报、气候建模
 │       └── AnomalyDetection/                # 异常检测：时序异常、故障诊断
 │
-├── 08_Projects/                             # 实战项目
+├── 09_Projects/                             # 实战项目
 │   ├── BeginnerProjects/                    # 初级项目
 │   │   ├── IrisClassification/              # 鸢尾花分类：经典入门项目
 │   │   ├── HousePricePredict/               # 房价预测：回归问题实践
@@ -198,7 +223,7 @@ ArtificialIntelligence/
 │       ├── ObjectDetector/                  # 目标检测系统：实时检测应用
 │       └── ImageGenerator/                  # 图像生成器：GAN或扩散模型应用
 │
-├── 09_Engineering/                          # AI工程实践
+├── 10_Engineering/                          # AI工程实践
 │   ├── ModelDeployment/                     # 模型部署
 │   │   ├── ServingFrameworks/               # 服务框架：TensorFlow Serving、TorchServe、ONNX Runtime
 │   │   ├── APIDesign/                       # API设计：RESTful API、gRPC、FastAPI
@@ -221,7 +246,7 @@ ArtificialIntelligence/
 │       ├── DataPipeline/                    # 数据流水线：ETL、数据清洗、特征存储
 │       └── DataVersioning/                  # 数据版本控制：DVC、数据血缘、数据治理
 │
-├── 10_Resources/                            # 学习资源
+├── 11_Resources/                            # 学习资源
 │   ├── Papers/                              # 论文资源
 │   │   ├── Classic/                         # 经典论文：AlexNet、ResNet、Transformer等
 │   │   ├── Recent/                          # 最新研究：前沿技术、新方法
@@ -239,7 +264,7 @@ ArtificialIntelligence/
 │       ├── Libraries/                       # 常用库：NumPy、Pandas、Scikit-learn、Matplotlib
 │       └── Datasets/                        # 数据集资源：Kaggle、UCI、ImageNet、COCO
 │
-└── 11_LLMs/                                 # 大语言模型（专题深入）
+└── 12_LLMs/                                 # 大语言模型（专题深入）
     ├── Foundations/                         # LLM理论基础
     │   ├── Tokenization/                    # 分词技术：BPE、SentencePiece、tiktoken
     │   ├── PretrainingObjectives/           # 预训练目标：MLM、CLM、Seq2Seq、Instruction Tuning
@@ -293,7 +318,7 @@ ArtificialIntelligence/
 4. **定期复习**：定期回顾之前的内容，巩固知识
 5. **项目驱动**：通过实际项目来检验学习效果
 6. **工程导向**：重视模型部署和MLOps实践，培养工程化思维
-7. **LLM专题**：在掌握Transformer基础后，可深入11_LLMs/学习提示工程、RAG和微调技术
+7. **LLM专题**：在掌握Transformer基础后，可深入12_LLMs/学习提示工程、RAG和微调技术
 
 **推荐资源：**
 - **书籍**：《机器学习》周志华、《深度学习》Goodfellow、《统计学习方法》李航
