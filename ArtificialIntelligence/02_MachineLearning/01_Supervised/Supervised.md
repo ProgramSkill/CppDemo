@@ -299,7 +299,7 @@ public static (double[,], double[], double[,], double[], double[,], double[])
     double[,] XTest = new double[testSize, m];
     double[] yTest = new double[testSize];
 
-    // Fill arrays
+    // Fill training set
     for (int i = 0; i < trainSize; i++)
     {
         int idx = indices[i];
@@ -308,7 +308,23 @@ public static (double[,], double[], double[,], double[], double[,], double[])
         yTrain[i] = y[idx];
     }
 
-    // ... (similar for validation and test sets)
+    // Fill validation set
+    for (int i = 0; i < valSize; i++)
+    {
+        int idx = indices[trainSize + i];
+        for (int j = 0; j < m; j++)
+            XVal[i, j] = X[idx, j];
+        yVal[i] = y[idx];
+    }
+
+    // Fill test set
+    for (int i = 0; i < testSize; i++)
+    {
+        int idx = indices[trainSize + valSize + i];
+        for (int j = 0; j < m; j++)
+            XTest[i, j] = X[idx, j];
+        yTest[i] = y[idx];
+    }
 
     return (XTrain, yTrain, XVal, yVal, XTest, yTest);
 }
@@ -1199,10 +1215,19 @@ public static double[,] StandardizeFeatures(double[,] X)
         for (int i = 0; i < n; i++)
             std += Math.Pow(X[i, j] - mean, 2);
         std = Math.Sqrt(std / n);
-        
-        // Scale feature j
-        for (int i = 0; i < n; i++)
-            XScaled[i, j] = (X[i, j] - mean) / std;
+
+        // Scale feature j (avoid division by zero)
+        if (std > 0)
+        {
+            for (int i = 0; i < n; i++)
+                XScaled[i, j] = (X[i, j] - mean) / std;
+        }
+        else
+        {
+            // If std is 0, all values are the same, keep them as 0
+            for (int i = 0; i < n; i++)
+                XScaled[i, j] = 0;
+        }
     }
     
     return XScaled;
@@ -1329,8 +1354,8 @@ Both scores high and close → Good fit
 **Save trained model**:
 ```csharp
 // Pseudo-code
-model.Save("model.pkl");
-var loadedModel = Model.Load("model.pkl");
+model.Save("model.dat");
+var loadedModel = Model.Load("model.dat");
 ```
 
 #### 11.2 API Deployment
