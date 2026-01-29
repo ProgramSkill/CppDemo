@@ -11,9 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="02_MachineLearning\01_Supervised\Classification\" />
-    <Folder Include="02_MachineLearning\01_Supervised\Evaluation\" />
-    <Folder Include="02_MachineLearning\01_Supervised\Regression\" />
     <Folder Include="02_MachineLearning\02_Unsupervised\Association\" />
     <Folder Include="02_MachineLearning\02_Unsupervised\Clustering\" />
     <Folder Include="02_MachineLearning\02_Unsupervised\DimensionReduction\" />
