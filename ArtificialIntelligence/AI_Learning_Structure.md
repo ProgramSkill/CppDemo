@@ -59,6 +59,7 @@ ArtificialIntelligence/
 │   │   ├── Perceptron/                      # 感知机：单层感知机、多层感知机
 │   │   ├── MLP/                             # 多层感知机：全连接层、隐藏层
 │   │   ├── Activation/                      # 激活函数：ReLU、Sigmoid、Tanh、Softmax
+│   │   ├── LossFunctions/                   # 损失函数：交叉熵、MSE、MAE、Focal Loss
 │   │   └── Backpropagation/                 # 反向传播：链式法则、梯度计算
 │   ├── CNN/                                 # 卷积神经网络
 │   │   ├── Convolution/                     # 卷积操作：卷积核、特征图、步长、填充
@@ -70,6 +71,11 @@ ArtificialIntelligence/
 │   │   ├── LSTM/                            # 长短期记忆网络：遗忘门、输入门、输出门
 │   │   ├── GRU/                             # 门控循环单元：更新门、重置门
 │   │   └── Seq2Seq/                         # 序列到序列模型：编码器-解码器架构
+│   ├── AttentionMechanisms/                 # 注意力机制（通用）
+│   │   ├── AttentionBasics/                 # 注意力基础：对齐、评分函数、上下文向量
+│   │   ├── AdditiveAttention/               # 加性注意力：Bahdanau注意力
+│   │   ├── MultiplicativeAttention/         # 乘性注意力：Luong注意力、缩放点积
+│   │   └── Applications/                    # 应用场景：Seq2Seq with Attention、视觉注意力
 │   ├── Transformers/                        # Transformer架构
 │   │   ├── Attention/                       # 注意力机制：Query、Key、Value
 │   │   ├── SelfAttention/                   # 自注意力：多头注意力、位置编码
