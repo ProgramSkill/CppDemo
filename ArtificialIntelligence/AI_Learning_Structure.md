@@ -117,6 +117,14 @@ ArtificialIntelligence/
 │   │   ├── GAN/                             # 生成对抗网络：DCGAN、StyleGAN、CycleGAN
 │   │   ├── VAE/                             # 变分自编码器：编码器、解码器、潜在空间
 │   │   └── Diffusion/                       # 扩散模型：DDPM、Stable Diffusion
+│   ├── 3DReconstruction/                    # 3D重建
+│   │   ├── NeRF/                            # 神经辐射场：NeRF、Instant-NGP、Mip-NeRF
+│   │   ├── GaussianSplatting/               # 3D高斯溅射：3DGS、实时渲染
+│   │   └── MultiView/                       # 多视图重建：SfM、MVS、COLMAP
+│   ├── VideoUnderstanding/                  # 视频理解
+│   │   ├── ActionRecognition/               # 动作识别：TSN、I3D、SlowFast
+│   │   ├── VideoSegmentation/               # 视频分割：时序一致性、视频目标分割
+│   │   └── VideoGeneration/                 # 视频生成：Sora、Gen-2、视频扩散模型
 │   └── FoundationModels/                    # 基础模型（前沿）
 │       ├── VisionTransformer/               # Vision Transformer：ViT、DeiT、Swin Transformer
 │       ├── MultiModal/                      # 多模态模型：CLIP、ALIGN、Florence
