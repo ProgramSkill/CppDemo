@@ -9,7 +9,8 @@
       "Bash(move Supervised 01_Supervised)",
       "Bash(move Unsupervised 02_Unsupervised)",
       "Bash(move:*)",
-      "Bash(git status:*)"
+      "Bash(git status:*)",
+      "Bash(echo:*)"
     ]
   }
 }
