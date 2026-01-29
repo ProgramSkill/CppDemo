@@ -132,7 +132,12 @@ Together, these form a **system of linear equations in two variables**.
 > **Definition**: Two or more linear equations in two variables with the **same unknowns** form a **system of linear equations in two variables**.
 
 **Standard Notation**:
-$$\begin{cases} a_1x + b_1y = c_1 \\ a_2x + b_2y = c_2 \end{cases}$$
+$$
+\begin{cases}
+a_1x + b_1y = c_1 \\
+a_2x + b_2y = c_2
+\end{cases}
+$$
 
 ### 1.3.3 Solution of a System
 
@@ -171,7 +176,12 @@ Two variables → One variable → Solve → Back-substitute
 ### 1.4.3 Example
 
 **Solve**:
-$$\begin{cases} y = 2x - 1 & \text{①} \\ 3x + 2y = 12 & \text{②} \end{cases}$$
+$$
+\begin{cases}
+y = 2x - 1 & \text{①} \\
+3x + 2y = 12 & \text{②}
+\end{cases}
+$$
 
 **Solution**:
 
@@ -219,7 +229,12 @@ Add or subtract equations to eliminate one variable.
 ### 1.5.3 Example 1: Coefficients Already Aligned
 
 **Solve**:
-$$\begin{cases} 3x + 2y = 13 & \text{①} \\ 3x - 2y = 5 & \text{②} \end{cases}$$
+$$
+\begin{cases}
+3x + 2y = 13 & \text{①} \\
+3x - 2y = 5 & \text{②}
+\end{cases}
+$$
 
 **Solution**:
 
@@ -235,7 +250,12 @@ Substitute into ①: $3(3) + 2y = 13 \Rightarrow y = 2$
 ### 1.5.4 Example 2: Coefficients Need Adjustment
 
 **Solve**:
-$$\begin{cases} 2x + 3y = 7 & \text{①} \\ 3x + 2y = 8 & \text{②} \end{cases}$$
+$$
+\begin{cases}
+2x + 3y = 7 & \text{①} \\
+3x + 2y = 8 & \text{②}
+\end{cases}
+$$
 
 **Solution**:
 
@@ -272,7 +292,12 @@ Build System → Solve → Verify → Answer
 **Type 1: Sum and Difference**
 > Two numbers sum to 50 and differ by 14. Find them.
 
-$$\begin{cases} x + y = 50 \\ x - y = 14 \end{cases}$$
+$$
+\begin{cases}
+x + y = 50 \\
+x - y = 14
+\end{cases}
+$$
 
 Adding: $2x = 64 \Rightarrow x = 32, y = 18$
 
@@ -281,7 +306,12 @@ Adding: $2x = 64 \Rightarrow x = 32, y = 18$
 
 Let $f$ = father's age, $s$ = son's age
 
-$$\begin{cases} f = s + 30 \\ f + 5 = 3(s + 5) \end{cases}$$
+$$
+\begin{cases}
+f = s + 30 \\
+f + 5 = 3(s + 5)
+\end{cases}
+$$
 
 Substituting: $s + 30 + 5 = 3s + 15 \Rightarrow s = 10, f = 40$
 
@@ -303,7 +333,12 @@ $60t + 40t = 300 \Rightarrow t = 3$ hours
 ### 2.1.1 Finding Parameter Values
 
 **Problem**: For what value of $k$ does the system have solution $x = 2, y = 3$?
-$$\begin{cases} kx + y = 7 \\ x - ky = -7 \end{cases}$$
+$$
+\begin{cases}
+kx + y = 7 \\
+x - ky = -7
+\end{cases}
+$$
 
 **Solution**: Substitute $x = 2, y = 3$:
 - From ①: $2k + 3 = 7 \Rightarrow k = 2$
@@ -314,7 +349,12 @@ Since $k$ must satisfy both, and $2 \neq 3$, **no such $k$ exists**.
 ### 2.1.2 Conditions for Special Solutions
 
 **Problem**: For what values of $m$ does the system have no solution?
-$$\begin{cases} 2x + my = 3 \\ 4x + 6y = 5 \end{cases}$$
+$$
+\begin{cases}
+2x + my = 3 \\
+4x + 6y = 5
+\end{cases}
+$$
 
 **Solution**: No solution when lines are parallel:
 $$\frac{2}{4} = \frac{m}{6} \neq \frac{3}{5}$$
@@ -334,7 +374,13 @@ Check: $\frac{3}{5} \neq \frac{1}{2}$ ✓
 When we have more equations than unknowns, the system may be **inconsistent** (no solution) or **redundant** (some equations are consequences of others).
 
 **Example**: Solve if possible:
-$$\begin{cases} x + y = 5 \\ x - y = 1 \\ 2x + y = 8 \end{cases}$$
+$$
+\begin{cases}
+x + y = 5 \\
+x - y = 1 \\
+2x + y = 8
+\end{cases}
+$$
 
 From ① and ②: $x = 3, y = 2$
 
@@ -345,7 +391,13 @@ The system is consistent; ③ is satisfied by the solution of ① and ②.
 ### 2.2.2 Systems in Three Variables
 
 **Example**: Solve:
-$$\begin{cases} x + y + z = 6 & \text{①} \\ 2x - y + z = 3 & \text{②} \\ x + 2y - z = 5 & \text{③} \end{cases}$$
+$$
+\begin{cases}
+x + y + z = 6 & \text{①} \\
+2x - y + z = 3 & \text{②} \\
+x + 2y - z = 5 & \text{③}
+\end{cases}
+$$
 
 **Strategy**: Eliminate one variable to get a system in two variables.
 
@@ -419,7 +471,12 @@ So $t \in \{0, 1\}$
 When a system is symmetric in $x$ and $y$, introduce $s = x + y$ and $p = xy$.
 
 **Example**: Solve:
-$$\begin{cases} x + y = 5 \\ xy = 6 \end{cases}$$
+$$
+\begin{cases}
+x + y = 5 \\
+xy = 6
+\end{cases}
+$$
 
 $x$ and $y$ are roots of $t^2 - 5t + 6 = 0$
 
@@ -442,7 +499,12 @@ $\frac{x + y}{k} = m \Rightarrow \frac{5m}{k} = m \Rightarrow k = 5$
 ### 2.4.3 Using Determinants (Cramer's Rule)
 
 For the system:
-$$\begin{cases} a_1x + b_1y = c_1 \\ a_2x + b_2y = c_2 \end{cases}$$
+$$
+\begin{cases}
+a_1x + b_1y = c_1 \\
+a_2x + b_2y = c_2
+\end{cases}
+$$
 
 Define:
 $$D = \begin{vmatrix} a_1 & b_1 \\ a_2 & b_2 \end{vmatrix} = a_1b_2 - a_2b_1$$
@@ -545,24 +607,49 @@ $$x = 1, y = 2$$
 ### 3.2.2 Multiple Cases
 
 **Example**: Solve the system:
-$$\begin{cases} |x| + y = 3 \\ x + |y| = 3 \end{cases}$$
+$$
+\begin{cases}
+|x| + y = 3 \\
+x + |y| = 3
+\end{cases}
+$$
 
 **Case 1**: $x \geq 0$, $y \geq 0$
-$$\begin{cases} x + y = 3 \\ x + y = 3 \end{cases}$$
+$$
+\begin{cases}
+x + y = 3 \\
+x + y = 3
+\end{cases}
+$$
 Infinitely many solutions on segment: $x + y = 3$, $x \geq 0$, $y \geq 0$
 
 **Case 2**: $x < 0$, $y \geq 0$
-$$\begin{cases} -x + y = 3 \\ x + y = 3 \end{cases}$$
+$$
+\begin{cases}
+-x + y = 3 \\
+x + y = 3
+\end{cases}
+$$
 Adding: $2y = 6 \Rightarrow y = 3$, $x = 0$
 But $x < 0$ required, so no solution in this case.
 
 **Case 3**: $x \geq 0$, $y < 0$
-$$\begin{cases} x + y = 3 \\ x - y = 3 \end{cases}$$
+$$
+\begin{cases}
+x + y = 3 \\
+x - y = 3
+\end{cases}
+$$
 Adding: $2x = 6 \Rightarrow x = 3$, $y = 0$
 But $y < 0$ required, so no solution.
 
 **Case 4**: $x < 0$, $y < 0$
-$$\begin{cases} -x + y = 3 \\ x - y = 3 \end{cases}$$
+$$
+\begin{cases}
+-x + y = 3 \\
+x - y = 3
+\end{cases}
+$$
 Adding: $0 = 6$, contradiction. No solution.
 
 **Final Answer**: All points $(x, y)$ with $x + y = 3$, $x \geq 0$, $y \geq 0$
@@ -580,7 +667,12 @@ The floor function $\lfloor x \rfloor$ is the greatest integer $\leq x$.
 ### 3.3.2 Example Problem
 
 **Problem**: Find all real solutions to:
-$$\begin{cases} \lfloor x \rfloor + y = 2.5 \\ x + \lfloor y \rfloor = 3.5 \end{cases}$$
+$$
+\begin{cases}
+\lfloor x \rfloor + y = 2.5 \\
+x + \lfloor y \rfloor = 3.5
+\end{cases}
+$$
 
 **Solution**:
 
@@ -617,7 +709,12 @@ $2.5 + \lfloor 1.5 \rfloor = 2.5 + 1 = 3.5$ ✓
 ### 3.4.1 When Parameters Appear in Coefficients
 
 **Problem**: For what values of $a$ does the system have a unique solution?
-$$\begin{cases} ax + y = 1 \\ x + ay = 1 \end{cases}$$
+$$
+\begin{cases}
+ax + y = 1 \\
+x + ay = 1
+\end{cases}
+$$
 
 **Solution**:
 
@@ -637,7 +734,12 @@ Adding: $0 = 2$, contradiction (no solution)
 ### 3.4.2 Finding Solutions in Terms of Parameters
 
 **Problem**: Solve in terms of $k$:
-$$\begin{cases} x + ky = k + 1 \\ kx + y = 2k \end{cases}$$
+$$
+\begin{cases}
+x + ky = k + 1 \\
+kx + y = 2k
+\end{cases}
+$$
 
 **Solution**:
 
@@ -672,11 +774,21 @@ $$a^2 + b^2 = (a + b)^2 - 2ab = 49 - 24 = 25$$
 ### 3.5.3 Clever Substitutions
 
 **Problem**: Solve:
-$$\begin{cases} \frac{1}{x} + \frac{1}{y} = 5 \\ \frac{1}{x} - \frac{1}{y} = 1 \end{cases}$$
+$$
+\begin{cases}
+\frac{1}{x} + \frac{1}{y} = 5 \\
+\frac{1}{x} - \frac{1}{y} = 1
+\end{cases}
+$$
 
 **Solution**: Let $u = \frac{1}{x}$, $v = \frac{1}{y}$
 
-$$\begin{cases} u + v = 5 \\ u - v = 1 \end{cases}$$
+$$
+\begin{cases}
+u + v = 5 \\
+u - v = 1
+\end{cases}
+$$
 
 Adding: $2u = 6 \Rightarrow u = 3$, so $v = 2$
 
@@ -685,7 +797,12 @@ Therefore: $x = \frac{1}{3}$, $y = \frac{1}{2}$
 ### 3.5.4 Homogeneous Systems
 
 A system is **homogeneous** if all constant terms are 0:
-$$\begin{cases} a_1x + b_1y = 0 \\ a_2x + b_2y = 0 \end{cases}$$
+$$
+\begin{cases}
+a_1x + b_1y = 0 \\
+a_2x + b_2y = 0
+\end{cases}
+$$
 
 **Key Property**: $(0, 0)$ is always a solution (trivial solution).
 
@@ -708,10 +825,21 @@ Let $c$ = chickens, $r$ = rabbits, $k$ = crickets
 Given: $k = c$
 
 System:
-$$\begin{cases} c + r + k = 100 \\ 2c + 4r + 6k = 280 \\ k = c \end{cases}$$
+$$
+\begin{cases}
+c + r + k = 100 \\
+2c + 4r + 6k = 280 \\
+k = c
+\end{cases}
+$$
 
 Substituting $k = c$ into the first two equations:
-$$\begin{cases} 2c + r = 100 \\ 8c + 4r = 280 \end{cases}$$
+$$
+\begin{cases}
+2c + r = 100 \\
+8c + 4r = 280
+\end{cases}
+$$
 
 From ①: $r = 100 - 2c$
 
@@ -761,7 +889,12 @@ For negative factor pairs, we need $x > 0, y > 0$:
 ### Problem 3 (Parameter Analysis)
 
 > For what values of $m$ does the system have infinitely many solutions?
-> $$\begin{cases} (m-1)x + y = m \\ mx + (m-1)y = 1 \end{cases}$$
+> $$
+> \begin{cases}
+> (m-1)x + y = m \\
+> mx + (m-1)y = 1
+> \end{cases}
+> $$
 
 **Solution**:
 
@@ -787,7 +920,13 @@ $m^2 - m = \frac{(3+\sqrt{5})^2}{4} - \frac{3+\sqrt{5}}{2} = \frac{14 + 6\sqrt{5
 ### Problem 4 (Symmetric System)
 
 > Solve the system:
-> $$\begin{cases} x + y + z = 6 \\ xy + yz + zx = 11 \\ xyz = 6 \end{cases}$$
+> $$
+> \begin{cases}
+> x + y + z = 6 \\
+> xy + yz + zx = 11 \\
+> xyz = 6
+> \end{cases}
+> $$
 
 **Solution**:
 
@@ -947,13 +1086,28 @@ This connects systems involving sum and product to quadratic equations.
 ## 5.1 Basic Level (Foundation)
 
 **Problem 1**: Solve the system:
-$$\begin{cases} x + y = 7 \\ x - y = 3 \end{cases}$$
+$$
+\begin{cases}
+x + y = 7 \\
+x - y = 3
+\end{cases}
+$$
 
 **Problem 2**: Solve using substitution:
-$$\begin{cases} y = 3x - 2 \\ 2x + y = 8 \end{cases}$$
+$$
+\begin{cases}
+y = 3x - 2 \\
+2x + y = 8
+\end{cases}
+$$
 
 **Problem 3**: Solve using elimination:
-$$\begin{cases} 2x + 3y = 12 \\ 4x - 3y = 6 \end{cases}$$
+$$
+\begin{cases}
+2x + 3y = 12 \\
+4x - 3y = 6
+\end{cases}
+$$
 
 **Problem 4**: The sum of two numbers is 20, and their difference is 4. Find the numbers.
 
@@ -964,15 +1118,30 @@ $$\begin{cases} 2x + 3y = 12 \\ 4x - 3y = 6 \end{cases}$$
 ## 5.2 Intermediate Level
 
 **Problem 6**: Solve:
-$$\begin{cases} 3x + 4y = 10 \\ 5x - 2y = 4 \end{cases}$$
+$$
+\begin{cases}
+3x + 4y = 10 \\
+5x - 2y = 4
+\end{cases}
+$$
 
 **Problem 7**: Find all positive integer solutions to $2x + 5y = 23$.
 
 **Problem 8**: For what value of $k$ does the system have no solution?
-$$\begin{cases} 2x + ky = 3 \\ 6x + 9y = 5 \end{cases}$$
+$$
+\begin{cases}
+2x + ky = 3 \\
+6x + 9y = 5
+\end{cases}
+$$
 
 **Problem 9**: Solve:
-$$\begin{cases} \frac{x}{2} + \frac{y}{3} = 2 \\ \frac{x}{3} - \frac{y}{2} = -\frac{1}{6} \end{cases}$$
+$$
+\begin{cases}
+\frac{x}{2} + \frac{y}{3} = 2 \\
+\frac{x}{3} - \frac{y}{2} = -\frac{1}{6}
+\end{cases}
+$$
 
 **Problem 10**: If $x + y = 5$ and $xy = 6$, find $x^2 + y^2$.
 
@@ -983,13 +1152,29 @@ $$\begin{cases} \frac{x}{2} + \frac{y}{3} = 2 \\ \frac{x}{3} - \frac{y}{2} = -\f
 **Problem 11**: Find all pairs of positive integers $(x, y)$ such that $\frac{1}{x} + \frac{1}{y} = \frac{1}{12}$.
 
 **Problem 12**: Solve:
-$$\begin{cases} |x| + y = 5 \\ x + |y| = 5 \end{cases}$$
+$$
+\begin{cases}
+|x| + y = 5 \\
+x + |y| = 5
+\end{cases}
+$$
 
 **Problem 13**: For what values of $a$ does the system have infinitely many solutions?
-$$\begin{cases} ax + 2y = a + 2 \\ x + (a-1)y = 2 \end{cases}$$
+$$
+\begin{cases}
+ax + 2y = a + 2 \\
+x + (a-1)y = 2
+\end{cases}
+$$
 
 **Problem 14**: Solve:
-$$\begin{cases} x + y + z = 6 \\ x - y + z = 2 \\ x + y - z = 4 \end{cases}$$
+$$
+\begin{cases}
+x + y + z = 6 \\
+x - y + z = 2 \\
+x + y - z = 4
+\end{cases}
+$$
 
 **Problem 15**: Find all integer solutions to $x^2 - y^2 = 24$.
 
@@ -1003,7 +1188,13 @@ $$\begin{cases} x + y + z = 6 \\ x - y + z = 2 \\ x + y - z = 4 \end{cases}$$
 $$\frac{a^2}{a^2 - bc} + \frac{b^2}{b^2 - ca} + \frac{c^2}{c^2 - ab}$$
 
 **Problem 18**: Solve:
-$$\begin{cases} x + y = xy \\ x + z = 2xz \\ y + z = 3yz \end{cases}$$
+$$
+\begin{cases}
+x + y = xy \\
+x + z = 2xz \\
+y + z = 3yz
+\end{cases}
+$$
 
 **Problem 19**: Find all positive integers $n$ such that $n^2 + 1$ is divisible by $n + 1$.
 
@@ -1246,7 +1437,12 @@ You must consider ALL possible cases.
 ### 8.4.2 Example: Parameter in Coefficient
 
 **Problem**: For what values of $k$ does the system have a unique solution?
-$$\begin{cases} kx + y = 1 \\ x + ky = 1 \end{cases}$$
+$$
+\begin{cases}
+kx + y = 1 \\
+x + ky = 1
+\end{cases}
+$$
 
 **Analysis**: Using Cramer's Rule, unique solution exists when determinant ≠ 0:
 $$D = k \cdot k - 1 \cdot 1 = k^2 - 1 \neq 0$$
@@ -1256,11 +1452,21 @@ So $k \neq 1$ and $k \neq -1$.
 **What happens at boundary cases?**
 
 **Case 1**: $k = 1$
-$$\begin{cases} x + y = 1 \\ x + y = 1 \end{cases}$$
+$$
+\begin{cases}
+x + y = 1 \\
+x + y = 1
+\end{cases}
+$$
 Same equation! Infinitely many solutions.
 
 **Case 2**: $k = -1$
-$$\begin{cases} -x + y = 1 \\ x - y = 1 \end{cases}$$
+$$
+\begin{cases}
+-x + y = 1 \\
+x - y = 1
+\end{cases}
+$$
 Adding: $0 = 2$ — Contradiction! No solution.
 
 **Answer**: Unique solution when $k \neq 1$ and $k \neq -1$.
@@ -1275,7 +1481,12 @@ When $x \geq 0$: $|x| = x$
 When $y \geq 0$: $|y| = y$
 
 The system becomes:
-$$\begin{cases} x + y = 3 \\ x + y = 3 \end{cases}$$
+$$
+\begin{cases}
+x + y = 3 \\
+x + y = 3
+\end{cases}
+$$
 
 **Answer**: All points $(x, y)$ where $x + y = 3$, $x \geq 0$, $y \geq 0$.
 
@@ -1296,7 +1507,12 @@ Sometimes the direct approach is difficult. Instead, we "construct" a new equati
 **Construction**: Let $u = \frac{1}{x}$ and $v = \frac{1}{y}$
 
 The system becomes:
-$$\begin{cases} u + v = \frac{1}{2} \\ u - v = \frac{1}{6} \end{cases}$$
+$$
+\begin{cases}
+u + v = \frac{1}{2} \\
+u - v = \frac{1}{6}
+\end{cases}
+$$
 
 Adding: $2u = \frac{2}{3}$, so $u = \frac{1}{3}$
 
@@ -1332,7 +1548,12 @@ Now find factor pairs of 24 where both factors > 1:
 A system is **symmetric** if swapping $x$ and $y$ gives the same system.
 
 **Example of symmetric system**:
-$$\begin{cases} x + y = 5 \\ xy = 6 \end{cases}$$
+$$
+\begin{cases}
+x + y = 5 \\
+xy = 6
+\end{cases}
+$$
 
 Swap $x \leftrightarrow y$: same equations!
 
@@ -1427,7 +1648,12 @@ $$x - y = 4$$
 ### Problem 9.1.2 (Provincial Selection)
 
 **Problem**: Solve the system:
-$$\begin{cases} x + 2y = 5 \\ 2x + 4y = 10 \end{cases}$$
+$$
+\begin{cases}
+x + 2y = 5 \\
+2x + 4y = 10
+\end{cases}
+$$
 
 **Analysis**: Notice that the second equation is exactly 2 times the first!
 
@@ -1529,7 +1755,13 @@ Adding: $2x = 20$, so $x = 10$, $y = 3$
 ### Problem 9.3.2 (Competition Final)
 
 **Problem**: Given the system:
-$$\begin{cases} x + y + z = 6 \\ xy + yz + zx = 11 \\ xyz = 6 \end{cases}$$
+$$
+\begin{cases}
+x + y + z = 6 \\
+xy + yz + zx = 11 \\
+xyz = 6
+\end{cases}
+$$
 
 Find $x^2 + y^2 + z^2$.
 
