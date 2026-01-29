@@ -41,10 +41,18 @@ ArtificialIntelligence/
 │   │   ├── MDPs/                            # 马尔可夫决策过程：状态、动作、奖励
 │   │   ├── QLearning/                       # Q学习：Q表、Q网络
 │   │   └── PolicyGradient/                  # 策略梯度：REINFORCE、Actor-Critic
-│   └── Ensemble/                            # 集成学习
-│       ├── Bagging/                         # Bagging：随机森林、Bootstrap
-│       ├── Boosting/                        # Boosting：AdaBoost、XGBoost、LightGBM
-│       └── Stacking/                        # 模型堆叠：元学习器、多层集成
+│   ├── Ensemble/                            # 集成学习
+│   │   ├── Bagging/                         # Bagging：随机森林、Bootstrap
+│   │   ├── Boosting/                        # Boosting：AdaBoost、XGBoost、LightGBM
+│   │   └── Stacking/                        # 模型堆叠：元学习器、多层集成
+│   ├── FeatureEngineering/                  # 特征工程
+│   │   ├── Scaling/                         # 特征缩放：标准化、归一化、鲁棒缩放
+│   │   ├── Encoding/                        # 特征编码：独热编码、标签编码、目标编码
+│   │   └── Selection/                       # 特征选择：过滤法、包装法、嵌入法
+│   └── ModelInterpretability/               # 模型可解释性
+│       ├── FeatureImportance/               # 特征重要性：排列重要性、SHAP值
+│       ├── LIME/                            # LIME：局部可解释模型
+│       └── PartialDependence/               # 部分依赖图、个体条件期望
 │
 ├── 03_DeepLearning/                         # 深度学习
 │   ├── NeuralNetworks/                      # 神经网络基础
@@ -62,11 +70,20 @@ ArtificialIntelligence/
 │   │   ├── LSTM/                            # 长短期记忆网络：遗忘门、输入门、输出门
 │   │   ├── GRU/                             # 门控循环单元：更新门、重置门
 │   │   └── Seq2Seq/                         # 序列到序列模型：编码器-解码器架构
-│   └── Transformers/                        # Transformer架构
-│       ├── Attention/                       # 注意力机制：Query、Key、Value
-│       ├── SelfAttention/                   # 自注意力：多头注意力、位置编码
-│       ├── BERT/                            # BERT模型：预训练、掩码语言模型
-│       └── GPT/                             # GPT系列模型：自回归、生成式预训练
+│   ├── Transformers/                        # Transformer架构
+│   │   ├── Attention/                       # 注意力机制：Query、Key、Value
+│   │   ├── SelfAttention/                   # 自注意力：多头注意力、位置编码
+│   │   ├── BERT/                            # BERT模型：预训练、掩码语言模型
+│   │   └── GPT/                             # GPT系列模型：自回归、生成式预训练
+│   ├── Regularization_Optimization/         # 正则化与优化
+│   │   ├── Regularization/                  # 正则化：Dropout、L1/L2正则、Early Stopping
+│   │   ├── Normalization/                   # 归一化：BatchNorm、LayerNorm、GroupNorm
+│   │   ├── Optimizers/                      # 优化器：SGD、Adam、AdamW、RMSprop
+│   │   └── LearningRateScheduling/          # 学习率调度：余弦退火、warmup、衰减策略
+│   └── LargeScaleTraining/                  # 大规模训练
+│       ├── DistributedTraining/             # 分布式训练：数据并行、模型并行、流水线并行
+│       ├── MixedPrecision/                  # 混合精度训练：FP16、BF16、自动混合精度
+│       └── MemoryOptimization/              # 内存优化：梯度累积、梯度检查点、ZeRO
 │
 ├── 04_NLP/                                  # 自然语言处理
 │   ├── TextProcessing/                      # 文本处理
@@ -96,10 +113,14 @@ ArtificialIntelligence/
 │   ├── ImageSegmentation/                   # 图像分割
 │   │   ├── SemanticSegmentation/            # 语义分割：FCN、U-Net、DeepLab
 │   │   └── InstanceSegmentation/            # 实例分割：Mask R-CNN、YOLACT
-│   └── ImageGeneration/                     # 图像生成
-│       ├── GAN/                             # 生成对抗网络：DCGAN、StyleGAN、CycleGAN
-│       ├── VAE/                             # 变分自编码器：编码器、解码器、潜在空间
-│       └── Diffusion/                       # 扩散模型：DDPM、Stable Diffusion
+│   ├── ImageGeneration/                     # 图像生成
+│   │   ├── GAN/                             # 生成对抗网络：DCGAN、StyleGAN、CycleGAN
+│   │   ├── VAE/                             # 变分自编码器：编码器、解码器、潜在空间
+│   │   └── Diffusion/                       # 扩散模型：DDPM、Stable Diffusion
+│   └── FoundationModels/                    # 基础模型（前沿）
+│       ├── VisionTransformer/               # Vision Transformer：ViT、DeiT、Swin Transformer
+│       ├── MultiModal/                      # 多模态模型：CLIP、ALIGN、Florence
+│       └── UniversalSegmentation/           # 通用分割：Segment Anything (SAM)、Mask2Former
 │
 ├── 06_Projects/                             # 实战项目
 │   ├── BeginnerProjects/                    # 初级项目
