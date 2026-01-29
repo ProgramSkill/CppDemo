@@ -81,3 +81,39 @@ $\angle BAD = 90° - \angle B = 90° - 50° = 40°$
 1. Avoid 4+ spaces at the start of lines containing `$...$` formulas
 2. Use blank lines to separate paragraphs instead of indentation
 3. If indentation is needed for visual structure, use 2-3 spaces maximum
+
+## Unicode Symbols in Code Blocks
+
+### Advantage
+
+Unicode math symbols inside fenced code blocks (``` `) display correctly on all platforms (GitHub, Typora, etc.) without any rendering issues.
+
+### Common Unicode Symbols
+
+| Symbol | Meaning |
+|--------|---------|
+| △ | Triangle |
+| ∠ | Angle |
+| ° | Degree |
+| ≅ | Congruent |
+| ∥ | Parallel |
+| ⊥ | Perpendicular |
+| ∴ | Therefore |
+| ∵ | Because |
+| ½ | One half |
+
+### Example
+
+```
+Given: In △ABC, D is the midpoint of AB, E is the midpoint of AC
+Prove: DE ∥ BC and DE = ½BC
+
+Proof: In △ADE and △CFE:
+       AE = CE (E is midpoint of AC)
+       ∠AED = ∠CEF (vertical angles)
+       DE = FE (construction)
+
+       Therefore △ADE ≅ △CFE (SAS)
+```
+
+This displays correctly everywhere because Unicode symbols are plain text characters.

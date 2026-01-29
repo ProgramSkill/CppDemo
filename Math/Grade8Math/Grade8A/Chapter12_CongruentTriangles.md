@@ -1,1169 +1,1064 @@
-# 第十二章 全等三角形
-
-## 本章导引
-
-在前一章中，我们系统地学习了三角形的基本性质。现在，我们将进入一个更加精彩的世界——**全等三角形**。全等是几何学中最重要的概念之一，它不仅是证明线段相等、角相等的基石，更是解决复杂几何问题的有力工具。
-
-想象一下，你手里有两张完全相同的照片，或者两把一模一样的钥匙，它们就是"全等"的。在几何中，全等三角形就像是一对双胞胎，形状和大小完全相同。这一章，我们将学习如何识别这样的"双胞胎"，以及如何运用它们的关系来解决实际问题。
-
-**学习目标**：
-- 理解全等三角形的概念和性质
-- 掌握判定三角形全等的五种方法
-- 能够灵活运用全等三角形证明线段相等或角相等
-- 掌握角平分线的性质和判定
-- 培养逻辑推理能力和几何证明能力
+# Chapter 12: Congruent Triangles
+## From Beginner to Competition Level
 
 ---
 
-## 12.1 全等三角形
+## Table of Contents
 
-### 12.1.1 从生活到数学
-
-#### 🌟 生活中的全等
-
-在我们的日常生活中，"全等"的概念随处可见：
-- 📷 两张相同的照片
-- 🔑 两把完全相同的钥匙
-- 👟 一双鞋子
-- 📦 两个完全相同的包装盒
-- 🧱 两块相同的砖头
-
-这些物体的共同特点是：**形状相同，大小相同**。
-
-#### 🔄 全等图形
-
-**定义**：能够完全重合的两个图形叫做全等图形
-
-**理解要点**：
-1. **形状相同**：两个图形的外形完全一样
-2. **大小相同**：两个图形的尺寸完全相等
-3. **能够完全重合**：把一个图形放在另一个图形上，可以完全重合
-
-**反例**：
-- 📐 一大一小两个三角形：形状相同但大小不同，不全等
-- ⚪ 一个圆和一个正方形：形状不同，不全等
-- 📱 两部不同型号的手机：形状大小都不同，不全等
-
-#### 📐 全等三角形
-
-**定义**：能够完全重合的两个三角形叫做全等三角形
-
-**表示方法**：
-- 符号：**≅**（读作"全等于"）
-- 例如：△ABC ≅ △A'B'C'（读作"△ABC全等于△A'B'C'"）
-
-**注意**：记两个全等三角形时，通常把表示对应顶点的字母写在对应的位置上，这样更容易看出对应关系。
-
-### 12.1.2 对应元素
-
-#### 🎯 什么是对应元素？
-
-在两个全等三角形中，互相重合的顶点、边、角就是对应元素。
-
-**对应顶点**：互相重合的顶点
-**对应边**：互相重合的边
-**对应角**：互相重合的角
-
-#### 💡 如何找对应元素？
-
-**方法一：按对应字母找**
-如果 △ABC ≅ △DEF，那么：
-- 对应顶点：A ↔ D，B ↔ E，C ↔ F
-- 对应边：AB ↔ DE，BC ↔ EF，CA ↔ FD
-- 对应角：∠A ↔ ∠D，∠B ↔ ∠E，∠C ↔ ∠F
-
-**方法二：按位置关系找**
-- 最长边对最长边，最短边对最短边
-- 最大角对最大角，最小角对最小角
-- 夹角对应夹角
-
-**方法三：按图形特征找**
-- 公共边必对应
-- 对顶角必对应
-- 同角的余角（或补角）对应
-
-#### 📝 典型例题
-
-**例1**：已知△ABC ≅ △A'B'C'，若AB = 5cm，BC = 6cm，∠A = 40°，∠B = 60°，求A'B'、B'C'、∠A'、∠B'的度数。
-
-**解答**：
-∵ △ABC ≅ △A'B'C'
-∴ A'B' = AB = **5cm**
-   B'C' = BC = **6cm**
-   ∠A' = ∠A = **40°**
-   ∠B' = ∠B = **60°**
-
-**说明**：全等三角形的对应元素相等，这是解题的关键。
-
-### 12.1.3 全等三角形的性质
-
-#### 📖 性质定理
-
-**定理**：全等三角形的对应边相等，对应角相等
-
-**数学表达**：
-```
-若 △ABC ≅ △A'B'C'
-则 AB = A'B'，BC = B'C'，CA = C'A'
-∠A = ∠A'，∠B = ∠B'，∠C = ∠C'
-```
-
-#### 🎯 性质的应用
-
-**应用1**：证明线段相等
-**应用2**：证明角相等
-**应用3**：计算线段长度或角度
-**应用4**：解决实际问题
-
-#### 📝 典型例题
-
-**例2**：如图，△ABC ≅ △ADE，AB = 6cm，AC = 8cm，BC = 10cm，∠BAC = 90°，求DE、AE、AD的长和∠E的度数。
-
-**解答**：
-∵ △ABC ≅ △ADE
-∴ DE = BC = **10cm**
-   AE = AC = **8cm**
-   AD = AB = **6cm**
-   ∠E = ∠C = 90° - ∠B
-
-在Rt△ABC中：
-sin∠B = AC/BC = 8/10 = 0.8
-∴ ∠B ≈ 53.13°
-∴ ∠E ≈ 90° - 53.13° = **36.87°**
-
-**例3**：如图，△ABC ≅ △DEF，AB = 5，DE = 5，AC = 7，DF = 7，∠ABC = 60°，∠EDF = 70°，这两个三角形全等吗？为什么？
-
-**解答**：
-这两个三角形**不全等**。
-
-**理由**：
-虽然 AB = DE，AC = DF，但 ∠ABC ≠ ∠EDF（60° ≠ 70°）
-根据全等三角形的定义，对应角必须相等，所以不全等。
-
-**注意**：不要混淆对应元素！要看清楚哪些是对应的。
+| Part | Level | Content |
+|------|-------|---------|
+| I | Beginner | What is congruence? Basic concepts and properties |
+| II | Beginner | The five congruence criteria (SSS, SAS, ASA, AAS, HL) |
+| III | Intermediate | How to write congruence proofs |
+| IV | Intermediate | Properties and criteria of angle bisectors |
+| V | Advanced | Common auxiliary lines and proof techniques |
+| VI | Competition | Competition-level problems with detailed solutions |
+| VII | Practice | 30 problems organized by difficulty level |
+| VIII | Answers | Complete answer key |
+| IX | Summary | Key theorems and study path |
+| X | Reference | Essential formulas quick reference table |
 
 ---
 
-## 12.2 三角形全等的判定
+# Part I: Foundations (Beginner Level)
 
-### 12.2.1 判定的意义
+## 1.1 Introduction: What is Congruence?
 
-#### 🤔 为什么需要判定方法？
+### 1.1.1 Congruence in Daily Life
 
-我们已经知道全等三角形的定义是"能够完全重合"，但在实际应用中，我们不可能每次都把两个三角形剪下来比一比。我们需要更简单、更实用的方法来判定两个三角形是否全等——这就是**判定方法**。
+Look around you. Many objects come in identical pairs or sets:
+- Two keys made from the same mold
+- Two coins of the same denomination
+- Stamps of the same design
+- Tiles on a floor
+- Pages printed from the same template
 
-#### 📐 判定的基本思路
+These objects share a special property: they have **exactly the same shape and size**. In mathematics, we call such figures **congruent**.
 
-**核心思想**：用最少的信息判定三角形全等
+### 1.1.2 Definition of Congruent Figures
 
-**问题**：最少需要哪些条件，就能确定两个三角形全等？
-- 一个条件够吗？❌
-- 两个条件够吗？❌
-- 三个条件够吗？✅ （但也不是任意三个条件都行）
+> **Definition**: Two figures are **congruent** if one can be moved (by sliding, rotating, or flipping) to coincide exactly with the other.
 
-### 12.2.2 边边边（SSS）
+**Key insight**: Congruent figures are identical in every way - same shape, same size, same measurements.
 
-#### 📖 SSS定理
+**Notation**: We use the symbol $\cong$ to denote congruence.
 
-**定理**：三边对应相等的两个三角形全等（简称"边边边"或"SSS"）
+### 1.1.3 Why Study Congruent Triangles?
 
-**数学表达**：
-```
-在△ABC和△A'B'C'中
-AB = A'B'
-BC = B'C'
-CA = C'A'
-∴ △ABC ≅ △A'B'C'（SSS）
-```
+Triangles are special among all polygons because of their **rigidity**:
+- Once you fix the three sides of a triangle, its shape is completely determined
+- This is why triangles are used in bridges, buildings, and other structures
 
-#### 🔍 为什么SSS能判定全等？
-
-**直观理解**：
-三角形的形状和大小由三边的长度唯一确定。如果你有三根定长的木棍，无论怎样拼接，形成的三角形都是唯一确定的（根据三边关系定理）。
-
-**几何证明**：
-可以用"尺规作图"的方法证明：已知三边的三角形可以唯一作出。
-
-#### 📝 典型例题
-
-**例4**：如图，已知AB = DE，AC = DF，BC = EF，求证：△ABC ≅ △DEF。
-
-**证明**：
-在△ABC和△DEF中
-AB = DE（已知）
-AC = DF（已知）
-BC = EF（已知）
-∴ △ABC ≅ △DEF（SSS）
-
-**例5**：如图，在四边形ABCD中，AB = CD，AD = CB，求证：∠A = ∠C。
-
-**证明**：
-连接BD
-
-在△ABD和△CDB中
-AB = CD（已知）
-AD = CB（已知）
-BD = DB（公共边）
-∴ △ABD ≅ △CDB（SSS）
-∴ ∠A = ∠C（全等三角形的对应角相等）
-
-**说明**：这道题展示了SSS判定的典型应用——通过连接对角线，把四边形问题转化为三角形问题。
-
-### 12.2.3 边角边（SAS）
-
-#### 📖 SAS定理
-
-**定理**：两边和它们的夹角对应相等的两个三角形全等（简称"边角边"或"SAS"）
-
-**数学表达**：
-```
-在△ABC和△A'B'C'中
-AB = A'B'
-∠A = ∠A'
-AC = A'C'
-∴ △ABC ≅ △A'B'C'（SAS）
-```
-
-#### ⚠️ 关键注意
-
-**角必须是夹角！**
-
-SSS要求的是"两边和**夹角**"，而不是"两边和**一角**"。这一点非常重要！
-
-**为什么必须是夹角？**
-
-反例：如果两边相等，但角不是夹角，两个三角形可能不全等。
-
-```
-如图：AB = A'B' = 5，AC = A'C' = 5
-但 ∠B = 30°，∠B' = 40°
-这两个三角形显然不全等！
-```
-
-#### 🔍 为什么SAS能判定全等？
-
-**直观理解**：
-如果两条边和它们的夹角确定，那么第三边的长度也就确定了（用余弦定理），因此三边都确定，根据SSS，三角形唯一确定。
-
-#### 📝 典型例题
-
-**例6**：如图，已知AB = AC，AD = AE，∠BAC = ∠DAE，求证：△ABD ≅ △ACE。
-
-**证明**：
-∵ ∠BAC = ∠DAE
-∴ ∠BAD = ∠CAE（等式的性质）
-
-在△ABD和△ACE中
-AB = AC（已知）
-∠BAD = ∠CAE（已证）
-AD = AE（已知）
-∴ △ABD ≅ △ACE（SAS）
-
-**说明**：这道题展示了SAS判定的常见技巧——通过角的转化找到夹角。
-
-**例7**：如图，在△ABC中，AD是角平分线，BD = CD，求证：AB = AC。
-
-**证明**：
-在△ABD和△ACD中
-BD = CD（已知）
-∠BAD = ∠CAD（角平分线的定义）
-AD = AD（公共边）
-∴ △ABD ≅ △ACD（SAS）
-∴ AB = AC（全等三角形的对应边相等）
-
-**说明**：这道题是SAS判定的经典应用，综合运用了角平分线和中线的性质。
-
-### 12.2.4 角边角（ASA）
-
-#### 📖 ASA定理
-
-**定理**：两角和它们的夹边对应相等的两个三角形全等（简称"角边角"或"ASA"）
-
-**数学表达**：
-```
-在△ABC和△A'B'C'中
-∠B = ∠B'
-BC = B'C'
-∠C = ∠C'
-∴ △ABC ≅ △A'B'C'（ASA）
-```
-
-#### 🔍 为什么ASA能判定全等？
-
-**直观理解**：
-如果两角和它们的夹边确定，那么第三个角也确定了（三角形内角和180°），相当于三个角和一条边都确定，三角形的形状和大小就唯一确定了。
-
-#### 📝 典型例题
-
-**例8**：如图，已知∠B = ∠E，BC = EF，∠C = ∠F，求证：△ABC ≅ △DEF。
-
-**证明**：
-在△ABC和△DEF中
-∠B = ∠E（已知）
-BC = EF（已知）
-∠C = ∠F（已知）
-∴ △ABC ≅ △DEF（ASA）
-
-**例9**：如图，点D在AB上，点E在AC上，BE ⊥ AC于E，CF ⊥ AB于F，且BE = CF，求证：AB = AC。
-
-**证明**：
-∵ BE ⊥ AC，CF ⊥ AB
-∴ ∠BEC = ∠CFB = 90°
-
-在△BEC和△CFB中
-∠BEC = ∠CFB（已证）
-BE = CF（已知）
-∠C = ∠B（等角的余角相等）
-∴ △BEC ≅ △CFB（AAS）
-∴ BC = CB（公共边）
-∴ △ABC是等腰三角形
-
-**说明**：这道题需要先用AAS证明小三角形全等，再证明大三角形是等腰三角形。
-
-### 12.2.5 角角边（AAS）
-
-#### 📖 AAS定理
-
-**定理**：两个角和其中一个角的对边对应相等的两个三角形全等（简称"角角边"或"AAS"）
-
-**数学表达**：
-```
-在△ABC和△A'B'C'中
-∠B = ∠B'
-∠C = ∠C'
-AC = A'C'
-∴ △ABC ≅ △A'B'C'（AAS）
-```
-
-#### 🔍 AAS与ASA的关系
-
-**AAS是ASA的推论**：
-如果 ∠B = ∠B'，∠C = ∠C'，那么 ∠A = ∠A'（三角形内角和定理）
-这样就有两角夹边，符合ASA。
-
-**为什么单独列出AAS？**
-因为AAS在实际应用中更常见，更方便使用。
-
-#### 📝 典型例题
-
-**例10**：如图，已知∠A = ∠D，∠B = ∠E，BC = EF，求证：△ABC ≅ △DEF。
-
-**证明**：
-∵ ∠A = ∠D，∠B = ∠E
-∴ ∠C = 180° - ∠A - ∠B = 180° - ∠D - ∠E = ∠F
-
-在△ABC和△DEF中
-∠B = ∠E（已知）
-∠C = ∠F（已证）
-BC = EF（已知）
-∴ △ABC ≅ △DEF（AAS）
-
-**例11**：如图，在△ABC中，AD是高，AE是角平分线，∠B = 45°，∠C = 65°，∠DAE = 20°，求证：△ABD ≅ △ACE。
-
-**分析**：
-∠BAD = 90° - ∠B = 90° - 45° = 45°
-∠CAE = ½∠A = ½(180° - 45° - 65°) = 35°
-
-但这道题的条件不够，需要更多信息。这说明**不是所有题目都能用全等解决**。
-
-### 12.2.6 斜边直角边（HL）
-
-#### 📖 HL定理
-
-**定理**：斜边和一条直角边对应相等的两个直角三角形全等（简称"斜边直角边"或"HL"）
-
-**数学表达**：
-```
-在Rt△ABC和Rt△A'B'C'中
-∠C = ∠C' = 90°
-AB = A'B'（斜边）
-AC = A'C'（直角边）
-∴ Rt△ABC ≅ Rt△A'B'C'（HL）
-```
-
-#### ⚠️ 重要注意
-
-**HL仅适用于直角三角形！**
-
-普通三角形不能用HL判定。
-
-#### 🔍 为什么HL能判定全等？
-
-**直观理解**：
-对于直角三角形，如果斜边和一条直角边确定，那么另一条直角边也就确定了（勾股定理），因此三边都确定，根据SSS，三角形唯一确定。
-
-#### 📝 典型例题
-
-**例12**：如图，在Rt△ABC和Rt△DEF中，∠C = ∠F = 90°，AB = DE，AC = DF，求证：Rt△ABC ≅ Rt△DEF。
-
-**证明**：
-在Rt△ABC和Rt△DEF中
-AB = DE（已知）
-AC = DF（已知）
-∴ Rt△ABC ≅ Rt△DEF（HL）
-
-**例13**：如图，在△ABC中，BD ⊥ AC于D，CE ⊥ AB于E，BD = CE，求证：AB = AC。
-
-**证明**：
-∵ BD ⊥ AC，CE ⊥ AB
-∴ ∠BDC = ∠CEB = 90°
-
-在Rt△BDC和Rt△CEB中
-BC = CB（公共边）
-BD = CE（已知）
-∴ Rt△BDC ≅ Rt△CEB（HL）
-∴ ∠B = ∠C
-∴ AB = AC（等角对等边）
-
-**说明**：这道题展示了HL判定的典型应用——先证明小直角三角形全等，再证明大三角形是等腰三角形。
-
-### 12.2.7 判定方法总结
-
-#### 📊 五种判定方法对比
-
-| 判定方法 | 简称 | 条件 | 适用范围 | 注意事项 |
-|---------|------|------|----------|----------|
-| 三边对应相等 | SSS | 三条边 | 任意三角形 | 无需角度 |
-| 两边夹角对应相等 | SAS | 两边+夹角 | 任意三角形 | **角必须是夹角** |
-| 两角夹边对应相等 | ASA | 两角+夹边 | 任意三角形 | 边必须是夹边 |
-| 两角及一角对边对应相等 | AAS | 两角+一边 | 任意三角形 | 边是对边即可 |
-| 斜边直角边对应相等 | HL | 斜边+直角边 | **仅直角三角形** | **仅限直角三角形** |
-
-#### ⚠️ 不能判定全等的情况
-
-**SSA不能判定全等**：
-- 两边和其中一边的对角对应相等（SSA）
-- 反例：锐角三角形和钝角三角形可能满足SSA但不全等
-
-**AAA不能判定全等**：
-- 三个角对应相等（AAA）
-- 反例：大小不同的两个相似三角形，三个角都相等但不全等
-
-#### 💡 如何选择合适的判定方法？
-
-**选择策略**：
-1. **看已知条件**：有哪些相等的边或角
-2. **看还需要什么**：离哪种判定方法最近
-3. **看图形特征**：有没有公共边、对顶角等
-
-**优先级**：
-- SSS > SAS > ASA > AAS > HL
-- 但实际应用中，要灵活选择
-
-#### 📝 典型例题
-
-**例14**：如图，在△ABC和△DEF中，已知条件如下，选择合适的判定方法：
-（1）AB = DE，BC = EF，AC = DF → 用 **SSS**
-（2）AB = DE，∠A = ∠D，AC = DF → 用 **SAS**
-（3）∠B = ∠E，BC = EF，∠C = ∠F → 用 **ASA**
-（4）∠A = ∠D，∠B = ∠E，BC = EF → 用 **AAS**
-（5）∠C = ∠F = 90°，AB = DE，BC = EF → 用 **HL**
+Understanding congruent triangles allows us to:
+1. Prove that two line segments are equal
+2. Prove that two angles are equal
+3. Solve real-world measurement problems
+4. Build a foundation for more advanced geometry
 
 ---
 
-## 12.3 角平分线的性质
+## 1.2 Congruent Triangles: Definition and Notation
 
-### 12.3.1 角平分线的作法
+### 1.2.1 Definition
 
-#### 📐 用量角器作角平分线
+> **Definition**: Two triangles are **congruent** if all six corresponding parts (three pairs of sides and three pairs of angles) are equal.
 
-**步骤**：
-1. 用量角器量出已知角的度数
-2. 计算出这个角的半角
-3. 用量角器作出半角，画出角平分线
+In simpler terms: congruent triangles are triangles that are exactly the same.
 
-**优点**：简单直接
-**缺点**：依赖量角器的精度
+### 1.2.2 Notation and Corresponding Parts
 
-#### 📐 用尺规作角平分线
+We write: $\triangle ABC \cong \triangle DEF$
 
-**步骤**：
-1. 以点O为圆心，适当长为半径作弧，交OA于点M，交OB于点N
-2. 分别以点M、点N为圆心，大于½MN的长为半径作弧，两弧在∠AOB内部交于点C
-3. 画射线OC
-4. 射线OC就是∠AOB的平分线
+**Important**: The order of vertices tells us which parts correspond!
 
-**几何语言**：
-```
-已知：∠AOB
-求作：∠AOB的平分线
+From $\triangle ABC \cong \triangle DEF$, we know:
 
-作法：
-1. 以O为圆心，任意长为半径作弧，交OA于M，交OB于N
-2. 分别以M、N为圆心，大于½MN的长为半径作弧，两弧交于点C
-3. 作射线OC
-则射线OC就是∠AOB的平分线
-```
+| Corresponding Vertices | Corresponding Sides | Corresponding Angles |
+|----------------------|--------------------|--------------------|
+| A $\leftrightarrow$ D | $AB = DE$ | $\angle A = \angle D$ |
+| B $\leftrightarrow$ E | $BC = EF$ | $\angle B = \angle E$ |
+| C $\leftrightarrow$ F | $CA = FD$ | $\angle C = \angle F$ |
 
-**优点**：精确，不依赖测量工具
-**缺点**：作图步骤较多
+### 1.2.3 The CPCTC Principle
 
-### 12.3.2 角平分线的性质
+> **CPCTC**: **C**orresponding **P**arts of **C**ongruent **T**riangles are **C**ongruent.
 
-#### 📖 性质定理
+This principle is the key to using congruent triangles in proofs:
+1. First, prove two triangles are congruent
+2. Then, conclude that any pair of corresponding parts are equal
 
-**定理**：角平分线上的点到角的两边的距离相等
-
-**数学表达**：
-```
-∵ OC是∠AOB的平分线，点P在OC上，PD⊥OA，PE⊥OB
-∴ PD = PE
-```
-
-#### 🔍 性质的证明
-
-**证明**：
-```
-已知：OC是∠AOB的平分线，点P在OC上，PD⊥OA于D，PE⊥OB于E
-求证：PD = PE
-
-证明：在△PDQ和△PEQ中（Q是OC与AB的交点）
-∠PDO = ∠PEO = 90°（已知）
-∠POD = ∠POE（角平分线的定义）
-PQ = PQ（公共边）
-∴ △PDQ ≅ △PEQ（AAS）
-∴ PD = PE（全等三角形的对应边相等）
-```
-
-#### 🎯 性质的应用
-
-**应用1**：证明线段相等
-**应用2**：求线段的长度
-**应用3：** 作辅助线的依据
-
-#### 📝 典型例题
-
-**例15**：如图，OC是∠AOB的平分线，点P在OC上，PD⊥OA于D，PE⊥OB于E，已知PD = 3cm，求PE的长。
-
-**解答**：
-∵ OC是∠AOB的平分线，点P在OC上，PD⊥OA，PE⊥OB
-∴ PE = PD（角平分线上的点到角的两边的距离相等）
-又∵ PD = 3cm
-∴ PE = **3cm**
-
-### 12.3.3 角平分线的判定
-
-#### 📖 判定定理
-
-**定理**：角的内部到角的两边距离相等的点在角的平分线上
-
-**数学表达**：
-```
-∵ 点P在∠AOB的内部，PD⊥OA于D，PE⊥OB于E，且PD = PE
-∴ 点P在∠AOB的平分线上
-```
-
-#### 🔍 判定的证明
-
-**证明**：
-```
-已知：点P在∠AOB的内部，PD⊥OA于D，PE⊥OB于E，PD = PE
-求证：点P在∠AOB的平分线上
-
-证明：连接OP
-在Rt△PDO和Rt△PEO中
-PD = PE（已知）
-OP = OP（公共边）
-∴ Rt△PDO ≅ Rt△PEO（HL）
-∴ ∠POD = ∠POE（全等三角形的对应角相等）
-∴ OP是∠AOB的平分线
-∴ 点P在∠AOB的平分线上
-```
-
-#### 🔄 性质与判定的关系
-
-**性质定理**：角平分线上的点到角的两边距离相等
-- 条件：点在角平分线上
-- 结论：到角的两边距离相等
-
-**判定定理**：到角的两边距离相等的点在角的平分线上
-- 条件：到角的两边距离相等
-- 结论：点在角平分线上
-
-它们互为**逆定理**！
-
-#### 📝 典型例题
-
-**例16**：如图，点P在∠AOB的内部，PD⊥OA于D，PE⊥OB于E，且PD = PE，求证：点P在∠AOB的平分线上。
-
-**证明**：
-∵ PD⊥OA，PE⊥OB（已知）
-∴ PD = PE（已知）
-∴ 点P在∠AOB的平分线上（到角的两边距离相等的点在角的平分线上）
-
-### 12.3.4 角平分线的综合应用
-
-#### 📝 典型例题
-
-**例17**：如图，在△ABC中，AD是角平分线，DE⊥AB于E，DF⊥AC于F，已知DE = 2cm，AC = 8cm，求DF的长和AE的长。
-
-**解答**：
-（1）∵ AD是角平分线，DE⊥AB，DF⊥AC
-    ∴ DE = DF（角平分线上的点到角的两边的距离相等）
-    又∵ DE = 2cm
-    ∴ DF = **2cm**
-
-（2）∵ DE⊥AB，DF⊥AC
-    ∴ ∠AED = ∠AFD = 90°
-    在Rt△ADE和Rt△ADF中
-    DE = DF（已证）
-    AD = AD（公共边）
-    ∴ Rt△ADE ≅ Rt△ADF（HL）
-    ∴ AE = AF
-    又∵ AC = AE + EC = AE + DF = AE + 2
-    ∴ 8 = AE + 2
-    ∴ AE = **6cm**
-
-**说明**：这道题综合运用了角平分线的性质和全等三角形的知识。
-
-**例18**：如图，在△ABC中，AB = AC，AD是角平分线，DE⊥AB于E，DF⊥AC于F，求证：DE = DF。
-
-**证明**：
-∵ AD是角平分线，DE⊥AB，DF⊥AC
-∴ DE = DF（角平分线上的点到角的两边的距离相等）
-
-**说明**：这道题展示了角平分线性质的直接应用。
-
-**例19**：如图，在△ABC中，AD是角平分线，DE⊥AB于E，DF⊥AC于F，求证：EF⊥AD。
-
-**证明**：
-∵ AD是角平分线，DE⊥AB，DF⊥AC
-∴ DE = DF（角平分线性质）
-
-在Rt△ADE和Rt△ADF中
-DE = DF（已证）
-AD = AD（公共边）
-∴ Rt△ADE ≅ Rt△ADF（HL）
-∴ ∠EAD = ∠FAD
-∴ AD垂直平分EF
-∴ EF⊥AD
-
-**说明**：这道题综合运用了角平分线、全等三角形和垂直平分线的知识。
+**Example**: If we prove $\triangle ABC \cong \triangle DEF$, we can immediately conclude:
+- $AB = DE$, $BC = EF$, $CA = FD$ (corresponding sides)
+- $\angle A = \angle D$, $\angle B = \angle E$, $\angle C = \angle F$ (corresponding angles)
 
 ---
 
-## 12.4 全等三角形的综合应用
+## 1.3 Finding Corresponding Parts
 
-### 12.4.1 证明线段相等
+### 1.3.1 Method 1: Read from the Congruence Statement
 
-#### 🎯 证明思路
+The easiest method! If told $\triangle ABC \cong \triangle PQR$:
+- First letters correspond: A $\leftrightarrow$ P
+- Second letters correspond: B $\leftrightarrow$ Q
+- Third letters correspond: C $\leftrightarrow$ R
 
-**基本思路**：
-1. 找到包含目标线段的三角形
-2. 证明这两个三角形全等
-3. 根据全等三角形的对应边相等，得出结论
+### 1.3.2 Method 2: Match by Position in the Figure
 
-#### 📝 典型例题
+When looking at a diagram:
+- Vertices in similar positions correspond
+- Look for marked equal sides or angles
+- Identify shared (common) elements
 
-**例20**：如图，在△ABC中，AB = AC，D是BC上一点，DE⊥AB于E，DF⊥AC于F，求证：DE = DF。
+### 1.3.3 Method 3: Match by Measurements
 
-**证明**：
-∵ AB = AC
-∴ ∠B = ∠C（等边对等角）
+- The longest side corresponds to the longest side
+- The shortest side corresponds to the shortest side
+- The largest angle corresponds to the largest angle
+- Equal sides are opposite to equal angles
 
-∵ DE⊥AB，DF⊥AC
-∴ ∠DEB = ∠DFC = 90°
+### 1.3.4 Example
 
-在△DEB和△DFC中
-∠DEB = ∠DFC（已证）
-∠B = ∠C（已证）
-∴ ∠BDE = ∠CDF（三角形内角和定理）
+**Problem**: Given $\triangle ABC \cong \triangle DEF$ with $AB = 5$, $BC = 7$, $CA = 6$, and $\angle A = 50°$. Find $DE$, $EF$, $FD$, and $\angle D$.
 
-在△DEB和△DFC中
-∠BDE = ∠CDF（已证）
-∠B = ∠C（已证）
-∴ △DEB ≅ △DFC（AAS）
-∴ DE = DF
-
-### 12.4.2 证明角相等
-
-#### 🎯 证明思路
-
-**基本思路**：
-1. 找到包含目标角的三角形
-2. 证明这两个三角形全等
-3. 根据全等三角形的对应角相等，得出结论
-
-#### 📝 典型例题
-
-**例21**：如图，在△ABC和△ADE中，AB = AC，AD = AE，∠BAC = ∠DAE，求证：∠B = ∠D。
-
-**证明**：
-∵ ∠BAC = ∠DAE
-∴ ∠BAD = ∠CAE
-
-在△ABD和△ACE中
-AB = AC（已知）
-∠BAD = ∠CAE（已证）
-AD = AE（已知）
-∴ △ABD ≅ △ACE（SAS）
-∴ ∠B = ∠D
-
-### 12.4.3 证明垂直
-
-#### 🎯 证明思路
-
-**基本思路**：
-1. 证明两个角相等，且和为90°
-2. 或证明平角的一部分等于另一部分
-3. 或利用特殊图形（如菱形的对角线）
-
-#### 📝 典型例题
-
-**例22**：如图，在△ABC中，AB = AC，D是BC中点，DE⊥AB于E，DF⊥AC于F，求证：DE = DF。
-
-**证明**：
-∵ D是BC中点，AB = AC
-∴ BD = CD
-又∵ AB = AC
-∴ ∠B = ∠C
-
-在△DEB和△DFC中
-∠DEB = ∠DFC = 90°（已知）
-∠B = ∠C（已证）
-∴ △DEB ≅ △DFC（AAS）
-∴ DE = DF
-
-### 12.4.4 实际应用
-
-#### 🏗️ 应用1：测量距离
-
-**问题**：如图，要测量河两岸A、B两点间的距离，可以在AB的垂线BF上取两点C、D，使CD = BC，再定出BF的垂线DE，使A、C、E在一条直线上，这时测得DE的长就是AB的长，为什么？
-
-**解答**：
-证明：∵ AB⊥BF，DE⊥BF
-∴ ∠ABC = ∠EDC = 90°
-
-在△ABC和△EDC中
-∠ABC = ∠EDC（已证）
-BC = CD（已知）
-∠ACB = ∠ECD（对顶角相等）
-∴ △ABC ≅ △EDC（ASA）
-∴ AB = DE（全等三角形的对应边相等）
-
-所以，测得DE的长就是AB的长。
-
-#### 🌉 应用2：桥梁设计
-
-**问题**：如图，要在河上建一座桥，使得从A地到B地的距离最短，应该如何设计？
-
-**解答**：
-过点A作河岸的垂线，在垂线上截取AC等于河宽，连接BC，与河岸相交于点D，在点D处建桥。
-
-**原理**：利用全等三角形和平行线的知识，可以证明这样设计的路径最短。
+**Solution**:
+From the correspondence A $\leftrightarrow$ D, B $\leftrightarrow$ E, C $\leftrightarrow$ F:
+- $DE = AB = 5$
+- $EF = BC = 7$
+- $FD = CA = 6$
+- $\angle D = \angle A = 50°$
 
 ---
 
-## 12.5 常见辅助线作法
+## 1.4 Properties of Congruent Triangles
 
-### 12.5.1 连接两点
+### 1.4.1 Three Fundamental Properties
 
-#### 📐 何时使用
+**Property 1 (Reflexive)**: Every triangle is congruent to itself.
+$$\triangle ABC \cong \triangle ABC$$
 
-- 需要形成三角形时
-- 需要利用公共边时
-- 需要形成全等三角形时
+**Property 2 (Symmetric)**: If $\triangle ABC \cong \triangle DEF$, then $\triangle DEF \cong \triangle ABC$.
 
-#### 📝 典型例题
+**Property 3 (Transitive)**: If $\triangle ABC \cong \triangle DEF$ and $\triangle DEF \cong \triangle GHI$, then $\triangle ABC \cong \triangle GHI$.
 
-**例23**：如图，在四边形ABCD中，AB = CD，AD = CB，求证：∠A = ∠C。
+### 1.4.2 Why These Properties Matter
 
-**证明**：
-连接BD
-
-在△ABD和△CDB中
-AB = CD（已知）
-AD = CB（已知）
-BD = DB（公共边）
-∴ △ABD ≅ △CDB（SSS）
-∴ ∠A = ∠C
-
-### 12.5.2 延长线段
-
-#### 📐 何时使用
-
-- 需要形成对顶角时
-- 需要利用补角关系时
-- 需要将图形"补全"时
-
-#### 📝 典型例题
-
-**例24**：如图，在△ABC中，AB = AC，D在BC上，E在AC上，且AD = AE，DE的延长线交BC的延长线于F，求证：CF = EF。
-
-**证明**：
-延长BE到G，使EG = BE，连接GC
-
-在△ABE和△CGE中
-AE = CE（BE = CE）
-∠AEB = ∠CEG（对顶角）
-BE = GE（作图）
-∴ △ABE ≅ △CGE（SAS）
-∴ AB = CG，∠B = ∠G
-
-又∵ AB = AC
-∴ CG = AC
-∴ ∠G = ∠ECF（等边对等角）
-又∵ ∠B = ∠G
-∴ ∠B = ∠ECF
-又∵ ∠B = ∠ACB
-∴ ∠ACB = ∠ECF
-∴ CF = EF（等角对等边）
-
-### 12.5.3 作垂线
-
-#### 📐 何时使用
-
-- 需要利用直角时
-- 需要利用角平分线性质时
-- 需要形成直角三角形时
-
-#### 📝 典型例题
-
-**例25**：如图，在△ABC中，AB > AC，∠BAC的平分线交BC于D，求证：BD > CD。
-
-**证明**：
-在AB上截取AE = AC，连接ED
-
-在△AED和△ACD中
-AE = AC（作图）
-∠EAD = ∠CAD（角平分线）
-AD = AD（公共边）
-∴ △AED ≅ △ACD（SAS）
-∴ ED = CD，∠AED = ∠ACD
-
-又∵ ∠AED > ∠B（外角大于不相邻内角）
-∴ ∠ACD > ∠B
-∴ BD > ED（大角对大边）
-又∵ ED = CD
-∴ BD > CD
-
-### 12.5.4 作平行线
-
-#### 📐 何时使用
-
-- 需要利用平行线的性质时
-- 需要构造相等的角时
-- 需要利用中位线时
-
-#### 📝 典型例题
-
-**例26**：如图，在△ABC中，AD是中线，DE∥BC交AB于E，求证：AE = BE。
-
-**证明**：
-∵ DE∥BC
-∴ ∠ADE = ∠B，∠AED = ∠C（两直线平行，同位角相等）
-
-在△ADE和△CDB中
-AD = CD（D是BC中点）
-∠ADE = ∠B（已证）
-∠AED = ∠C（已证）
-∴ △ADE ≅ △CDB（AAS）
-∴ AE = BC
-
-又∵ D是BC中点
-∴ BD = DC = ½BC
-∴ AE = BC
-∴ AE = 2BD = 2DC
+- **Reflexive**: Useful when a triangle appears in two different contexts
+- **Symmetric**: We can write the congruence in either order
+- **Transitive**: We can chain congruences together
 
 ---
 
-## 12.6 解题技巧与策略
+# Part II: Congruence Criteria (Beginner Level)
 
-### 12.6.1 找准对应元素
+## 2.1 The Big Question
 
-#### 💡 找对应元素的方法
+### 2.1.1 Do We Need All Six Parts?
 
-**方法一：按对应字母找**
+By definition, congruent triangles have six pairs of equal parts. But do we really need to check all six to prove congruence?
+
+**The answer is NO!** We can prove congruence with just **three** carefully chosen conditions.
+
+### 2.1.2 Which Three Conditions Work?
+
+Not just any three conditions will do. Through mathematical reasoning, we find that certain combinations of three conditions are sufficient:
+
+| Criterion | Conditions | Works? |
+|-----------|------------|--------|
+| SSS | Three sides | Yes |
+| SAS | Two sides + included angle | Yes |
+| ASA | Two angles + included side | Yes |
+| AAS | Two angles + non-included side | Yes |
+| HL | Hypotenuse + leg (right triangles) | Yes |
+| SSA | Two sides + non-included angle | **No!** |
+| AAA | Three angles | **No!** |
+
+Let's explore each criterion in detail.
+
+---
+
+## 2.2 SSS (Side-Side-Side)
+
+### 2.2.1 The Theorem
+
+> **SSS Criterion**: If three sides of one triangle are equal to three sides of another triangle, then the two triangles are congruent.
+
+### 2.2.2 Why SSS Works
+
+**Intuitive explanation**: Triangles are rigid. If you have three sticks of fixed lengths, there is only one way to connect them into a triangle (ignoring reflections).
+
+**Formal reasoning**: Given three side lengths satisfying the triangle inequality, the triangle is uniquely determined. This is because:
+- The three sides fix all three angles (by the Law of Cosines)
+- Therefore, all six parts are determined
+
+### 2.2.3 How to Use SSS
+
+**Standard format**:
 ```
-△ABC ≅ △DEF
-对应顶点：A↔D，B↔E，C↔F
-对应边：AB↔DE，BC↔EF，CA↔FD
-对应角：∠A↔∠D，∠B↔∠E，∠C↔∠F
+In △ABC and △DEF:
+  AB = DE (given/reason)
+  BC = EF (given/reason)
+  CA = FD (given/reason)
+∴ △ABC ≅ △DEF (SSS)
 ```
 
-**方法二：按长度关系找**
-- 最长边对最长边
-- 最短边对最短边
-- 等边对等边
+### 2.2.4 Example 1
 
-**方法三：按位置关系找**
-- 公共边必对应
-- 对顶角必对应
-- 同角的余角对应
+**Problem**: In quadrilateral $ABCD$, $AB = CD$ and $AD = CB$. Prove that $\angle A = \angle C$.
 
-#### ⚠️ 常见错误
+**Solution**:
 
-**错误1**：对应元素找错
-- 正确：按照对应字母或位置关系找
-- 错误：随意配对
+Draw diagonal $BD$.
 
-**错误2**：混淆对应顶点
-- 正确：△ABC ≅ △DEF 中 A↔D，不是 A↔E
-- 错误：不注意字母顺序
+In $\triangle ABD$ and $\triangle CDB$:
+- $AB = CD$ (given)
+- $AD = CB$ (given)
+- $BD = DB$ (common side)
 
-### 12.6.2 选择合适的判定方法
+$\therefore \triangle ABD \cong \triangle CDB$ (SSS)
 
-#### 📊 判定方法选择流程图
+$\therefore \angle A = \angle C$ (CPCTC)
+
+**Key technique**: We used the **common side** $BD$ as the third pair of equal sides.
+
+---
+
+## 2.3 SAS (Side-Angle-Side)
+
+### 2.3.1 The Theorem
+
+> **SAS Criterion**: If two sides and the **included angle** of one triangle are equal to two sides and the included angle of another triangle, then the two triangles are congruent.
+
+### 2.3.2 Critical Warning
+
+**The angle MUST be the included angle!**
+
+The included angle is the angle **between** the two sides. If the angle is not between the two sides, SAS does not apply!
 
 ```
-开始
+✓ Correct: AB = DE, ∠A = ∠D, AC = DF  (∠A is between AB and AC)
+✗ Wrong:  AB = DE, ∠B = ∠E, AC = DF  (∠B is NOT between AB and AC)
+```
+
+### 2.3.3 Why SAS Works
+
+If two sides and the included angle are fixed:
+- The positions of two vertices relative to the third are determined
+- The third side is therefore determined (connecting those two vertices)
+- All three sides are now known, so by SSS, the triangle is unique
+
+### 2.3.4 How to Use SAS
+
+**Standard format**:
+```
+In △ABC and △DEF:
+  AB = DE (given/reason)
+  ∠A = ∠D (given/reason)      ← This angle is between AB and AC
+  AC = DF (given/reason)
+∴ △ABC ≅ △DEF (SAS)
+```
+
+### 2.3.5 Example 2
+
+**Problem**: In $\triangle ABC$, $AD$ bisects $\angle BAC$, and $BD = CD$. Prove that $AB = AC$.
+
+**Solution**:
+
+In $\triangle ABD$ and $\triangle ACD$:
+- $BD = CD$ (given)
+- $\angle BAD = \angle CAD$ (AD bisects $\angle BAC$)
+- $AD = AD$ (common side)
+
+$\therefore \triangle ABD \cong \triangle ACD$ (SAS)
+
+$\therefore AB = AC$ (CPCTC)
+
+---
+
+## 2.4 ASA (Angle-Side-Angle)
+
+### 2.4.1 The Theorem
+
+> **ASA Criterion**: If two angles and the **included side** of one triangle are equal to two angles and the included side of another triangle, then the two triangles are congruent.
+
+### 2.4.2 Why ASA Works
+
+If two angles and the included side are fixed:
+- The third angle is determined (angle sum = 180°)
+- The directions of the other two sides are fixed by the angles
+- The lengths of those sides are determined by where they intersect
+- Therefore, the triangle is unique
+
+### 2.4.3 How to Use ASA
+
+**Standard format**:
+```
+In △ABC and △DEF:
+  ∠B = ∠E (given/reason)
+  BC = EF (given/reason)      ← This side is between ∠B and ∠C
+  ∠C = ∠F (given/reason)
+∴ △ABC ≅ △DEF (ASA)
+```
+
+### 2.4.4 Example 3
+
+**Problem**: Given $\angle B = \angle E$, $BC = EF$, and $\angle C = \angle F$. Prove $\triangle ABC \cong \triangle DEF$.
+
+**Solution**:
+
+In $\triangle ABC$ and $\triangle DEF$:
+- $\angle B = \angle E$ (given)
+- $BC = EF$ (given)
+- $\angle C = \angle F$ (given)
+
+$\therefore \triangle ABC \cong \triangle DEF$ (ASA)
+
+---
+
+## 2.5 AAS (Angle-Angle-Side)
+
+### 2.5.1 The Theorem
+
+> **AAS Criterion**: If two angles and a **non-included side** of one triangle are equal to two angles and the corresponding non-included side of another triangle, then the two triangles are congruent.
+
+### 2.5.2 AAS is a Consequence of ASA
+
+If two angles are equal, the third angles must also be equal (since angle sum = 180°).
+
+So AAS actually gives us three equal angles plus one equal side, which implies ASA.
+
+### 2.5.3 How to Use AAS
+
+**Standard format**:
+```
+In △ABC and △DEF:
+  ∠A = ∠D (given/reason)
+  ∠B = ∠E (given/reason)
+  BC = EF (given/reason)      ← BC is opposite to ∠A
+∴ △ABC ≅ △DEF (AAS)
+```
+
+### 2.5.4 Example 4
+
+**Problem**: Given $\angle A = \angle D$, $\angle B = \angle E$, and $AC = DF$. Prove $\triangle ABC \cong \triangle DEF$.
+
+**Solution**:
+
+In $\triangle ABC$ and $\triangle DEF$:
+- $\angle A = \angle D$ (given)
+- $\angle B = \angle E$ (given)
+- $AC = DF$ (given)
+
+$\therefore \triangle ABC \cong \triangle DEF$ (AAS)
+
+---
+
+## 2.6 HL (Hypotenuse-Leg)
+
+### 2.6.1 The Theorem
+
+> **HL Criterion**: If the **hypotenuse** and one **leg** of a right triangle are equal to the hypotenuse and one leg of another right triangle, then the two triangles are congruent.
+
+### 2.6.2 Important Restriction
+
+**HL only works for right triangles!**
+
+Do not use HL for triangles that are not right triangles.
+
+### 2.6.3 Why HL Works
+
+In a right triangle, if the hypotenuse $c$ and one leg $a$ are known:
+- The other leg is determined: $b = \sqrt{c^2 - a^2}$ (Pythagorean theorem)
+- All three sides are now known
+- By SSS, the triangle is unique
+
+### 2.6.4 How to Use HL
+
+**Standard format**:
+```
+In Rt△ABC and Rt△DEF (∠C = ∠F = 90°):
+  AB = DE (hypotenuse)
+  AC = DF (leg)
+∴ Rt△ABC ≅ Rt△DEF (HL)
+```
+
+### 2.6.5 Example 5
+
+**Problem**: In $\triangle ABC$, $BD \perp AC$ at $D$, $CE \perp AB$ at $E$, and $BD = CE$. Prove that $AB = AC$.
+
+**Solution**:
+
+Since $BD \perp AC$ and $CE \perp AB$:
+- $\angle BDC = \angle CEB = 90°$
+
+In $\text{Rt}\triangle BDC$ and $\text{Rt}\triangle CEB$:
+- $BC = CB$ (common side, hypotenuse)
+- $BD = CE$ (given, legs)
+
+$\therefore \text{Rt}\triangle BDC \cong \text{Rt}\triangle CEB$ (HL)
+
+$\therefore \angle DCB = \angle EBC$ (CPCTC)
+
+$\therefore AB = AC$ (sides opposite equal angles)
+
+---
+
+## 2.7 Why SSA and AAA Don't Work
+
+### 2.7.1 The SSA Trap
+
+**SSA (Side-Side-Angle)**: Two sides and a non-included angle.
+
+**Why it fails**: Given two sides and an angle opposite one of them, there may be **two different triangles** possible (the "ambiguous case").
+
+**Counterexample**: Consider $AB = 5$, $BC = 4$, $\angle A = 30°$.
+
+Two different triangles can satisfy these conditions - one acute and one obtuse.
+
+### 2.7.2 The AAA Trap
+
+**AAA (Angle-Angle-Angle)**: Three angles.
+
+**Why it fails**: Triangles with the same angles can have **different sizes**. They are **similar** but not necessarily **congruent**.
+
+**Counterexample**: A small equilateral triangle and a large equilateral triangle both have angles 60°, 60°, 60°, but they are not congruent.
+
+### 2.7.3 Summary Table
+
+| Criterion | Valid? | Reason |
+|-----------|--------|--------|
+| SSS | Yes | Three sides determine a unique triangle |
+| SAS | Yes | Two sides + included angle determine the third side |
+| ASA | Yes | Two angles + included side determine the triangle |
+| AAS | Yes | Equivalent to ASA (third angle is determined) |
+| HL | Yes | For right triangles, Pythagorean theorem determines third side |
+| SSA | **No** | Ambiguous case - may give two triangles |
+| AAA | **No** | Only determines shape, not size (similarity) |
+
+---
+
+# Part III: Writing Congruence Proofs (Intermediate Level)
+
+## 3.1 The Structure of a Proof
+
+### 3.1.1 Standard Format
+
+A well-written congruence proof has this structure:
+
+```
+In △___ and △___:
+  [First condition] (reason)
+  [Second condition] (reason)
+  [Third condition] (reason)
+∴ △___ ≅ △___ (criterion)
+∴ [conclusion] (CPCTC)
+```
+
+### 3.1.2 Example of Good Format
+
+**Problem**: Given $AB = DE$, $\angle B = \angle E$, $BC = EF$. Prove $AC = DF$.
+
+**Solution**:
+
+In $\triangle ABC$ and $\triangle DEF$:
+- $AB = DE$ (given)
+- $\angle B = \angle E$ (given)
+- $BC = EF$ (given)
+
+$\therefore \triangle ABC \cong \triangle DEF$ (SAS)
+
+$\therefore AC = DF$ (CPCTC)
+
+### 3.1.3 Common Reasons in Proofs
+
+| Reason | When to Use |
+|--------|-------------|
+| given | Information stated in the problem |
+| common side | Same segment appears in both triangles |
+| vertical angles | Angles formed by intersecting lines |
+| alternate interior angles | With parallel lines |
+| definition of midpoint | Point divides segment into two equal parts |
+| definition of angle bisector | Ray divides angle into two equal parts |
+| definition of perpendicular | Lines meet at 90° |
+
+---
+
+## 3.2 Finding the Third Condition
+
+### 3.2.1 The Challenge
+
+Often, a problem gives you two conditions directly. Your job is to find the third condition to complete the proof.
+
+### 3.2.2 Common Sources of the Third Condition
+
+**1. Common Side**
+```
+If triangles share a side, that side equals itself.
+BD = BD (common side)
+```
+
+**2. Vertical Angles**
+```
+When two lines intersect:
+∠AEB = ∠CED (vertical angles)
+```
+
+**3. Common Angle**
+```
+If triangles share an angle:
+∠A = ∠A (common angle)
+```
+
+**4. Supplementary/Complementary Relationships**
+```
+If ∠1 + ∠3 = 90° and ∠2 + ∠3 = 90°:
+Then ∠1 = ∠2
+```
+
+## 3.3 Choosing the Right Criterion
+
+### 3.3.1 Decision Flowchart
+
+```
+Start
   ↓
-有直角吗？
-  ├─ 是 → 有斜边和一条直角边吗？
-  │        ├─ 是 → 用 HL
-  │        └─ 否 → 看其他条件
-  └─ 否 → 有三边吗？
-           ├─ 是 → 用 SSS
-           └─ 否 → 有两边和夹角吗？
-                    ├─ 是 → 用 SAS
-                    └─ 否 → 有两角和夹边吗？
-                             ├─ 是 → 用 ASA
-                             └─ 否 → 用 AAS
+Is there a right angle? ─Yes→ Do you have hypotenuse + leg? ─Yes→ Use HL
+  │                                      │
+  No                                     No
+  ↓                                      ↓
+Do you have 3 sides? ─Yes→ Use SSS      Check other criteria
+  │
+  No
+  ↓
+Do you have 2 sides + included angle? ─Yes→ Use SAS
+  │
+  No
+  ↓
+Do you have 2 angles + included side? ─Yes→ Use ASA
+  │
+  No
+  ↓
+Do you have 2 angles + any side? ─Yes→ Use AAS
 ```
 
-#### 💡 选择技巧
+### 3.3.2 Quick Selection Guide
 
-1. **优先考虑SSS**：如果三边都直接或间接给出
-2. **注意夹角**：SAS的角必须是夹角
-3. **灵活转化**：有时需要先用性质找到对应关系
-4. **综合分析**：不要局限于一种方法
+| What You Have | Criterion to Use |
+|---------------|------------------|
+| 3 sides | SSS |
+| 2 sides + angle between them | SAS |
+| 2 angles + side between them | ASA |
+| 2 angles + any side | AAS |
+| Right triangle + hypotenuse + leg | HL |
 
-### 12.6.3 规范书写证明
+---
 
-#### ✅ 几何证明的书写格式
+# Part IV: Angle Bisector Properties (Intermediate Level)
 
-**标准格式**：
+## 4.1 Definition Review
+
+> **Definition**: An angle bisector is a ray that divides an angle into two equal parts.
+
+If ray $OC$ bisects $\angle AOB$, then $\angle AOC = \angle COB = \frac{1}{2}\angle AOB$.
+
+---
+
+## 4.2 The Angle Bisector Property Theorem
+
+### 4.2.1 Statement
+
+> **Theorem**: A point on the angle bisector is equidistant from the two sides of the angle.
+
+**In symbols**: If $P$ is on the bisector of $\angle AOB$, and $PD \perp OA$, $PE \perp OB$, then $PD = PE$.
+
+### 4.2.2 Proof
+
+**Given**: $OC$ bisects $\angle AOB$, $P$ is on $OC$, $PD \perp OA$ at $D$, $PE \perp OB$ at $E$.
+
+**Prove**: $PD = PE$
+
+**Proof**:
+
+In $\triangle OPD$ and $\triangle OPE$:
+- $\angle PDO = \angle PEO = 90°$ (given)
+- $\angle POD = \angle POE$ (definition of angle bisector)
+- $OP = OP$ (common side)
+
+$\therefore \triangle OPD \cong \triangle OPE$ (AAS)
+
+$\therefore PD = PE$ (CPCTC)
+
+## 4.3 The Converse Theorem
+
+### 4.3.1 Statement
+
+> **Theorem**: A point equidistant from the two sides of an angle lies on the angle bisector.
+
+**In symbols**: If $P$ is inside $\angle AOB$, $PD \perp OA$, $PE \perp OB$, and $PD = PE$, then $P$ lies on the bisector of $\angle AOB$.
+
+### 4.3.2 Proof
+
+**Given**: $P$ is inside $\angle AOB$, $PD \perp OA$ at $D$, $PE \perp OB$ at $E$, $PD = PE$.
+
+**Prove**: $P$ lies on the bisector of $\angle AOB$.
+
+**Proof**:
+
+Draw $OP$.
+
+In $\text{Rt}\triangle OPD$ and $\text{Rt}\triangle OPE$:
+- $PD = PE$ (given)
+- $OP = OP$ (common side)
+
+$\therefore \text{Rt}\triangle OPD \cong \text{Rt}\triangle OPE$ (HL)
+
+$\therefore \angle POD = \angle POE$ (CPCTC)
+
+$\therefore OP$ bisects $\angle AOB$
+
+$\therefore P$ lies on the bisector of $\angle AOB$
+
+## 4.4 Applications
+
+### 4.4.1 Example 6
+
+**Problem**: $OC$ bisects $\angle AOB$, $P$ is on $OC$, $PD \perp OA$ at $D$, $PE \perp OB$ at $E$. If $PD = 3$ cm, find $PE$.
+
+**Solution**:
+
+Since $OC$ bisects $\angle AOB$ and $P$ is on $OC$:
+
+By the angle bisector property theorem: $PE = PD = 3$ cm.
+
+### 4.4.2 Example 7
+
+**Problem**: In $\triangle ABC$, $AD$ bisects $\angle BAC$, $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Given $DE = 4$ cm, find $DF$.
+
+**Solution**:
+
+Since $AD$ bisects $\angle BAC$ and $D$ is on $AD$:
+
+By the angle bisector property theorem: $DF = DE = 4$ cm.
+
+---
+
+# Part V: Auxiliary Lines and Proof Techniques (Advanced Level)
+
+## 5.1 Common Auxiliary Lines
+
+### 5.1.1 Connecting Two Points
+
+**When to use**: To create triangles that share a common side.
+
+**Example**: In a quadrilateral, draw a diagonal to create two triangles.
+
+### 5.1.2 Extending a Line Segment
+
+**When to use**: To create vertical angles or use properties of parallel lines.
+
+### 5.1.3 Drawing a Perpendicular
+
+**When to use**: To create right angles, especially when using HL criterion.
+
+### 5.1.4 Drawing a Parallel Line
+
+**When to use**: To create equal angles (alternate interior, corresponding).
+
+## 5.2 Proof Strategies
+
+### 5.2.1 Working Backwards
+
+Start from what you want to prove, and ask: "What would I need to prove this?"
+
+**Example**: To prove $AB = CD$:
+- I need two congruent triangles containing $AB$ and $CD$
+- Which triangles? $\triangle ABX$ and $\triangle CDY$ for some points $X$, $Y$
+- What conditions do I have to prove them congruent?
+
+### 5.2.2 Looking for Hidden Triangles
+
+Sometimes the triangles you need are not obvious. Look for:
+- Overlapping triangles
+- Triangles formed by auxiliary lines
+- Triangles sharing a common vertex
+
+## 5.3 Classic Examples
+
+### 5.3.1 Example 8: Using Common Side
+
+**Problem**: In quadrilateral $ABCD$, $AB = CD$ and $AD = CB$. Prove $\angle A = \angle C$.
+
+**Solution**:
+
+Draw diagonal $BD$.
+
+In $\triangle ABD$ and $\triangle CDB$:
+- $AB = CD$ (given)
+- $AD = CB$ (given)
+- $BD = DB$ (common side)
+
+$\therefore \triangle ABD \cong \triangle CDB$ (SSS)
+
+$\therefore \angle A = \angle C$ (CPCTC)
+
+### 5.3.2 Example 9: Using Vertical Angles
+
+**Problem**: Lines $AC$ and $BD$ intersect at $E$. Given $AE = CE$ and $BE = DE$. Prove $AB = CD$.
+
+**Solution**:
+
+In $\triangle ABE$ and $\triangle CDE$:
+- $AE = CE$ (given)
+- $\angle AEB = \angle CED$ (vertical angles)
+- $BE = DE$ (given)
+
+$\therefore \triangle ABE \cong \triangle CDE$ (SAS)
+
+$\therefore AB = CD$ (CPCTC)
+
+---
+
+# Part VI: Competition Level Problems
+
+## 6.1 Problem 1: Isosceles Triangle with Perpendiculars
+
+**Problem**: In $\triangle ABC$, $AB = AC$. Point $D$ is on $BC$. $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Prove $DE = DF$.
+
+**Solution**:
+
+Since $AB = AC$, we have $\angle B = \angle C$ (base angles of isosceles triangle).
+
+Since $DE \perp AB$ and $DF \perp AC$:
+- $\angle DEB = \angle DFC = 90°$
+
+In $\triangle DEB$ and $\triangle DFC$:
+- $\angle DEB = \angle DFC = 90°$ (proven)
+- $\angle B = \angle C$ (proven)
+
+$\therefore \angle BDE = \angle CDF$ (angle sum in triangle)
+
+In $\triangle DEB$ and $\triangle DFC$:
+- $\angle DEB = \angle DFC$ (proven)
+- $\angle B = \angle C$ (proven)
+- $BD = CD$? No, this is not given.
+
+**Alternative approach**: Use AAS with the angles we have.
+
+Actually, we need to reconsider. Let's use a different pair of triangles.
+
+In $\text{Rt}\triangle DEB$ and $\text{Rt}\triangle DFC$:
+- $\angle B = \angle C$ (base angles)
+- $\angle DEB = \angle DFC = 90°$
+
+We need a side. Notice that we don't have $BD = CD$ given.
+
+**Correct approach**:
+
+In $\triangle DEB$ and $\triangle DFC$:
+- $\angle DEB = \angle DFC = 90°$
+- $\angle B = \angle C$
+- $\therefore \angle EDB = \angle FDC$
+
+But we still need a side to prove congruence.
+
+**Key insight**: We need to find equal sides. Since we only have angle information, we cannot directly prove $DE = DF$ without additional conditions.
+
+**If $D$ is the midpoint of $BC$**: Then $BD = CD$, and we can use AAS.
+
+## 6.2 Problem 2: Measuring Across a River
+
+**Problem**: To measure the distance $AB$ across a river, we stand at point $B$ on one bank and:
+1. Draw $BF \perp AB$
+2. Take points $C$, $D$ on $BF$ such that $CD = BC$
+3. Draw $DE \perp BF$ such that $A$, $C$, $E$ are collinear
+
+Prove that $DE = AB$.
+
+**Solution**:
+
+Since $AB \perp BF$ and $DE \perp BF$:
+- $\angle ABC = \angle EDC = 90°$
+
+In $\triangle ABC$ and $\triangle EDC$:
+- $\angle ABC = \angle EDC = 90°$ (construction)
+- $BC = DC$ (construction)
+- $\angle ACB = \angle ECD$ (vertical angles)
+
+$\therefore \triangle ABC \cong \triangle EDC$ (ASA)
+
+$\therefore AB = ED$ (CPCTC)
+
+**Practical significance**: This method allows us to measure distances that cannot be measured directly.
+
+## 6.3 Problem 3: Angle Bisector Application
+
+**Problem**: In $\triangle ABC$, $AD$ bisects $\angle BAC$, $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Prove that $\triangle AEF$ is isosceles.
+
+**Solution**:
+
+Since $AD$ bisects $\angle BAC$, and $DE \perp AB$, $DF \perp AC$:
+
+By the angle bisector property: $DE = DF$
+
+In $\text{Rt}\triangle AED$ and $\text{Rt}\triangle AFD$:
+- $DE = DF$ (proven)
+- $AD = AD$ (common side)
+
+$\therefore \text{Rt}\triangle AED \cong \text{Rt}\triangle AFD$ (HL)
+
+$\therefore AE = AF$ (CPCTC)
+
+$\therefore \triangle AEF$ is isosceles.
+
+## 6.4 Problem 4: Classic Competition Problem
+
+**Problem**: In $\triangle ABC$, $\angle BAC = 90°$, $AB = AC$. $D$ is a point on line $BC$, $BD \perp DE$ at $D$, $CE \perp DE$ at $E$. Prove $DE = BD + CE$.
+
+**Solution**:
+
+Since $\angle BAC = 90°$ and $AB = AC$:
+- $\angle ABC = \angle ACB = 45°$
+
+Since $BD \perp DE$ and $CE \perp DE$:
+- $\angle BDA = 90°$ and $\angle CEA = 90°$
+
+In $\triangle ABD$:
+- $\angle ABD = 45°$, $\angle ADB = 90°$
+- $\therefore \angle BAD = 45°$
+
+In $\triangle ACE$:
+- $\angle ACE = 45°$, $\angle AEC = 90°$
+- $\therefore \angle CAE = 45°$
+
+Now consider $\triangle ABD$ and $\triangle CAE$:
+- $\angle ABD = \angle CAE = 45°$
+- $\angle ADB = \angle CEA = 90°$
+- $AB = CA$ (given)
+
+$\therefore \triangle ABD \cong \triangle CAE$ (AAS)
+
+$\therefore BD = AE$ and $AD = CE$ (CPCTC)
+
+$\therefore DE = DA + AE = CE + BD$
+
+---
+
+# Part VII: Practice Problems
+
+## 7.1 Basic Level (1-10)
+
+**Problem 1**: Given $\triangle ABC \cong \triangle DEF$, $AB = 5$, $BC = 6$, $CA = 7$. Find $DE$, $EF$, $FD$.
+
+**Problem 2**: Given $\triangle ABC \cong \triangle DEF$, $\angle A = 50°$, $\angle B = 60°$. Find $\angle D$, $\angle E$, $\angle F$.
+
+**Problem 3**: Which criterion would you use? $AB = DE$, $BC = EF$, $CA = FD$.
+
+**Problem 4**: Which criterion would you use? $AB = DE$, $\angle A = \angle D$, $AC = DF$.
+
+**Problem 5**: Which criterion would you use? $\angle A = \angle D$, $AB = DE$, $\angle B = \angle E$.
+
+**Problem 6**: In $\text{Rt}\triangle ABC$ and $\text{Rt}\triangle DEF$, $\angle C = \angle F = 90°$, $AB = DE$, $AC = DF$. Are they congruent? Why?
+
+**Problem 7**: $OC$ bisects $\angle AOB$, $P$ is on $OC$, $PD \perp OA$, $PE \perp OB$. If $PD = 5$, find $PE$.
+
+**Problem 8**: Can we use SSA to prove congruence? Explain.
+
+**Problem 9**: Can we use AAA to prove congruence? Explain.
+
+**Problem 10**: State the CPCTC principle.
+
+## 7.2 Intermediate Level (11-20)
+
+**Problem 11**: In $\triangle ABC$ and $\triangle DEF$, $AB = DE$, $\angle B = \angle E$, $BC = EF$. Prove $\triangle ABC \cong \triangle DEF$.
+
+**Problem 12**: In quadrilateral $ABCD$, $AB = CD$, $BC = DA$. Prove $\angle B = \angle D$.
+
+**Problem 13**: $AD$ bisects $\angle BAC$, $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Prove $DE = DF$.
+
+**Problem 14**: In $\triangle ABC$, $AB = AC$, $D$ is the midpoint of $BC$. Prove $AD \perp BC$.
+
+**Problem 15**: Given $\angle 1 = \angle 2$, $\angle 3 = \angle 4$, $AC = BD$. Prove $\triangle ABC \cong \triangle BAD$.
+
+**Problem 16**: In $\text{Rt}\triangle ABC$, $\angle C = 90°$, $CD \perp AB$ at $D$. If $AC = 3$, $BC = 4$, find $CD$.
+
+**Problem 17**: In $\triangle ABC$, $\angle B = \angle C$. Prove $AB = AC$.
+
+**Problem 18**: $P$ is inside $\angle AOB$, $PD \perp OA$, $PE \perp OB$, $PD = PE$. Prove $P$ is on the bisector of $\angle AOB$.
+
+**Problem 19**: In $\triangle ABC$, $AB = AC$, $BD \perp AC$ at $D$, $CE \perp AB$ at $E$. Prove $BD = CE$.
+
+**Problem 20**: Lines $AC$ and $BD$ intersect at $O$. $OA = OC$, $OB = OD$. Prove $AB \parallel CD$.
+
+## 7.3 Advanced Level (21-30)
+
+**Problem 21**: In $\triangle ABC$, $AD$ bisects $\angle BAC$, $E$ is on $BC$, $EF \parallel AC$ meets $AD$ at $F$. Prove $AE = EF$.
+
+**Problem 22**: In $\triangle ABC$, $\angle ACB = 90°$, $CD \perp AB$ at $D$. Prove $CD^2 = AD \cdot DB$.
+
+**Problem 23**: In $\triangle ABC$, $AB = AC$, $D$ is on $BC$, $E$ is on $AC$, $F$ is on $AB$, $DE \perp AC$, $DF \perp AB$. If $DE = DF$, prove $D$ is the midpoint of $BC$.
+
+**Problem 24**: In $\triangle ABC$, $\angle BAC = 90°$, $AB = AC$, $D$ is on $BC$, $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Prove $EF = DE + DF$.
+
+**Problem 25**: In $\triangle ABC$, $AD$ is the angle bisector, $AB > AC$. Prove $BD > CD$.
+
+**Problem 26**: In quadrilateral $ABCD$, $AB = CD$, $AD = BC$, $AC$ and $BD$ intersect at $O$. Prove $OA = OC$ and $OB = OD$.
+
+**Problem 27**: In $\triangle ABC$, $M$ is the midpoint of $BC$, $MD \perp AB$ at $D$, $ME \perp AC$ at $E$. If $AB = AC$, prove $MD = ME$.
+
+**Problem 28**: In $\triangle ABC$, $\angle B = 2\angle C$, $AD$ bisects $\angle BAC$ and meets $BC$ at $D$. Prove $AB + BD = AC$.
+
+**Problem 29**: In $\triangle ABC$, $AB = AC$, $\angle A = 20°$. $D$ is on $AC$ such that $BD$ bisects $\angle ABC$. Find $\angle BDC$.
+
+**Problem 30**: In $\triangle ABC$, $\angle BAC = 90°$, $AB = AC$, $D$ and $E$ are on $BC$, $\angle DAE = 45°$. Prove $DE^2 = BD^2 + CE^2$.
+
+---
+
+# Part VIII: Answer Key
+
+## Basic Level Answers
+
+**1.** $DE = 5$, $EF = 6$, $FD = 7$
+
+**2.** $\angle D = 50°$, $\angle E = 60°$, $\angle F = 70°$
+
+**3.** SSS
+
+**4.** SAS
+
+**5.** ASA
+
+**6.** Yes, by HL (hypotenuse-leg for right triangles)
+
+**7.** $PE = 5$ (angle bisector property)
+
+**8.** No, SSA can give two different triangles (ambiguous case)
+
+**9.** No, AAA only proves similarity, not congruence
+
+**10.** Corresponding Parts of Congruent Triangles are Congruent
+
+## Intermediate Level Answers
+
+**11.** Use SAS: $AB = DE$, $\angle B = \angle E$, $BC = EF$
+
+**12.** Draw diagonal $BD$, use SSS to prove $\triangle ABD \cong \triangle CDB$
+
+**13.** Direct application of angle bisector property theorem
+
+**14.** Use SAS: $BD = CD$, $\angle ADB = \angle ADC$, $AD = AD$. Then $\angle ADB = \angle ADC = 90°$
+
+**15.** Use ASA or AAS depending on the configuration
+
+**16.** $CD = \frac{AC \cdot BC}{AB} = \frac{3 \times 4}{5} = \frac{12}{5} = 2.4$
+
+**17.** Draw altitude from $A$, use AAS to prove the two smaller triangles congruent
+
+**18.** Use HL to prove $\text{Rt}\triangle OPD \cong \text{Rt}\triangle OPE$
+
+**19.** Use AAS: $\angle B = \angle C$, $\angle BDC = \angle CEB = 90°$, $BC = CB$
+
+**20.** Use SAS to prove $\triangle AOB \cong \triangle COD$, then $\angle OAB = \angle OCD$ (alternate interior angles)
+
+## Advanced Level Answers
+
+**21.** Use ASA: $\angle EAF = \angle EFA$ (alternate interior angles), so $AE = EF$
+
+**22.** Use similar triangles: $\triangle ACD \sim \triangle CBD$
+
+**23.** Use congruence to show $BD = CD$
+
+**24.** Rotate $\triangle ADF$ by 90° around $A$ to coincide with $\triangle AEB$
+
+**25.** Construct $E$ on $AB$ such that $AE = AC$, use SAS
+
+**26.** Use SSS twice
+
+**27.** Use AAS: $\angle B = \angle C$, $\angle MDB = \angle MEC = 90°$
+
+**28.** Extend $AB$ to $E$ such that $BE = BD$, prove $\triangle ADE$ isosceles
+
+**29.** $\angle BDC = 30°$
+
+**30.** Use rotation: rotate $\triangle ABD$ by 90° around $A$
+
+---
+
+# Part IX: Summary
+
+## 9.1 Key Theorems
+
+### Congruence Criteria
+
+| Criterion | Full Name | Conditions | Applies To |
+|-----------|-----------|------------|------------|
+| SSS | Side-Side-Side | 3 sides equal | All triangles |
+| SAS | Side-Angle-Side | 2 sides + included angle | All triangles |
+| ASA | Angle-Side-Angle | 2 angles + included side | All triangles |
+| AAS | Angle-Angle-Side | 2 angles + any side | All triangles |
+| HL | Hypotenuse-Leg | Hypotenuse + leg | Right triangles only |
+
+### Invalid Criteria
+
+| Criterion | Why It Fails |
+|-----------|--------------|
+| SSA | Ambiguous case (two possible triangles) |
+| AAA | Only determines shape, not size |
+
+## 9.2 Angle Bisector Theorems
+
+**Property**: A point on the angle bisector is equidistant from the two sides.
+
+**Converse**: A point equidistant from the two sides lies on the angle bisector.
+
+## 9.3 Study Path
+
 ```
-证明：
-在△ABC和△DEF中
-AB = DE（已知）
-∠A = ∠D（已知）
-AC = DF（已知）
-∴ △ABC ≅ △DEF（SAS）
-∴ BC = EF（全等三角形的对应边相等）
-```
-
-#### 📝 书写要点
-
-1. **结构清晰**：已知、求证、证明分开写
-2. **逻辑严密**：每步都要有依据
-3. **标注明确**：括号内注明理由
-4. **结论完整**：最后要写明结论
-
-#### ⚠️ 常见错误
-
-**错误1**：不写证明过程
-- 正确：写出完整的推理过程
-- 错误：只写"显然全等"
-
-**错误2**：理由不明确
-- 正确：AB = DE（已知）
-- 错误：AB = DE（不知道为什么）
-
-**错误3**：跳跃式推理
-- 正确：一步步推导
-- 错误：直接得出结论
-
----
-
-## 12.7 常见错误与注意事项
-
-### ⚠️ 错误归纳
-
-**错误类型1：对应元素找错**
-- 错误：△ABC ≅ △DEF 中认为 AB = EF
-- 正确：AB = DE（对应边）
-
-**错误类型2：判定方法用错**
-- 错误：用 SSA 或 AAA 判定全等
-- 正确：只能用 SSS、SAS、ASA、AAS、HL
-
-**错误类型3：SAS的角不是夹角**
-- 错误：AB = DE，AC = DF，∠B = ∠E，就用SAS
-- 正确：∠B不是AB和AC的夹角，不能用SAS
-
-**错误类型4：HL用于非直角三角形**
-- 错误：普通三角形用HL判定
-- 正确：HL仅用于直角三角形
-
-**错误类型5：证明不规范**
-- 错误：不写理由，直接得出结论
-- 正确：每步都要注明理由
-
-**错误类型6：忘记检验**
-- 错误：认为三个条件就一定能判定全等
-- 正确：要看是哪三个条件，SSA和AAA不能判定
-
----
-
-## 📝 练习题
-
-### 基础巩固
-
-**一、填空题**
-
-1. 全等三角形的____相等，____相等
-
-2. 判定两个三角形全等的方法中，简称为SSS的是____，SAS的是____
-
-3. 如图，在△ABC和△DEF中，AB = DE，BC = EF，要使△ABC ≅ △DEF，还需要____
-
-4. 角平分线上的点到____的距离相等
-
-5. 判定两个直角三角形全等的特殊方法是____（填简称）
-
-6. 如图，在△ABC和△DEF中，∠B = ∠E，BC = EF，要使△ABC ≅ △DEF，还需要____
-
-7. 全等三角形的对应边____，对应角____
-
-8. 在△ABC和△A'B'C'中，如果AB = A'B'，∠A = ∠A'，AC = A'C'，那么△ABC ≅ △A'B'C'的依据是____
-
-**二、选择题**
-
-9. 下列条件中，能判定△ABC ≅ △DEF的是（  ）
-    A. AB = DE，BC = EF，∠A = ∠D
-    B. AB = DE，BC = EF，∠B = ∠E
-    C. ∠A = ∠D，∠B = ∠E，AC = DF
-    D. ∠A = ∠D，∠B = ∠E，∠C = ∠F
-
-10. 在△ABC和△DEF中，已知AB = DE，AC = DF，要使△ABC ≅ △DEF，还需要（  ）
-    A. ∠A = ∠D
-    B. ∠B = ∠E
-    C. ∠C = ∠F
-    D. BC = EF
-
-11. 在Rt△ABC和Rt△DEF中，∠C = ∠F = 90°，下列条件中能判定Rt△ABC ≅ Rt△DEF的是（  ）
-    A. AC = DF，BC = EF
-    B. AB = DE，BC = EF
-    C. AC = DF，∠A = ∠D
-    D. AB = DE，∠A = ∠D
-
-12. 如图，OC是∠AOB的平分线，点P在OC上，PD⊥OA于D，PE⊥OB于E，若PD = 3cm，则PE =（  ）
-    A. 3cm
-    B. 4cm
-    C. 5cm
-    D. 6cm
-
-13. 下列说法正确的是（  ）
-    A. 三个角对应相等的两个三角形全等
-    B. 两边和其中一边的对角对应相等的两个三角形全等
-    C. 三边对应相等的两个三角形全等
-    D. 两边和其中一边的对角对应相等的两个直角三角形全等
-
-**三、解答题**
-
-14. 如图，已知AB = AC，BD = CE，求证：△ABD ≅ △ACE。
-
-15. 如图，已知∠1 = ∠2，∠B = ∠D，求证：△ABC ≅ △ADC。
-
-16. 如图，OC是∠AOB的平分线，点P在OC上，PD⊥OA于D，PE⊥OB于E，若PE = 4cm，求PD的长。
-
-17. 如图，在Rt△ABC和Rt△DEF中，∠C = ∠F = 90°，AC = DF，AB = DE，求证：△ABC ≅ △DEF。
-
-### 进阶提升
-
-18. 如图，在△ABC中，AD是角平分线，DE⊥AB于E，DF⊥AC于F，已知AB = 10cm，AC = 8cm，DE = 3cm，求DF的长和AE的长。
-
-19. 如图，在△ABC中，AB = AC，AD是角平分线，DE⊥AB于E，DF⊥AC于F，求证：DE = DF。
-
-20. 如图，在△ABC和△ADE中，AB = AC，AD = AE，∠BAC = ∠DAE，求证：△ABD ≅ △ACE。
-
-21. 如图，在△ABC中，AD是角平分线，DE⊥AB于E，DF⊥AC于F，求证：EF⊥AD。
-
-22. 如图，AB = AC，BD = CD，E在AD上，求证：EB = EC。
-
-### 拓展提高
-
-23. 如图，在△ABC中，AB = AC，D是BC上一点，DE⊥AB于E，DF⊥AC于F，求证：DE = DF。
-
-24. 如图，在△ABC中，AD是角平分线，E在AC上，S△ABD = 15，S△ACD = 10，AB = 6，AC = 4，求DE的长。
-
-25. 如图，在△ABC中，AB = AC，D在BC上，E在AC上，F在AB上，且DE⊥AB，DF⊥AC，求证：AD⊥EF。
-
-26. 如图，在△ABC中，∠BAC = 90°，AB = AC，BD⊥DE于D，CE⊥DE于E，且DE经过点A，求证：DE = BD + CE。
-
-27. 如图，在△ABC中，AD是角平分线，E在BC上，F在AD上，且EF∥AC，求证：EC = BF。
-
-28. 如图，在△ABC中，AB = AC，D是BC上一点，E在AB上，F在AC上，且DE⊥AB，DF⊥AC，若DE = DF，求证：AD⊥EF。
-
----
-
-## 📚 知识结构图
-
-```
-全等三角形
-├── 全等三角形的概念
-│   ├── 定义：能够完全重合
-│   ├── 表示：△ABC ≅ △A'B'C'
-│   ├── 对应元素
-│   │   ├── 对应顶点
-│   │   ├── 对应边
-│   │   └── 对应角
-│   └── 性质：对应边相等，对应角相等
-│
-├── 全等的判定
-│   ├── SSS：三边对应相等
-│   │   └── 适用于任意三角形
-│   ├── SAS：两边夹角对应相等
-│   │   └── 角必须是夹角⚠️
-│   ├── ASA：两角夹边对应相等
-│   │   └── 适用于任意三角形
-│   ├── AAS：两角及一角对边对应相等
-│   │   └── 是ASA的推论
-│   └── HL：斜边直角边对应相等
-│       └── 仅适用于直角三角形⚠️
-│
-├── 不能判定全等的情况
-│   ├── SSA：两边及一边对角对应相等
-│   └── AAA：三个角对应相等
-│
-└── 角平分线
-    ├── 作法：尺规作图、量角器
-    ├── 性质：角平分线上的点到角的两边距离相等
-    ├── 判定：到角的两边距离相等的点在角的平分线上
-    └── 应用：证明线段相等、作辅助线
+Beginner:
+  Definition of congruence → Corresponding parts → CPCTC principle
+  ↓
+Intermediate:
+  SSS → SAS → ASA → AAS → HL → Why SSA/AAA fail
+  ↓
+Advanced:
+  Writing proofs → Finding conditions → Auxiliary lines
+  ↓
+Competition:
+  Complex proofs → Multiple congruences → Rotation/reflection
 ```
 
 ---
 
-## 🎯 本章重点难点总结
+# Part X: Quick Reference
 
-### 重点知识
-1. ✅ 全等三角形的概念和性质
-2. ✅ 五种判定方法（SSS、SAS、ASA、AAS、HL）
-3. ✅ 角平分线的性质和判定
-4. ✅ 全等三角形的证明和应用
+## 10.1 Congruence Criteria at a Glance
 
-### 难点突破
-1. 🎯 灵活选择合适的判定方法
-2. 🎯 找准对应元素
-3. 🎯 SAS的角必须是夹角
-4. 🎯 HL仅用于直角三角形
-5. 🎯 规范几何证明的书写
-6. 🎯 添加合适的辅助线
+| Criterion | What You Need | Remember |
+|-----------|---------------|----------|
+| SSS | 3 sides | "Three sides determine a triangle" |
+| SAS | 2 sides + included angle | "Angle MUST be between the sides" |
+| ASA | 2 angles + included side | "Side MUST be between the angles" |
+| AAS | 2 angles + any side | "Third angle is automatic" |
+| HL | Right angle + hypotenuse + leg | "Only for right triangles" |
 
-### 核心方法
-1. 💡 **对应元素法**：按字母顺序或位置关系找对应
-2. 💡 **分析法**：从结论倒推，寻找需要证明的内容
-3. 💡 **综合法**：从已知条件出发，逐步推导
-4. 💡 **转化思想**：将复杂问题转化为简单问题
-5. 💡 **数形结合**：画图辅助分析
+## 10.2 Common Proof Elements
 
----
+| Element | How to Get It |
+|---------|---------------|
+| Common side | Same segment in both triangles |
+| Vertical angles | Two intersecting lines |
+| Alternate interior angles | Parallel lines + transversal |
+| Right angles | Perpendicular lines |
+| Equal angles | Angle bisector, isosceles triangle |
 
-## 📖 学习建议
+## 10.3 Proof Checklist
 
-1. **理解全等概念**：全等是形状和大小都相同，要理解透彻
-2. **掌握判定方法**：五种判定方法要牢记，知道各自的适用条件
-3. **找准对应元素**：判定全等前先确定对应边和对应角
-4. **规范书写证明**：几何证明要按照"已知-求证-证明"的格式
-5. **灵活选择方法**：根据题目条件选择最合适的判定方法
-6. **注意SSA陷阱**：边边角不能判定全等（HL除外）
-7. **应用角平分线**：角平分线的性质在证明题中很有用
-8. **多做练习题**：从基础题做起，逐步提高难度
-9. **总结解题技巧**：遇到典型问题要总结解题思路
-10. **培养逻辑思维**：几何证明是培养逻辑思维的好方法
+Before writing a proof, ask:
+1. Which two triangles am I comparing?
+2. What criterion will I use?
+3. Do I have all three conditions?
+4. Are my corresponding parts correct?
 
 ---
 
-**下一章学习预告**：第十三章 轴对称
+**End of Chapter 12**
+
+*This document covers congruent triangles from beginner level through National Junior High Math League competition level.*
