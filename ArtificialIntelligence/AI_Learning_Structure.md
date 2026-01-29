@@ -174,6 +174,10 @@ ArtificialIntelligence/
 │   │   ├── CLIP/                            # CLIP：对比学习、零样本分类
 │   │   ├── ALIGN/                           # ALIGN：大规模视觉-语言预训练
 │   │   └── Flamingo/                        # Flamingo：少样本多模态学习
+│   ├── VideoLanguage/                       # 视频-语言理解
+│   │   ├── VideoQA/                         # 视频问答：VideoLLaMA、Video-ChatGPT、LLaMA-VID
+│   │   ├── VideoCaptioning/                 # 视频描述：自动生成视频字幕、密集描述
+│   │   └── VideoRetrieval/                  # 视频检索：文本-视频检索、跨模态匹配
 │   ├── TextToImage/                         # 文本生成图像
 │   │   ├── Diffusion/                       # 扩散模型：Stable Diffusion、DALL-E 2/3
 │   │   ├── GAN/                             # GAN方法：StyleGAN-T、GigaGAN
@@ -204,6 +208,10 @@ ArtificialIntelligence/
 │   │   ├── Univariate/                      # 单变量预测：点预测、区间预测
 │   │   ├── Multivariate/                    # 多变量预测：向量自回归
 │   │   └── Probabilistic/                   # 概率预测：不确定性量化
+│   ├── FoundationModels/                    # 时序基础模型
+│   │   ├── TimeGPT/                         # TimeGPT：首个时序基础模型、零样本预测
+│   │   ├── Chronos/                         # Chronos：基于语言模型架构的时序预测
+│   │   └── Others/                          # 其他模型：Lag-Llama、TimesFM、Moment
 │   └── Applications/                        # 应用场景
 │       ├── Finance/                         # 金融：股票预测、风险管理
 │       ├── Weather/                         # 气象：天气预报、气候建模
