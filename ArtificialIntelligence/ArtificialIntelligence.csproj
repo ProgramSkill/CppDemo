@@ -10,4 +10,29 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="02_MachineLearning\01_Supervised\Classification\" />
+    <Folder Include="02_MachineLearning\01_Supervised\Evaluation\" />
+    <Folder Include="02_MachineLearning\01_Supervised\Regression\" />
+    <Folder Include="02_MachineLearning\02_Unsupervised\Association\" />
+    <Folder Include="02_MachineLearning\02_Unsupervised\Clustering\" />
+    <Folder Include="02_MachineLearning\02_Unsupervised\DimensionReduction\" />
+    <Folder Include="02_MachineLearning\03_FeatureEngineering\Encoding\" />
+    <Folder Include="02_MachineLearning\03_FeatureEngineering\Scaling\" />
+    <Folder Include="02_MachineLearning\03_FeatureEngineering\Selection\" />
+    <Folder Include="02_MachineLearning\04_Ensemble\Bagging\" />
+    <Folder Include="02_MachineLearning\04_Ensemble\Boosting\" />
+    <Folder Include="02_MachineLearning\04_Ensemble\Stacking\" />
+    <Folder Include="02_MachineLearning\05_RecommendationSystems\CollaborativeFiltering\" />
+    <Folder Include="02_MachineLearning\05_RecommendationSystems\ContentBased\" />
+    <Folder Include="02_MachineLearning\05_RecommendationSystems\Evaluation\" />
+    <Folder Include="02_MachineLearning\05_RecommendationSystems\HybridMethods\" />
+    <Folder Include="02_MachineLearning\06_ReinforcementBasics\MDPs\" />
+    <Folder Include="02_MachineLearning\06_ReinforcementBasics\PolicyIteration\" />
+    <Folder Include="02_MachineLearning\06_ReinforcementBasics\TabularQLearning\" />
+    <Folder Include="02_MachineLearning\07_ModelInterpretability\FeatureImportance\" />
+    <Folder Include="02_MachineLearning\07_ModelInterpretability\LIME\" />
+    <Folder Include="02_MachineLearning\07_ModelInterpretability\PartialDependence\" />
+  </ItemGroup>
+
 </Project>
