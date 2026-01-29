@@ -1,5 +1,5 @@
 # Chapter 10 SystemsOfBinaryLinearEquations
-# Vocabulary List
+# Vocabulary List (From Beginner to Competition Level)
 
 ## Basic Terms | 基础术语
 
@@ -125,3 +125,94 @@ ax + by = c  (where a ≠ 0, b ≠ 0)
 | Work | Work = Rate × Time | 工作量 = 效率 × 时间 |
 | Price | Total = Unit Price × Quantity | 总价 = 单价 × 数量 |
 | Profit | Profit = Revenue - Cost | 利润 = 收入 - 成本 |
+
+---
+
+## Advanced Terms (Competition Level) | 竞赛级术语
+
+### Number Theory | 数论术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Greatest Common Divisor (GCD) | 最大公约数 | The largest positive integer that divides two numbers |
+| Least Common Multiple (LCM) | 最小公倍数 | The smallest positive integer divisible by two numbers |
+| Coprime / Relatively prime | 互质 | Two numbers whose GCD is 1 |
+| Divisibility | 整除性 | Property of one number dividing another with no remainder |
+| Diophantine equation | 丢番图方程 | An equation seeking integer solutions |
+| Particular solution | 特解 | One specific solution to an equation |
+| General solution | 通解 | Formula representing all solutions |
+
+### Algorithms | 算法术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Euclidean algorithm | 欧几里得算法 | Method to find GCD by repeated division |
+| Extended Euclidean algorithm | 扩展欧几里得算法 | Finds GCD and coefficients for Bezout's identity |
+| Bezout's identity | 裴蜀定理 | ax + by = gcd(a,b) has integer solutions |
+| Back-substitution | 回代法 | Working backwards to find coefficients |
+
+### Linear Algebra Terms | 线性代数术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Determinant | 行列式 | A scalar value computed from a square matrix |
+| Cramer's Rule | 克拉默法则 | Method to solve systems using determinants |
+| Matrix | 矩阵 | A rectangular array of numbers |
+| Homogeneous system | 齐次方程组 | System where all constant terms are zero |
+| Trivial solution | 平凡解 | The zero solution (0, 0) |
+| Non-trivial solution | 非平凡解 | A solution other than (0, 0) |
+
+### Competition Techniques | 竞赛技巧术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Simon's Favorite Factoring Trick | 西蒙因式分解技巧 | Adding a constant to factor xy + ax + by |
+| Frobenius number | 弗罗贝尼乌斯数 | Largest integer not representable as ax + by |
+| Chicken McNugget Theorem | 麦乐鸡定理 | g(a,b) = ab - a - b for coprime a, b |
+| Vieta's formulas | 韦达定理 | Relates roots of polynomial to its coefficients |
+| Symmetric system | 对称方程组 | System unchanged when variables are swapped |
+
+### Special Functions | 特殊函数术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Absolute value | 绝对值 | Distance from zero, always non-negative |
+| Floor function | 取整函数/下取整 | Greatest integer less than or equal to x |
+| Ceiling function | 上取整函数 | Smallest integer greater than or equal to x |
+
+### System Properties | 方程组性质术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Consistent system | 相容方程组 | System with at least one solution |
+| Inconsistent system | 不相容方程组 | System with no solution |
+| Overdetermined system | 超定方程组 | More equations than unknowns |
+| Parameter | 参数 | A variable representing a family of values |
+
+---
+
+## Competition Formulas | 竞赛公式
+
+### Cramer's Rule | 克拉默法则
+```
+For system: ax + by = c, dx + ey = f
+
+x = (ce - bf) / (ae - bd)
+y = (af - cd) / (ae - bd)
+```
+
+### Diophantine Equation | 丢番图方程
+```
+ax + by = c has integer solutions iff gcd(a,b) | c
+
+General solution:
+x = x₀ + (b/d)t
+y = y₀ - (a/d)t
+where d = gcd(a,b)
+```
+
+### Frobenius Number | 弗罗贝尼乌斯数
+```
+For coprime a, b:
+g(a,b) = ab - a - b
+```
