@@ -1342,13 +1342,16 @@ $$t_a^2 = bc\left[1 - \left(\frac{a}{b+c}\right)^2\right]$$
          $= 60°$
 
 (2) Since $AD$ is an altitude, $\angle ADB = 90°$
-    In right triangle $ABD$:
-    $\angle BAD = 90° - \angle B = 90° - 50° = 40°$
 
-    Since $AE$ is an angle bisector:
-    $\angle BAE = \frac{1}{2}\angle BAC = \frac{1}{2} \times 60° = 30°$
+In right triangle $ABD$:
 
-    $\angle DAE = \angle BAD - \angle BAE = 40° - 30° = 10°$
+$\angle BAD = 90° - \angle B = 90° - 50° = 40°$
+
+Since $AE$ is an angle bisector:
+
+$\angle BAE = \frac{1}{2}\angle BAC = \frac{1}{2} \times 60° = 30°$
+
+$\angle DAE = \angle BAD - \angle BAE = 40° - 30° = 10°$
 
 **Problem-Solving Strategy**:
 1. First use interior angle sum to find $\angle BAC$
