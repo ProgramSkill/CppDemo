@@ -1338,53 +1338,47 @@ The minimum distance is $|P_1P_2|$.
 **Solution**:
 
 Since $AB = AC$ and $\angle BAC = 100°$:
-$\angle ABC = \angle ACB = \frac{180° - 100°}{2} = 40°$
+$$\angle ABC = \angle ACB = \frac{180° - 100°}{2} = 40°$$
 
-$\angle ABD = \angle ABC - \angle DBC = 40° - 30° = 10°$
-$\angle ACD = \angle ACB - \angle DCB = 40° - 20° = 20°$
+$$\angle ABD = \angle ABC - \angle DBC = 40° - 30° = 10°$$
+$$\angle ACD = \angle ACB - \angle DCB = 40° - 20° = 20°$$
 
 In $\triangle BDC$:
-$\angle BDC = 180° - 30° - 20° = 130°$
+$$\angle BDC = 180° - 30° - 20° = 130°$$
 
-**Construction**: Take point $E$ on $AC$ such that $\angle CBE = 20°$.
+**Method 1: Law of Sines**
 
-Then $\angle ABE = \angle ABC - \angle CBE = 40° - 20° = 20°$
+Let $AB = AC = 1$. In $\triangle ABC$, by the Law of Sines:
+$$BC = \frac{\sin 100°}{\sin 40°} = \frac{\sin 80°}{\sin 40°} = \frac{2\sin 40° \cos 40°}{\sin 40°} = 2\cos 40°$$
 
-Since $\angle CBE = \angle BCE = 20°$: $\triangle BCE$ is isosceles with $BE = CE$.
+In $\triangle BCD$, by the Law of Sines:
+$$\frac{CD}{\sin 30°} = \frac{BC}{\sin 130°} = \frac{2\cos 40°}{\sin 50°} = \frac{2\cos 40°}{\cos 40°} = 2$$
+$$\therefore CD = 2 \cdot \frac{1}{2} = 1 = AC$$
 
-In $\triangle ABE$:
-$\angle BAE = 100°$, $\angle ABE = 20°$
-$\angle AEB = 180° - 100° - 20° = 60°$
+Since $AC = CD$, $\triangle ACD$ is isosceles. With $\angle ACD = 20°$:
+$$\angle DAC = \angle ADC = \frac{180° - 20°}{2} = 80°$$
 
-Since $\angle AEB = 60°$ and $BE = CE$, construct equilateral triangle $BEF$ on $BE$ (with $F$ inside $\triangle ABC$).
+**Verification**:
+- $\angle BAD = 100° - 80° = 20°$
+- In $\triangle ABD$: $\angle ADB = 180° - 10° - 20° = 150°$
+- Around point $D$: $150° + 130° + 80° = 360°$ ✓
 
-Then $BF = BE = CE$ and $\angle FBE = 60°$.
+**Method 2: Trigonometric Ceva's Theorem**
 
-$\angle FBC = \angle FBE + \angle EBC = 60° + 20° = 80°$...
+For point $D$ inside $\triangle ABC$:
+$$\frac{\sin \angle BAD}{\sin \angle DAC} \cdot \frac{\sin \angle ACD}{\sin \angle DCB} \cdot \frac{\sin \angle DBC}{\sin \angle DBA} = 1$$
 
-This doesn't give us $\angle FBC = 30°$.
+Substituting known values ($\angle ACD = \angle DCB = 20°$):
+$$\frac{\sin \angle BAD}{\sin \angle DAC} \cdot 1 \cdot \frac{\sin 30°}{\sin 10°} = 1$$
+$$\frac{\sin \angle BAD}{\sin \angle DAC} = 2\sin 10°$$
 
-**Alternative approach**:
+Let $x = \angle DAC$, then $\angle BAD = 100° - x$:
+$$\sin 100° \cot x - \cos 100° = 2\sin 10°$$
+$$\sin 100° \cot x = 2\sin 10° - \sin 10° = \sin 10°$$
+$$\cot x = \frac{\sin 10°}{\cos 10°} = \tan 10°$$
+$$\therefore x = 80°$$
 
-In $\triangle ABD$: $\angle BAD + \angle ABD + \angle ADB = 180°$
-$\angle BAD + 10° + \angle ADB = 180°$
-
-In $\triangle ACD$: $\angle CAD + \angle ACD + \angle ADC = 180°$
-$\angle CAD + 20° + \angle ADC = 180°$
-
-Since $\angle ADB + \angle ADC + \angle BDC = 360°$:
-$\angle ADB + \angle ADC = 360° - 130° = 230°$
-
-From the equations:
-$\angle BAD = 170° - \angle ADB$
-$\angle CAD = 160° - \angle ADC$
-
-$\angle BAC = \angle BAD + \angle DAC = 100°$
-$(170° - \angle ADB) + (160° - \angle ADC) = 100°$
-$330° - (\angle ADB + \angle ADC) = 100°$
-$330° - 230° = 100°$ ✓
-
-Using trigonometric methods or careful construction, $\angle DAC = 10°$.
+**Answer**: $\angle DAC = \boxed{80°}$
 
 ## 8.2 Problem 2 (National Junior High Math League 2015)
 
