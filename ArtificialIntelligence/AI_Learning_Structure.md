@@ -176,6 +176,35 @@ ArtificialIntelligence/
         ├── Frameworks/                      # 深度学习框架：TensorFlow、PyTorch、Keras
         ├── Libraries/                       # 常用库：NumPy、Pandas、Scikit-learn、Matplotlib
         └── Datasets/                        # 数据集资源：Kaggle、UCI、ImageNet、COCO
+
+09_LLMs/                                     # 大语言模型（专题深入）
+├── Foundations/                             # LLM理论基础
+│   ├── Tokenization/                        # 分词技术：BPE、SentencePiece、tiktoken
+│   ├── PretrainingObjectives/               # 预训练目标：MLM、CLM、Seq2Seq、Instruction Tuning
+│   ├── ScalingLaws/                         # 缩放法则：Scaling Law、Chinchilla定律
+│   └── SafetyAlignment/                     # 安全对齐：RLHF、RLAIF、Constitutional AI、偏见与安全
+├── ModelFamilies/                           # 模型家族
+│   ├── GPTSeries/                           # GPT系列：GPT-2/3/4、架构演化与能力涌现
+│   ├── LLaMA_Family/                        # LLaMA家族：LLaMA、LLaMA 2/3及衍生模型
+│   ├── OpenSourceLLMs/                      # 开源LLM：Mistral、Qwen、GLM、Gemma
+│   └── SpecializedLLMs/                     # 专用LLM：Code LLM、多模态LLM、领域LLM
+├── PromptEngineering/                       # 提示工程
+│   ├── BasicPatterns/                       # 基础模式：Few-shot、Chain-of-Thought、ReAct、自一致性
+│   ├── ToolUse_Agents/                      # 工具使用与智能体：Toolformer、ReWOO、Planner-Worker
+│   └── Evaluation/                          # 提示评估：鲁棒性测试、提示优化
+├── RAG_and_Tools/                           # 检索增强与工具调用
+│   ├── RAG/                                 # RAG框架：索引构建、检索策略、重排序、上下文压缩
+│   ├── VectorDB/                            # 向量数据库：Faiss、Milvus、Chroma、Pinecone、pgvector
+│   └── LLMApps/                             # LLM应用：Chatbot、知识库问答、文档助手、代码助手
+├── FineTuning_Training/                     # 训练与微调
+│   ├── FullFineTuning/                      # 全量微调：从头预训练、继续预训练、指令微调
+│   ├── ParameterEfficient/                  # 参数高效微调：LoRA、QLoRA、Adapter、Prefix Tuning
+│   ├── PreferenceOptimization/              # 偏好优化：RLHF、DPO、KTO、IPO
+│   └── Efficiency/                          # 效率优化：KV Cache、FlashAttention、量化推理、投机采样
+└── Systems_Engineering/                     # LLM系统工程
+    ├── Serving_Inference/                   # 服务与推理：vLLM、TensorRT-LLM、Text Generation Inference
+    ├── LLMOps/                              # LLMOps：监控、评估、A/B测试、成本优化
+    └── Security_Privacy/                    # 安全与隐私：提示注入防御、数据泄露防护、内容审核
 ```
 
 ## 🎯 学习路径建议
@@ -185,7 +214,7 @@ ArtificialIntelligence/
 | **阶段一：基础准备** | 1-2个月 | **编程基础**：Python、OOP、NumPy、Pandas、Matplotlib<br>**数学基础**：线性代数、微积分、概率论、信息论<br>**算法基础**：数据结构、算法复杂度 | - |
 | **阶段二：机器学习入门** | 2-3个月 | 监督学习（回归、分类算法）<br>无监督学习（聚类、降维）<br>模型评估（交叉验证、性能指标） | 鸢尾花分类<br>房价预测 |
 | **阶段三：深度学习基础** | 2-3个月 | 神经网络（感知机、MLP、反向传播）<br>CNN（卷积神经网络及图像应用）<br>RNN/LSTM（序列数据处理） | 手写数字识别<br>图像分类 |
-| **阶段四：专业方向深入** | 3-6个月 | **NLP方向**：Transformer、BERT、GPT、文本应用<br>**CV方向**：目标检测、图像分割、图像生成<br>**强化学习**：Q-Learning、策略梯度、游戏AI | 情感分析<br>目标检测系统<br>聊天机器人 |
+| **阶段四：专业方向深入** | 3-6个月 | **NLP方向**：Transformer、BERT、GPT、文本应用<br>**CV方向**：目标检测、图像分割、图像生成<br>**LLM方向**：提示工程、RAG、模型微调、LLM应用开发<br>**强化学习**：Q-Learning、策略梯度、游戏AI | 情感分析<br>目标检测系统<br>RAG问答系统<br>聊天机器人 |
 | **阶段五：实战与进阶** | 持续 | **AI工程实践**：模型部署、MLOps、模型优化、边缘部署<br>完成综合项目<br>阅读前沿论文<br>参与开源项目<br>关注最新技术动态 | 生产级AI系统<br>开源贡献 |
 
 ## 📝 使用说明
@@ -196,12 +225,13 @@ ArtificialIntelligence/
 - 项目驱动学习，理论与实践相结合
 
 **学习建议：**
-1. **循序渐进**：按照00-08的顺序学习，从编程基础到工程实践，打好基础
+1. **循序渐进**：按照00-09的顺序学习，从编程基础到LLM专题，打好基础
 2. **理论实践结合**：每学一个概念就动手实现
 3. **做好笔记**：在对应目录下记录学习笔记和代码
 4. **定期复习**：定期回顾之前的内容，巩固知识
 5. **项目驱动**：通过实际项目来检验学习效果
 6. **工程导向**：重视模型部署和MLOps实践，培养工程化思维
+7. **LLM专题**：在掌握Transformer基础后，可深入09_LLMs/学习提示工程、RAG和微调技术
 
 **推荐资源：**
 - **书籍**：《机器学习》周志华、《深度学习》Goodfellow、《统计学习方法》李航
