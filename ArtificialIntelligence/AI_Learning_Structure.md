@@ -240,33 +240,33 @@ ArtificialIntelligence/
 │       └── Datasets/                        # 数据集资源：Kaggle、UCI、ImageNet、COCO
 │
 └── 11_LLMs/                                 # 大语言模型（专题深入）
-├── Foundations/                             # LLM理论基础
-│   ├── Tokenization/                        # 分词技术：BPE、SentencePiece、tiktoken
-│   ├── PretrainingObjectives/               # 预训练目标：MLM、CLM、Seq2Seq、Instruction Tuning
-│   ├── ScalingLaws/                         # 缩放法则：Scaling Law、Chinchilla定律
-│   └── SafetyAlignment/                     # 安全对齐：RLHF、RLAIF、Constitutional AI、偏见与安全
-├── ModelFamilies/                           # 模型家族
-│   ├── GPTSeries/                           # GPT系列：GPT-2/3/4、架构演化与能力涌现
-│   ├── LLaMA_Family/                        # LLaMA家族：LLaMA、LLaMA 2/3及衍生模型
-│   ├── OpenSourceLLMs/                      # 开源LLM：Mistral、Qwen、GLM、Gemma
-│   └── SpecializedLLMs/                     # 专用LLM：Code LLM、多模态LLM、领域LLM
-├── PromptEngineering/                       # 提示工程
-│   ├── BasicPatterns/                       # 基础模式：Few-shot、Chain-of-Thought、ReAct、自一致性
-│   ├── ToolUse_Agents/                      # 工具使用与智能体：Toolformer、ReWOO、Planner-Worker
-│   └── Evaluation/                          # 提示评估：鲁棒性测试、提示优化
-├── RAG_and_Tools/                           # 检索增强与工具调用
-│   ├── RAG/                                 # RAG框架：索引构建、检索策略、重排序、上下文压缩
-│   ├── VectorDB/                            # 向量数据库：Faiss、Milvus、Chroma、Pinecone、pgvector
-│   └── LLMApps/                             # LLM应用：Chatbot、知识库问答、文档助手、代码助手
-├── FineTuning_Training/                     # 训练与微调
-│   ├── FullFineTuning/                      # 全量微调：从头预训练、继续预训练、指令微调
-│   ├── ParameterEfficient/                  # 参数高效微调：LoRA、QLoRA、Adapter、Prefix Tuning
-│   ├── PreferenceOptimization/              # 偏好优化：RLHF、DPO、KTO、IPO
-│   └── Efficiency/                          # 效率优化：KV Cache、FlashAttention、量化推理、投机采样
-└── Systems_Engineering/                     # LLM系统工程
-    ├── Serving_Inference/                   # 服务与推理：vLLM、TensorRT-LLM、Text Generation Inference
-    ├── LLMOps/                              # LLMOps：监控、评估、A/B测试、成本优化
-    └── Security_Privacy/                    # 安全与隐私：提示注入防御、数据泄露防护、内容审核
+    ├── Foundations/                         # LLM理论基础
+    │   ├── Tokenization/                    # 分词技术：BPE、SentencePiece、tiktoken
+    │   ├── PretrainingObjectives/           # 预训练目标：MLM、CLM、Seq2Seq、Instruction Tuning
+    │   ├── ScalingLaws/                     # 缩放法则：Scaling Law、Chinchilla定律
+    │   └── SafetyAlignment/                 # 安全对齐：RLHF、RLAIF、Constitutional AI、偏见与安全
+    ├── ModelFamilies/                       # 模型家族
+    │   ├── GPTSeries/                       # GPT系列：GPT-2/3/4、架构演化与能力涌现
+    │   ├── LLaMA_Family/                    # LLaMA家族：LLaMA、LLaMA 2/3及衍生模型
+    │   ├── OpenSourceLLMs/                  # 开源LLM：Mistral、Qwen、GLM、Gemma
+    │   └── SpecializedLLMs/                 # 专用LLM：Code LLM、多模态LLM、领域LLM
+    ├── PromptEngineering/                   # 提示工程
+    │   ├── BasicPatterns/                   # 基础模式：Few-shot、Chain-of-Thought、ReAct、自一致性
+    │   ├── ToolUse_Agents/                  # 工具使用与智能体：Toolformer、ReWOO、Planner-Worker
+    │   └── Evaluation/                      # 提示评估：鲁棒性测试、提示优化
+    ├── RAG_and_Tools/                       # 检索增强与工具调用
+    │   ├── RAG/                             # RAG框架：索引构建、检索策略、重排序、上下文压缩
+    │   ├── VectorDB/                        # 向量数据库：Faiss、Milvus、Chroma、Pinecone、pgvector
+    │   └── LLMApps/                         # LLM应用：Chatbot、知识库问答、文档助手、代码助手
+    ├── FineTuning_Training/                 # 训练与微调
+    │   ├── FullFineTuning/                  # 全量微调：从头预训练、继续预训练、指令微调
+    │   ├── ParameterEfficient/              # 参数高效微调：LoRA、QLoRA、Adapter、Prefix Tuning
+    │   ├── PreferenceOptimization/          # 偏好优化：RLHF、DPO、KTO、IPO
+    │   └── Efficiency/                      # 效率优化：KV Cache、FlashAttention、量化推理、投机采样
+    └── Systems_Engineering/                 # LLM系统工程
+        ├── Serving_Inference/               # 服务与推理：vLLM、TensorRT-LLM、Text Generation Inference
+        ├── LLMOps/                          # LLMOps：监控、评估、A/B测试、成本优化
+        └── Security_Privacy/                # 安全与隐私：提示注入防御、数据泄露防护、内容审核
 ```
 
 ## 🎯 学习路径建议
