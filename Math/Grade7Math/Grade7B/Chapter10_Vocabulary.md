@@ -216,3 +216,56 @@ where d = gcd(a,b)
 For coprime a, b:
 g(a,b) = ab - a - b
 ```
+
+---
+
+## Problem-Solving Techniques | 解题技巧术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Whole expression substitution | 整体代换 | Treating a complex expression as a single variable |
+| "Set but don't solve" technique | 设而不求 | Setting up variables without explicitly solving for them |
+| Classification discussion | 分类讨论 | Analyzing a problem by considering different cases |
+| Construction method | 构造法 | Creating new equations or expressions to simplify a problem |
+| Bounding | 估算/定界 | Using inequalities to limit the range of possible values |
+| Factorization | 因式分解 | Expressing an expression as a product of factors |
+
+## Algebraic Identities | 代数恒等式
+
+| English | Chinese | Formula |
+|---------|---------|---------|
+| Square of sum | 和的平方 | $(a+b)^2 = a^2 + 2ab + b^2$ |
+| Square of difference | 差的平方 | $(a-b)^2 = a^2 - 2ab + b^2$ |
+| Difference of squares | 平方差 | $a^2 - b^2 = (a+b)(a-b)$ |
+| Sum of squares | 平方和 | $a^2 + b^2 = (a+b)^2 - 2ab$ |
+| Sum of cubes | 立方和 | $a^3 + b^3 = (a+b)(a^2-ab+b^2)$ |
+| Difference of cubes | 立方差 | $a^3 - b^3 = (a-b)(a^2+ab+b^2)$ |
+
+## Three-Variable Identities | 三元恒等式
+
+| English | Chinese | Formula |
+|---------|---------|---------|
+| Square of three-term sum | 三项和的平方 | $(a+b+c)^2 = a^2+b^2+c^2+2(ab+bc+ca)$ |
+| Sum of three squares | 三数平方和 | $a^2+b^2+c^2 = (a+b+c)^2-2(ab+bc+ca)$ |
+
+## Additional Competition Terms | 补充竞赛术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Discriminant | 判别式 | $\Delta = b^2 - 4ac$, determines nature of roots |
+| Factor pair | 因数对 | Two numbers whose product equals a given number |
+| Parity | 奇偶性 | Property of being odd or even |
+| Bound | 界 | Upper or lower limit of a value |
+| Modular arithmetic | 模运算 | Arithmetic with remainders after division |
+
+## Competition Problem Phrases | 竞赛题目短语
+
+| English | Chinese |
+|---------|---------|
+| Find all solutions | 求所有解 |
+| Prove that | 证明 |
+| For what values of | 对于什么值 |
+| If and only if | 当且仅当 |
+| Without loss of generality | 不失一般性 |
+| By symmetry | 由对称性 |
+| Contradiction | 矛盾 |
