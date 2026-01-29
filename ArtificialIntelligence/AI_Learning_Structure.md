@@ -37,10 +37,10 @@ ArtificialIntelligence/
 │   │   ├── Clustering/                      # 聚类：K-means、DBSCAN、层次聚类
 │   │   ├── DimensionReduction/              # 降维：PCA、t-SNE、LDA
 │   │   └── Association/                     # 关联规则：Apriori、FP-Growth
-│   ├── Reinforcement/                       # 强化学习
-│   │   ├── MDPs/                            # 马尔可夫决策过程：状态、动作、奖励
-│   │   ├── QLearning/                       # Q学习：Q表、Q网络
-│   │   └── PolicyGradient/                  # 策略梯度：REINFORCE、Actor-Critic
+│   ├── ReinforcementBasics/                 # 强化学习基础
+│   │   ├── MDPs/                            # 马尔可夫决策过程：状态、动作、奖励、价值函数
+│   │   ├── TabularQLearning/                # 表格型Q学习：Q表、贝尔曼方程、ε-greedy
+│   │   └── PolicyIteration/                 # 策略迭代：策略评估、策略改进
 │   ├── Ensemble/                            # 集成学习
 │   │   ├── Bagging/                         # Bagging：随机森林、Bootstrap
 │   │   ├── Boosting/                        # Boosting：AdaBoost、XGBoost、LightGBM
@@ -89,9 +89,14 @@ ArtificialIntelligence/
 │   │   ├── MixedPrecision/                  # 混合精度训练：FP16、BF16、自动混合精度
 │   │   ├── MemoryOptimization/              # 内存优化：梯度累积、梯度检查点、ZeRO
 │   │   └── FederatedLearning/               # 联邦学习：隐私保护、本地训练、模型聚合
-│   └── AdvancedParadigms/                   # 高级学习范式
-│       ├── SelfSupervisedLearning/          # 自监督学习：对比学习、掩码预测、SimCLR、MoCo
-│       └── MetaLearning/                    # 元学习：MAML、Few-shot Learning、学习如何学习
+│   ├── AdvancedParadigms/                   # 高级学习范式
+│   │   ├── SelfSupervisedLearning/          # 自监督学习：对比学习、掩码预测、SimCLR、MoCo
+│   │   └── MetaLearning/                    # 元学习：MAML、Few-shot Learning、学习如何学习
+│   └── DeepRL/                              # 深度强化学习
+│       ├── ValueBased/                      # 基于价值：DQN、Double DQN、Dueling DQN、Rainbow
+│       ├── PolicyBased/                     # 基于策略：REINFORCE、A3C、PPO、TRPO
+│       ├── ActorCritic/                     # Actor-Critic：A2C、SAC、TD3、DDPG
+│       └── Advanced/                        # 高级主题：Model-based RL、Multi-agent RL、Offline RL
 │
 ├── 04_NLP/                                  # 自然语言处理
 │   ├── TextProcessing/                      # 文本处理
