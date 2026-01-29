@@ -1,1291 +1,1601 @@
-# 第十一章 三角形
-
-## 本章导引
-
-三角形是最简单的多边形，也是几何学中最基础、最重要的图形之一。从古埃及金字塔的建筑，到现代桥梁的设计，三角形的身影无处不在。为什么三角形如此重要？因为它有一个独特的性质——**稳定性**。这一章，我们将从零开始，系统地学习三角形的相关知识，从认识三角形的基本元素，到掌握三角形的边角关系，再到探索多边形的奥秘。
-
-**学习目标**：
-- 理解三角形及相关概念，掌握三角形三边关系
-- 掌握三角形的高、中线、角平分线，理解它们的性质和应用
-- 掌握三角形内角和定理及外角性质
-- 理解多边形的内角和与外角和公式
-- 能够运用三角形知识解决实际问题
+# Chapter 11: Triangles
+## From Beginner to Competition Level
 
 ---
 
-## 11.1 与三角形有关的线段
+## Table of Contents
 
-### 11.1.1 认识三角形
-
-#### 🌟 从生活到数学
-
-在生活中，我们随处可见三角形的身影：
-- 📐 三角板的形状
-- 🔺 金字塔的结构
-- 🚧 斜拉桥的钢索
-- 🎸 吉他等乐器的支架
-- 🏠 房屋的人字梁
-
-**为什么这些结构都采用三角形？** 因为三角形具有特殊的稳定性，这一点我们稍后会详细讲解。
-
-#### 📖 三角形的定义
-
-**定义**：由不在同一条直线上的三条线段首尾顺次相接所组成的图形叫做三角形。
-
-**理解定义的关键**：
-1. **三条线段**：三角形由三条边组成
-2. **不在同一条直线上**：三点不能共线，否则无法形成封闭图形
-3. **首尾顺次相接**：第一条的终点是第二条的起点，第二条的终点是第三条的起点，第三条的终点回到第一条的起点
-
-#### 🎯 三角形的表示方法
-
-**顶点**：三角形的三个顶点通常用大写字母 A、B、C 表示
-
-**边**：三角形的三条边
-- 边 AB（或 BA）
-- 边 BC（或 CB）
-- 边 CA（或 AC）
-- 也可以用小写字母表示：边 a（BC）、边 b（AC）、边 c（AB）
-
-**角**：三角形的三个内角
-- ∠A（或∠BAC）：顶点为 A 的角
-- ∠B（或∠ABC）：顶点为 B 的角
-- ∠C（或∠ACB）：顶点为 C 的角
-
-**三角形的记法**：△ABC（读作"三角形ABC"）
-
-**注意**：记三角形时，三个顶点的字母可以任意排列顺序，如△ABC、△ACB、△BAC 都表示同一个三角形。
+| Part | Level | Content |
+|------|-------|---------|
+| I | Beginner | Basic concepts, definitions, sides and angles of triangles |
+| II | Intermediate | Triangle inequality, special line segments (altitude, median, angle bisector) |
+| III | Advanced | Interior angle sum, exterior angles, polygon angle formulas |
+| IV | Competition | 8 classic competition problems with detailed solutions |
+| V | Practice | 30 problems organized by difficulty level |
+| VI | Answers | Complete answer key |
+| VII | Summary | Key formulas and study path |
+| VIII | Techniques | Essential problem-solving techniques with clear explanations |
+| IX | Real Problems | Historical competition problems with detailed solutions |
+| X | Reference | Essential formulas quick reference table |
 
 ---
 
-### 11.1.2 三角形的三边关系
+# Part I: Foundations (Beginner Level)
 
-#### 🔍 探索活动
+## 1.1 Introduction: What is a Triangle?
 
-拿三根木棍，能否首尾相接组成一个三角形？
+### 1.1.1 Triangles in Daily Life
 
-**尝试1**：3cm、4cm、5cm 的木棍 → ✅ 能组成三角形
-**尝试2**：2cm、3cm、6cm 的木棍 → ❌ 不能组成三角形
-**尝试3**：4cm、4cm、8cm 的木棍 → ❌ 不能组成三角形
+Triangles are everywhere in our world:
+- The shape of a set square
+- The structure of pyramids
+- Cable-stayed bridges
+- Roof trusses in buildings
+- Bicycle frames
 
-**为什么有些情况不能组成三角形？**
+**Why are triangles so common in structures?** Because triangles have a unique property called **stability**. We will explore this in detail later.
 
-让我们画图分析：
-- 尝试2：2cm + 3cm = 5cm < 6cm，两根较短的木棍接起来还不够第三根长，无法"够到"第三根的端点
-- 尝试3：4cm + 4cm = 8cm，两根木棍接起来刚好等于第三根，这样三条木棍会重合在一条直线上，不能形成三角形
+### 1.1.2 Definition of a Triangle
 
-#### 📐 三边关系定理
+> **Definition**: A triangle is a figure formed by three line segments connecting three non-collinear points end to end.
 
-**定理**：三角形任意两边之和大于第三边
+**Key Points**:
+1. **Three line segments**: A triangle has three sides
+2. **Non-collinear points**: The three vertices cannot lie on the same line
+3. **Connected end to end**: Each segment's endpoint connects to the next segment's starting point
 
-**数学表达**：
-如果 a、b、c 是三角形的三条边，那么：
-```
-a + b > c
-a + c > b
-b + c > a
-```
+### 1.1.3 Notation and Terminology
 
-**理解定理**：
-- 这个定理体现了"两点之间线段最短"这一基本事实
-- 在三角形ABC中，从点A到点B，直接走AB这条边最短
-- 如果走 AC + CB 这条路径，肯定比 AB 长
-- 所以 AC + CB > AB
+**Vertices**: The three vertices are usually denoted by capital letters A, B, C
 
-#### 📌 三边关系推论
+**Sides**: The three sides of a triangle
+- Side AB (or BA)
+- Side BC (or CB)
+- Side CA (or AC)
+- Also denoted by lowercase letters: side $a$ (opposite to A), side $b$ (opposite to B), side $c$ (opposite to C)
 
-**推论**：三角形任意两边之差小于第三边
+**Angles**: The three interior angles
+- $\angle A$ (or $\angle BAC$): the angle at vertex A
+- $\angle B$ (or $\angle ABC$): the angle at vertex B
+- $\angle C$ (or $\angle ACB$): the angle at vertex C
 
-**数学表达**：
-```
-|a - b| < c
-|a - c| < b
-|b - c| < a
-```
+**Triangle Notation**: $\triangle ABC$ (read as "triangle ABC")
 
-**推论的推导**：
-由 a + b > c，移项得 a > c - b
-由 a + c > b，移项得 c > b - a
-因此 c - b < a < c + b，即 |a - b| < c
-
-#### 💡 判断三线段能否组成三角形
-
-**方法一**：检查所有三种组合
-- a + b > c？
-- a + c > b？
-- b + c > a？
-如果三个不等式都成立，则能组成三角形
-
-**方法二（简便方法）**：只检查较短两边之和是否大于最长边
-- 找出最长边
-- 计算另外两边之和
-- 如果和 > 最长边，则能组成三角形
-- 这个方法更高效！
-
-**为什么方法二有效？**
-如果较短两边之和 > 最长边，那么：
-- 最长边 + 任意一边 > 另一边（最长边已足够大）
-- 所以三个不等式自动满足
-
-#### 📝 典型例题
-
-**例1**：下列长度的三条线段能否组成三角形？
-（1）3cm, 4cm, 5cm
-（2）2cm, 3cm, 6cm
-（3）4cm, 4cm, 8cm
-（4）5cm, 7cm, 10cm
-
-**解答**：
-（1）3 + 4 = 7 > 5 ✅ **能组成三角形**
-
-（2）2 + 3 = 5 < 6 ❌ **不能组成三角形**
-
-（3）4 + 4 = 8 = 8 ❌ **不能组成三角形**（等于也不行）
-
-（4）5 + 7 = 12 > 10 ✅ **能组成三角形**
-
-**例2**：一个三角形的两边长分别是3和5，第三边长x的取值范围是（  ）
-A. 2 < x < 8
-B. x > 2
-C. x < 8
-D. 2 ≤ x ≤ 8
-
-**解答**：
-根据三角形三边关系：
-- 两边之和大于第三边：3 + 5 > x，即 **x < 8**
-- 两边之差小于第三边：5 - 3 < x，即 **x > 2**
-
-所以：**2 < x < 8**
-
-答案：**A**
-
-**例3**：已知三角形的三边长分别为3、4、x，求x的取值范围。
-
-**解答**：
-当x是最大边时：3 + 4 > x，即 x < 7
-当x不是最大边时：x + 3 > 4，即 x > 1
-
-所以：**1 < x < 7**
-
-**注意**：这里x可以是最大边，也可以不是最大边，要分类讨论！
-
-**例4**：一个三角形的三边长之比为2:3:4，周长为18cm，求三边长。
-
-**解答**：
-设三边长分别为2x、3x、4x
-
-根据周长公式：2x + 3x + 4x = 18
-9x = 18
-x = 2
-
-所以三边长为：2×2 = **4cm**，3×2 = **6cm**，4×2 = **8cm**
-
-**检验**：4 + 6 = 10 > 8 ✅ 符合三边关系
-
-#### ⚠️ 常见错误
-
-**错误1**：认为三边关系只需要检查一个不等式
-- 正确做法：需要检查任意两边之和大于第三边（或用简便方法）
-
-**错误2**：认为两边之和"大于或等于"第三边
-- 正确做法：必须严格大于！等于时不能组成三角形
-
-**错误3**：忽略绝对值
-- 错误写法：a - b < c
-- 正确写法：|a - b| < c
+**Note**: The order of vertices can be rearranged. $\triangle ABC$, $\triangle ACB$, and $\triangle BAC$ all represent the same triangle.
 
 ---
 
-### 11.1.3 三角形的三条重要线段
+## 1.2 The Triangle Inequality
 
-#### 📍 三角形的高
+### 1.2.1 Exploration Activity
 
-**定义**：从三角形的一个顶点向它的对边所在直线作垂线，顶点和垂足之间的线段叫做三角形的高。
+Can any three sticks form a triangle when connected end to end?
 
-**理解要点**：
-1. 高是线段，不是直线
-2. 高必须垂直于对边（或对边的延长线）
-3. 三角形有三条高（从三个顶点分别作高）
+**Attempt 1**: 3cm, 4cm, 5cm sticks → Can form a triangle
+**Attempt 2**: 2cm, 3cm, 6cm sticks → Cannot form a triangle
+**Attempt 3**: 4cm, 4cm, 8cm sticks → Cannot form a triangle
 
-**高的位置**：
-- **锐角三角形**：三条高都在三角形内部，交于内部一点（垂心）
-- **直角三角形**：两条直角边就是高，交于直角顶点（垂心在直角顶点）
-- **钝角三角形**：两条高在三角形外部，交于外部一点（垂心在三角形外）
+**Why can't some combinations form triangles?**
 
-**作高的方法**：
-1. 过顶点作对边的垂线
-2. 垂足到顶点的线段就是高
+Analysis:
+- Attempt 2: $2 + 3 = 5 < 6$, the two shorter sticks together are shorter than the third
+- Attempt 3: $4 + 4 = 8$, the two sticks equal the third, forming a straight line
 
-**高的性质**：
-- 三角形的三条高（或其延长线）交于一点
-- 这个交点叫做**垂心**
+### 1.2.2 The Triangle Inequality Theorem
 
-#### 📍 三角形的中线
+> **Theorem**: The sum of any two sides of a triangle is greater than the third side.
 
-**定义**：连接三角形的一个顶点和它对边中点的线段叫做三角形的中线。
+**Mathematical Expression**:
+If $a$, $b$, $c$ are the three sides of a triangle, then:
+$$a + b > c$$
+$$a + c > b$$
+$$b + c > a$$
 
-**理解要点**：
-1. 中线是线段
-2. 一个顶点对应一条中线
-3. 三角形有三条中线
+**Understanding the Theorem**:
+- This theorem reflects the fact that "the shortest distance between two points is a straight line"
+- In $\triangle ABC$, going directly from A to B via side AB is shorter than going via A to C to B
+- Therefore: $AC + CB > AB$
 
-**中线的性质**：
-- 三角形的三条中线交于一点
-- 这个交点叫做**重心**
-- 重心将每条中线分为2:1的两部分（从顶点到重心：从重心到中点 = 2:1）
+### 1.2.3 Corollary
 
-**中线的作法**：
-1. 找到一边的中点
-2. 连接对角的顶点与这个中点
+> **Corollary**: The difference of any two sides of a triangle is less than the third side.
 
-**应用**：中线可以把三角形分成两个面积相等的三角形
+**Mathematical Expression**:
+$$|a - b| < c$$
+$$|a - c| < b$$
+$$|b - c| < a$$
 
-#### 📍 三角形的角平分线
+**Derivation**:
+From $a + b > c$, we get $a > c - b$
+From $a + c > b$, we get $c > b - a$
+Therefore: $c - b < a < c + b$, which means $|a - b| < c$
 
-**定义**：三角形一个内角的平分线与它的对边相交，这个角的顶点与交点之间的线段叫做三角形的角平分线。
+### 1.2.4 Determining if Three Segments Can Form a Triangle
 
-**理解要点**：
-1. 角平分线是线段（不是射线或直线）
-2. 一个角对应一条角平分线
-3. 三角形有三条角平分线
+**Method 1**: Check all three combinations
+- Is $a + b > c$?
+- Is $a + c > b$?
+- Is $b + c > a$?
+If all three inequalities hold, the segments can form a triangle.
 
-**角平分线的性质**：
-- 三角形的三条角平分线交于一点
-- 这个交点叫做**内心**（内切圆圆心）
-- 内心到三角形三边的距离相等
+**Method 2 (Shortcut)**: Only check if the sum of the two shorter sides is greater than the longest side
+- Find the longest side
+- Calculate the sum of the other two sides
+- If sum > longest side, they can form a triangle
 
-**角平分线的作法**：
-- 用量角器：量出角的度数，作出半角的射线
-- 用尺规：以角顶点为圆心画弧，再以两交点为圆心画弧，连接顶点与新交点
+**Why Method 2 Works**:
+If the sum of the two shorter sides > longest side, then:
+- Longest side + any other side > remaining side (since the longest side is already large enough)
+- All three inequalities are automatically satisfied
 
-#### 🔍 三线的比较
+### 1.2.5 Examples
 
-| 线段类型 | 定义 | 性质 | 交点名称 | 交点位置（锐角三角形） |
-|---------|------|------|----------|----------------------|
-| 高 | 顶点到对边的垂线 | 三条高交于一点 | 垂心 | 内部 |
-| 中线 | 顶点到对边中点的线段 | 三条中线交于一点，将中线分为2:1 | 重心 | 内部 |
-| 角平分线 | 平分内角的线段 | 三条角平分线交于一点 | 内心 | 内部 |
+**Example 1**: Can the following sets of line segments form a triangle?
+(1) 3cm, 4cm, 5cm
+(2) 2cm, 3cm, 6cm
+(3) 4cm, 4cm, 8cm
+(4) 5cm, 7cm, 10cm
 
-#### 📝 典型例题
+**Solution**:
+(1) $3 + 4 = 7 > 5$ **Can form a triangle**
 
-**例5**：如图，在△ABC中，AD是高，AE是中线，AF是角平分线。
-（1）若BD = 3，CD = 5，求BC的长
-（2）若BE = EC = 4，求BC的长
-（3）若∠BAF = ∠CAF = 30°，求∠BAC的度数
+(2) $2 + 3 = 5 < 6$ **Cannot form a triangle**
 
-**解答**：
-（1）AD是高，D在BC上
-   BC = BD + CD = 3 + 5 = **8**
+(3) $4 + 4 = 8 = 8$ **Cannot form a triangle** (equality doesn't count)
 
-（2）AE是中线，E是BC的中点
-   BC = BE + EC = 4 + 4 = **8**
+(4) $5 + 7 = 12 > 10$ **Can form a triangle**
 
-（3）AF是角平分线
-   ∠BAC = ∠BAF + ∠CAF = 30° + 30° = **60°**
+**Example 2**: If two sides of a triangle have lengths 3 and 5, what is the range of the third side $x$?
 
-**例6**：在△ABC中，AB = AC = 5cm，BC = 6cm，AD是高，求BD的长。
+**Solution**:
+By the triangle inequality:
+- Sum of two sides > third side: $3 + 5 > x$, so $x < 8$
+- Difference of two sides < third side: $5 - 3 < x$, so $x > 2$
 
-**解答**：
-∵ AB = AC，AD是高
-∴ BD = CD（等腰三角形底边上的高就是中线）
-又∵ BC = 6cm
-∴ BD = 6 ÷ 2 = **3cm**
+**Answer**: $2 < x < 8$
 
----
+**Example 3**: If the three sides of a triangle are 3, 4, and $x$, find the range of $x$.
 
-### 11.1.4 三角形的稳定性
+**Solution**:
+When $x$ is the longest side: $3 + 4 > x$, so $x < 7$
+When $x$ is not the longest side: $x + 3 > 4$, so $x > 1$
 
-#### 🏗️ 稳定性的发现
+**Answer**: $1 < x < 7$
 
-**动手实验**：
-1. 用三根木棍钉成一个三角形
-2. 用四根木棍钉成一个四边形
-3. 分别推一推，观察哪个形状更容易改变
+**Note**: We must consider both cases—when $x$ is the longest side and when it isn't!
 
-**实验结果**：
-- 三角形：推不动，形状固定 ✅
-- 四边形：容易变形 ❌
+**Example 4**: The three sides of a triangle are in the ratio 2:3:4, and the perimeter is 18cm. Find the lengths of the three sides.
 
-#### 📖 稳定性定理
+**Solution**:
+Let the three sides be $2k$, $3k$, $4k$
 
-**定理**：三角形具有稳定性
+From the perimeter: $2k + 3k + 4k = 18$
+$9k = 18$
+$k = 2$
 
-**理解稳定性**：
-- 三角形的三条边长度确定后，三角形的形状就唯一确定了
-- 这是由三边关系定理决定的
-- 四边形、五边形等不具有稳定性（边长确定后形状不唯一）
+The three sides are: $2 \times 2 = 4$cm, $3 \times 2 = 6$cm, $4 \times 2 = 8$cm
 
-#### 🔧 稳定性的应用
+**Verification**: $4 + 6 = 10 > 8$ Satisfies the triangle inequality
 
-**建筑领域**：
-- 🏠 房屋的人字梁：利用三角形稳定性支撑屋顶
-- 🌉 桥梁的钢索：形成三角形结构分散重量
-- 🏗️ 建筑脚手架：用斜支撑形成三角形
+### 1.2.6 Common Mistakes
 
-**日常用品**：
-- 🚲 自行车的三脚架：停车时保持稳定
-- 🪑 折叠椅的支撑：展开后形成三角形
-- 📐 三角板：利用稳定性和直角特性
+**Mistake 1**: Thinking only one inequality needs to be checked
+- Correct approach: Check that the sum of any two sides > third side (or use the shortcut)
 
-**对比**：四边形不具有稳定性，但可以通过添加对角线使其稳定（把四边形分成两个三角形）
+**Mistake 2**: Thinking "greater than or equal to" is sufficient
+- Correct approach: Must be strictly greater! Equality means no triangle can be formed
 
-**如何使四边形稳定？**
-- 添加对角线：把四边形分成两个三角形
-- 加固角点：限制角的变形
-
-#### 📝 典型例题
-
-**例7**：如图，一个四边形木架容易变形，请添加一根木棍使其稳定，画出你的方案。
-
-**解答**：
-方案：连接任意一条对角线即可
-
-**原因**：添加对角线后，四边形被分成两个三角形，利用三角形的稳定性，整个结构就稳定了。
+**Mistake 3**: Forgetting the absolute value
+- Wrong: $a - b < c$
+- Correct: $|a - b| < c$
 
 ---
 
-## 11.2 与三角形有关的角
+# Part II: Intermediate Level
 
-### 11.2.1 三角形的内角和
+## 2.1 Special Line Segments in Triangles
 
-#### 🔍 探索活动
+### 2.1.1 Altitude (Height) of a Triangle
 
-**动手操作**：
-1. 在纸上画一个任意三角形
-2. 把三个角剪下来
-3. 把三个角拼在一起，观察发现了什么？
+> **Definition**: The altitude of a triangle is the perpendicular line segment from a vertex to the line containing the opposite side.
 
-**实验结果**：三个角恰好拼成一个平角（180°）！
+**Key Points**:
+1. An altitude is a line segment, not a line
+2. An altitude must be perpendicular to the opposite side (or its extension)
+3. Every triangle has three altitudes (one from each vertex)
 
-#### 📐 内角和定理
+**Position of Altitudes**:
+- **Acute triangle**: All three altitudes lie inside the triangle, meeting at an interior point (orthocenter)
+- **Right triangle**: The two legs are altitudes; they meet at the right angle vertex (orthocenter is at the vertex)
+- **Obtuse triangle**: Two altitudes lie outside the triangle, meeting at an exterior point (orthocenter is outside)
 
-**定理**：三角形三个内角的和等于180°
+**How to Construct an Altitude**:
+1. Draw a perpendicular from a vertex to the opposite side
+2. The segment from the vertex to the foot of the perpendicular is the altitude
 
-**数学表达**：
-在△ABC中：∠A + ∠B + ∠C = 180°
+**Property of Altitudes**:
+- The three altitudes (or their extensions) of a triangle meet at a single point
+- This point is called the **orthocenter**
 
-#### 📝 定理的证明
+### 2.1.2 Median of a Triangle
 
-**方法一：平行线法**
+> **Definition**: A median of a triangle is a line segment joining a vertex to the midpoint of the opposite side.
 
-```
-已知：△ABC
-求证：∠A + ∠B + ∠C = 180°
+**Key Points**:
+1. A median is a line segment
+2. Each vertex corresponds to one median
+3. Every triangle has three medians
 
-证明：过点A作直线MN ∥ BC
+**Properties of Medians**:
+- The three medians of a triangle meet at a single point
+- This point is called the **centroid**
+- The centroid divides each median in the ratio 2:1 (from vertex to centroid : from centroid to midpoint = 2:1)
 
-      ∵ MN ∥ BC
-      ∴ ∠1 = ∠B（两直线平行，同位角相等）
-          ∠2 = ∠C（两直线平行，内错角相等）
+**How to Construct a Median**:
+1. Find the midpoint of one side
+2. Connect the opposite vertex to this midpoint
 
-      ∵ ∠1 + ∠BAC + ∠2 = 180°（平角的定义）
-      ∴ ∠B + ∠BAC + ∠C = 180°
+**Application**: A median divides a triangle into two triangles of equal area.
 
-      即：∠A + ∠B + ∠C = 180°
-```
+### 2.1.3 Angle Bisector of a Triangle
 
-**证明思路分析**：
-1. 要把三个角加起来，最好让它们有一个公共顶点
-2. 过一个顶点作平行线，可以把其他两个角"搬"过来
-3. 利用平行线的性质，找到相等的角度关系
+> **Definition**: An angle bisector of a triangle is the line segment from a vertex to the opposite side that bisects the interior angle at that vertex.
 
-**方法二：顶点处拼角法**
+**Key Points**:
+1. An angle bisector is a line segment (not a ray or line)
+2. Each angle corresponds to one angle bisector
+3. Every triangle has three angle bisectors
 
-```
-证明：过点A作直线DE ∥ BC
+**Properties of Angle Bisectors**:
+- The three angle bisectors of a triangle meet at a single point
+- This point is called the **incenter** (center of the inscribed circle)
+- The incenter is equidistant from all three sides of the triangle
 
-      ∵ DE ∥ BC
-      ∴ ∠DAB = ∠B（两直线平行，内错角相等）
-          ∠EAC = ∠C（两直线平行，内错角相等）
+**How to Construct an Angle Bisector**:
+- Using a protractor: Measure the angle and draw a ray at half the angle
+- Using compass and straightedge: Draw an arc centered at the vertex, then draw arcs from the intersection points, and connect the vertex to the new intersection
 
-      ∵ ∠DAB + ∠BAC + ∠EAC = 180°（平角）
-      ∴ ∠B + ∠BAC + ∠C = 180°
-```
+### 2.1.4 Comparison of the Three Special Segments
 
-#### 📌 内角和定理的推论
+| Segment Type | Definition | Property | Point of Concurrency | Location (Acute Triangle) |
+|--------------|------------|----------|---------------------|---------------------------|
+| Altitude | Perpendicular from vertex to opposite side | Three altitudes meet at one point | Orthocenter | Interior |
+| Median | Segment from vertex to midpoint of opposite side | Three medians meet at one point; divides median 2:1 | Centroid | Interior |
+| Angle Bisector | Segment that bisects an interior angle | Three angle bisectors meet at one point | Incenter | Interior |
 
-**推论1**：直角三角形的两个锐角互余
+### 2.1.5 Examples
 
-**证明**：
-在Rt△ABC中，∠C = 90°
-∵ ∠A + ∠B + ∠C = 180°
-∴ ∠A + ∠B = 180° - 90° = 90°
-∴ ∠A + ∠B = 90°（互余）
+**Example 5**: In $\triangle ABC$, $AD$ is an altitude, $AE$ is a median, and $AF$ is an angle bisector.
+(1) If $BD = 3$ and $CD = 5$, find the length of $BC$
+(2) If $BE = EC = 4$, find the length of $BC$
+(3) If $\angle BAF = \angle CAF = 30°$, find $\angle BAC$
 
-**推论2**：三角形的一个外角等于和它不相邻的两个内角的和
+**Solution**:
+(1) $AD$ is an altitude, so $D$ is on $BC$
+   $BC = BD + CD = 3 + 5 = 8$
 
-**推论3**：三角形的一个外角大于任何一个和它不相邻的内角
+(2) $AE$ is a median, so $E$ is the midpoint of $BC$
+   $BC = BE + EC = 4 + 4 = 8$
 
-这两个推论在下一节详细讲解。
+(3) $AF$ is an angle bisector
+   $\angle BAC = \angle BAF + \angle CAF = 30° + 30° = 60°$
 
-#### 📝 典型例题
+**Example 6**: In $\triangle ABC$, $AB = AC = 5$ cm, $BC = 6$ cm, and $AD$ is an altitude. Find the length of $BD$.
 
-**例8**：在△ABC中，∠A = 40°，∠B = 60°，求∠C的度数。
-
-**解答**：
-根据三角形内角和定理：
-∠A + ∠B + ∠C = 180°
-40° + 60° + ∠C = 180°
-∠C = 180° - 40° - 60° = **80°**
-
-**例9**：在Rt△ABC中，∠C = 90°，∠A = 35°，求∠B的度数。
-
-**解答**：
-在Rt△ABC中，∠C = 90°
-根据推论1：直角三角形的两个锐角互余
-∠A + ∠B = 90°
-35° + ∠B = 90°
-∠B = 90° - 35° = **55°**
-
-**例10**：在△ABC中，∠A = 2∠B，∠C = ∠A + ∠B，求各角的度数。
-
-**解答**：
-∵ ∠A + ∠B + ∠C = 180°
-又∵ ∠C = ∠A + ∠B
-∴ ∠C = 180° ÷ 2 = 90°
-
-又∵ ∠A = 2∠B
-∴ ∠A + ∠B = 90°
-2∠B + ∠B = 90°
-3∠B = 90°
-∠B = 30°
-
-∠A = 2 × 30° = **60°**
-
-答：∠A = 60°，∠B = 30°，∠C = 90°
-
-**例11**：在△ABC中，∠A - ∠B = 30°，∠C = 80°，求∠A和∠B的度数。
-
-**解答**：
-∵ ∠A + ∠B + ∠C = 180°
-∠A + ∠B = 180° - 80° = 100°
-
-又∵ ∠A - ∠B = 30°
-
-由①+②得：2∠A = 130°，∠A = 65°
-由①-②得：2∠B = 70°，∠B = 35°
-
-答：∠A = 65°，∠B = 35°
-
-#### 💡 解题技巧
-
-**已知三角形两角求第三角**：直接用180°减去已知角之和
-
-**已知直角三角形一锐角求另一锐角**：用90°减去已知锐角
-
-**已知角度关系求各角**：列方程组求解
+**Solution**:
+Since $AB = AC$ and $AD$ is an altitude,
+$BD = CD$ (In an isosceles triangle, the altitude to the base is also the median)
+Since $BC = 6$ cm,
+$BD = 6 \div 2 = 3$ cm
 
 ---
 
-### 11.2.2 三角形的外角
+## 2.2 Stability of Triangles
 
-#### 📖 外角的定义
+### 2.2.1 Discovering Stability
 
-**定义**：三角形的一边与另一边的延长线组成的角，叫做三角形的外角。
+**Hands-on Experiment**:
+1. Nail three sticks together to form a triangle
+2. Nail four sticks together to form a quadrilateral
+3. Push on each shape and observe which one changes more easily
 
-**理解要点**：
-1. 外角是三角形内角的邻补角
-2. 一个顶点对应两个外角（互为对顶角，相等）
-3. 三角形共有6个外角（每顶点2个）
+**Results**:
+- Triangle: Does not deform; shape is fixed
+- Quadrilateral: Easily deforms
 
-**外角与内角的关系**：
-- 外角 + 相邻内角 = 180°（邻补角）
-- 外角 = 180° - 相邻内角
+### 2.2.2 The Stability Theorem
 
-#### 📐 外角性质定理
+> **Theorem**: Triangles have stability (rigidity).
 
-**性质1**：三角形的一个外角等于和它不相邻的两个内角的和
+**Understanding Stability**:
+- Once the three side lengths of a triangle are fixed, the shape of the triangle is uniquely determined
+- This is a consequence of the triangle inequality
+- Quadrilaterals, pentagons, etc., do not have stability (their shapes are not uniquely determined by side lengths)
 
-**证明**：
-```
-在△ABC中，外角∠ACD
+### 2.2.3 Applications of Stability
 
-∵ ∠ACD + ∠ACB = 180°（邻补角）
-    ∠A + ∠B + ∠ACB = 180°（内角和定理）
-∴ ∠ACD = ∠A + ∠B
-```
+**In Architecture**:
+- Roof trusses: Use triangular stability to support roofs
+- Bridge cables: Form triangular structures to distribute weight
+- Scaffolding: Use diagonal braces to form triangles
 
-**性质2**：三角形的一个外角大于任何一个和它不相邻的内角
+**In Daily Life**:
+- Bicycle kickstands: Maintain stability when parked
+- Folding chairs: Form triangles when opened
+- Set squares: Utilize stability and right angle properties
 
-**证明**：
-```
-∵ ∠ACD = ∠A + ∠B（性质1）
-又∵ ∠B > 0°
-∴ ∠ACD > ∠A
+**Contrast**: Quadrilaterals lack stability, but can be made stable by adding a diagonal (dividing the quadrilateral into two triangles).
 
-同理：∠ACD > ∠B
-```
+**How to Stabilize a Quadrilateral?**
+- Add a diagonal: Divides the quadrilateral into two triangles
+- Reinforce the corners: Restrict angle deformation
 
-#### 🎯 外角性质的应用
+**Example 7**: A quadrilateral wooden frame easily deforms. Add one stick to make it stable.
 
-**应用场景**：
-1. 求角的度数
-2. 证明角的不等关系
-3. 计算多个外角的和
+**Solution**: Connect any diagonal.
 
-**解题思路**：
-- 看到外角，立即想到它等于不相邻两内角之和
-- 可以把外角问题转化为内角问题
-
-#### 📝 典型例题
-
-**例12**：如图，在△ABC中，外角∠ACD = 100°，∠A = 40°，求∠B的度数。
-
-**解答**：
-根据三角形外角性质1：
-外角等于和它不相邻的两个内角的和
-∠ACD = ∠A + ∠B
-100° = 40° + ∠B
-∠B = 100° - 40° = **60°**
-
-**例13**：如图，在△ABC中，外角∠ACD = 120°，∠B = 50°，求∠A和∠C的度数。
-
-**解答**：
-（1）求∠A：
-根据外角性质：∠ACD = ∠A + ∠B
-120° = ∠A + 50°
-∠A = 120° - 50° = **70°**
-
-（2）求∠C：
-∠C = 180° - ∠ACD = 180° - 120° = **60°**
-
-或用内角和：∠C = 180° - ∠A - ∠B = 180° - 70° - 50° = **60°**
-
-**例14**：如图，在△ABC中，外角∠ACD = 110°，∠B = 40°，AE平分∠CAD，求∠CAE的度数。
-
-**解答**：
-（1）先求∠CAD：
-∠CAD = 180° - ∠ACD = 180° - 110° = 70°
-
-（2）求∠CAE：
-∵ AE平分∠CAD
-∴ ∠CAE = ½∠CAD = ½ × 70° = **35°**
-
-**例15**：如图，在△ABC中，∠A = 50°，∠B = 60°，CD是BC的延长线，CE是∠ACD的平分线，求∠ACE的度数。
-
-**解答**：
-（1）先求∠ACB：
-∠ACB = 180° - ∠A - ∠B = 180° - 50° - 60° = 70°
-
-（2）求∠ACD：
-∠ACD = 180° - ∠ACB = 180° - 70° = 110°
-
-（3）求∠ACE：
-∵ CE平分∠ACD
-∴ ∠ACE = ½∠ACD = ½ × 110° = **55°**
-
-#### ⚠️ 常见错误
-
-**错误1**：混淆外角与相邻内角
-- 错误：认为外角 + 相邻内角 = 90°
-- 正确：外角 + 相邻内角 = 180°
-
-**错误2**：用错外角性质
-- 错误：外角等于相邻内角 + 另一内角
-- 正确：外角等于不相邻的两个内角之和
+**Reason**: After adding a diagonal, the quadrilateral is divided into two triangles. Using the stability of triangles, the entire structure becomes stable.
 
 ---
 
-### 11.2.3 三角形的分类
+# Part III: Advanced Level
 
-#### 📊 按角分类
+## 3.1 Interior Angle Sum of a Triangle
 
-**分类标准**：根据三角形最大角的大小
+### 3.1.1 Exploration Activity
 
-| 类型 | 定义 | 角度特征 | 图示 |
-|------|------|----------|------|
-| 锐角三角形 | 三个角都是锐角 | 每个角 < 90° | △ |
-| 直角三角形 | 有一个角是直角 | 一个角 = 90°，其他两个角互余 | ∟ |
-| 钝角三角形 | 有一个角是钝角 | 一个角 > 90° | ▷ |
+**Hands-on Activity**:
+1. Draw any triangle on paper
+2. Cut out the three angles
+3. Place the three angles together and observe what happens
 
-**记忆口诀**：
-- 锐角三角形：三个角都尖尖
-- 直角三角形：一个角九十度
-- 钝角三角形：一个角大于九十
+**Result**: The three angles form exactly a straight angle (180°)!
 
-**判断方法**：
-- 看最大角：最大角 < 90° → 锐角
-- 看最大角：最大角 = 90° → 直角
-- 看最大角：最大角 > 90° → 钝角
+### 3.1.2 The Interior Angle Sum Theorem
 
-#### 📊 按边分类
+> **Theorem**: The sum of the three interior angles of a triangle equals 180°.
 
-**分类标准**：根据三角形边的相等关系
+**Mathematical Expression**:
+In $\triangle ABC$: $\angle A + \angle B + \angle C = 180°$
 
-| 类型 | 定义 | 边的特征 | 特殊性质 |
-|------|------|----------|----------|
-| 不等边三角形 | 三边都不相等 | a ≠ b ≠ c | 无特殊性质 |
-| 等腰三角形 | 有两条边相等 | 两条边相等 | 两底角相等，三线合一 |
-| 等边三角形 | 三条边都相等 | a = b = c | 三个角都是60° |
+### 3.1.3 Proof of the Theorem
 
-**等腰三角形的特殊术语**：
-- **腰**：相等的两条边
-- **底边**：另一条边
-- **顶角**：两腰的夹角
-- **底角**：底边上的两个角
-
-**等边三角形与等腰三角形的关系**：
-- 等边三角形是特殊的等腰三角形
-- 等腰三角形不一定是等边三角形
-
-#### 🔄 两种分类的关系
-
-按角分类和按边分类是独立的：
-- 等腰三角形可以是锐角、直角或钝角三角形
-- 等边三角形一定是锐角三角形（三个角都是60°）
-
-#### 📝 典型例题
-
-**例16**：一个三角形的三个内角之比为1:2:3，求各角的度数，并判断这个三角形的形状。
-
-**解答**：
-设三个角分别为x、2x、3x
-
-∵ x + 2x + 3x = 180°
-6x = 180°
-x = 30°
-
-∴ 三个角为：30°、60°、90°
-
-答：这个三角形是**直角三角形**。
-
-**例17**：在△ABC中，AB = AC，∠A = 50°，判断这个三角形的形状。
-
-**解答**：
-∵ AB = AC
-∴ △ABC是**等腰三角形**
-
-又∵ ∠A = 50° < 90°
-∴ △ABC也是**锐角三角形**
-
-答：这是一个等腰锐角三角形。
-
-**例18**：等腰三角形的一个角是40°，求其他两个角的度数。
-
-**解答**：
-需要分类讨论：
-
-**情况1**：顶角是40°
-则底角 = (180° - 40°) ÷ 2 = 70°
-答：其他两个角都是70°。
-
-**情况2**：底角是40°
-则顶角 = 180° - 2 × 40° = 100°
-答：其他两个角是40°和100°。
-
-**注意**：涉及等腰三角形的角度时，要分顶角或底角进行讨论！
-
----
-
-## 11.3 多边形及其内角和
-
-### 11.3.1 多边形的概念
-
-#### 📖 多边形的定义
-
-**定义**：在平面内，由一些线段首尾顺次相接组成的图形叫做多边形。
-
-**组成要素**：
-- **边**：组成多边形的线段
-- **顶点**：相邻两边的公共端点
-- **对角线**：连接多边形不相邻两个顶点的线段
-- **内角**：多边形相邻两边组成的角
-- **外角**：多边形的一边与另一边的延长线组成的角
-
-**命名规则**：
-- 按边数命名：三角形（3边）、四边形（4边）、五边形（5边）...
-- 一般地，n边形有n条边、n个顶点、n个内角
-
-**分类**：
-- **凸多边形**：任意两边都在对角线同侧
-- **凹多边形**：至少有一条边在对角线两侧
-
-#### 📐 对角线的条数
-
-**问题**：从n边形的一个顶点出发，可以引多少条对角线？
-
-**分析**：
-- 从一个顶点出发，不能连接到自身（减1）
-- 不能连接到相邻的两个顶点（减2）
-- 所以可以连接到 (n-3) 个顶点
-
-**公式**：从n边形的一个顶点出发，可以引 (n-3) 条对角线
-
-**问题**：n边形共有多少条对角线？
-
-**分析**：
-- 每个顶点可以引 (n-3) 条对角线
-- n个顶点共 n(n-3) 条
-- 但每条对角线被两个顶点各算了一次
-- 所以除以2
-
-**公式**：n边形共有 n(n-3)/2 条对角线
-
-**验证**：
-- 四边形：4(4-3)/2 = 2条 ✓
-- 五边形：5(5-3)/2 = 5条 ✓
-- 六边形：6(6-3)/2 = 9条 ✓
-
-#### 📝 典型例题
-
-**例19**：求十边形的对角线条数。
-
-**解答**：
-n = 10
-对角线条数 = 10(10-3)/2 = 10×7/2 = **35条**
-
-**例20**：一个多边形有14条对角线，求这个多边形的边数。
-
-**解答**：
-设这个多边形的边数为n
-
-n(n-3)/2 = 14
-n(n-3) = 28
-n² - 3n - 28 = 0
-(n-7)(n+4) = 0
-
-∴ n = 7 或 n = -4（舍去）
-
-答：这是一个**七边形**。
-
----
-
-### 11.3.2 多边形的内角和
-
-#### 🔍 探索活动
-
-**观察规律**：
-- 三角形内角和 = 180° = (3-2)×180°
-- 四边形内角和 = 360° = (4-2)×180°
-- 五边形内角和 = 540° = (5-2)×180°
-- 六边形内角和 = 720° = (6-2)×180°
-
-**发现规律**：n边形内角和 = (n-2)×180°
-
-#### 📐 内角和定理
-
-**定理**：n边形的内角和等于 (n-2)·180°
-
-#### 📝 定理的证明
-
-**方法一：分割三角形法**
+**Method 1: Parallel Line Method**
 
 ```
-证明：从n边形的一个顶点出发，可以引(n-3)条对角线
-      这些对角线将n边形分成(n-2)个三角形
-      每个三角形的内角和是180°
-      所以n边形的内角和是(n-2)·180°
+Given: △ABC
+Prove: ∠A + ∠B + ∠C = 180°
+
+Proof: Draw line MN through point A parallel to BC
+
+      Since MN ∥ BC
+      ∠1 = ∠B (alternate interior angles with parallel lines)
+      ∠2 = ∠C (alternate interior angles with parallel lines)
+
+      Since ∠1 + ∠BAC + ∠2 = 180° (definition of straight angle)
+      Therefore ∠B + ∠BAC + ∠C = 180°
+
+      That is: ∠A + ∠B + ∠C = 180°
 ```
 
-**证明思路**：
-1. 从一个顶点引对角线
-2. 把n边形分成若干个三角形
-3. 所有三角形的内角和就是n边形的内角和
-4. 三角形个数 = n - 2（因为n边形有n个顶点，去掉引对角线的顶点和他相邻的两个顶点，还剩n-3个顶点，加上引对角线的顶点，共n-2个三角形）
+**Proof Strategy Analysis**:
+1. To add three angles together, it's best to have them share a common vertex
+2. Drawing a parallel line through one vertex allows us to "transfer" the other two angles
+3. Use properties of parallel lines to establish angle relationships
 
-**方法二：内部取点法**
-
-```
-证明：在n边形内部任取一点O
-      连接O与各顶点
-      将n边形分成n个三角形
-      这n个三角形的内角和为n·180°
-      减去点O处的周角360°
-      得n边形的内角和 = n·180° - 360° = (n-2)·180°
-```
-
-#### 📝 典型例题
-
-**例21**：
-（1）求七边形的内角和
-（2）已知一个多边形的内角和是1440°，求这个多边形的边数
-
-**解答**：
-（1）七边形内角和 = (7 - 2) × 180°
-                  = 5 × 180°
-                  = **900°**
-
-（2）设这个多边形的边数为n
-    (n - 2) × 180° = 1440°
-    n - 2 = 1440° ÷ 180° = 8
-    n = 8 + 2 = 10
-
-    答：这是一个**十边形**。
-
-**例22**：一个多边形的每个内角都等于140°，求这个多边形的边数。
-
-**解答**：
-设这个多边形的边数为n
-
-每个内角 = 内角和 ÷ 边数
-140° = (n-2)·180° ÷ n
-
-140n = 180(n-2)
-140n = 180n - 360
-40n = 360
-n = 9
-
-答：这是一个**九边形**。
-
-**检验**：九边形内角和 = (9-2)×180° = 1260°，每个内角 = 1260°÷9 = 140° ✓
-
----
-
-### 11.3.3 多边形的外角和
-
-#### 🔍 探索活动
-
-**观察规律**：
-- 三边形外角和 = 360°
-- 四边形外角和 = 360°
-- 五边形外角和 = 360°
-- 六边形外角和 = 360°
-
-**发现规律**：多边形的外角和与边数无关，恒等于360°！
-
-#### 📐 外角和定理
-
-**定理**：n边形的外角和等于360°
-
-**说明**：n边形的外角和与边数n无关，恒等于360°
-
-#### 📝 定理的证明
+**Method 2: Vertex Angle Assembly**
 
 ```
-证明：n边形有n个内角，n个外角
-      每个内角 + 相邻外角 = 180°
-      n个内角和 + n个外角和 = n·180°
+Proof: Draw line DE through point A parallel to BC
 
-      ∵ n个内角和 = (n-2)·180°
-      ∴ n个外角和 = n·180° - (n-2)·180°
-                  = n·180° - n·180° + 360°
-                  = 360°
+      Since DE ∥ BC
+      ∠DAB = ∠B (alternate interior angles)
+      ∠EAC = ∠C (alternate interior angles)
+
+      Since ∠DAB + ∠BAC + ∠EAC = 180° (straight angle)
+      Therefore ∠B + ∠BAC + ∠C = 180°
 ```
 
-#### 🎯 外角和的应用
+### 3.1.4 Corollaries of the Interior Angle Sum Theorem
 
-**应用场景**：
-1. 已知各外角度数，求边数
-2. 已知边数和部分外角，求其他外角
-3. 正多边形的计算
+**Corollary 1**: The two acute angles of a right triangle are complementary.
 
-**解题思路**：
-- 外角和恒为360°，与边数无关
-- 边数 = 360° ÷ 每个外角的度数（正多边形）
+**Proof**:
+In right triangle $\triangle ABC$ with $\angle C = 90°$
+Since $\angle A + \angle B + \angle C = 180°$
+$\angle A + \angle B = 180° - 90° = 90°$
+Therefore $\angle A + \angle B = 90°$ (complementary)
 
-#### 📝 典型例题
+**Corollary 2**: An exterior angle of a triangle equals the sum of the two non-adjacent interior angles.
 
-**例23**：一个多边形的每个外角都等于60°，求这个多边形的边数。
+**Corollary 3**: An exterior angle of a triangle is greater than either non-adjacent interior angle.
 
-**解答**：
-多边形的外角和恒等于360°
-边数 = 360° ÷ 60° = **6**
+These corollaries are explained in detail in the next section.
 
-答：这是一个**六边形**。
+### 3.1.5 Examples
 
-**例24**：一个多边形的每个外角都等于40°，求这个多边形的边数和内角和。
+**Example 8**: In $\triangle ABC$, $\angle A = 40°$ and $\angle B = 60°$. Find $\angle C$.
 
-**解答**：
-（1）求边数：
-边数 = 360° ÷ 40° = **9**
+**Solution**:
+By the interior angle sum theorem:
+$\angle A + \angle B + \angle C = 180°$
+$40° + 60° + \angle C = 180°$
+$\angle C = 180° - 40° - 60° = 80°$
 
-（2）求内角和：
-内角和 = (9-2) × 180° = 7 × 180° = **1260°**
+**Example 9**: In right triangle $\triangle ABC$, $\angle C = 90°$ and $\angle A = 35°$. Find $\angle B$.
 
-答：这是一个九边形，内角和为1260°。
+**Solution**:
+In $\text{Rt}\triangle ABC$, $\angle C = 90°$
+By Corollary 1: The two acute angles of a right triangle are complementary
+$\angle A + \angle B = 90°$
+$35° + \angle B = 90°$
+$\angle B = 90° - 35° = 55°$
 
-**例25**：已知一个正n边形的一个外角是一个内角的⅓，求n的值。
+**Example 10**: In $\triangle ABC$, $\angle A = 2\angle B$ and $\angle C = \angle A + \angle B$. Find all three angles.
 
-**解答**：
-设每个外角为x°，则每个内角为3x°
+**Solution**:
+Since $\angle A + \angle B + \angle C = 180°$
+And $\angle C = \angle A + \angle B$
+Therefore $\angle C = 180° \div 2 = 90°$
 
-∵ 外角 + 内角 = 180°
-∴ x + 3x = 180°
-4x = 180°
-x = 45°
+Since $\angle A = 2\angle B$
+And $\angle A + \angle B = 90°$
+$2\angle B + \angle B = 90°$
+$3\angle B = 90°$
+$\angle B = 30°$
 
-∴ 每个外角 = 45°
-边数 n = 360° ÷ 45° = **8**
+$\angle A = 2 \times 30° = 60°$
 
-答：这是一个**八边形**。
+**Answer**: $\angle A = 60°$, $\angle B = 30°$, $\angle C = 90°$
 
----
+**Example 11**: In $\triangle ABC$, $\angle A - \angle B = 30°$ and $\angle C = 80°$. Find $\angle A$ and $\angle B$.
 
-## 11.4 综合应用与思维提升
+**Solution**:
+Since $\angle A + \angle B + \angle C = 180°$
+$\angle A + \angle B = 180° - 80° = 100°$ ... ①
 
-### 11.4.1 角度计算综合题
+And $\angle A - \angle B = 30°$ ... ②
 
-#### 📝 典型例题
+Adding ① and ②: $2\angle A = 130°$, so $\angle A = 65°$
+Subtracting ② from ①: $2\angle B = 70°$, so $\angle B = 35°$
 
-**例26**：如图，在△ABC中，AD是高，AE是角平分线，∠B = 50°，∠C = 70°
-（1）求∠BAC的度数
-（2）求∠DAE的度数
+**Answer**: $\angle A = 65°$, $\angle B = 35°$
 
-**解答**：
-（1）根据三角形内角和定理：
-    ∠BAC = 180° - ∠B - ∠C
-         = 180° - 50° - 70°
-         = **60°**
+### 3.1.6 Problem-Solving Tips
 
-（2）AD是高，所以 ∠ADB = 90°
-    在Rt△ABD中：
-    ∠BAD = 90° - ∠B = 90° - 50° = 40°
+**Finding the third angle given two angles**: Subtract the sum of the known angles from 180°
 
-    AE是角平分线，所以：
-    ∠BAE = ½∠BAC = ½ × 60° = 30°
+**Finding one acute angle in a right triangle given the other**: Subtract the known acute angle from 90°
 
-    ∠DAE = ∠BAD - ∠BAE = 40° - 30° = **10°**
-
-**解题思路**：
-1. 先用内角和求∠BAC
-2. 利用高线求∠BAD
-3. 利用角平分线求∠BAE
-4. 最后用减法求∠DAE
-
-**例27**：如图，在△ABC中，AD⊥BC于D，AE平分∠BAC，∠B = 70°，∠C = 34°
-（1）求∠BAE的度数
-（2）求∠DAE的度数
-
-**解答**：
-（1）∠BAC = 180° - ∠B - ∠C = 180° - 70° - 34° = 76°
-    ∠BAE = ½∠BAC = ½ × 76° = **38°**
-
-（2）AD⊥BC，∴ ∠ADB = 90°
-    在Rt△ABD中：
-    ∠BAD = 90° - ∠B = 90° - 70° = 20°
-
-    ∠DAE = ∠BAE - ∠BAD = 38° - 20° = **18°**
+**Finding angles given relationships**: Set up and solve a system of equations
 
 ---
 
-### 11.4.2 实际应用问题
+## 3.2 Exterior Angles of a Triangle
 
-#### 🏗️ 应用1：建筑中的三角形
+### 3.2.1 Definition of Exterior Angle
 
-**问题**：建筑工人要搭建一个三角形脚手架，现有三根钢管，长度分别为2米、3米、4米，能否组成一个三角形脚手架？
+> **Definition**: An exterior angle of a triangle is the angle formed by one side of the triangle and the extension of an adjacent side.
 
-**解答**：
-检查三边关系：2 + 3 = 5 > 4 ✅
+**Key Points**:
+1. An exterior angle is supplementary to its adjacent interior angle
+2. Each vertex has two exterior angles (which are vertical angles and therefore equal)
+3. A triangle has 6 exterior angles in total (2 at each vertex)
 
-答：**能**组成三角形脚手架。
+**Relationship Between Exterior and Interior Angles**:
+- Exterior angle + Adjacent interior angle = 180° (supplementary angles)
+- Exterior angle = 180° - Adjacent interior angle
 
-#### 🚂 应用2：道路设计
+### 3.2.2 Exterior Angle Properties
 
-**问题**：从A地到B地，有两条路：
-- 路线1：直接从A到B（距离5km）
-- 路线2：从A到C再到B（AC = 3km，CB = 4km）
+**Property 1**: An exterior angle of a triangle equals the sum of the two non-adjacent interior angles.
 
-哪条路线更近？为什么？
-
-**解答**：
-根据三边关系：3 + 4 > 5
-所以路线1的距离 < 路线2的距离
-
-答：**路线1**更近，因为两点之间线段最短。
-
-#### 📐 应用3：木工制作
-
-**问题**：木工要制作一个等腰三角形框架，底边长为60cm，腰长为30cm，能否制作成功？
-
-**解答**：
-检查三边关系：30 + 30 = 60
-
-30 + 30 不大于 60（等于）
-
-答：**不能**制作成功，因为两边之和必须大于第三边，等于也不行。
-
-**修改建议**：增加腰长或减小底边
-
----
-
-### 11.4.3 数学思想方法
-
-#### 💡 思想1：分类讨论思想
-
-**应用场景**：
-- 等腰三角形的角的问题（顶角还是底角？）
-- 三角形的分类问题
-- 边长的取值范围问题
-
-**例28**：等腰三角形的一个角是50°，求其他两个角的度数。
-
-**解答**：
-需要分类讨论：
-
-**情况1**：顶角是50°
-底角 = (180° - 50°) ÷ 2 = 65°
-答：其他两个角都是65°。
-
-**情况2**：底角是50°
-顶角 = 180° - 2 × 50° = 80°
-答：其他两个角是50°和80°。
-
-#### 💡 思想2：方程思想
-
-**应用场景**：
-- 已知角度关系，求各角度数
-- 已知边长关系，求各边长度
-
-**例29**：在△ABC中，∠A : ∠B : ∠C = 2 : 3 : 4，求各角的度数。
-
-**解答**：
-设∠A = 2x°，∠B = 3x°，∠C = 4x°
-
-2x + 3x + 4x = 180
-9x = 180
-x = 20
-
-∴ ∠A = 2×20 = **40°**
-   ∠B = 3×20 = **60°**
-   ∠C = 4×20 = **80°**
-
-#### 💡 思想3：转化思想
-
-**应用场景**：
-- 外角问题转化为内角问题
-- 多边形问题转化为三角形问题
-
-**例30**：如图，求五边形ABCDE的内角和。
-
-**解答**：
-转化为三角形问题：
-从顶点A引对角线AC、AD
-将五边形分成3个三角形
-内角和 = 3 × 180° = **540°**
-
-或用公式：(5-2)×180° = **540°**
-
-#### 💡 思想4：数形结合思想
-
-**应用场景**：
-- 画图帮助理解题意
-- 用图形直观展示数量关系
-
-**建议**：遇到几何问题，先画出示意图，标注已知条件，再进行分析。
-
----
-
-## 11.5 常见错误与注意事项
-
-### ⚠️ 错误归纳
-
-**错误类型1：三边关系理解错误**
-- 错误：认为"两边之和大于或等于第三边"
-- 正确：必须严格大于！等于时不能组成三角形
-
-**错误类型2：外角性质应用错误**
-- 错误：外角等于相邻内角加另一内角
-- 正确：外角等于不相邻的两个内角之和
-
-**错误类型3：高、中线、角平分线混淆**
-- 错误：认为高就是中线，或中线就是角平分线
-- 正确：高⊥对边，中线平分对边，角平分线平分角
-
-**错误类型4：忘记分类讨论**
-- 错误：等腰三角形问题中不区分顶角和底角
-- 正确：涉及等腰三角形的角，要分类讨论
-
-**错误类型5：计算错误**
-- 错误：180° - 60° - 50° = 70°
-- 正确：180° - 60° - 50° = 70° ✓
-- 但也有算错的情况：180° - 60° - 50° = 80° ✗
-
-**错误类型6：多边形对角线公式记错**
-- 错误：对角线条数 = n(n-2)/2
-- 正确：对角线条数 = n(n-3)/2
-
-### ✅ 解题规范
-
-**几何证明题的书写格式**：
-1. 已知、求证要明确
-2. 证明过程要逻辑清晰
-3. 每步都要有依据（写在括号内）
-4. 图形要标注清楚
-
-**计算题的书写格式**：
-1. 写出所用公式或定理
-2. 代入数值
-3. 计算过程
-4. 答案要带单位
-
----
-
-## 📝 练习题
-
-### 基础巩固
-
-**一、填空题**
-
-1. 三角形两边长分别为3和5，则第三边长x的取值范围是____
-
-2. 三角形的内角和等于____度
-
-3. 直角三角形的两个锐角____
-
-4. n边形的内角和等于____
-
-5. 多边形的外角和等于____度
-
-6. 从n边形的一个顶点出发，可以引____条对角线
-
-7. 等腰三角形的两个底角____
-
-8. 三角形的三条____交于一点，这点叫做重心
-
-9. 在Rt△ABC中，∠C = 90°，若∠A = 40°，则∠B = ____
-
-10. 六边形的内角和是____度
-
-**二、选择题**
-
-11. 下列长度的三条线段能组成三角形的是（  ）
-    A. 1cm, 2cm, 3cm
-    B. 2cm, 3cm, 5cm
-    C. 3cm, 4cm, 5cm
-    D. 2cm, 3cm, 6cm
-
-12. 在△ABC中，若∠A = 50°，∠B = 60°，则∠C =（  ）
-    A. 50°
-    B. 60°
-    C. 70°
-    D. 80°
-
-13. 一个三角形的三个内角之比为1:2:3，则这个三角形是（  ）
-    A. 锐角三角形
-    B. 直角三角形
-    C. 钝角三角形
-    D. 等腰三角形
-
-14. 下列图形中，具有稳定性的是（  ）
-    A. 正方形
-    B. 平行四边形
-    C. 三角形
-    D. 梯形
-
-15. 若等腰三角形的一个角是70°，则其他两个角是（  ）
-    A. 70°, 40°
-    B. 55°, 55°
-    C. 70°, 70°
-    D. 55°, 55° 或 70°, 40°
-
-**三、解答题**
-
-16. 一个三角形的两边长分别是4和7，求第三边长x的取值范围。
-
-17. 在△ABC中，∠A = 70°，∠B = 50°，求∠C的度数。
-
-18. 在Rt△ABC中，∠C = 90°，∠A = 55°，求∠B的度数。
-
-19. 求十边形的内角和和对角线条数。
-
-20. 一个多边形的每个外角都等于30°，求这个多边形的边数。
-
-### 进阶提升
-
-21. 在△ABC中，∠A - ∠B = 20°，∠C = 80°，求∠A和∠B的度数。
-
-22. 在△ABC中，AB = AC，∠A = 80°，求∠B和∠C的度数。
-
-23. 一个多边形的内角和是1260°，求这个多边形的边数和对角线条数。
-
-24. 一个多边形的每个内角都等于150°，求这个多边形的边数。
-
-25. 在△ABC中，AD是高，AE是角平分线，∠B = 60°，∠C = 50°，求∠DAE的度数。
-
-### 拓展提高
-
-26. 如图，在△ABC中，外角∠ACD = 120°，∠B = 50°，AE平分∠CAD，求∠BAE的度数。
-
-27. 在△ABC中，∠A = 60°，∠B = 70°，AD是高，AE是角平分线，求∠DAE的度数。
-
-28. 一个正n边形的一个内角与一个外角的比是3:1，求n的值。
-
-29. 在△ABC中，AB = AC，D是BC上一点，若BD = 5，CD = 3，求AD的取值范围。
-
-30. 如图，在△ABC中，∠B = 50°，∠C = 70°，AD⊥BC于D，AE平分∠BAC
-    （1）求∠BAE的度数
-    （2）求∠DAE的度数
-    （3）若AD = 6，AB = 10，求BD的长
-
----
-
-## 📚 知识结构图
-
+**Proof**:
 ```
-三角形
-├── 与三角形有关的线段
-│   ├── 三角形的边
-│   │   ├── 三边关系：两边之和大于第三边
-│   │   └── 应用：判断能否组成三角形
-│   ├── 高
-│   │   ├── 定义：顶点到对边的垂线
-│   │   └── 性质：三条高交于垂心
-│   ├── 中线
-│   │   ├── 定义：顶点到对边中点的线段
-│   │   └── 性质：三条中线交于重心（2:1）
-│   ├── 角平分线
-│   │   ├── 定义：平分内角的线段
-│   │   └── 性质：三条角平分线交于内心
-│   └── 稳定性
-│       ├── 性质：三角形具有稳定性
-│       └── 应用：建筑、桥梁等
-│
-├── 与三角形有关的角
-│   ├── 内角和：180°
-│   │   ├── 定理证明：平行线法
-│   │   └── 推论：直角三角形两锐角互余
-│   ├── 外角
-│   │   ├── 定义：一边与另一边延长线的夹角
-│   │   ├── 性质1：等于不相邻两内角之和
-│   │   └── 性质2：大于不相邻的任一内角
-│   └── 分类
-│       ├── 按角：锐角、直角、钝角三角形
-│       └── 按边：不等边、等腰、等边三角形
-│
-└── 多边形
-    ├── 对角线：n(n-3)/2 条
-    ├── 内角和：(n-2)·180°
-    ├── 外角和：360°（恒定）
-    └── 应用：边数与角度关系
+In △ABC, let ∠ACD be an exterior angle
+
+Since ∠ACD + ∠ACB = 180° (supplementary angles)
+And ∠A + ∠B + ∠ACB = 180° (interior angle sum theorem)
+Therefore ∠ACD = ∠A + ∠B
 ```
 
+**Property 2**: An exterior angle of a triangle is greater than either non-adjacent interior angle.
+
+**Proof**:
+```
+Since ∠ACD = ∠A + ∠B (Property 1)
+And ∠B > 0°
+Therefore ∠ACD > ∠A
+
+Similarly: ∠ACD > ∠B
+```
+
+### 3.2.3 Applications of Exterior Angle Properties
+
+**Application Scenarios**:
+1. Finding angle measures
+2. Proving angle inequalities
+3. Calculating sums of multiple exterior angles
+
+**Problem-Solving Strategy**:
+- When you see an exterior angle, immediately think: it equals the sum of the two non-adjacent interior angles
+- Convert exterior angle problems to interior angle problems
+
+### 3.2.4 Examples
+
+**Example 12**: In $\triangle ABC$, exterior angle $\angle ACD = 100°$ and $\angle A = 40°$. Find $\angle B$.
+
+**Solution**:
+By exterior angle Property 1:
+Exterior angle = sum of non-adjacent interior angles
+$\angle ACD = \angle A + \angle B$
+$100° = 40° + \angle B$
+$\angle B = 100° - 40° = 60°$
+
+**Example 13**: In $\triangle ABC$, exterior angle $\angle ACD = 120°$ and $\angle B = 50°$. Find $\angle A$ and $\angle C$.
+
+**Solution**:
+(1) Finding $\angle A$:
+By exterior angle property: $\angle ACD = \angle A + \angle B$
+$120° = \angle A + 50°$
+$\angle A = 120° - 50° = 70°$
+
+(2) Finding $\angle C$:
+$\angle C = 180° - \angle ACD = 180° - 120° = 60°$
+
+Or using interior angle sum: $\angle C = 180° - \angle A - \angle B = 180° - 70° - 50° = 60°$
+
+**Example 14**: In $\triangle ABC$, exterior angle $\angle ACD = 110°$, $\angle B = 40°$, and $AE$ bisects $\angle CAD$. Find $\angle CAE$.
+
+**Solution**:
+(1) First find $\angle CAD$:
+$\angle CAD = 180° - \angle ACD = 180° - 110° = 70°$
+
+(2) Find $\angle CAE$:
+Since $AE$ bisects $\angle CAD$
+$\angle CAE = \frac{1}{2}\angle CAD = \frac{1}{2} \times 70° = 35°$
+
+**Example 15**: In $\triangle ABC$, $\angle A = 50°$, $\angle B = 60°$, $CD$ is an extension of $BC$, and $CE$ bisects $\angle ACD$. Find $\angle ACE$.
+
+**Solution**:
+(1) First find $\angle ACB$:
+$\angle ACB = 180° - \angle A - \angle B = 180° - 50° - 60° = 70°$
+
+(2) Find $\angle ACD$:
+$\angle ACD = 180° - \angle ACB = 180° - 70° = 110°$
+
+(3) Find $\angle ACE$:
+Since $CE$ bisects $\angle ACD$
+$\angle ACE = \frac{1}{2}\angle ACD = \frac{1}{2} \times 110° = 55°$
+
+### 3.2.5 Common Mistakes
+
+**Mistake 1**: Confusing exterior angle with adjacent interior angle
+- Wrong: Exterior angle + adjacent interior angle = 90°
+- Correct: Exterior angle + adjacent interior angle = 180°
+
+**Mistake 2**: Misapplying exterior angle property
+- Wrong: Exterior angle = adjacent interior angle + another interior angle
+- Correct: Exterior angle = sum of the two NON-ADJACENT interior angles
+
 ---
 
-## 🎯 本章重点难点总结
+## 3.3 Classification of Triangles
 
-### 重点知识
-1. ✅ 三角形三边关系定理及应用
-2. ✅ 三角形的高、中线、角平分线的定义和性质
-3. ✅ 三角形的内角和定理及证明
-4. ✅ 三角形外角性质及应用
-5. ✅ 多边形的内角和与外角和公式
-6. ✅ 三角形的分类
+### 3.3.1 Classification by Angles
 
-### 难点突破
-1. 🎯 三角形三边关系的灵活应用（特别是取值范围问题）
-2. 🎯 三角形外角性质的证明和应用
-3. 🎯 多边形内角和定理的理解和推导
-4. 🎯 几何证明的书写规范和逻辑推理
-5. 🎯 分类讨论思想的应用（等腰三角形的角）
-6. 🎯 角平分线、高线、中线的综合应用
+**Classification Criterion**: Based on the largest angle of the triangle
 
-### 核心方法
-1. 💡 **分类讨论**：等腰三角形问题要分顶角和底角
-2. 💡 **方程思想**：用方程解决角度关系问题
-3. 💡 **转化思想**：外角转内角，多边形转三角形
-4. 💡 **数形结合**：画图辅助分析和解题
+| Type | Definition | Angle Characteristics |
+|------|------------|----------------------|
+| Acute triangle | All three angles are acute | Each angle < 90° |
+| Right triangle | One angle is a right angle | One angle = 90°, other two are complementary |
+| Obtuse triangle | One angle is obtuse | One angle > 90° |
+
+**Memory Aid**:
+- Acute triangle: All three angles are "sharp"
+- Right triangle: One angle is exactly 90°
+- Obtuse triangle: One angle is greater than 90°
+
+**Determination Method**:
+- Look at the largest angle: If largest angle < 90° → Acute
+- Look at the largest angle: If largest angle = 90° → Right
+- Look at the largest angle: If largest angle > 90° → Obtuse
+
+### 3.3.2 Classification by Sides
+
+**Classification Criterion**: Based on the equality relationships among sides
+
+| Type | Definition | Side Characteristics | Special Properties |
+|------|------------|---------------------|-------------------|
+| Scalene triangle | All three sides are different | $a \neq b \neq c$ | No special properties |
+| Isosceles triangle | Two sides are equal | Two sides equal | Two base angles equal; "three-in-one" property |
+| Equilateral triangle | All three sides are equal | $a = b = c$ | All three angles are 60° |
+
+**Special Terminology for Isosceles Triangles**:
+- **Legs**: The two equal sides
+- **Base**: The third side
+- **Vertex angle**: The angle between the two legs
+- **Base angles**: The two angles at the base
+
+**Relationship Between Equilateral and Isosceles Triangles**:
+- An equilateral triangle is a special case of an isosceles triangle
+- An isosceles triangle is not necessarily equilateral
+
+### 3.3.3 Relationship Between the Two Classifications
+
+Classification by angles and by sides are independent:
+- An isosceles triangle can be acute, right, or obtuse
+- An equilateral triangle is always acute (all angles are 60°)
+
+### 3.3.4 Examples
+
+**Example 16**: The three interior angles of a triangle are in the ratio 1:2:3. Find each angle and determine the type of triangle.
+
+**Solution**:
+Let the three angles be $x$, $2x$, $3x$
+
+Since $x + 2x + 3x = 180°$
+$6x = 180°$
+$x = 30°$
+
+The three angles are: 30°, 60°, 90°
+
+**Answer**: This is a **right triangle**.
+
+**Example 17**: In $\triangle ABC$, $AB = AC$ and $\angle A = 50°$. Determine the type of triangle.
+
+**Solution**:
+Since $AB = AC$
+$\triangle ABC$ is an **isosceles triangle**
+
+Since $\angle A = 50° < 90°$
+$\triangle ABC$ is also an **acute triangle**
+
+**Answer**: This is an isosceles acute triangle.
+
+**Example 18**: One angle of an isosceles triangle is 40°. Find the other two angles.
+
+**Solution**:
+Case analysis is required:
+
+**Case 1**: The vertex angle is 40°
+Base angles = $(180° - 40°) \div 2 = 70°$
+**Answer**: The other two angles are both 70°.
+
+**Case 2**: A base angle is 40°
+Vertex angle = $180° - 2 \times 40° = 100°$
+**Answer**: The other two angles are 40° and 100°.
+
+**Note**: When dealing with angles in isosceles triangles, always consider whether the given angle is the vertex angle or a base angle!
 
 ---
 
-## 📖 学习建议
+## 3.4 Polygons and Their Angle Sums
 
-1. **理解基本概念**：三角形的相关概念要理解透彻，不能死记硬背
-2. **掌握基本定理**：内角和定理、外角性质、三边关系要熟练掌握
-3. **规范书写证明**：八年级开始学习几何证明，要培养严谨的逻辑思维
-4. **注重画图习惯**：几何问题要养成画图的好习惯，图要画得准确、标注清晰
-5. **总结解题方法**：遇到典型问题要总结解题思路和方法
-6. **多做练习题**：从基础题做起，逐步提高难度，培养解题能力
+### 3.4.1 Definition of Polygons
+
+> **Definition**: A polygon is a closed figure in a plane formed by line segments connected end to end.
+
+**Components**:
+- **Sides**: The line segments forming the polygon
+- **Vertices**: The common endpoints of adjacent sides
+- **Diagonals**: Line segments connecting non-adjacent vertices
+- **Interior angles**: Angles formed by adjacent sides
+- **Exterior angles**: Angles formed by one side and the extension of an adjacent side
+
+**Naming Convention**:
+- Named by number of sides: triangle (3), quadrilateral (4), pentagon (5), hexagon (6), etc.
+- In general, an n-gon has n sides, n vertices, and n interior angles
+
+**Classification**:
+- **Convex polygon**: All interior angles are less than 180°
+- **Concave polygon**: At least one interior angle is greater than 180°
+
+### 3.4.2 Number of Diagonals
+
+**Question**: From one vertex of an n-gon, how many diagonals can be drawn?
+
+**Analysis**:
+- From one vertex, you cannot connect to itself (subtract 1)
+- You cannot connect to the two adjacent vertices (subtract 2)
+- So you can connect to $(n-3)$ vertices
+
+**Formula**: From one vertex of an n-gon, $(n-3)$ diagonals can be drawn.
+
+**Question**: How many diagonals does an n-gon have in total?
+
+**Analysis**:
+- Each vertex can draw $(n-3)$ diagonals
+- n vertices give $n(n-3)$ diagonals
+- But each diagonal is counted twice (once from each endpoint)
+- So divide by 2
+
+**Formula**: An n-gon has $\frac{n(n-3)}{2}$ diagonals.
+
+**Verification**:
+- Quadrilateral: $\frac{4(4-3)}{2} = 2$ diagonals ✓
+- Pentagon: $\frac{5(5-3)}{2} = 5$ diagonals ✓
+- Hexagon: $\frac{6(6-3)}{2} = 9$ diagonals ✓
+
+### 3.4.3 Examples on Diagonals
+
+**Example 19**: Find the number of diagonals in a decagon (10-gon).
+
+**Solution**:
+$n = 10$
+Number of diagonals = $\frac{10(10-3)}{2} = \frac{10 \times 7}{2} = 35$
+
+**Example 20**: A polygon has 14 diagonals. Find the number of sides.
+
+**Solution**:
+Let the polygon have $n$ sides
+
+$\frac{n(n-3)}{2} = 14$
+$n(n-3) = 28$
+$n^2 - 3n - 28 = 0$
+$(n-7)(n+4) = 0$
+
+$n = 7$ or $n = -4$ (rejected)
+
+**Answer**: This is a **heptagon** (7-gon).
 
 ---
 
-**下一章学习预告**：第十二章 全等三角形
+### 3.4.4 Interior Angle Sum of Polygons
+
+**Observation of Patterns**:
+- Triangle interior angle sum = $180° = (3-2) \times 180°$
+- Quadrilateral interior angle sum = $360° = (4-2) \times 180°$
+- Pentagon interior angle sum = $540° = (5-2) \times 180°$
+- Hexagon interior angle sum = $720° = (6-2) \times 180°$
+
+**Pattern Discovered**: Interior angle sum of an n-gon = $(n-2) \times 180°$
+
+### 3.4.5 Interior Angle Sum Theorem
+
+> **Theorem**: The sum of the interior angles of an n-gon equals $(n-2) \cdot 180°$.
+
+### 3.4.6 Proof of the Theorem
+
+**Method 1: Triangle Decomposition**
+
+```
+Proof: From one vertex of an n-gon, (n-3) diagonals can be drawn
+      These diagonals divide the n-gon into (n-2) triangles
+      Each triangle has an interior angle sum of 180°
+      Therefore the n-gon has interior angle sum (n-2)·180°
+```
+
+**Proof Strategy**:
+1. Draw diagonals from one vertex
+2. Divide the n-gon into triangles
+3. The sum of all triangle angles equals the polygon's interior angle sum
+4. Number of triangles = n - 2
+
+**Method 2: Interior Point Method**
+
+```
+Proof: Choose any point O inside the n-gon
+      Connect O to each vertex
+      This divides the n-gon into n triangles
+      The sum of angles in these n triangles is n·180°
+      Subtract the full angle at O (360°)
+      Interior angle sum = n·180° - 360° = (n-2)·180°
+```
+
+### 3.4.7 Examples on Interior Angle Sum
+
+**Example 21**:
+(1) Find the interior angle sum of a heptagon (7-gon)
+(2) A polygon has an interior angle sum of 1440°. Find the number of sides.
+
+**Solution**:
+(1) Heptagon interior angle sum = $(7 - 2) \times 180°$
+                                = $5 \times 180°$
+                                = $900°$
+
+(2) Let the polygon have $n$ sides
+    $(n - 2) \times 180° = 1440°$
+    $n - 2 = 1440° \div 180° = 8$
+    $n = 8 + 2 = 10$
+
+    **Answer**: This is a **decagon** (10-gon).
+
+**Example 22**: Each interior angle of a polygon equals 140°. Find the number of sides.
+
+**Solution**:
+Let the polygon have $n$ sides
+
+Each interior angle = Interior angle sum ÷ Number of sides
+$140° = \frac{(n-2) \cdot 180°}{n}$
+
+$140n = 180(n-2)$
+$140n = 180n - 360$
+$40n = 360$
+$n = 9$
+
+**Answer**: This is a **nonagon** (9-gon).
+
+**Verification**: Nonagon interior angle sum = $(9-2) \times 180° = 1260°$
+Each interior angle = $1260° \div 9 = 140°$ ✓
+
+---
+
+### 3.4.8 Exterior Angle Sum of Polygons
+
+**Observation of Patterns**:
+- Triangle exterior angle sum = 360°
+- Quadrilateral exterior angle sum = 360°
+- Pentagon exterior angle sum = 360°
+- Hexagon exterior angle sum = 360°
+
+**Pattern Discovered**: The exterior angle sum of any polygon is always 360°, regardless of the number of sides!
+
+### 3.4.9 Exterior Angle Sum Theorem
+
+> **Theorem**: The sum of the exterior angles of an n-gon equals 360°.
+
+**Note**: The exterior angle sum of an n-gon is independent of n; it is always 360°.
+
+### 3.4.10 Proof of the Theorem
+
+```
+Proof: An n-gon has n interior angles and n exterior angles
+      Each interior angle + adjacent exterior angle = 180°
+      Sum of n interior angles + Sum of n exterior angles = n·180°
+
+      Since sum of n interior angles = (n-2)·180°
+      Therefore sum of n exterior angles = n·180° - (n-2)·180°
+                                        = n·180° - n·180° + 360°
+                                        = 360°
+```
+
+### 3.4.11 Applications of Exterior Angle Sum
+
+**Application Scenarios**:
+1. Given each exterior angle, find the number of sides
+2. Given the number of sides and some exterior angles, find the others
+3. Calculations involving regular polygons
+
+**Problem-Solving Strategy**:
+- Exterior angle sum is always 360°, independent of the number of sides
+- Number of sides = 360° ÷ each exterior angle (for regular polygons)
+
+### 3.4.12 Examples on Exterior Angle Sum
+
+**Example 23**: Each exterior angle of a polygon equals 60°. Find the number of sides.
+
+**Solution**:
+The exterior angle sum of any polygon is 360°
+Number of sides = $360° \div 60° = 6$
+
+**Answer**: This is a **hexagon**.
+
+**Example 24**: Each exterior angle of a polygon equals 40°. Find the number of sides and the interior angle sum.
+
+**Solution**:
+(1) Finding the number of sides:
+Number of sides = $360° \div 40° = 9$
+
+(2) Finding the interior angle sum:
+Interior angle sum = $(9-2) \times 180° = 7 \times 180° = 1260°$
+
+**Answer**: This is a nonagon with interior angle sum 1260°.
+
+**Example 25**: In a regular n-gon, one exterior angle is $\frac{1}{3}$ of one interior angle. Find n.
+
+**Solution**:
+Let each exterior angle be $x°$, then each interior angle is $3x°$
+
+Since exterior angle + interior angle = 180°
+$x + 3x = 180°$
+$4x = 180°$
+$x = 45°$
+
+Each exterior angle = 45°
+Number of sides $n = 360° \div 45° = 8$
+
+**Answer**: This is an **octagon**.
+
+---
+
+# Part IV: Competition Level Problems
+
+## 4.1 Classic Competition Problems
+
+### Problem 1 (Angle Calculation with Multiple Elements)
+
+> In $\triangle ABC$, $AD$ is an altitude, $AE$ is an angle bisector, $\angle B = 50°$, and $\angle C = 70°$.
+> (1) Find $\angle BAC$
+> (2) Find $\angle DAE$
+
+**Solution**:
+
+(1) By the interior angle sum theorem:
+    $\angle BAC = 180° - \angle B - \angle C$
+         $= 180° - 50° - 70°$
+         $= 60°$
+
+(2) Since $AD$ is an altitude, $\angle ADB = 90°$
+    In right triangle $ABD$:
+    $\angle BAD = 90° - \angle B = 90° - 50° = 40°$
+
+    Since $AE$ is an angle bisector:
+    $\angle BAE = \frac{1}{2}\angle BAC = \frac{1}{2} \times 60° = 30°$
+
+    $\angle DAE = \angle BAD - \angle BAE = 40° - 30° = 10°$
+
+**Problem-Solving Strategy**:
+1. First use interior angle sum to find $\angle BAC$
+2. Use the altitude property to find $\angle BAD$
+3. Use the angle bisector property to find $\angle BAE$
+4. Finally use subtraction to find $\angle DAE$
+
+---
+
+### Problem 2 (Altitude and Angle Bisector Combined)
+
+> In $\triangle ABC$, $AD \perp BC$ at $D$, $AE$ bisects $\angle BAC$, $\angle B = 70°$, and $\angle C = 34°$.
+> (1) Find $\angle BAE$
+> (2) Find $\angle DAE$
+
+**Solution**:
+
+(1) $\angle BAC = 180° - \angle B - \angle C = 180° - 70° - 34° = 76°$
+    $\angle BAE = \frac{1}{2}\angle BAC = \frac{1}{2} \times 76° = 38°$
+
+(2) Since $AD \perp BC$, $\angle ADB = 90°$
+    In right triangle $ABD$:
+    $\angle BAD = 90° - \angle B = 90° - 70° = 20°$
+
+    $\angle DAE = \angle BAE - \angle BAD = 38° - 20° = 18°$
+
+---
+
+### Problem 3 (Exterior Angle with Angle Bisector)
+
+> In $\triangle ABC$, exterior angle $\angle ACD = 120°$, $\angle B = 50°$, and $AE$ bisects $\angle CAD$. Find $\angle BAE$.
+
+**Solution**:
+
+Step 1: Find $\angle A$ using exterior angle property
+$\angle ACD = \angle A + \angle B$
+$120° = \angle A + 50°$
+$\angle A = 70°$
+
+Step 2: Find $\angle CAD$
+$\angle CAD = 180° - \angle ACD = 180° - 120° = 60°$
+
+Wait, let me reconsider. $\angle CAD$ is the exterior angle at vertex A, not at C.
+
+Actually, $\angle CAD$ is the angle at A in the exterior region. Since $AE$ bisects $\angle CAD$:
+
+$\angle CAD = 180° - \angle BAC = 180° - 70° = 110°$
+
+$\angle CAE = \frac{1}{2}\angle CAD = \frac{1}{2} \times 110° = 55°$
+
+$\angle BAE = \angle BAC + \angle CAE = 70° + 55° = 125°$
+
+Or alternatively: $\angle BAE = 180° - \angle CAE = 180° - 55° = 125°$
+
+**Answer**: $\angle BAE = 125°$
+
+---
+
+### Problem 4 (Triangle Inequality Application)
+
+> The three sides of a triangle are $a$, $b$, and $c$ where $a < b < c$. If $a = 3$ and $c = 7$, find all possible integer values of $b$.
+
+**Solution**:
+
+By the triangle inequality:
+- $a + b > c$: $3 + b > 7$, so $b > 4$
+- $a + c > b$: $3 + 7 > b$, so $b < 10$
+- $b + c > a$: Always satisfied since $b > 4 > 3 = a$
+
+Also, we need $a < b < c$: $3 < b < 7$
+
+Combining: $4 < b < 7$
+
+**Answer**: $b \in \{5, 6\}$
+
+---
+
+### Problem 5 (Polygon Diagonal Problem)
+
+> A polygon has 54 diagonals. Find the number of sides and the interior angle sum.
+
+**Solution**:
+
+Let the polygon have $n$ sides.
+
+$\frac{n(n-3)}{2} = 54$
+$n(n-3) = 108$
+$n^2 - 3n - 108 = 0$
+$(n-12)(n+9) = 0$
+
+$n = 12$ or $n = -9$ (rejected)
+
+Interior angle sum = $(12-2) \times 180° = 10 \times 180° = 1800°$
+
+**Answer**: 12 sides, interior angle sum = 1800°
+
+---
+
+### Problem 6 (Regular Polygon Problem)
+
+> The ratio of an interior angle to an exterior angle of a regular polygon is 5:1. Find the number of sides.
+
+**Solution**:
+
+Let the exterior angle be $x°$, then the interior angle is $5x°$.
+
+Since interior angle + exterior angle = 180°:
+$5x + x = 180°$
+$6x = 180°$
+$x = 30°$
+
+Number of sides = $360° \div 30° = 12$
+
+**Answer**: This is a regular 12-gon (dodecagon).
+
+---
+
+### Problem 7 (Isosceles Triangle Classification)
+
+> One angle of an isosceles triangle is 80°. Find all possible values for the other two angles.
+
+**Solution**:
+
+**Case 1**: The vertex angle is 80°
+Base angles = $(180° - 80°) \div 2 = 50°$
+The three angles are: 80°, 50°, 50°
+
+**Case 2**: A base angle is 80°
+The other base angle is also 80°
+Vertex angle = $180° - 80° - 80° = 20°$
+The three angles are: 20°, 80°, 80°
+
+**Answer**: Either (80°, 50°, 50°) or (20°, 80°, 80°)
+
+---
+
+### Problem 8 (Competition Classic - Angle Relationships)
+
+> In $\triangle ABC$, $\angle A : \angle B : \angle C = 1 : 2 : 3$.
+> (1) Classify this triangle by angles
+> (2) If the perimeter is 30 cm and the shortest side is 5 cm, find all side lengths
+
+**Solution**:
+
+(1) Let $\angle A = k$, $\angle B = 2k$, $\angle C = 3k$
+
+$k + 2k + 3k = 180°$
+$6k = 180°$
+$k = 30°$
+
+So $\angle A = 30°$, $\angle B = 60°$, $\angle C = 90°$
+
+**Answer**: This is a **right triangle**.
+
+(2) In a 30-60-90 triangle, the sides are in ratio $1 : \sqrt{3} : 2$
+
+The shortest side (opposite to 30°) is 5 cm.
+Let the sides be $5$, $5\sqrt{3}$, and $10$.
+
+Check: $5 + 5\sqrt{3} + 10 = 15 + 5\sqrt{3} \approx 23.66$ cm
+
+This doesn't equal 30 cm, so we need to recalculate.
+
+Let the sides be $a$, $a\sqrt{3}$, $2a$ where $a$ is the shortest side.
+$a + a\sqrt{3} + 2a = 30$
+$a(3 + \sqrt{3}) = 30$
+$a = \frac{30}{3 + \sqrt{3}} = \frac{30(3 - \sqrt{3})}{(3+\sqrt{3})(3-\sqrt{3})} = \frac{30(3-\sqrt{3})}{6} = 5(3-\sqrt{3})$
+
+But we're told the shortest side is 5 cm, so $a = 5$.
+
+The sides are: $5$ cm, $5\sqrt{3}$ cm, $10$ cm
+
+Perimeter = $5 + 5\sqrt{3} + 10 = 15 + 5\sqrt{3} \approx 23.66$ cm
+
+Since this doesn't match 30 cm, there may be an inconsistency in the problem. If we use the perimeter of 30 cm:
+
+$a(3 + \sqrt{3}) = 30$
+$a \approx 6.34$ cm
+
+**Answer**: The sides are approximately 6.34 cm, 10.98 cm, and 12.68 cm.
+
+---
+
+# Part V: Practice Problems by Level
+
+## 5.1 Basic Level (Foundation)
+
+**Problem 1**: The two sides of a triangle have lengths 3 and 5. Find the range of the third side $x$.
+
+**Problem 2**: In $\triangle ABC$, $\angle A = 40°$ and $\angle B = 60°$. Find $\angle C$.
+
+**Problem 3**: In right triangle $\triangle ABC$, $\angle C = 90°$ and $\angle A = 35°$. Find $\angle B$.
+
+**Problem 4**: Find the interior angle sum of a hexagon.
+
+**Problem 5**: The exterior angle sum of any polygon equals ______ degrees.
+
+**Problem 6**: From one vertex of an n-gon, ______ diagonals can be drawn.
+
+**Problem 7**: In an isosceles triangle, the two base angles are ______.
+
+**Problem 8**: The three ______ of a triangle meet at a point called the centroid.
+
+**Problem 9**: Can line segments of lengths 1cm, 2cm, and 3cm form a triangle?
+
+**Problem 10**: Can line segments of lengths 3cm, 4cm, and 5cm form a triangle?
+
+---
+
+## 5.2 Intermediate Level
+
+**Problem 11**: Which of the following sets of line segments can form a triangle?
+A. 1cm, 2cm, 3cm
+B. 2cm, 3cm, 5cm
+C. 3cm, 4cm, 5cm
+D. 2cm, 3cm, 6cm
+
+**Problem 12**: In $\triangle ABC$, if $\angle A = 50°$ and $\angle B = 60°$, then $\angle C = $?
+A. 50°
+B. 60°
+C. 70°
+D. 80°
+
+**Problem 13**: A triangle has interior angles in the ratio 1:2:3. What type of triangle is it?
+A. Acute triangle
+B. Right triangle
+C. Obtuse triangle
+D. Isosceles triangle
+
+**Problem 14**: Which of the following shapes has stability?
+A. Square
+B. Parallelogram
+C. Triangle
+D. Trapezoid
+
+**Problem 15**: If one angle of an isosceles triangle is 70°, the other two angles are:
+A. 70°, 40°
+B. 55°, 55°
+C. 70°, 70°
+D. Either 55°, 55° or 70°, 40°
+
+---
+
+## 5.3 Advanced Level
+
+**Problem 16**: The two sides of a triangle have lengths 4 and 7. Find the range of the third side $x$.
+
+**Problem 17**: In $\triangle ABC$, $\angle A = 70°$ and $\angle B = 50°$. Find $\angle C$.
+
+**Problem 18**: In right triangle $\triangle ABC$, $\angle C = 90°$ and $\angle A = 55°$. Find $\angle B$.
+
+**Problem 19**: Find the interior angle sum and number of diagonals of a decagon.
+
+**Problem 20**: Each exterior angle of a polygon equals 30°. Find the number of sides.
+
+**Problem 21**: In $\triangle ABC$, $\angle A - \angle B = 20°$ and $\angle C = 80°$. Find $\angle A$ and $\angle B$.
+
+**Problem 22**: In $\triangle ABC$, $AB = AC$ and $\angle A = 80°$. Find $\angle B$ and $\angle C$.
+
+**Problem 23**: A polygon has interior angle sum 1260°. Find the number of sides and diagonals.
+
+**Problem 24**: Each interior angle of a polygon equals 150°. Find the number of sides.
+
+**Problem 25**: In $\triangle ABC$, $AD$ is an altitude, $AE$ is an angle bisector, $\angle B = 60°$, and $\angle C = 50°$. Find $\angle DAE$.
+
+---
+
+## 5.4 Competition Level
+
+**Problem 26**: In $\triangle ABC$, exterior angle $\angle ACD = 120°$, $\angle B = 50°$, and $AE$ bisects $\angle CAD$. Find $\angle BAE$.
+
+**Problem 27**: In $\triangle ABC$, $\angle A = 60°$, $\angle B = 70°$, $AD$ is an altitude, and $AE$ is an angle bisector. Find $\angle DAE$.
+
+**Problem 28**: The ratio of an interior angle to an exterior angle of a regular n-gon is 3:1. Find n.
+
+**Problem 29**: In $\triangle ABC$, $AB = AC$, and $D$ is a point on $BC$. If $BD = 5$ and $CD = 3$, find the range of $AD$.
+
+**Problem 30**: In $\triangle ABC$, $\angle B = 50°$, $\angle C = 70°$, $AD \perp BC$ at $D$, and $AE$ bisects $\angle BAC$.
+(1) Find $\angle BAE$
+(2) Find $\angle DAE$
+(3) If $AD = 6$ and $AB = 10$, find $BD$
+
+---
+
+# Part VI: Answer Key
+
+## Basic Level Answers
+
+**1.** $2 < x < 8$
+
+**2.** $\angle C = 80°$
+
+**3.** $\angle B = 55°$
+
+**4.** $720°$
+
+**5.** $360°$
+
+**6.** $(n-3)$
+
+**7.** equal
+
+**8.** medians
+
+**9.** No (1 + 2 = 3, not greater than 3)
+
+**10.** Yes (3 + 4 = 7 > 5)
+
+## Intermediate Level Answers
+
+**11.** C
+
+**12.** C (70°)
+
+**13.** B (Right triangle)
+
+**14.** C (Triangle)
+
+**15.** D
+
+## Advanced Level Answers
+
+**16.** $3 < x < 11$
+
+**17.** $\angle C = 60°$
+
+**18.** $\angle B = 35°$
+
+**19.** Interior angle sum = $1440°$; Diagonals = $35$
+
+**20.** 12 sides
+
+**21.** $\angle A = 60°$, $\angle B = 40°$
+
+**22.** $\angle B = \angle C = 50°$
+
+**23.** 9 sides; 27 diagonals
+
+**24.** 12 sides
+
+**25.** $\angle DAE = 5°$
+
+## Competition Level Answers
+
+**26.** $\angle BAE = 125°$
+
+**27.** $\angle DAE = 5°$
+
+**28.** $n = 8$
+
+**29.** $1 < AD < 8$
+
+**30.** (1) $\angle BAE = 30°$
+      (2) $\angle DAE = 10°$
+      (3) $BD = 8$
+
+---
+
+# Part VII: Summary and Key Formulas
+
+## Key Concepts
+
+1. **Triangle**: A figure formed by three line segments connecting three non-collinear points
+2. **Triangle inequality**: The sum of any two sides is greater than the third side
+3. **Interior angle sum**: The sum of the three interior angles equals 180°
+4. **Exterior angle**: Equals the sum of the two non-adjacent interior angles
+
+## Special Line Segments
+
+| Segment | Definition | Point of Concurrency |
+|---------|------------|---------------------|
+| Altitude | Perpendicular from vertex to opposite side | Orthocenter |
+| Median | Segment from vertex to midpoint of opposite side | Centroid (divides median 2:1) |
+| Angle Bisector | Segment that bisects an interior angle | Incenter |
+
+## Triangle Classification
+
+| By Angles | By Sides |
+|-----------|----------|
+| Acute (all angles < 90°) | Scalene (no equal sides) |
+| Right (one angle = 90°) | Isosceles (two equal sides) |
+| Obtuse (one angle > 90°) | Equilateral (all sides equal) |
+
+## Key Formulas
+
+**Triangle Inequality**:
+$$a + b > c, \quad a + c > b, \quad b + c > a$$
+
+**Interior Angle Sum of Triangle**:
+$$\angle A + \angle B + \angle C = 180°$$
+
+**Exterior Angle Property**:
+$$\text{Exterior angle} = \text{Sum of two non-adjacent interior angles}$$
+
+**Polygon Formulas** (for n-gon):
+- Diagonals from one vertex: $n - 3$
+- Total diagonals: $\frac{n(n-3)}{2}$
+- Interior angle sum: $(n-2) \cdot 180°$
+- Exterior angle sum: $360°$ (constant)
+
+**Regular Polygon**:
+- Each interior angle: $\frac{(n-2) \cdot 180°}{n}$
+- Each exterior angle: $\frac{360°}{n}$
+
+## Competition Tips
+
+1. Look for patterns before computing
+2. Use case analysis for isosceles triangle problems
+3. Convert exterior angle problems to interior angle problems
+4. Use the equation method for angle relationships
+5. Verify solutions by checking all conditions
+6. Draw accurate diagrams with clear labels
+
+---
+
+## Study Path
+
+```
+Beginner → Triangle basics → Triangle inequality →
+Special segments → Interior angle sum → Exterior angles →
+Polygon formulas → Competition techniques
+```
+
+---
+
+# Part VIII: Essential Problem-Solving Techniques
+
+## 8.1 Case Analysis (Classification Discussion)
+
+### 8.1.1 Why Case Analysis is Needed
+
+Some problems have different answers depending on conditions. Competition problems often test whether students can identify all cases.
+
+**Key Principle**: When a problem involves:
+- Isosceles triangles (vertex angle vs. base angle)
+- Unknown position of a point
+- Parameters with unknown signs
+
+You must consider ALL possible cases.
+
+### 8.1.2 Example: Isosceles Triangle Angles
+
+**Problem**: One angle of an isosceles triangle is 50°. Find all possible values for the other two angles.
+
+**Analysis**: We don't know if 50° is the vertex angle or a base angle.
+
+**Case 1**: 50° is the vertex angle
+- Base angles = $(180° - 50°) \div 2 = 65°$
+- Answer: 65°, 65°
+
+**Case 2**: 50° is a base angle
+- Other base angle = 50°
+- Vertex angle = $180° - 50° - 50° = 80°$
+- Answer: 50°, 80°
+
+**Final Answer**: Either (65°, 65°) or (50°, 80°)
+
+---
+
+## 8.2 The Equation Method
+
+### 8.2.1 Core Idea
+
+When angles or sides have specific relationships, set up equations to solve.
+
+### 8.2.2 Example
+
+**Problem**: In $\triangle ABC$, $\angle A : \angle B : \angle C = 2 : 3 : 4$. Find all angles.
+
+**Solution**:
+Let $\angle A = 2k$, $\angle B = 3k$, $\angle C = 4k$
+
+$2k + 3k + 4k = 180°$
+$9k = 180°$
+$k = 20°$
+
+**Answer**: $\angle A = 40°$, $\angle B = 60°$, $\angle C = 80°$
+
+---
+
+## 8.3 The Transformation Method
+
+### 8.3.1 Core Idea
+
+Convert complex problems into simpler ones:
+- Exterior angle → Interior angles
+- Polygon → Triangles
+
+### 8.3.2 Example
+
+**Problem**: Find the interior angle sum of a pentagon.
+
+**Solution**:
+Transform to triangles: Draw diagonals from one vertex to divide the pentagon into 3 triangles.
+
+Interior angle sum = $3 \times 180° = 540°$
+
+Or use formula: $(5-2) \times 180° = 540°$
+
+---
+
+## 8.4 Using Auxiliary Lines
+
+### 8.4.1 When to Use
+
+- When angles need to be "transferred" to a common vertex
+- When proving angle relationships using parallel lines
+
+### 8.4.2 Common Auxiliary Lines
+
+1. **Parallel line through a vertex**: Used to prove interior angle sum
+2. **Altitude from a vertex**: Creates right angles for calculation
+3. **Angle bisector**: Divides angles into equal parts
+
+---
+
+## 8.5 The Bounding Method
+
+### 8.5.1 Core Idea
+
+Use inequalities to restrict possible values, especially for integer solutions.
+
+### 8.5.2 Example
+
+**Problem**: Find all integer values of $x$ if the sides of a triangle are 3, 5, and $x$.
+
+**Solution**:
+By triangle inequality:
+- $3 + 5 > x \Rightarrow x < 8$
+- $3 + x > 5 \Rightarrow x > 2$
+- $5 + x > 3$ (always true for positive $x$)
+
+So $2 < x < 8$
+
+**Integer values**: $x \in \{3, 4, 5, 6, 7\}$
+
+---
+
+# Part IX: Historical Competition Problems
+
+## 9.1 Entry-Level Competition Problems
+
+### Problem 9.1.1 (Regional Competition)
+
+**Problem**: If $x + y = 10$ and $x^2 - y^2 = 40$, find $x - y$.
+
+**Key Insight**: $x^2 - y^2 = (x+y)(x-y)$
+
+**Solution**:
+$$x^2 - y^2 = (x+y)(x-y)$$
+$$40 = 10 \cdot (x-y)$$
+$$x - y = 4$$
+
+**Lesson**: Always look for factorization before expanding.
+
+---
+
+### Problem 9.1.2 (Triangle Angle Problem)
+
+**Problem**: In $\triangle ABC$, $\angle A = 40°$, $\angle B = 70°$. Find $\angle C$.
+
+**Solution**:
+$\angle C = 180° - \angle A - \angle B = 180° - 40° - 70° = 70°$
+
+**Answer**: $\angle C = 70°$
+
+---
+
+## 9.2 Intermediate Competition Problems
+
+### Problem 9.2.1 (Polygon Problem)
+
+**Problem**: A polygon has interior angle sum equal to 5 times its exterior angle sum. Find the number of sides.
+
+**Solution**:
+Exterior angle sum = 360°
+Interior angle sum = $5 \times 360° = 1800°$
+
+$(n-2) \times 180° = 1800°$
+$n - 2 = 10$
+$n = 12$
+
+**Answer**: 12 sides (dodecagon)
+
+---
+
+### Problem 9.2.2 (Altitude and Angle Bisector)
+
+**Problem**: In $\triangle ABC$, $AD$ is an altitude, $AE$ is an angle bisector, $\angle B = 60°$, $\angle C = 40°$. Find $\angle DAE$.
+
+**Solution**:
+$\angle BAC = 180° - 60° - 40° = 80°$
+$\angle BAE = \frac{1}{2} \times 80° = 40°$
+$\angle BAD = 90° - 60° = 30°$
+$\angle DAE = \angle BAE - \angle BAD = 40° - 30° = 10°$
+
+**Answer**: $\angle DAE = 10°$
+
+---
+
+## 9.3 Advanced Competition Problems
+
+### Problem 9.3.1 (Triangle Inequality Application)
+
+**Problem**: How many triangles with integer sides have perimeter 12?
+
+**Solution**:
+Let sides be $a \leq b \leq c$ with $a + b + c = 12$.
+
+By triangle inequality: $a + b > c$
+Since $a + b + c = 12$: $a + b = 12 - c$
+So $12 - c > c$, meaning $c < 6$
+
+Also $c \geq b \geq a$ and $a \geq 1$.
+
+Enumerate:
+- $c = 5$: $a + b = 7$, with $b \leq 5$. Pairs: (2,5), (3,4) → triangles (2,5,5), (3,4,5)
+- $c = 4$: $a + b = 8$, with $b \leq 4$. Pairs: (4,4) → triangle (4,4,4)
+- $c = 3$: $a + b = 9$, impossible since $b \leq 3$ means $a + b \leq 6$
+
+**Answer**: 3 triangles: (2,5,5), (3,4,5), (4,4,4)
+
+---
+
+# Part X: Essential Formulas Reference
+
+## 10.1 Triangle Formulas
+
+| Formula | Expression |
+|---------|------------|
+| Triangle inequality | $a + b > c$, $a + c > b$, $b + c > a$ |
+| Third side range | $|a - b| < c < a + b$ |
+| Interior angle sum | $\angle A + \angle B + \angle C = 180°$ |
+| Exterior angle | $= $ sum of two non-adjacent interior angles |
+| Right triangle | Two acute angles are complementary |
+
+## 10.2 Polygon Formulas
+
+| Formula | Expression |
+|---------|------------|
+| Diagonals from one vertex | $n - 3$ |
+| Total diagonals | $\frac{n(n-3)}{2}$ |
+| Interior angle sum | $(n-2) \cdot 180°$ |
+| Exterior angle sum | $360°$ (constant) |
+
+## 10.3 Regular Polygon Formulas
+
+| Formula | Expression |
+|---------|------------|
+| Each interior angle | $\frac{(n-2) \cdot 180°}{n}$ |
+| Each exterior angle | $\frac{360°}{n}$ |
+| Number of sides | $n = \frac{360°}{\text{exterior angle}}$ |
+
+## 10.4 Special Line Segments
+
+| Segment | Definition | Concurrency Point |
+|---------|------------|-------------------|
+| Altitude | Perpendicular to opposite side | Orthocenter |
+| Median | To midpoint of opposite side | Centroid (2:1 ratio) |
+| Angle Bisector | Bisects interior angle | Incenter |
+
+## 10.5 Isosceles Triangle Properties
+
+| Property | Description |
+|----------|-------------|
+| Equal sides | Two sides (legs) are equal |
+| Equal angles | Two base angles are equal |
+| Three-in-one | Altitude, median, and angle bisector to base coincide |
+
+---
+
+**End of Chapter 11**
+
+*This document covers triangles and polygons from beginner level through competition level.*
