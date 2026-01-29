@@ -3,6 +3,20 @@
 
 ---
 
+## Table of Contents
+
+| Part | Level | Content |
+|------|-------|---------|
+| I | Beginner | Basic concepts, definitions, substitution & elimination methods |
+| II | Intermediate | Parameters, three-variable systems, Diophantine equations, Cramer's Rule |
+| III | Advanced | Extended Euclidean algorithm, absolute values, floor functions, competition techniques |
+| IV | Competition | 8 classic competition problems with detailed solutions |
+| V | Practice | 20 problems organized by difficulty level |
+| VI | Answers | Complete answer key |
+| VII | Summary | Key formulas and study path |
+
+---
+
 # Part I: Foundations (Beginner Level)
 
 ## 1.1 Introduction: Why Two Variables?
