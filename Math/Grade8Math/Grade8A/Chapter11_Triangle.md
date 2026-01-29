@@ -1345,7 +1345,7 @@ $$t_a^2 = bc\left[1 - \left(\frac{a}{b+c}\right)^2\right]$$
     In right triangle $ABD$:
     $\angle BAD = 90° - \angle B = 90° - 50° = 40°$
 
-    Since $AE$ is an angle bisector:
+    Since $\AE$ is an angle bisector:
     $\angle BAE = \frac{1}{2}\angle BAC = \frac{1}{2} \times 60° = 30°$
 
     $\angle DAE = \angle BAD - \angle BAE = 40° - 30° = 10°$
