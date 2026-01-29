@@ -47,3 +47,37 @@ $$
 | `$x$` inline math | Requires setting | Works |
 | `$$...$$` same line | Works | NOT work |
 | `$$` separate lines | Works | Works |
+
+## Indentation and Code Blocks
+
+### Problem
+
+In Markdown, lines starting with 4 spaces or 1 tab are treated as code blocks (preformatted text). This causes `$...$` LaTeX formulas to display as raw text with dollar signs visible.
+
+**Example of problematic formatting:**
+
+```markdown
+(2) Since $AD$ is an altitude, $\angle ADB = 90°$
+    In right triangle $ABD$:
+    $\angle BAD = 90° - \angle B = 90° - 50° = 40°$
+```
+
+The indented lines will render as code, showing `$\angle BAD = ...$` literally instead of the math formula.
+
+### Solution
+
+Remove leading indentation from math content, or use blank lines between paragraphs:
+
+```markdown
+(2) Since $AD$ is an altitude, $\angle ADB = 90°$
+
+In right triangle $ABD$:
+
+$\angle BAD = 90° - \angle B = 90° - 50° = 40°$
+```
+
+### Key Rules
+
+1. Avoid 4+ spaces at the start of lines containing `$...$` formulas
+2. Use blank lines to separate paragraphs instead of indentation
+3. If indentation is needed for visual structure, use 2-3 spaces maximum
