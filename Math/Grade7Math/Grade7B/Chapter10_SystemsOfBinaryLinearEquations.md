@@ -15,7 +15,7 @@
 | VI | Answers | Complete answer key |
 | VII | Summary | Key formulas and study path |
 | VIII | Techniques | Essential problem-solving techniques with clear explanations |
-| IX | Real Problems | Historical competition problems (竞赛真题) with detailed solutions |
+| IX | Real Problems | Historical competition problems with detailed solutions |
 | X | Reference | Essential formulas quick reference table |
 
 ---
@@ -1229,7 +1229,7 @@ Check: $\Delta = 9 - 20 = -11 < 0$
 
 ---
 
-## 8.4 Classification Discussion (分类讨论)
+## 8.4 Classification Discussion
 
 ### 8.4.1 Why Classification is Needed
 
@@ -1281,7 +1281,7 @@ $$\begin{cases} x + y = 3 \\ x + y = 3 \end{cases}$$
 
 ---
 
-## 8.5 The Construction Method (构造法)
+## 8.5 The Construction Method
 
 ### 8.5.1 What is Construction?
 
@@ -1325,7 +1325,7 @@ Now find factor pairs of 24 where both factors > 1:
 
 ---
 
-## 8.6 Symmetry in Systems (对称性)
+## 8.6 Symmetry in Systems
 
 ### 8.6.1 Recognizing Symmetric Systems
 
@@ -1360,7 +1360,7 @@ $(t-3)(t-4) = 0$
 
 ---
 
-## 8.7 Bounding and Estimation (估算与界)
+## 8.7 Bounding and Estimation
 
 ### 8.7.1 Why Bounds Matter
 
@@ -1397,7 +1397,7 @@ Check:
 
 ---
 
-# Part IX: Historical Competition Problems (竞赛真题精选)
+# Part IX: Historical Competition Problems
 
 This section contains problems from actual mathematics competitions with detailed solutions.
 
@@ -1445,7 +1445,7 @@ This is identical to equation ①.
 
 ## 9.2 Intermediate Competition Problems
 
-### Problem 9.2.1 (全国初中数学联赛 Style)
+### Problem 9.2.1 (National Junior High Math League Style)
 
 **Problem**: Find all integer solutions to $\frac{1}{x} + \frac{1}{y} = \frac{1}{6}$.
 
@@ -1501,7 +1501,7 @@ $$a^3 + b^3 = (2)^3 - 3(-3)(2) = 8 + 18 = 26$$
 
 ## 9.3 Advanced Competition Problems
 
-### Problem 9.3.1 (全国初中数学联赛)
+### Problem 9.3.1 (National Junior High Math League)
 
 **Problem**: Find all positive integer solutions to $x^2 - y^2 = 91$.
 
@@ -1567,7 +1567,7 @@ So $\{x, y, z\} = \{1, 2, 3\}$
 
 ---
 
-# Part X: Essential Formulas Reference (公式速查表)
+# Part X: Essential Formulas Reference
 
 ## 10.1 Basic Identities
 
@@ -1626,4 +1626,4 @@ To factor $xy + ax + by = c$, add $ab$ to both sides.
 
 **End of Chapter 10**
 
-*This document covers systems of linear equations from beginner level through National Junior High School Mathematics Competition (全国初中数学联赛) level.*
+*This document covers systems of linear equations from beginner level through National Junior High School Mathematics Competition level.*
