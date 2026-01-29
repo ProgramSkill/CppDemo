@@ -1,115 +1,113 @@
-# Chapter 10 SystemsOfBinaryLinearEquations
+# Chapter 10 Systems of Linear Equations in Two Variables
 # Vocabulary List (From Beginner to Competition Level)
 
-## Basic Terms | 基础术语
+## Basic Terms
 
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Variable | 未知数 | A symbol (usually a letter) representing an unknown value |
-| Coefficient | 系数 | The numerical factor of a term containing a variable |
-| Constant | 常数 | A fixed numerical value that does not change |
-| Equation | 方程 | A mathematical statement showing two expressions are equal |
-| Solution | 解 | The value(s) that make an equation true |
+| Term | Definition |
+|------|------------|
+| Variable | A symbol (usually a letter) representing an unknown value |
+| Coefficient | The numerical factor of a term containing a variable |
+| Constant | A fixed numerical value that does not change |
+| Equation | A mathematical statement showing two expressions are equal |
+| Solution | The value(s) that make an equation true |
 
-## Core Concepts | 核心概念
+## Core Concepts
 
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Linear equation in one variable | 一元一次方程 | An equation with one unknown where the highest power is 1 |
-| Linear equation in two variables | 二元一次方程 | An equation with two unknowns where the highest power of each is 1 |
-| System of linear equations | 方程组 | Two or more equations considered together |
-| System of linear equations in two variables | 二元一次方程组 | Two linear equations with the same two unknowns |
+| Term | Definition |
+|------|------------|
+| Linear equation in one variable | An equation with one unknown where the highest power is 1 |
+| Linear equation in two variables | An equation with two unknowns where the highest power of each is 1 |
+| System of linear equations | Two or more equations considered together |
+| System of linear equations in two variables | Two linear equations with the same two unknowns |
 
-## Solution Methods | 解法术语
+## Solution Methods
 
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Elimination | 消元 | The process of removing one variable from a system |
-| Substitution method | 代入消元法 | Solving by expressing one variable in terms of another and substituting |
-| Addition-subtraction method | 加减消元法 | Solving by adding or subtracting equations to eliminate a variable |
-| Back-substitution | 回代 | Substituting a found value back to find other unknowns |
-| Verification | 检验 | Checking if the solution satisfies all original equations |
+| Term | Definition |
+|------|------------|
+| Elimination | The process of removing one variable from a system |
+| Substitution method | Solving by expressing one variable in terms of another and substituting |
+| Addition-subtraction method | Solving by adding or subtracting equations to eliminate a variable |
+| Back-substitution | Substituting a found value back to find other unknowns |
+| Verification | Checking if the solution satisfies all original equations |
 
-## Equation Components | 方程组成部分
+## Equation Components
 
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Term | 项 | A single mathematical expression (number, variable, or product) |
-| Degree | 次数 | The power/exponent of a variable in a term |
-| Standard form | 标准形式 | The conventional way of writing an equation (ax + by = c) |
-| Left-hand side (LHS) | 左边 | The expression on the left of the equals sign |
-| Right-hand side (RHS) | 右边 | The expression on the right of the equals sign |
+| Term | Definition |
+|------|------------|
+| Term | A single mathematical expression (number, variable, or product) |
+| Degree | The power/exponent of a variable in a term |
+| Standard form | The conventional way of writing an equation (ax + by = c) |
+| Left-hand side (LHS) | The expression on the left of the equals sign |
+| Right-hand side (RHS) | The expression on the right of the equals sign |
 
-## Solution Types | 解的类型
+## Solution Types
 
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Unique solution | 唯一解 | Exactly one solution exists |
-| No solution | 无解 | No values satisfy all equations |
-| Infinitely many solutions | 无数解 | Unlimited number of solutions exist |
-| Integer solution | 整数解 | A solution where all values are integers |
-| Positive integer solution | 正整数解 | A solution where all values are positive integers |
+| Term | Definition |
+|------|------------|
+| Unique solution | Exactly one solution exists |
+| No solution | No values satisfy all equations |
+| Infinitely many solutions | Unlimited number of solutions exist |
+| Integer solution | A solution where all values are integers |
+| Positive integer solution | A solution where all values are positive integers |
 
-## Geometric Terms | 几何术语
+## Geometric Terms
 
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Cartesian coordinate system | 平面直角坐标系 | A plane with perpendicular x and y axes |
-| Straight line | 直线 | A line extending infinitely in both directions |
-| Intersection point | 交点 | The point where two lines cross |
-| Parallel lines | 平行线 | Lines that never intersect |
-| Coincident lines | 重合直线 | Lines that overlap completely |
+| Term | Definition |
+|------|------------|
+| Cartesian coordinate system | A plane with perpendicular x and y axes |
+| Straight line | A line extending infinitely in both directions |
+| Intersection point | The point where two lines cross |
+| Parallel lines | Lines that never intersect |
+| Coincident lines | Lines that overlap completely |
 
-## Word Problem Terms | 应用题术语
+## Word Problem Terms
 
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Sum | 和 | The result of addition |
-| Difference | 差 | The result of subtraction |
-| Distance problem | 行程问题 | Problems involving speed, time, and distance |
-| Work problem | 工程问题 | Problems involving work rate and time |
-| Matching problem | 配套问题 | Problems about pairing items in correct ratios |
-| Efficiency | 效率 | The rate at which work is completed |
+| Term | Definition |
+|------|------------|
+| Sum | The result of addition |
+| Difference | The result of subtraction |
+| Distance problem | Problems involving speed, time, and distance |
+| Work problem | Problems involving work rate and time |
+| Matching problem | Problems about pairing items in correct ratios |
+| Efficiency | The rate at which work is completed |
 
-## Mathematical Operations | 数学运算
+## Mathematical Operations
 
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Add | 加 | Combine numbers to get a sum |
-| Subtract | 减 | Find the difference between numbers |
-| Multiply | 乘 | Repeated addition of a number |
-| Divide | 除 | Split into equal parts |
-| Simplify | 化简 | Reduce an expression to its simplest form |
-| Transform | 变形 | Change the form of an equation |
+| Term | Definition |
+|------|------------|
+| Add | Combine numbers to get a sum |
+| Subtract | Find the difference between numbers |
+| Multiply | Repeated addition of a number |
+| Divide | Split into equal parts |
+| Simplify | Reduce an expression to its simplest form |
+| Transform | Change the form of an equation |
 
-## Common Phrases | 常用短语
+## Common Phrases
 
-| English | Chinese |
-|---------|---------|
-| According to the problem | 根据题意 |
-| Let x be... | 设x为... |
-| Substitute into | 代入 |
-| From equation ① | 由①得 |
-| Therefore | 所以 |
-| The solution is | 解是 |
-| Verify the answer | 检验答案 |
-| Clear denominators | 去分母 |
-| Remove parentheses | 去括号 |
-| Combine like terms | 合并同类项 |
+| Phrase | Usage |
+|--------|-------|
+| According to the problem | Introducing information from the problem statement |
+| Let x be... | Defining a variable |
+| Substitute into | Replacing a variable with an expression |
+| From equation ① | Referencing a numbered equation |
+| Therefore | Introducing a conclusion |
+| The solution is | Stating the final answer |
+| Verify the answer | Checking the solution |
+| Clear denominators | Multiplying to eliminate fractions |
+| Remove parentheses | Expanding brackets |
+| Combine like terms | Simplifying by grouping similar terms |
 
 ---
 
-## Key Formulas | 关键公式
+## Key Formulas
 
 ### Standard Form of Linear Equation in Two Variables
-**二元一次方程标准形式**
 
 ```
 ax + by = c  (where a ≠ 0, b ≠ 0)
 ```
 
 ### System of Linear Equations in Two Variables
-**二元一次方程组**
 
 ```
 {  ax + by = c  ①
@@ -117,83 +115,82 @@ ax + by = c  (where a ≠ 0, b ≠ 0)
 ```
 
 ### Common Word Problem Formulas
-**常用应用题公式**
 
-| Type | Formula (English) | Formula (Chinese) |
-|------|-------------------|-------------------|
-| Distance | Distance = Speed × Time | 路程 = 速度 × 时间 |
-| Work | Work = Rate × Time | 工作量 = 效率 × 时间 |
-| Price | Total = Unit Price × Quantity | 总价 = 单价 × 数量 |
-| Profit | Profit = Revenue - Cost | 利润 = 收入 - 成本 |
-
----
-
-## Advanced Terms (Competition Level) | 竞赛级术语
-
-### Number Theory | 数论术语
-
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Greatest Common Divisor (GCD) | 最大公约数 | The largest positive integer that divides two numbers |
-| Least Common Multiple (LCM) | 最小公倍数 | The smallest positive integer divisible by two numbers |
-| Coprime / Relatively prime | 互质 | Two numbers whose GCD is 1 |
-| Divisibility | 整除性 | Property of one number dividing another with no remainder |
-| Diophantine equation | 丢番图方程 | An equation seeking integer solutions |
-| Particular solution | 特解 | One specific solution to an equation |
-| General solution | 通解 | Formula representing all solutions |
-
-### Algorithms | 算法术语
-
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Euclidean algorithm | 欧几里得算法 | Method to find GCD by repeated division |
-| Extended Euclidean algorithm | 扩展欧几里得算法 | Finds GCD and coefficients for Bezout's identity |
-| Bezout's identity | 裴蜀定理 | ax + by = gcd(a,b) has integer solutions |
-| Back-substitution | 回代法 | Working backwards to find coefficients |
-
-### Linear Algebra Terms | 线性代数术语
-
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Determinant | 行列式 | A scalar value computed from a square matrix |
-| Cramer's Rule | 克拉默法则 | Method to solve systems using determinants |
-| Matrix | 矩阵 | A rectangular array of numbers |
-| Homogeneous system | 齐次方程组 | System where all constant terms are zero |
-| Trivial solution | 平凡解 | The zero solution (0, 0) |
-| Non-trivial solution | 非平凡解 | A solution other than (0, 0) |
-
-### Competition Techniques | 竞赛技巧术语
-
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Simon's Favorite Factoring Trick | 西蒙因式分解技巧 | Adding a constant to factor xy + ax + by |
-| Frobenius number | 弗罗贝尼乌斯数 | Largest integer not representable as ax + by |
-| Chicken McNugget Theorem | 麦乐鸡定理 | g(a,b) = ab - a - b for coprime a, b |
-| Vieta's formulas | 韦达定理 | Relates roots of polynomial to its coefficients |
-| Symmetric system | 对称方程组 | System unchanged when variables are swapped |
-
-### Special Functions | 特殊函数术语
-
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Absolute value | 绝对值 | Distance from zero, always non-negative |
-| Floor function | 取整函数/下取整 | Greatest integer less than or equal to x |
-| Ceiling function | 上取整函数 | Smallest integer greater than or equal to x |
-
-### System Properties | 方程组性质术语
-
-| English | Chinese | Definition |
-|---------|---------|------------|
-| Consistent system | 相容方程组 | System with at least one solution |
-| Inconsistent system | 不相容方程组 | System with no solution |
-| Overdetermined system | 超定方程组 | More equations than unknowns |
-| Parameter | 参数 | A variable representing a family of values |
+| Type | Formula |
+|------|---------|
+| Distance | Distance = Speed × Time |
+| Work | Work = Rate × Time |
+| Price | Total = Unit Price × Quantity |
+| Profit | Profit = Revenue - Cost |
 
 ---
 
-## Competition Formulas | 竞赛公式
+## Advanced Terms (Competition Level)
 
-### Cramer's Rule | 克拉默法则
+### Number Theory
+
+| Term | Definition |
+|------|------------|
+| Greatest Common Divisor (GCD) | The largest positive integer that divides two numbers |
+| Least Common Multiple (LCM) | The smallest positive integer divisible by two numbers |
+| Coprime / Relatively prime | Two numbers whose GCD is 1 |
+| Divisibility | Property of one number dividing another with no remainder |
+| Diophantine equation | An equation seeking integer solutions |
+| Particular solution | One specific solution to an equation |
+| General solution | Formula representing all solutions |
+
+### Algorithms
+
+| Term | Definition |
+|------|------------|
+| Euclidean algorithm | Method to find GCD by repeated division |
+| Extended Euclidean algorithm | Finds GCD and coefficients for Bezout's identity |
+| Bezout's identity | ax + by = gcd(a,b) has integer solutions |
+| Back-substitution | Working backwards to find coefficients |
+
+### Linear Algebra Terms
+
+| Term | Definition |
+|------|------------|
+| Determinant | A scalar value computed from a square matrix |
+| Cramer's Rule | Method to solve systems using determinants |
+| Matrix | A rectangular array of numbers |
+| Homogeneous system | System where all constant terms are zero |
+| Trivial solution | The zero solution (0, 0) |
+| Non-trivial solution | A solution other than (0, 0) |
+
+### Competition Techniques
+
+| Term | Definition |
+|------|------------|
+| Simon's Favorite Factoring Trick | Adding a constant to factor xy + ax + by |
+| Frobenius number | Largest integer not representable as ax + by |
+| Chicken McNugget Theorem | g(a,b) = ab - a - b for coprime a, b |
+| Vieta's formulas | Relates roots of polynomial to its coefficients |
+| Symmetric system | System unchanged when variables are swapped |
+
+### Special Functions
+
+| Term | Definition |
+|------|------------|
+| Absolute value | Distance from zero, always non-negative |
+| Floor function | Greatest integer less than or equal to x |
+| Ceiling function | Smallest integer greater than or equal to x |
+
+### System Properties
+
+| Term | Definition |
+|------|------------|
+| Consistent system | System with at least one solution |
+| Inconsistent system | System with no solution |
+| Overdetermined system | More equations than unknowns |
+| Parameter | A variable representing a family of values |
+
+---
+
+## Competition Formulas
+
+### Cramer's Rule
 ```
 For system: ax + by = c, dx + ey = f
 
@@ -201,7 +198,7 @@ x = (ce - bf) / (ae - bd)
 y = (af - cd) / (ae - bd)
 ```
 
-### Diophantine Equation | 丢番图方程
+### Diophantine Equation
 ```
 ax + by = c has integer solutions iff gcd(a,b) | c
 
@@ -211,7 +208,7 @@ y = y₀ - (a/d)t
 where d = gcd(a,b)
 ```
 
-### Frobenius Number | 弗罗贝尼乌斯数
+### Frobenius Number
 ```
 For coprime a, b:
 g(a,b) = ab - a - b
