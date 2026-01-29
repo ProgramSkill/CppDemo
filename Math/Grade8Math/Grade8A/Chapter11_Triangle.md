@@ -8,10 +8,10 @@
 | Part | Level | Content |
 |------|-------|---------|
 | I | Beginner | Basic concepts, definitions, sides and angles of triangles |
-| II | Intermediate | Triangle inequality, special line segments (altitude, median, angle bisector) |
-| III | Advanced | Interior angle sum, exterior angles, polygon angle formulas |
-| IV | Competition | 8 classic competition problems with detailed solutions |
-| V | Practice | 30 problems organized by difficulty level |
+| II | Intermediate | Triangle inequality, special line segments, area, midsegment |
+| III | Advanced | Angle sums, congruence, similarity, Pythagorean theorem, angle bisector theorem |
+| IV | Competition | 16 competition problems with detailed solutions (including league-level) |
+| V | Practice | 40 problems organized by difficulty level |
 | VI | Answers | Complete answer key |
 | VII | Summary | Key formulas and study path |
 | VIII | Techniques | Essential problem-solving techniques with clear explanations |
@@ -335,6 +335,101 @@ $BD = 6 \div 2 = 3$ cm
 **Solution**: Connect any diagonal.
 
 **Reason**: After adding a diagonal, the quadrilateral is divided into two triangles. Using the stability of triangles, the entire structure becomes stable.
+
+---
+
+## 2.3 Area of a Triangle
+
+### 2.3.1 Basic Area Formula
+
+> **Formula**: Area of a triangle = $\frac{1}{2} \times \text{base} \times \text{height}$
+
+**Mathematical Expression**:
+$$S_{\triangle ABC} = \frac{1}{2} \times a \times h_a = \frac{1}{2} \times b \times h_b = \frac{1}{2} \times c \times h_c$$
+
+where $h_a$, $h_b$, $h_c$ are the altitudes to sides $a$, $b$, $c$ respectively.
+
+**Key Points**:
+1. The base and height must be perpendicular to each other
+2. Any side can be chosen as the base
+3. The height is the perpendicular distance from the opposite vertex to the base
+
+### 2.3.2 Heron's Formula (Competition Level)
+
+> **Heron's Formula**: For a triangle with sides $a$, $b$, $c$ and semi-perimeter $s = \frac{a+b+c}{2}$:
+> $$S = \sqrt{s(s-a)(s-b)(s-c)}$$
+
+**Example**: Find the area of a triangle with sides 3, 4, 5.
+
+**Solution**:
+$s = \frac{3+4+5}{2} = 6$
+
+$S = \sqrt{6(6-3)(6-4)(6-5)} = \sqrt{6 \times 3 \times 2 \times 1} = \sqrt{36} = 6$
+
+**Verification**: This is a right triangle (3-4-5), so $S = \frac{1}{2} \times 3 \times 4 = 6$ ✓
+
+### 2.3.3 Area Relationships
+
+**Property 1**: A median divides a triangle into two triangles of equal area.
+
+**Property 2**: If two triangles have the same base, their areas are proportional to their heights.
+
+**Property 3**: If two triangles have the same height, their areas are proportional to their bases.
+
+---
+
+## 2.4 Midsegment (Midline) of a Triangle
+
+### 2.4.1 Definition
+
+> **Definition**: A midsegment of a triangle is a line segment connecting the midpoints of two sides.
+
+### 2.4.2 Midsegment Theorem
+
+> **Theorem**: The midsegment of a triangle is parallel to the third side and equals half its length.
+
+**Mathematical Expression**:
+If $D$ and $E$ are midpoints of $AB$ and $AC$ respectively, then:
+$$DE \parallel BC \quad \text{and} \quad DE = \frac{1}{2}BC$$
+
+### 2.4.3 Proof
+
+```
+Given: In △ABC, D is the midpoint of AB, E is the midpoint of AC
+Prove: DE ∥ BC and DE = ½BC
+
+Proof: Extend DE to point F such that EF = DE
+       Connect CF
+
+       In △ADE and △CFE:
+       AE = CE (E is midpoint of AC)
+       ∠AED = ∠CEF (vertical angles)
+       DE = FE (construction)
+
+       Therefore △ADE ≅ △CFE (SAS)
+
+       So AD = CF and ∠ADE = ∠CFE
+
+       Since AD = CF and AD = BD (D is midpoint)
+       We have BD = CF
+
+       Since ∠ADE = ∠CFE (alternate interior angles)
+       BD ∥ CF
+
+       Therefore BDFC is a parallelogram
+       So DF ∥ BC and DF = BC
+
+       Since DE = ½DF
+       DE = ½BC
+```
+
+### 2.4.4 Applications
+
+**Example**: In $\triangle ABC$, $D$, $E$, $F$ are midpoints of $AB$, $BC$, $CA$ respectively. If $BC = 10$, find $DF$.
+
+**Solution**:
+$DF$ is the midsegment parallel to $BC$
+$DF = \frac{1}{2}BC = \frac{1}{2} \times 10 = 5$
 
 ---
 
@@ -900,6 +995,335 @@ Number of sides $n = 360° \div 45° = 8$
 
 ---
 
+## 3.5 Congruent Triangles (全等三角形)
+
+### 3.5.1 Definition of Congruence
+
+> **Definition**: Two triangles are congruent if they have the same shape and size. All corresponding sides and angles are equal.
+
+**Notation**: $\triangle ABC \cong \triangle DEF$
+
+**Key Points**:
+1. Corresponding vertices are written in the same order
+2. Congruent triangles can be superimposed exactly
+3. Congruence is denoted by the symbol $\cong$
+
+### 3.5.2 Properties of Congruent Triangles
+
+If $\triangle ABC \cong \triangle DEF$, then:
+- **Corresponding sides are equal**: $AB = DE$, $BC = EF$, $CA = FD$
+- **Corresponding angles are equal**: $\angle A = \angle D$, $\angle B = \angle E$, $\angle C = \angle F$
+
+### 3.5.3 Criteria for Triangle Congruence
+
+| Criterion | Name | Condition |
+|-----------|------|-----------|
+| **SSS** | Side-Side-Side | Three sides of one triangle equal three sides of another |
+| **SAS** | Side-Angle-Side | Two sides and the included angle are equal |
+| **ASA** | Angle-Side-Angle | Two angles and the included side are equal |
+| **AAS** | Angle-Angle-Side | Two angles and a non-included side are equal |
+| **HL** | Hypotenuse-Leg | (Right triangles only) Hypotenuse and one leg are equal |
+
+**Warning**: SSA (Side-Side-Angle) is NOT a valid criterion! (Ambiguous case)
+
+### 3.5.4 SSS Criterion
+
+> **Theorem**: If three sides of one triangle are equal to three sides of another triangle, then the two triangles are congruent.
+
+**Example**: In triangles $ABC$ and $DEF$, if $AB = DE = 5$, $BC = EF = 6$, $CA = FD = 7$, then $\triangle ABC \cong \triangle DEF$ (SSS).
+
+### 3.5.5 SAS Criterion
+
+> **Theorem**: If two sides and the included angle of one triangle are equal to two sides and the included angle of another triangle, then the two triangles are congruent.
+
+**Key Point**: The angle must be the INCLUDED angle (between the two sides).
+
+**Example**: In triangles $ABC$ and $DEF$, if $AB = DE$, $\angle B = \angle E$, $BC = EF$, then $\triangle ABC \cong \triangle DEF$ (SAS).
+
+### 3.5.6 ASA Criterion
+
+> **Theorem**: If two angles and the included side of one triangle are equal to two angles and the included side of another triangle, then the two triangles are congruent.
+
+**Example**: In triangles $ABC$ and $DEF$, if $\angle A = \angle D$, $AB = DE$, $\angle B = \angle E$, then $\triangle ABC \cong \triangle DEF$ (ASA).
+
+### 3.5.7 AAS Criterion
+
+> **Theorem**: If two angles and a non-included side of one triangle are equal to two angles and the corresponding non-included side of another triangle, then the two triangles are congruent.
+
+**Note**: AAS can be derived from ASA using the angle sum property.
+
+### 3.5.8 HL Criterion (Right Triangles Only)
+
+> **Theorem**: If the hypotenuse and one leg of a right triangle are equal to the hypotenuse and one leg of another right triangle, then the two triangles are congruent.
+
+**Key Point**: This criterion only applies to right triangles!
+
+### 3.5.9 Proving Triangles Congruent - Examples
+
+**Example 26**: In $\triangle ABC$, $D$ is the midpoint of $BC$, and $AD \perp BC$. Prove that $AB = AC$.
+
+**Proof**:
+```
+In △ABD and △ACD:
+  BD = CD (D is midpoint of BC)
+  ∠ADB = ∠ADC = 90° (AD ⊥ BC)
+  AD = AD (common side)
+
+Therefore △ABD ≅ △ACD (SAS)
+
+Therefore AB = AC (corresponding sides of congruent triangles)
+```
+
+**Example 27**: In $\triangle ABC$, $\angle B = \angle C$. Prove that $AB = AC$.
+
+**Proof**:
+```
+Draw altitude AD from A to BC
+
+In △ABD and △ACD:
+  ∠ADB = ∠ADC = 90° (AD is altitude)
+  ∠B = ∠C (given)
+  AD = AD (common side)
+
+Therefore △ABD ≅ △ACD (AAS)
+
+Therefore AB = AC (corresponding sides of congruent triangles)
+```
+
+**This proves**: Equal angles are opposite to equal sides (等角对等边)
+
+### 3.5.10 Common Proof Strategies
+
+1. **Find common sides**: Look for shared sides between triangles
+2. **Find vertical angles**: Angles formed by intersecting lines
+3. **Use given conditions**: Midpoints, perpendiculars, angle bisectors
+4. **Add auxiliary lines**: Draw altitudes, medians, or parallel lines
+
+---
+
+## 3.6 Similar Triangles (相似三角形)
+
+### 3.6.1 Definition of Similarity
+
+> **Definition**: Two triangles are similar if they have the same shape but not necessarily the same size. All corresponding angles are equal, and corresponding sides are proportional.
+
+**Notation**: $\triangle ABC \sim \triangle DEF$
+
+**Key Points**:
+1. Similar triangles have equal corresponding angles
+2. Corresponding sides are in the same ratio (called the scale factor or ratio of similarity)
+3. Congruent triangles are a special case of similar triangles (ratio = 1)
+
+### 3.6.2 Properties of Similar Triangles
+
+If $\triangle ABC \sim \triangle DEF$ with ratio $k$, then:
+- **Corresponding angles are equal**: $\angle A = \angle D$, $\angle B = \angle E$, $\angle C = \angle F$
+- **Corresponding sides are proportional**: $\frac{AB}{DE} = \frac{BC}{EF} = \frac{CA}{FD} = k$
+- **Ratio of perimeters** = $k$
+- **Ratio of areas** = $k^2$
+
+### 3.6.3 Criteria for Triangle Similarity
+
+| Criterion | Name | Condition |
+|-----------|------|-----------|
+| **AA** | Angle-Angle | Two angles of one triangle equal two angles of another |
+| **SAS** | Side-Angle-Side | Two sides are proportional and the included angles are equal |
+| **SSS** | Side-Side-Side | All three pairs of sides are proportional |
+
+### 3.6.4 AA Similarity Criterion
+
+> **Theorem**: If two angles of one triangle are equal to two angles of another triangle, then the triangles are similar.
+
+**Note**: Since the angle sum is 180°, if two angles are equal, the third must also be equal.
+
+**Example**: In $\triangle ABC$ and $\triangle DEF$, if $\angle A = \angle D = 50°$ and $\angle B = \angle E = 60°$, then $\triangle ABC \sim \triangle DEF$ (AA).
+
+### 3.6.5 SAS Similarity Criterion
+
+> **Theorem**: If two sides of one triangle are proportional to two sides of another triangle, and the included angles are equal, then the triangles are similar.
+
+**Example**: In $\triangle ABC$ and $\triangle DEF$, if $\frac{AB}{DE} = \frac{AC}{DF} = 2$ and $\angle A = \angle D$, then $\triangle ABC \sim \triangle DEF$ (SAS).
+
+### 3.6.6 SSS Similarity Criterion
+
+> **Theorem**: If three sides of one triangle are proportional to three sides of another triangle, then the triangles are similar.
+
+**Example**: If $\frac{AB}{DE} = \frac{BC}{EF} = \frac{CA}{FD} = 3$, then $\triangle ABC \sim \triangle DEF$ (SSS).
+
+### 3.6.7 Applications of Similar Triangles
+
+**Example 28**: In $\triangle ABC$, $DE \parallel BC$, $AD = 2$, $DB = 4$, $DE = 3$. Find $BC$.
+
+**Solution**:
+Since $DE \parallel BC$, by AA similarity:
+$\triangle ADE \sim \triangle ABC$
+
+$\frac{AD}{AB} = \frac{DE}{BC}$
+
+$\frac{2}{2+4} = \frac{3}{BC}$
+
+$\frac{2}{6} = \frac{3}{BC}$
+
+$BC = \frac{3 \times 6}{2} = 9$
+
+**Example 29**: In $\triangle ABC$, $\angle ACB = 90°$, $CD \perp AB$ at $D$. Prove that $CD^2 = AD \cdot DB$.
+
+**Proof**:
+```
+In △ACD and △CBD:
+  ∠ADC = ∠CDB = 90°
+  ∠A = 90° - ∠ACD = ∠DCB (complementary angles)
+
+Therefore △ACD ∼ △CBD (AA)
+
+Therefore AD/CD = CD/DB
+
+Therefore CD² = AD · DB
+```
+
+---
+
+## 3.7 The Pythagorean Theorem (勾股定理)
+
+### 3.7.1 Statement of the Theorem
+
+> **Pythagorean Theorem**: In a right triangle, the square of the hypotenuse equals the sum of the squares of the two legs.
+
+**Mathematical Expression**:
+In right triangle $\triangle ABC$ with $\angle C = 90°$:
+$$a^2 + b^2 = c^2$$
+
+where $c$ is the hypotenuse and $a$, $b$ are the legs.
+
+### 3.7.2 Proof of the Pythagorean Theorem
+
+**Method 1: Area Method**
+
+```
+Construct a square with side (a + b)
+Place four congruent right triangles inside
+
+Area of large square = (a + b)²
+Area of four triangles = 4 × (½ab) = 2ab
+Area of inner square = c²
+
+(a + b)² = 2ab + c²
+a² + 2ab + b² = 2ab + c²
+a² + b² = c²
+```
+
+**Method 2: Similar Triangles**
+
+```
+In right △ABC with ∠C = 90°, draw altitude CD to hypotenuse AB
+
+△ACD ∼ △ABC (AA): AD/AC = AC/AB, so AC² = AD · AB
+△CBD ∼ △ABC (AA): BD/BC = BC/AB, so BC² = BD · AB
+
+Adding: AC² + BC² = AD · AB + BD · AB = (AD + BD) · AB = AB · AB = AB²
+
+Therefore: b² + a² = c²
+```
+
+### 3.7.3 Common Pythagorean Triples
+
+| Triple | Verification |
+|--------|--------------|
+| 3, 4, 5 | $3^2 + 4^2 = 9 + 16 = 25 = 5^2$ |
+| 5, 12, 13 | $5^2 + 12^2 = 25 + 144 = 169 = 13^2$ |
+| 8, 15, 17 | $8^2 + 15^2 = 64 + 225 = 289 = 17^2$ |
+| 7, 24, 25 | $7^2 + 24^2 = 49 + 576 = 625 = 25^2$ |
+
+**Note**: Multiples of Pythagorean triples are also Pythagorean triples (e.g., 6, 8, 10).
+
+### 3.7.4 Converse of the Pythagorean Theorem
+
+> **Converse**: If the sides of a triangle satisfy $a^2 + b^2 = c^2$, then the triangle is a right triangle with the right angle opposite to side $c$.
+
+**Application**: Determining if a triangle is a right triangle.
+
+**Example 30**: Is a triangle with sides 5, 12, 13 a right triangle?
+
+**Solution**:
+$5^2 + 12^2 = 25 + 144 = 169 = 13^2$ ✓
+
+Yes, it is a right triangle with the right angle opposite to the side of length 13.
+
+### 3.7.5 Generalization: Determining Triangle Type
+
+For a triangle with sides $a \leq b \leq c$:
+- If $a^2 + b^2 = c^2$: Right triangle
+- If $a^2 + b^2 > c^2$: Acute triangle
+- If $a^2 + b^2 < c^2$: Obtuse triangle
+
+**Example 31**: Classify the triangle with sides 4, 5, 7.
+
+**Solution**:
+$4^2 + 5^2 = 16 + 25 = 41$
+$7^2 = 49$
+
+Since $41 < 49$, we have $a^2 + b^2 < c^2$
+
+**Answer**: This is an obtuse triangle.
+
+---
+
+## 3.8 Angle Bisector Theorem (角平分线定理)
+
+### 3.8.1 Statement of the Theorem
+
+> **Angle Bisector Theorem**: The angle bisector of a triangle divides the opposite side in the ratio of the adjacent sides.
+
+**Mathematical Expression**:
+In $\triangle ABC$, if $AD$ bisects $\angle A$ and meets $BC$ at $D$, then:
+$$\frac{BD}{DC} = \frac{AB}{AC}$$
+
+### 3.8.2 Proof
+
+```
+Draw CE ∥ AD, meeting the extension of BA at E
+
+Since AD ∥ CE:
+  ∠BAD = ∠AEC (corresponding angles)
+  ∠DAC = ∠ACE (alternate interior angles)
+
+Since AD bisects ∠A:
+  ∠BAD = ∠DAC
+
+Therefore ∠AEC = ∠ACE
+Therefore AC = AE (isosceles triangle)
+
+In △BCE, AD ∥ CE:
+  BD/DC = BA/AE = BA/AC = AB/AC
+```
+
+### 3.8.3 Applications
+
+**Example 32**: In $\triangle ABC$, $AB = 6$, $AC = 4$, and $AD$ bisects $\angle A$. If $BC = 5$, find $BD$ and $DC$.
+
+**Solution**:
+By the angle bisector theorem:
+$\frac{BD}{DC} = \frac{AB}{AC} = \frac{6}{4} = \frac{3}{2}$
+
+Let $BD = 3k$ and $DC = 2k$
+
+$BD + DC = BC$
+$3k + 2k = 5$
+$5k = 5$
+$k = 1$
+
+**Answer**: $BD = 3$, $DC = 2$
+
+### 3.8.4 Angle Bisector Length Formula (Competition Level)
+
+> **Formula**: The length of the angle bisector from vertex $A$ to side $BC$ is:
+> $$t_a = \frac{2bc \cos\frac{A}{2}}{b+c}$$
+
+Or equivalently:
+$$t_a^2 = bc\left[1 - \left(\frac{a}{b+c}\right)^2\right]$$
+
+---
+
 # Part IV: Competition Level Problems
 
 ## 4.1 Classic Competition Problems
@@ -1108,6 +1532,204 @@ $a \approx 6.34$ cm
 
 ---
 
+## 4.2 National Junior High Math League Level Problems (联赛级真题)
+
+### Problem 9 (Congruence Proof - 全等证明)
+
+> In $\triangle ABC$, $AB = AC$, $D$ is on $AB$, $E$ is on $AC$, and $BD = CE$. Prove that $\triangle BEC \cong \triangle CDB$.
+
+**Solution**:
+```
+In △BEC and △CDB:
+  BC = CB (common side)
+  ∠ABC = ∠ACB (base angles of isosceles triangle)
+  BD = CE (given)
+
+Since AB = AC and BD = CE:
+  AD = AE
+  Therefore AB - AD = AC - AE
+  So DB = EC... wait, that's given.
+
+Let me reconsider:
+  BE = AB - AE = AB - (AC - CE) = AB - AC + CE = CE (since AB = AC)
+  CD = AC - AD = AC - (AB - BD) = AC - AB + BD = BD (since AB = AC)
+
+Actually:
+  BE = AB - AE and CD = AC - AD
+  Since AB = AC, BD = CE, we need to show BE = CD
+
+  AE = AC - CE and AD = AB - BD
+  Since AB = AC and BD = CE: AD = AE
+  Therefore BE = AB - AE = AC - AD = CD
+
+In △BEC and △CDB:
+  BC = CB (common side)
+  ∠EBC = ∠DCB (base angles of isosceles triangle)
+  BE = CD (proved above)
+
+Therefore △BEC ≅ △CDB (SAS)
+```
+
+---
+
+### Problem 10 (Similar Triangles Application - 相似三角形应用)
+
+> In $\triangle ABC$, $\angle ACB = 90°$, $CD \perp AB$ at $D$. If $AD = 4$ and $BD = 9$, find $CD$.
+
+**Solution**:
+
+In right triangle $ABC$ with altitude $CD$ to hypotenuse:
+
+By the geometric mean relationship:
+$CD^2 = AD \cdot BD$
+
+$CD^2 = 4 \times 9 = 36$
+
+$CD = 6$
+
+**Proof of the relationship**:
+$\triangle ACD \sim \triangle CBD$ (AA similarity)
+Therefore $\frac{AD}{CD} = \frac{CD}{BD}$
+So $CD^2 = AD \cdot BD$
+
+---
+
+### Problem 11 (Pythagorean Theorem - 勾股定理综合)
+
+> In $\triangle ABC$, $\angle C = 90°$, $AC = 3$, $BC = 4$. Point $D$ is on $AB$ such that $CD \perp AB$. Find $CD$.
+
+**Solution**:
+
+**Method 1: Area Method**
+$AB = \sqrt{AC^2 + BC^2} = \sqrt{9 + 16} = 5$
+
+Area of $\triangle ABC = \frac{1}{2} \times AC \times BC = \frac{1}{2} \times 3 \times 4 = 6$
+
+Also, Area = $\frac{1}{2} \times AB \times CD = \frac{1}{2} \times 5 \times CD$
+
+Therefore: $6 = \frac{5 \times CD}{2}$
+
+$CD = \frac{12}{5} = 2.4$
+
+**Method 2: Similar Triangles**
+$\triangle ACD \sim \triangle ABC$ (AA)
+$\frac{CD}{BC} = \frac{AC}{AB}$
+$\frac{CD}{4} = \frac{3}{5}$
+$CD = \frac{12}{5} = 2.4$
+
+---
+
+### Problem 12 (Competition Classic - 联赛经典)
+
+> In $\triangle ABC$, $AB = 13$, $BC = 14$, $CA = 15$. Find the area of $\triangle ABC$.
+
+**Solution**:
+
+Using Heron's formula:
+$s = \frac{13 + 14 + 15}{2} = 21$
+
+$S = \sqrt{s(s-a)(s-b)(s-c)}$
+$S = \sqrt{21 \times (21-14) \times (21-15) \times (21-13)}$
+$S = \sqrt{21 \times 7 \times 6 \times 8}$
+$S = \sqrt{7056}$
+$S = 84$
+
+**Answer**: The area is 84 square units.
+
+---
+
+### Problem 13 (Angle Bisector Theorem - 角平分线定理)
+
+> In $\triangle ABC$, $AB = 10$, $AC = 8$, $BC = 6$. The angle bisector from $A$ meets $BC$ at $D$. Find $BD$ and $DC$.
+
+**Solution**:
+
+By the angle bisector theorem:
+$\frac{BD}{DC} = \frac{AB}{AC} = \frac{10}{8} = \frac{5}{4}$
+
+Let $BD = 5k$, $DC = 4k$
+
+$BD + DC = BC$
+$5k + 4k = 6$
+$9k = 6$
+$k = \frac{2}{3}$
+
+$BD = 5 \times \frac{2}{3} = \frac{10}{3}$
+$DC = 4 \times \frac{2}{3} = \frac{8}{3}$
+
+**Answer**: $BD = \frac{10}{3}$, $DC = \frac{8}{3}$
+
+---
+
+### Problem 14 (Integer Triangle Counting - 整数三角形计数)
+
+> How many triangles with integer sides have perimeter 15?
+
+**Solution**:
+
+Let sides be $a \leq b \leq c$ with $a + b + c = 15$.
+
+By triangle inequality: $a + b > c$
+Since $a + b + c = 15$: $a + b = 15 - c$
+So $15 - c > c$, meaning $c < 7.5$, thus $c \leq 7$
+
+Also $c \geq b \geq a \geq 1$ and $a + b = 15 - c$
+
+**Case $c = 7$**: $a + b = 8$, $b \leq 7$
+- $(1,7,7), (2,6,7), (3,5,7), (4,4,7)$ → 4 triangles
+
+**Case $c = 6$**: $a + b = 9$, $b \leq 6$
+- $(3,6,6), (4,5,6)$ → 2 triangles
+
+**Case $c = 5$**: $a + b = 10$, $b \leq 5$
+- $(5,5,5)$ → 1 triangle
+
+**Answer**: 7 triangles
+
+---
+
+### Problem 15 (Midsegment Application - 中位线应用)
+
+> In $\triangle ABC$, $D$, $E$, $F$ are midpoints of $BC$, $CA$, $AB$ respectively. If the perimeter of $\triangle DEF$ is 12, find the perimeter of $\triangle ABC$.
+
+**Solution**:
+
+By the midsegment theorem:
+- $DE = \frac{1}{2}AB$
+- $EF = \frac{1}{2}BC$
+- $FD = \frac{1}{2}CA$
+
+Perimeter of $\triangle DEF = DE + EF + FD = \frac{1}{2}(AB + BC + CA) = \frac{1}{2} \times$ Perimeter of $\triangle ABC$
+
+$12 = \frac{1}{2} \times$ Perimeter of $\triangle ABC$
+
+Perimeter of $\triangle ABC = 24$
+
+---
+
+### Problem 16 (Competition Problem - 综合证明)
+
+> In $\triangle ABC$, $\angle BAC = 90°$, $AD \perp BC$ at $D$. Prove that $\frac{1}{AD^2} = \frac{1}{AB^2} + \frac{1}{AC^2}$.
+
+**Proof**:
+
+In right triangle $ABC$:
+$BC^2 = AB^2 + AC^2$ (Pythagorean theorem)
+
+Area of $\triangle ABC = \frac{1}{2} \times AB \times AC = \frac{1}{2} \times BC \times AD$
+
+Therefore: $AB \times AC = BC \times AD$
+
+$AD = \frac{AB \times AC}{BC}$
+
+$AD^2 = \frac{AB^2 \times AC^2}{BC^2} = \frac{AB^2 \times AC^2}{AB^2 + AC^2}$
+
+$\frac{1}{AD^2} = \frac{AB^2 + AC^2}{AB^2 \times AC^2} = \frac{1}{AC^2} + \frac{1}{AB^2}$
+
+**Q.E.D.**
+
+---
+
 # Part V: Practice Problems by Level
 
 ## 5.1 Basic Level (Foundation)
@@ -1207,6 +1829,26 @@ D. Either 55°, 55° or 70°, 40°
 (2) Find $\angle DAE$
 (3) If $AD = 6$ and $AB = 10$, find $BD$
 
+**Problem 31** (Congruence): In $\triangle ABC$ and $\triangle DEF$, $AB = DE$, $\angle A = \angle D$, $AC = DF$. Are the triangles congruent? State the criterion.
+
+**Problem 32** (Pythagorean): In right triangle $\triangle ABC$, $\angle C = 90°$, $AC = 5$, $BC = 12$. Find $AB$.
+
+**Problem 33** (Pythagorean Converse): Is a triangle with sides 6, 8, 10 a right triangle? If so, which angle is the right angle?
+
+**Problem 34** (Similar Triangles): In $\triangle ABC$, $DE \parallel BC$, $AD = 3$, $DB = 6$, $DE = 4$. Find $BC$.
+
+**Problem 35** (Angle Bisector): In $\triangle ABC$, $AB = 8$, $AC = 6$, and $AD$ bisects $\angle A$. If $BC = 7$, find $BD$.
+
+**Problem 36** (Area): Find the area of a triangle with sides 5, 5, 6.
+
+**Problem 37** (Midsegment): In $\triangle ABC$, $D$ and $E$ are midpoints of $AB$ and $AC$. If $BC = 10$, find $DE$.
+
+**Problem 38** (Competition): In $\triangle ABC$, $\angle ACB = 90°$, $CD \perp AB$ at $D$. If $AD = 3$, $BD = 12$, find $CD$ and $AC$.
+
+**Problem 39** (Competition): How many triangles with integer sides have perimeter 12?
+
+**Problem 40** (Competition): In $\triangle ABC$, $AB = AC = 10$, $BC = 12$. Find the length of the altitude from $A$ to $BC$.
+
 ---
 
 # Part VI: Answer Key
@@ -1281,6 +1923,26 @@ D. Either 55°, 55° or 70°, 40°
       (2) $\angle DAE = 10°$
       (3) $BD = 8$
 
+**31.** Yes, $\triangle ABC \cong \triangle DEF$ (SAS)
+
+**32.** $AB = \sqrt{5^2 + 12^2} = \sqrt{169} = 13$
+
+**33.** Yes, $6^2 + 8^2 = 36 + 64 = 100 = 10^2$. The right angle is opposite to the side of length 10.
+
+**34.** $BC = 12$ (by similar triangles, $\frac{AD}{AB} = \frac{DE}{BC}$, so $\frac{3}{9} = \frac{4}{BC}$)
+
+**35.** $BD = 4$ (by angle bisector theorem, $\frac{BD}{DC} = \frac{8}{6} = \frac{4}{3}$, so $BD = \frac{4}{7} \times 7 = 4$)
+
+**36.** Area = $12$ (using Heron's formula with $s = 8$: $\sqrt{8 \times 3 \times 3 \times 2} = \sqrt{144} = 12$)
+
+**37.** $DE = 5$ (midsegment theorem: $DE = \frac{1}{2}BC$)
+
+**38.** $CD = 6$, $AC = 3\sqrt{5}$ (using $CD^2 = AD \cdot BD = 36$, and $AC^2 = AD \cdot AB = 3 \times 15 = 45$)
+
+**39.** 3 triangles: (2,5,5), (3,4,5), (4,4,4)
+
+**40.** Altitude = $8$ (using area method or Pythagorean theorem with half-base = 6)
+
 ---
 
 # Part VII: Summary and Key Formulas
@@ -1329,6 +1991,29 @@ $$\text{Exterior angle} = \text{Sum of two non-adjacent interior angles}$$
 - Each interior angle: $\frac{(n-2) \cdot 180°}{n}$
 - Each exterior angle: $\frac{360°}{n}$
 
+**Pythagorean Theorem** (Right Triangle):
+$$a^2 + b^2 = c^2$$
+where $c$ is the hypotenuse.
+
+**Triangle Area**:
+$$S = \frac{1}{2} \times \text{base} \times \text{height}$$
+
+**Heron's Formula**:
+$$S = \sqrt{s(s-a)(s-b)(s-c)}, \quad s = \frac{a+b+c}{2}$$
+
+**Midsegment Theorem**:
+$$DE \parallel BC, \quad DE = \frac{1}{2}BC$$
+
+**Angle Bisector Theorem**:
+$$\frac{BD}{DC} = \frac{AB}{AC}$$
+
+**Congruence Criteria**: SSS, SAS, ASA, AAS, HL (right triangles)
+
+**Similarity Criteria**: AA, SAS, SSS
+
+**Right Triangle Altitude Theorem**:
+$$CD^2 = AD \cdot BD$$
+
 ## Competition Tips
 
 1. Look for patterns before computing
@@ -1337,6 +2022,10 @@ $$\text{Exterior angle} = \text{Sum of two non-adjacent interior angles}$$
 4. Use the equation method for angle relationships
 5. Verify solutions by checking all conditions
 6. Draw accurate diagrams with clear labels
+7. Look for congruent or similar triangles in complex figures
+8. Use area methods for length calculations
+9. Apply Pythagorean theorem for right triangle problems
+10. Use angle bisector theorem for ratio problems
 
 ---
 
@@ -1345,7 +2034,8 @@ $$\text{Exterior angle} = \text{Sum of two non-adjacent interior angles}$$
 ```
 Beginner → Triangle basics → Triangle inequality →
 Special segments → Interior angle sum → Exterior angles →
-Polygon formulas → Competition techniques
+Polygon formulas → Congruent triangles → Similar triangles →
+Pythagorean theorem → Angle bisector theorem → Competition techniques
 ```
 
 ---
@@ -1594,8 +2284,53 @@ Enumerate:
 | Equal angles | Two base angles are equal |
 | Three-in-one | Altitude, median, and angle bisector to base coincide |
 
+## 10.6 Pythagorean Theorem
+
+| Formula | Expression |
+|---------|------------|
+| Pythagorean theorem | $a^2 + b^2 = c^2$ (right triangle) |
+| Converse | If $a^2 + b^2 = c^2$, then right triangle |
+| Acute triangle test | $a^2 + b^2 > c^2$ |
+| Obtuse triangle test | $a^2 + b^2 < c^2$ |
+
+**Common Pythagorean Triples**: (3,4,5), (5,12,13), (8,15,17), (7,24,25)
+
+## 10.7 Triangle Congruence Criteria
+
+| Criterion | Condition |
+|-----------|-----------|
+| SSS | Three sides equal |
+| SAS | Two sides and included angle equal |
+| ASA | Two angles and included side equal |
+| AAS | Two angles and non-included side equal |
+| HL | Hypotenuse and leg equal (right triangles only) |
+
+## 10.8 Triangle Similarity Criteria
+
+| Criterion | Condition |
+|-----------|-----------|
+| AA | Two angles equal |
+| SAS | Two sides proportional and included angle equal |
+| SSS | Three sides proportional |
+
+## 10.9 Area Formulas
+
+| Formula | Expression |
+|---------|------------|
+| Basic area | $S = \frac{1}{2} \times \text{base} \times \text{height}$ |
+| Heron's formula | $S = \sqrt{s(s-a)(s-b)(s-c)}$, $s = \frac{a+b+c}{2}$ |
+
+## 10.10 Other Important Formulas
+
+| Formula | Expression |
+|---------|------------|
+| Midsegment theorem | $DE = \frac{1}{2}BC$, $DE \parallel BC$ |
+| Angle bisector theorem | $\frac{BD}{DC} = \frac{AB}{AC}$ |
+| Right triangle altitude | $CD^2 = AD \cdot BD$ |
+| Leg projection | $AC^2 = AD \cdot AB$, $BC^2 = BD \cdot AB$ |
+
 ---
 
 **End of Chapter 11**
 
-*This document covers triangles and polygons from beginner level through competition level.*
+*This document covers triangles and polygons from beginner level through National Junior High Math League competition level.*

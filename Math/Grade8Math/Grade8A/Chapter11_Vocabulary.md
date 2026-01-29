@@ -181,6 +181,46 @@ Each exterior angle: 360° / n
 | Three-in-one property | 三线合一 | In isosceles triangle, altitude/median/angle bisector to base coincide |
 | Base angles theorem | 等边对等角 | Equal sides are opposite to equal angles |
 
+### Congruence Terms | 全等术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Congruent triangles | 全等三角形 | Triangles with equal corresponding sides and angles |
+| Corresponding sides | 对应边 | Sides in the same position in congruent/similar figures |
+| Corresponding angles | 对应角 | Angles in the same position in congruent/similar figures |
+| SSS (Side-Side-Side) | 边边边 | Congruence criterion: three sides equal |
+| SAS (Side-Angle-Side) | 边角边 | Congruence criterion: two sides and included angle equal |
+| ASA (Angle-Side-Angle) | 角边角 | Congruence criterion: two angles and included side equal |
+| AAS (Angle-Angle-Side) | 角角边 | Congruence criterion: two angles and non-included side equal |
+| HL (Hypotenuse-Leg) | 斜边直角边 | Congruence criterion for right triangles |
+
+### Similarity Terms | 相似术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Similar triangles | 相似三角形 | Triangles with equal angles and proportional sides |
+| Scale factor | 相似比 | The ratio of corresponding sides in similar figures |
+| AA similarity | 角角相似 | Similarity criterion: two angles equal |
+| Proportional | 成比例的 | Having the same ratio |
+
+### Pythagorean Theorem Terms | 勾股定理术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Pythagorean theorem | 勾股定理 | $a^2 + b^2 = c^2$ in a right triangle |
+| Pythagorean triple | 勾股数 | Three positive integers satisfying $a^2 + b^2 = c^2$ |
+| Converse of Pythagorean theorem | 勾股定理逆定理 | If $a^2 + b^2 = c^2$, then the triangle is right |
+| Leg | 直角边 | A side of a right triangle that is not the hypotenuse |
+
+### Area and Midsegment Terms | 面积与中位线术语
+
+| English | Chinese | Definition |
+|---------|---------|------------|
+| Area | 面积 | The measure of the region enclosed by a figure |
+| Heron's formula | 海伦公式 | Area formula using semi-perimeter |
+| Semi-perimeter | 半周长 | Half of the perimeter |
+| Midsegment | 中位线 | Segment connecting midpoints of two sides |
+
 ### Competition Problem Phrases | 竞赛题目短语
 
 | English | Chinese |
