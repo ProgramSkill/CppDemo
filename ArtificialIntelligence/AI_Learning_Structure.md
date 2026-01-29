@@ -75,15 +75,23 @@ ArtificialIntelligence/
 │   │   ├── SelfAttention/                   # 自注意力：多头注意力、位置编码
 │   │   ├── BERT/                            # BERT模型：预训练、掩码语言模型
 │   │   └── GPT/                             # GPT系列模型：自回归、生成式预训练
+│   ├── GNN/                                 # 图神经网络
+│   │   ├── GraphBasics/                     # 图基础：图表示、邻接矩阵、图遍历
+│   │   ├── MessagePassing/                  # 消息传递：GCN、GraphSAGE、GAT
+│   │   └── Applications/                    # 应用场景：社交网络、分子预测、知识图谱
 │   ├── Regularization_Optimization/         # 正则化与优化
 │   │   ├── Regularization/                  # 正则化：Dropout、L1/L2正则、Early Stopping
 │   │   ├── Normalization/                   # 归一化：BatchNorm、LayerNorm、GroupNorm
 │   │   ├── Optimizers/                      # 优化器：SGD、Adam、AdamW、RMSprop
 │   │   └── LearningRateScheduling/          # 学习率调度：余弦退火、warmup、衰减策略
-│   └── LargeScaleTraining/                  # 大规模训练
-│       ├── DistributedTraining/             # 分布式训练：数据并行、模型并行、流水线并行
-│       ├── MixedPrecision/                  # 混合精度训练：FP16、BF16、自动混合精度
-│       └── MemoryOptimization/              # 内存优化：梯度累积、梯度检查点、ZeRO
+│   ├── LargeScaleTraining/                  # 大规模训练
+│   │   ├── DistributedTraining/             # 分布式训练：数据并行、模型并行、流水线并行
+│   │   ├── MixedPrecision/                  # 混合精度训练：FP16、BF16、自动混合精度
+│   │   ├── MemoryOptimization/              # 内存优化：梯度累积、梯度检查点、ZeRO
+│   │   └── FederatedLearning/               # 联邦学习：隐私保护、本地训练、模型聚合
+│   └── AdvancedParadigms/                   # 高级学习范式
+│       ├── SelfSupervisedLearning/          # 自监督学习：对比学习、掩码预测、SimCLR、MoCo
+│       └── MetaLearning/                    # 元学习：MAML、Few-shot Learning、学习如何学习
 │
 ├── 04_NLP/                                  # 自然语言处理
 │   ├── TextProcessing/                      # 文本处理
