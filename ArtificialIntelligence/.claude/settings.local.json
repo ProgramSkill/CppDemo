@@ -11,7 +11,8 @@
       "Bash(move:*)",
       "Bash(git status:*)",
       "Bash(echo:*)",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(findstr:*)"
     ]
   }
 }

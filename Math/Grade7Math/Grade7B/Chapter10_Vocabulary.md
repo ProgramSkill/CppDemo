@@ -1,5 +1,5 @@
-# Chapter 10 Vocabulary List
-# 第十章 词汇表
+# Chapter 10 SystemsOfBinaryLinearEquations
+# Vocabulary List
 
 ## Basic Terms | 基础术语
 
