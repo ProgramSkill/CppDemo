@@ -1420,10 +1420,30 @@ Congratulations! You've completed the journey from beginner to expert in supervi
 - Explore deep learning
 - Build portfolio projects
 
-**Resources**:
-- Scikit-learn documentation
-- Andrew Ng's Machine Learning course
-- "Hands-On Machine Learning" by Aurélien Géron
+**Resources for .NET/C# Machine Learning**:
+- ML.NET Documentation (Microsoft's machine learning framework)
+- Accord.NET Framework (comprehensive machine learning library for .NET)
+- Math.NET Numerics (numerical computing library for .NET)
+- "Programming ML.NET" by Matt R. Cole
+- Microsoft Learn: Machine Learning with .NET
+
+---
+
+## Alternative Technology Stack
+
+**Note**: While this tutorial uses the **.NET C# technology stack** for all implementations, the concepts, algorithms, and techniques covered are language-agnostic and can be implemented in other programming languages.
+
+**Python Alternative**: Python is another popular choice for machine learning with excellent libraries:
+- **scikit-learn**: Comprehensive machine learning library
+- **NumPy/Pandas**: Data manipulation and numerical computing
+- **Matplotlib/Seaborn**: Data visualization
+- **TensorFlow/PyTorch**: Deep learning frameworks
+
+The choice between C# and Python depends on your project requirements:
+- **Choose C#/.NET** for: Enterprise applications, Windows integration, strong typing, performance-critical applications
+- **Choose Python** for: Data science workflows, rapid prototyping, extensive ML ecosystem, research
+
+Both ecosystems are mature and capable of handling production machine learning workloads.
 
 ---
 
