@@ -136,7 +136,30 @@ ArtificialIntelligence/
 │       ├── ObjectDetector/                  # 目标检测系统：实时检测应用
 │       └── ImageGenerator/                  # 图像生成器：GAN或扩散模型应用
 │
-└── 07_Resources/                            # 学习资源
+├── 07_Engineering/                          # AI工程实践
+│   ├── ModelDeployment/                     # 模型部署
+│   │   ├── ServingFrameworks/               # 服务框架：TensorFlow Serving、TorchServe、ONNX Runtime
+│   │   ├── APIDesign/                       # API设计：RESTful API、gRPC、FastAPI
+│   │   └── Containerization/                # 容器化：Docker、Kubernetes、微服务架构
+│   ├── MLOps/                               # MLOps实践
+│   │   ├── CICD/                            # CI/CD：自动化测试、持续集成、持续部署
+│   │   ├── ModelVersioning/                 # 模型版本管理：MLflow、DVC、Git LFS
+│   │   ├── Monitoring/                      # 模型监控：性能监控、数据漂移检测、A/B测试
+│   │   └── ExperimentTracking/              # 实验跟踪：Weights & Biases、TensorBoard、Neptune
+│   ├── ModelOptimization/                   # 模型优化
+│   │   ├── Compression/                     # 模型压缩：剪枝、知识蒸馏、低秩分解
+│   │   ├── Quantization/                    # 量化：INT8量化、动态量化、量化感知训练
+│   │   └── Acceleration/                    # 加速推理：TensorRT、OpenVINO、ONNX优化
+│   ├── EdgeDeployment/                      # 边缘计算部署
+│   │   ├── MobileDeployment/                # 移动端部署：TensorFlow Lite、Core ML、NCNN
+│   │   ├── EmbeddedSystems/                 # 嵌入式系统：树莓派、Jetson Nano、边缘TPU
+│   │   └── WebDeployment/                   # Web部署：TensorFlow.js、ONNX.js、WebAssembly
+│   └── DataManagement/                      # 数据管理
+│       ├── DataAnnotation/                  # 数据标注：标注工具、质量控制、众包平台
+│       ├── DataPipeline/                    # 数据流水线：ETL、数据清洗、特征存储
+│       └── DataVersioning/                  # 数据版本控制：DVC、数据血缘、数据治理
+│
+└── 08_Resources/                            # 学习资源
     ├── Papers/                              # 论文资源
     │   ├── Classic/                         # 经典论文：AlexNet、ResNet、Transformer等
     │   ├── Recent/                          # 最新研究：前沿技术、新方法
@@ -163,7 +186,7 @@ ArtificialIntelligence/
 | **阶段二：机器学习入门** | 2-3个月 | 监督学习（回归、分类算法）<br>无监督学习（聚类、降维）<br>模型评估（交叉验证、性能指标） | 鸢尾花分类<br>房价预测 |
 | **阶段三：深度学习基础** | 2-3个月 | 神经网络（感知机、MLP、反向传播）<br>CNN（卷积神经网络及图像应用）<br>RNN/LSTM（序列数据处理） | 手写数字识别<br>图像分类 |
 | **阶段四：专业方向深入** | 3-6个月 | **NLP方向**：Transformer、BERT、GPT、文本应用<br>**CV方向**：目标检测、图像分割、图像生成<br>**强化学习**：Q-Learning、策略梯度、游戏AI | 情感分析<br>目标检测系统<br>聊天机器人 |
-| **阶段五：实战与进阶** | 持续 | 完成综合项目<br>阅读前沿论文<br>参与开源项目<br>关注最新技术动态 | 个人项目<br>开源贡献 |
+| **阶段五：实战与进阶** | 持续 | **AI工程实践**：模型部署、MLOps、模型优化、边缘部署<br>完成综合项目<br>阅读前沿论文<br>参与开源项目<br>关注最新技术动态 | 生产级AI系统<br>开源贡献 |
 
 ## 📝 使用说明
 
@@ -173,11 +196,12 @@ ArtificialIntelligence/
 - 项目驱动学习，理论与实践相结合
 
 **学习建议：**
-1. **循序渐进**：按照00-07的顺序学习，从编程基础开始，打好基础
+1. **循序渐进**：按照00-08的顺序学习，从编程基础到工程实践，打好基础
 2. **理论实践结合**：每学一个概念就动手实现
 3. **做好笔记**：在对应目录下记录学习笔记和代码
 4. **定期复习**：定期回顾之前的内容，巩固知识
 5. **项目驱动**：通过实际项目来检验学习效果
+6. **工程导向**：重视模型部署和MLOps实践，培养工程化思维
 
 **推荐资源：**
 - **书籍**：《机器学习》周志华、《深度学习》Goodfellow、《统计学习方法》李航
