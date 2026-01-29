@@ -6,7 +6,9 @@
       "WebSearch",
       "Bash(dir:*)",
       "Bash(git push:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)"
     ]
   }
 }
