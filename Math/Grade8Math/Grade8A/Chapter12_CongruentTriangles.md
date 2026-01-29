@@ -71,6 +71,17 @@ In simpler terms: congruent triangles are triangles that are exactly the same.
 
 We write: $\triangle ABC \cong \triangle DEF$
 
+```
+    A                       D
+   /\                      /\
+  /  \                    /  \
+ /    \                  /    \
+B------C                E------F
+
+△ABC ≅ △DEF means:
+A↔D, B↔E, C↔F
+```
+
 **Important**: The order of vertices tells us which parts correspond!
 
 From $\triangle ABC \cong \triangle DEF$, we know:
@@ -184,6 +195,17 @@ Let's explore each criterion in detail.
 
 > **SSS Criterion**: If three sides of one triangle are equal to three sides of another triangle, then the two triangles are congruent.
 
+```
+    A                       D
+   /\                      /\
+  /  \  AB=DE             /  \
+ /    \ AC=DF            /    \
+B------C                E------F
+  BC=EF
+
+SSS: Three pairs of equal sides → Congruent
+```
+
 ### 2.2.2 Why SSS Works
 
 **Intuitive explanation**: Triangles are rigid. If you have three sticks of fixed lengths, there is only one way to connect them into a triangle (ignoring reflections).
@@ -229,6 +251,17 @@ $\therefore \angle A = \angle C$ (CPCTC)
 ### 2.3.1 The Theorem
 
 > **SAS Criterion**: If two sides and the **included angle** of one triangle are equal to two sides and the included angle of another triangle, then the two triangles are congruent.
+
+```
+    A                       D
+   /\                      /\
+  /  \                    /  \
+ /∠A  \                  /∠D  \
+B------C                E------F
+
+SAS: AB=DE, ∠A=∠D, AC=DF → Congruent
+(∠A is the included angle between AB and AC)
+```
 
 ### 2.3.2 Critical Warning
 
@@ -282,6 +315,18 @@ $\therefore AB = AC$ (CPCTC)
 
 > **ASA Criterion**: If two angles and the **included side** of one triangle are equal to two angles and the included side of another triangle, then the two triangles are congruent.
 
+```
+    A                       D
+   /\                      /\
+  /  \                    /  \
+ /    \                  /    \
+B------C                E------F
+∠B    ∠C                ∠E    ∠F
+
+ASA: ∠B=∠E, BC=EF, ∠C=∠F → Congruent
+(BC is the included side between ∠B and ∠C)
+```
+
 ### 2.4.2 Why ASA Works
 
 If two angles and the included side are fixed:
@@ -322,6 +367,18 @@ $\therefore \triangle ABC \cong \triangle DEF$ (ASA)
 
 > **AAS Criterion**: If two angles and a **non-included side** of one triangle are equal to two angles and the corresponding non-included side of another triangle, then the two triangles are congruent.
 
+```
+    A                       D
+   /\                      /\
+  /  \                    /  \
+ /∠A  \                  /∠D  \
+B------C                E------F
+∠B                      ∠E
+
+AAS: ∠A=∠D, ∠B=∠E, BC=EF → Congruent
+(BC is opposite to ∠A, not between ∠A and ∠B)
+```
+
 ### 2.5.2 AAS is a Consequence of ASA
 
 If two angles are equal, the third angles must also be equal (since angle sum = 180°).
@@ -359,6 +416,19 @@ $\therefore \triangle ABC \cong \triangle DEF$ (AAS)
 ### 2.6.1 The Theorem
 
 > **HL Criterion**: If the **hypotenuse** and one **leg** of a right triangle are equal to the hypotenuse and one leg of another right triangle, then the two triangles are congruent.
+
+```
+A                       D
+|\                      |\
+| \                     | \
+|  \ hypotenuse        |  \ hypotenuse
+|   \                   |   \
+|____\                  |____\
+B    C                  E    F
+ leg                     leg
+
+HL: ∠B=∠E=90°, AC=DF (hypotenuse), AB=DE (leg) → Congruent
+```
 
 ### 2.6.2 Important Restriction
 
@@ -414,6 +484,20 @@ $\therefore AB = AC$ (sides opposite equal angles)
 
 **Counterexample**: Consider $AB = 5$, $BC = 4$, $\angle A = 30°$.
 
+```
+SSA Ambiguous Case:
+        C₁                    C₂
+       /|                      \
+      / |                       \
+   4 /  |                     4  \
+    /   |                         \
+   /30° |                      30° \
+  A-----B                     A-----B
+     5                           5
+
+Same AB, BC, ∠A → Two different triangles!
+```
+
 Two different triangles can satisfy these conditions - one acute and one obtuse.
 
 ### 2.7.2 The AAA Trap
@@ -423,6 +507,20 @@ Two different triangles can satisfy these conditions - one acute and one obtuse.
 **Why it fails**: Triangles with the same angles can have **different sizes**. They are **similar** but not necessarily **congruent**.
 
 **Counterexample**: A small equilateral triangle and a large equilateral triangle both have angles 60°, 60°, 60°, but they are not congruent.
+
+```
+AAA Fails - Similar but NOT Congruent:
+
+  Small          Large
+    A              A
+   /\             /\
+  /  \           /  \
+ /60°\          /60° \
+B----C         /      \
+              B--------C
+
+Same angles (60°,60°,60°) → Similar, NOT congruent
+```
 
 ### 2.7.3 Summary Table
 
@@ -560,6 +658,20 @@ Do you have 2 angles + any side? ─Yes→ Use AAS
 
 > **Definition**: An angle bisector is a ray that divides an angle into two equal parts.
 
+```
+        A
+       /
+      /
+     /∠1
+    O-------C (bisector)
+     \∠2
+      \
+       \
+        B
+
+∠1 = ∠2 = ½∠AOB
+```
+
 If ray $OC$ bisects $\angle AOB$, then $\angle AOC = \angle COB = \frac{1}{2}\angle AOB$.
 
 ---
@@ -569,6 +681,19 @@ If ray $OC$ bisects $\angle AOB$, then $\angle AOC = \angle COB = \frac{1}{2}\an
 ### 4.2.1 Statement
 
 > **Theorem**: A point on the angle bisector is equidistant from the two sides of the angle.
+
+```
+      A
+     /
+    /D
+   / |
+  /  |PD
+ /   P----PE----E
+O-----------------B
+
+P on bisector → PD = PE
+(PD⊥OA, PE⊥OB)
+```
 
 **In symbols**: If $P$ is on the bisector of $\angle AOB$, and $PD \perp OA$, $PE \perp OB$, then $PD = PE$.
 
@@ -646,6 +771,15 @@ By the angle bisector property theorem: $DF = DE = 4$ cm.
 # Part V: Auxiliary Lines and Proof Techniques (Advanced Level)
 
 ## 5.1 Common Auxiliary Lines
+
+```
+1. Connect points    2. Extend line    3. Perpendicular   4. Parallel
+   A-----B              A                  A                 A----B
+   |\    |              |                  |                 |    |
+   | \   |              |                  |⊥                |    |
+   |  \  |              B----C             B----C            C----D
+   D----C                                                   (AB∥CD)
+```
 
 ### 5.1.1 Connecting Two Points
 
@@ -726,6 +860,17 @@ Rotation is one of the most powerful techniques in competition geometry. The ide
 - The rotated triangle becomes congruent to another triangle in the figure
 - This reveals hidden relationships
 
+```
+90° Rotation around point O:
+
+Before:          After:
+    A               A----A'
+    |               |   /
+    |               |  /
+    O----B          O-B'
+                   (B rotates to B')
+```
+
 ### 5.4.2 When to Use Rotation
 
 Look for these signals:
@@ -782,6 +927,19 @@ $\therefore EF = AE + AF = DF + DE$
 
 When a problem involves a **median** of a triangle, a powerful technique is to **extend the median to double its length**.
 
+```
+      A
+     /|\
+    / | \
+   /  |  \
+  B---M---C
+      |
+      |  (extend AM to D, MD=AM)
+      D
+
+△AMB ≅ △DMC (SAS)
+```
+
 **Construction**: If $M$ is the midpoint of $BC$, and $AM$ is the median:
 - Extend $AM$ to point $D$ such that $MD = AM$
 - Connect $BD$ and $CD$
@@ -817,6 +975,13 @@ In $\triangle ABD$:
 When proving $AB = CD + EF$ or $AB > CD$:
 - **Cut**: On the longer segment, mark a point to create a piece equal to a shorter segment
 - **Patch**: Extend a shorter segment to match another
+
+```
+Cut (截长):              Patch (补短):
+A----E----B              A----B
+     ↑                        \
+  AE=CD                        C (extend AB to C)
+```
 
 ### 5.6.2 Example 12
 
@@ -873,6 +1038,18 @@ $\therefore BD = CE$ (CPCTC)
 
 > In an isosceles triangle, the **perpendicular bisector** of the base, the **angle bisector** of the vertex angle, and the **altitude** to the base are the same line.
 
+```
+      A
+     /|\
+    / | \
+   /  |  \    AB = AC
+  / ∠1|∠2 \   ∠1 = ∠2
+ /    |    \  AD ⊥ BC
+B-----D-----C BD = DC
+
+Three lines coincide: angle bisector = altitude = perpendicular bisector
+```
+
 ### 5.8.2 Proof
 
 **Given**: $\triangle ABC$ with $AB = AC$, $D$ is the midpoint of $BC$.
@@ -902,6 +1079,17 @@ $\therefore \angle ADB = \angle ADC = 90°$ (AD $\perp$ BC)
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $D$ is the midpoint of $BC$. $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Prove $DE = DF$.
 
+```
+      A
+     /|\
+    / | \
+   E  |  F
+   |\ | /|
+   | \|/ |
+   |  D  |
+   B-----C
+```
+
 **Solution**:
 
 Since $AB = AC$: $\angle B = \angle C$ (base angles)
@@ -923,6 +1111,16 @@ $\therefore DE = DF$ (CPCTC)
 1. Draw $BF \perp AB$
 2. Take points $C$, $D$ on $BF$ such that $CD = BC$
 3. Draw $DE \perp BF$ such that $A$, $C$, $E$ are collinear
+
+```
+A (other bank)
+|
+|  river
+|
+B---C---D---E
+    |       |
+   BF      DE
+```
 
 Prove that $DE = AB$.
 
@@ -946,6 +1144,16 @@ $\therefore AB = ED$ (CPCTC)
 
 **Problem**: In $\triangle ABC$, $AD$ bisects $\angle BAC$, $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Prove that $\triangle AEF$ is isosceles.
 
+```
+      A
+     /|\
+    / | \
+   E  D  F
+   | /|\ |
+   |/ | \|
+   B  |  C
+```
+
 **Solution**:
 
 Since $AD$ bisects $\angle BAC$, and $DE \perp AB$, $DF \perp AC$:
@@ -965,6 +1173,16 @@ $\therefore \triangle AEF$ is isosceles.
 ## 6.4 Problem 4: Classic Competition Problem
 
 **Problem**: In $\triangle ABC$, $\angle BAC = 90°$, $AB = AC$. $D$ is a point on line $BC$, $BD \perp DE$ at $D$, $CE \perp DE$ at $E$. Prove $DE = BD + CE$.
+
+```
+        A
+       /|\
+      / | \
+     /  |  \
+    B---D---C
+        |
+        E
+```
 
 **Solution**:
 
@@ -997,6 +1215,18 @@ $\therefore DE = DA + AE = CE + BD$
 
 **Problem**: In $\triangle ABC$, $AD$ bisects $\angle BAC$, $AB > AC$. Prove $BD > CD$.
 
+```
+      A
+     /|\
+    / | \
+   /  |  \
+  E   |   C
+   \  |  /
+    \ | /
+     \|/
+  B---D
+```
+
 **Solution**:
 
 On $AB$, take point $E$ such that $AE = AC$. Connect $DE$.
@@ -1020,6 +1250,16 @@ $\therefore BD > CD$
 
 **Problem**: In $\triangle ABC$, $M$ is the midpoint of $BC$. Prove $AB + AC > 2AM$.
 
+```
+      A
+     /|\
+    / | \
+   /  |  \
+  B---M---C
+      |
+      D
+```
+
 **Solution**:
 
 Extend $AM$ to $D$ such that $MD = AM$. Connect $BD$.
@@ -1041,6 +1281,17 @@ $\therefore AB + AC > 2AM$
 ## 6.7 Problem 7: Hand-in-Hand Model
 
 **Problem**: In the figure, $OA = OB$, $OC = OD$, $\angle AOC = \angle BOD$. Prove $AC = BD$.
+
+```
+    A       B
+     \     /
+      \   /
+       \ /
+        O
+       / \
+      /   \
+     C     D
+```
 
 **Solution**:
 
@@ -1208,6 +1459,19 @@ When you see an **isosceles right triangle** with $\angle A = 90°$, $AB = AC$:
 - Rotating by 90° around $A$ maps $B$ to $C$ (or $C$ to $B$)
 - Any point $P$ maps to $P'$ with $AP = AP'$ and $\angle PAP' = 90°$
 
+```
+    C
+    |\
+    | \
+    |  \P'
+    |   \
+    A----B
+        /
+       P
+
+Rotate 90° around A: B→C, P→P'
+```
+
 ### 7.2.2 Example: The Classic "Butterfly" Problem
 
 **Problem**: In $\triangle ABC$, $\angle BAC = 90°$, $AB = AC$. Points $P$ and $Q$ are on $BC$ such that $\angle PAQ = 45°$. Prove $PQ^2 = BP^2 + CQ^2$.
@@ -1261,6 +1525,18 @@ When you see an **equilateral triangle** $ABC$:
 - Rotating by 60° around any vertex maps one side to another
 - Rotating around $A$ by 60° maps $B$ to $C$
 
+```
+      A
+     /|\
+    / | \
+   /  P' \
+  / · P   \
+ B---------C
+
+Rotate 60° around A: B→C, P→P'
+△APP' is equilateral (AP=AP', ∠PAP'=60°)
+```
+
 ### 7.3.2 Example
 
 **Problem**: Equilateral $\triangle ABC$ has point $P$ inside. $PA = 3$, $PB = 4$, $PC = 5$. Find $\angle APB$.
@@ -1310,6 +1586,17 @@ $\angle APB = \angle AP'C = \angle AP'P + \angle PP'C = 60° + 90° = 150°$
 
 > **Definition**: A reflection flips a figure over a line (axis of reflection).
 
+```
+    P
+    |
+    |  axis
+----+----
+    |
+    P'
+
+P and P' are mirror images across the axis
+```
+
 **Properties**:
 - Each point and its image are equidistant from the axis
 - The segment connecting a point to its image is perpendicular to the axis
@@ -1334,6 +1621,15 @@ The minimum distance is $|P_1P_2|$.
 ## 8.1 Problem 1 (National Junior High Math League 2018)
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $\angle BAC = 100°$. Point $D$ is inside the triangle such that $\angle DBC = 30°$, $\angle DCB = 20°$. Find $\angle DAC$.
+
+```
+      A
+     /|\
+    / | \
+   / ·D· \
+  /  / \  \
+ B---------C
+```
 
 **Solution**:
 
@@ -1384,6 +1680,16 @@ $$\therefore x = 80°$$
 
 **Problem**: In $\triangle ABC$, $\angle ACB = 90°$, $AC = BC$, $D$ is on $AC$, $E$ is on the extension of $BC$, $CE = CD$. Connect $AE$ and $BD$. Prove $AE \perp BD$.
 
+```
+A
+|\
+| \
+D  \
+|   \
+|    B---E
+C
+```
+
 **Solution**:
 
 Since $\angle ACB = 90°$ and $AC = BC$:
@@ -1415,6 +1721,16 @@ $\therefore AE \perp BD$
 
 **Problem**: In $\triangle ABC$, $\angle BAC = 40°$, $\angle ABC = 60°$. $D$ is on $BC$ such that $AD$ bisects $\angle BAC$. $E$ is on $AB$ such that $\angle ADE = 20°$. Find $\angle DEB$.
 
+```
+      A
+     /|\
+    / | \
+   E  |  \
+    \ |   \
+     \|    \
+  B---D-----C
+```
+
 **Solution**:
 
 $\angle ACB = 180° - 40° - 60° = 80°$
@@ -1430,6 +1746,15 @@ In $\triangle BDE$: $\angle DEB = 180° - 60° - 80° = 40°$
 ## 8.4 Problem 4 (National Junior High Math League 2010)
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $\angle A = 20°$. $D$ is on $AB$, $E$ is on $AC$, $\angle DBC = 60°$, $\angle ECB = 50°$. Find $\angle BDE$.
+
+```
+    A
+   /|\
+  D | E
+  | | |
+  | | |
+  B---C
+```
 
 **Solution**:
 
@@ -1483,6 +1808,15 @@ After careful calculation: $\angle BDE = 30°$
 
 **Problem**: In $\triangle ABC$, $M$ is the midpoint of $BC$. $P$ is a point such that $PA = PB = PC = PM$. Find $\angle BAC$.
 
+```
+      A
+     /|\
+    / | \
+   /  P  \
+  /  /|\  \
+ B--M-+---C
+```
+
 **Solution**:
 
 Since $PA = PB = PC$, point $P$ is the circumcenter of $\triangle ABC$.
@@ -1508,6 +1842,15 @@ $\therefore \angle BAC = \frac{\angle BPC}{2} = 45°$
 ## 8.6 Problem 6 (National Junior High Math League 2016)
 
 **Problem**: In $\triangle ABC$, $\angle BAC = 80°$, $\angle ABC = 60°$. $D$ is on $BC$ such that $\angle CAD = 20°$. $E$ is on $AC$ such that $\angle ABE = 20°$. Find $\angle AED$.
+
+```
+      A
+     /|\
+    / | \
+   /  |  E
+  /   | /
+ B----D--C
+```
 
 **Solution**:
 
@@ -1558,6 +1901,15 @@ The answer is $\angle AED = 30°$.
 ## 8.7 Problem 7 (National Junior High Math League 2014)
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $\angle BAC = 80°$. $D$ is inside the triangle such that $\angle DAC = 10°$, $\angle DCA = 30°$. Find $\angle ADB$.
+
+```
+      A
+     /|\
+    / | \
+   / ·D· \
+  /   |   \
+ B---------C
+```
 
 **Solution**:
 
@@ -1620,6 +1972,17 @@ After careful geometric analysis: $\angle ADB = 70°$.
 
 **Problem**: In $\triangle ABC$, $\angle A = 90°$, $AB = AC$. $D$ is on $BC$, $E$ is on the extension of $CA$ beyond $A$, $BD = CE$. Prove $DE = \sqrt{2} \cdot AD$.
 
+```
+E
+|
+A
+|\
+| \
+|  D
+|   \
+C----B
+```
+
 **Solution**:
 
 Rotate $\triangle ABD$ by 90° counterclockwise around $A$.
@@ -1645,6 +2008,15 @@ $\therefore DE = \sqrt{AD^2 + AE^2} = \sqrt{2AD^2} = \sqrt{2} \cdot AD$
 ## 8.9 Problem 9 (National Junior High Math League 2009)
 
 **Problem**: In $\triangle ABC$, $\angle ACB = 90°$, $CA = CB$. $D$ is on $AB$, $E$ is on the extension of $BC$, $AD = CE$. Prove $\angle DCE = 45°$.
+
+```
+    A
+    |\
+    | \
+    |  D
+    |   \
+    C----B--E
+```
 
 **Solution**:
 
@@ -1680,6 +2052,15 @@ $\therefore \angle DCE = 45°$
 ## 8.10 Problem 10 (National Junior High Math League 2007)
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $\angle A = 20°$. $D$ is on $AB$ such that $AD = BC$. Find $\angle BCD$.
+
+```
+    A
+   /|\
+  D | \
+  | |  \
+  | |   \
+  B------C
+```
 
 **Solution**:
 
@@ -1919,6 +2300,17 @@ Competition:
 # Part XII: Quick Reference
 
 ## 12.1 Congruence Criteria at a Glance
+
+```
+Five Congruence Criteria:
+
+SSS          SAS          ASA          AAS          HL
+ A            A            A            A           A
+/|\          /|\          /|\          /|\          |\
+===          =∠=          ∠=∠          ∠∠=          | \
+B-C          B-C          B-C          B-C          |__\
+                                                   B  C
+```
 
 | Criterion | What You Need | Remember |
 |-----------|---------------|----------|
