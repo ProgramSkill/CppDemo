@@ -1,202 +1,203 @@
-# 第十章 二元一次方程组
+# Chapter 10: Systems of Linear Equations in Two Variables
 
-## 🌟 章节引入：从"一个未知数"到"两个未知数"
+## 🌟 Chapter Introduction: From "One Unknown" to "Two Unknowns"
 
-### 回顾：我们已经学过什么？
+### Review: What Have We Learned?
 
-**【一元一次方程】**
-
-```
-问题：小明有x个苹果，小红比小明多2个，两人共有10个苹果
-
-方程：x + (x + 2) = 10
-
-这是一个一元一次方程，只有一个未知数x
-```
-
-**【新问题：两个未知数怎么办？】**
+**[Linear Equations in One Variable]**
 
 ```
-问题：小明有x个苹果，小红有y个苹果
-     两人共有10个苹果，小红比小明多2个
+Problem: Xiao Ming has x apples, Xiao Hong has 2 more than Xiao Ming,
+         together they have 10 apples
 
-如何列方程？
+Equation: x + (x + 2) = 10
 
-方法1：用一元一次方程
-      x + (x + 2) = 10
-
-方法2：直接用两个未知数
-      x + y = 10
-      y - x = 2
-
-这就是二元一次方程组！
+This is a linear equation in one variable, with only one unknown x
 ```
 
-### 为什么要学习二元一次方程组？
-
-**【优势1：更直接地表示数量关系】**
+**[New Problem: What About Two Unknowns?]**
 
 ```
-实际问题中往往有多个未知量
-用多个未知数表示，更符合题意，更容易理解
+Problem: Xiao Ming has x apples, Xiao Hong has y apples
+         Together they have 10 apples, Xiao Hong has 2 more than Xiao Ming
+
+How to set up equations?
+
+Method 1: Use a linear equation in one variable
+          x + (x + 2) = 10
+
+Method 2: Use two unknowns directly
+          x + y = 10
+          y - x = 2
+
+This is a system of linear equations in two variables!
 ```
 
-**【优势2：解决更复杂的问题】**
+### Why Study Systems of Linear Equations in Two Variables?
+
+**[Advantage 1: More Direct Representation of Quantity Relationships]**
 
 ```
-一元一次方程：解决较简单的问题
-二元一次方程组：解决涉及两个未知量的问题
-三元一次方程组：解决涉及三个未知量的问题
+Real-world problems often involve multiple unknowns
+Using multiple variables is more intuitive and easier to understand
+```
+
+**[Advantage 2: Solving More Complex Problems]**
+
+```
+Linear equation in one variable: Solves simpler problems
+System of linear equations in two variables: Solves problems with two unknowns
+System of linear equations in three variables: Solves problems with three unknowns
 ...
 ```
 
-**【实际应用】**
+**[Practical Applications]**
 
-- **经济问题**：定价、利润、成本
-- **行程问题**：相遇、追及
-- **工程问题**：工作效率
-- **配套问题**：生产分配
+- **Economic problems**: Pricing, profit, cost
+- **Distance problems**: Meeting, catching up
+- **Work problems**: Work efficiency
+- **Matching problems**: Production allocation
 
-### 本章学习目标
+### Chapter Learning Objectives
 
-1. **理解概念** - 二元一次方程（组）的概念
-2. **掌握解法** - 代入消元法和加减消元法
-3. **选择方法** - 根据方程组特点选择合适的解法
-4. **解决应用** - 列方程组解决实际问题
+1. **Understand concepts** - Concepts of linear equations (systems) in two variables
+2. **Master solution methods** - Substitution method and elimination method
+3. **Choose methods** - Select appropriate methods based on equation characteristics
+4. **Solve applications** - Use systems of equations to solve real-world problems
 
 ---
 
-## 📚 10.1 二元一次方程组
+## 📚 10.1 Systems of Linear Equations in Two Variables
 
-### 10.1.1 二元一次方程的概念
+### 10.1.1 Concept of Linear Equations in Two Variables
 
-#### 📖 从"一元"到"二元"
+#### 📖 From "One Variable" to "Two Variables"
 
-**【一元一次方程回顾】**
-
-```
-定义：含有一个未知数，未知数的次数是1的方程
-
-例子：2x + 3 = 7
-     -3x - 1 = 5
-     x/2 + 1 = 3
-
-标准形式：ax + b = 0（a ≠ 0）
-```
-
-**【问题引入】**
+**[Review of Linear Equations in One Variable]**
 
 ```
-鸡兔同笼问题：
-笼子里有鸡和兔共10只，数脚共有28只
-鸡和兔各有多少只？
+Definition: An equation with one unknown where the degree of the unknown is 1
 
-如果我们设：
-鸡有x只，兔有y只
+Examples: 2x + 3 = 7
+          -3x - 1 = 5
+          x/2 + 1 = 3
 
-如何表示它们的关系？
+Standard form: ax + b = 0 (a ≠ 0)
 ```
 
-#### 🔍 深入理解：二元一次方程
+**[Problem Introduction]**
 
-**【定义】**
+```
+Chickens and Rabbits Problem:
+A cage contains chickens and rabbits, totaling 10 animals with 28 legs
+How many chickens and rabbits are there?
 
-> 含有两个未知数，并且含有未知数的项的次数都是1的方程叫做二元一次方程。
+If we let:
+x = number of chickens, y = number of rabbits
 
-**【定义的三个关键词】**
+How do we express their relationship?
+```
 
-1. **"两个未知数"**：方程中有x、y两个未知数
-2. **"项的次数都是1"**：每个含未知数的项，次数都是1
-3. **"方程"**：用等号连接的式子
+#### 🔍 In-Depth Understanding: Linear Equations in Two Variables
 
-**【标准形式】**
+**[Definition]**
+
+> An equation containing two unknowns where the degree of each term containing unknowns is 1 is called a linear equation in two variables.
+
+**[Three Key Points of the Definition]**
+
+1. **"Two unknowns"**: The equation has two unknowns x and y
+2. **"Degree of each term is 1"**: Each term containing unknowns has degree 1
+3. **"Equation"**: An expression connected by an equals sign
+
+**[Standard Form]**
 
 ```
 ax + by = c
 
-其中：
-a、b ≠ 0（否则就不是二元了）
-a、b、c 是已知数
-x、y 是未知数
+Where:
+a, b ≠ 0 (otherwise it wouldn't be "two variables")
+a, b, c are known numbers
+x, y are unknowns
 ```
 
-#### 📊 判断是否为二元一次方程
+#### 📊 Determining Whether an Equation is Linear in Two Variables
 
-**【判断标准】**
+**[Criteria]**
 
-| 条件 | 说明 |
-|------|------|
-| **未知数个数** | 必须恰好是2个 |
-| **次数** | 含未知数的项的次数都是1 |
-| **整式方程** | 分母、根号下不能有未知数 |
+| Condition | Description |
+|-----------|-------------|
+| **Number of unknowns** | Must be exactly 2 |
+| **Degree** | Degree of terms with unknowns must all be 1 |
+| **Polynomial equation** | Unknowns cannot be in denominators or under radicals |
 
-**【例子分析】**
+**[Example Analysis]**
 
-| 方程 | 是否是二元一次方程 | 原因 |
-|------|------------------|------|
-| 2x + 3y = 7 | ✓ 是 | 2个未知数，次数都是1 |
-| x - y = 5 | ✓ 是 | 2个未知数，次数都是1 |
-| x² + y = 3 | ✗ 不是 | x的次数是2 |
-| xy + z = 5 | ✗ 不是 | xy的次数是2，且有3个未知数 |
-| x + y + z = 10 | ✗ 不是 | 有3个未知数 |
-| √x + y = 3 | ✗ 不是 | 根号下有未知数 |
-| 1/x + y = 2 | ✗ 不是 | 分母有未知数 |
+| Equation | Is it linear in two variables? | Reason |
+|----------|-------------------------------|--------|
+| 2x + 3y = 7 | ✓ Yes | 2 unknowns, both degree 1 |
+| x - y = 5 | ✓ Yes | 2 unknowns, both degree 1 |
+| x² + y = 3 | ✗ No | x has degree 2 |
+| xy + z = 5 | ✗ No | xy has degree 2, and there are 3 unknowns |
+| x + y + z = 10 | ✗ No | Has 3 unknowns |
+| √x + y = 3 | ✗ No | Unknown under radical |
+| 1/x + y = 2 | ✗ No | Unknown in denominator |
 
-**【注意】**
-
-```
-形如 x = 2 的方程
-虽然只有1个未知数出现
-但可以理解为 x + 0y = 2
-所以也是二元一次方程
-```
-
-### 10.1.2 二元一次方程的解
-
-#### 📖 什么是"解"？
-
-**【回顾一元一次方程的解】**
+**[Note]**
 
 ```
-方程：2x = 6
-
-解：x = 3
-
-因为：当x=3时，方程成立
+An equation like x = 2
+Although only 1 unknown appears
+Can be understood as x + 0y = 2
+So it is also a linear equation in two variables
 ```
 
-**【二元一次方程的解】**
+### 10.1.2 Solutions of Linear Equations in Two Variables
+
+#### 📖 What is a "Solution"?
+
+**[Review of Solutions to Linear Equations in One Variable]**
 
 ```
-方程：x + y = 5
+Equation: 2x = 6
 
-解是什么？
+Solution: x = 3
 
-尝试：
-x=1, y=4 → 1+4=5 ✓ 成立
-x=2, y=3 → 2+3=5 ✓ 成立
-x=3, y=2 → 3+2=5 ✓ 成立
+Because: When x=3, the equation holds true
+```
+
+**[Solutions of Linear Equations in Two Variables]**
+
+```
+Equation: x + y = 5
+
+What is the solution?
+
+Try:
+x=1, y=4 → 1+4=5 ✓ True
+x=2, y=3 → 2+3=5 ✓ True
+x=3, y=2 → 3+2=5 ✓ True
 ...
 
-有无数组解！
+There are infinitely many solutions!
 ```
 
-#### 🔍 深入理解：二元一次方程的解的特征
+#### 🔍 In-Depth Understanding: Characteristics of Solutions
 
-**【定义】**
+**[Definition]**
 
-> 使二元一次方程两边的值相等的两个未知数的值，叫做二元一次方程的解。
+> The values of two unknowns that make both sides of a linear equation in two variables equal are called solutions of the equation.
 
-**【重要特征】**
+**[Important Characteristics]**
 
-1. **成对出现**：解是一对数值，不是单独一个数
-2. **无数个解**：通常有无数组解
-3. **表示方法**：用花括号表示 {x = a, y = b}
+1. **Appear in pairs**: A solution is a pair of values, not a single number
+2. **Infinitely many solutions**: Usually there are infinitely many solution pairs
+3. **Notation**: Use braces to represent {x = a, y = b}
 
-**【例子：x + y = 5 的解】**
+**[Example: Solutions of x + y = 5]**
 
 ```
-整数解：
+Integer solutions:
 {x = 0, y = 5}
 {x = 1, y = 4}
 {x = 2, y = 3}
@@ -204,27 +205,27 @@ x=3, y=2 → 3+2=5 ✓ 成立
 {x = 4, y = 1}
 {x = 5, y = 0}
 
-也有非整数解：
+Non-integer solutions:
 {x = 0.5, y = 4.5}
 {x = 1.5, y = 3.5}
 ...
 
-甚至有负数解：
+Even negative solutions:
 {x = -1, y = 6}
 {x = -2, y = 7}
 ...
 ```
 
-#### 💡 直观理解：图像表示
+#### 💡 Intuitive Understanding: Graphical Representation
 
 ```
-方程 x + y = 5
+Equation x + y = 5
 
-在平面直角坐标系中：
-这是一条直线！
+In the Cartesian coordinate system:
+This is a straight line!
 
-直线上的每一个点的坐标
-都是方程的解
+The coordinates of every point on the line
+are solutions to the equation
 
       y
       ↑
@@ -238,106 +239,106 @@ x=3, y=2 → 3+2=5 ✓ 成立
      O │
       │
 
-这条直线有无数个点
-所以方程有无数组解
+This line has infinitely many points
+So the equation has infinitely many solutions
 ```
 
-### 10.1.3 二元一次方程组的概念
+### 10.1.3 Concept of Systems of Linear Equations in Two Variables
 
-#### 📖 为什么要组成"方程组"？
+#### 📖 Why Form a "System of Equations"?
 
-**【问题回顾】**
-
-```
-鸡兔同笼问题：
-笼子里有鸡和兔共10只，数脚共有28只
-鸡和兔各有多少只？
-
-如果只用一个方程 x + y = 10
-有无数组解，无法确定唯一的答案！
-```
-
-**【解决方法】**
+**[Problem Review]**
 
 ```
-需要两个条件：
+Chickens and Rabbits Problem:
+A cage contains chickens and rabbits, totaling 10 animals with 28 legs
+How many chickens and rabbits are there?
 
-条件1：x + y = 10  （鸡和兔共10只）
-条件2：2x + 4y = 28  （脚共有28只）
-
-把两个方程合在一起，组成方程组！
+If we only use one equation x + y = 10
+There are infinitely many solutions, we cannot determine a unique answer!
 ```
 
-#### 🔍 深入理解：二元一次方程组
+**[Solution]**
 
-**【定义】**
+```
+We need two conditions:
 
-> 把具有相同未知数的两个二元一次方程合在一起，就组成了一个二元一次方程组。
+Condition 1: x + y = 10  (chickens and rabbits total 10)
+Condition 2: 2x + 4y = 28  (total of 28 legs)
 
-**【标准形式】**
+Combine the two equations to form a system of equations!
+```
+
+#### 🔍 In-Depth Understanding: Systems of Linear Equations in Two Variables
+
+**[Definition]**
+
+> Combining two linear equations in two variables with the same unknowns forms a system of linear equations in two variables.
+
+**[Standard Form]**
 
 ```
 ax + by = c  ①
 dx + ey = f  ②
 
-其中：
-① 和 ② 是两个方程
-x、y 是相同的未知数
+Where:
+① and ② are two equations
+x, y are the same unknowns
 ```
 
-**【书写格式】**
+**[Writing Format]**
 
 ```
-方法1：上下对齐写
+Method 1: Write vertically aligned
 {
   x + y = 5
   x - y = 1
 }
 
-方法2：左右并排写
-x + y = 5，x - y = 1
+Method 2: Write side by side
+x + y = 5, x - y = 1
 ```
 
-### 10.1.4 二元一次方程组的解
+### 10.1.4 Solutions of Systems of Linear Equations in Two Variables
 
-#### 📖 什么是方程组的"解"？
+#### 📖 What is the "Solution" of a System?
 
-**【理解】**
+**[Understanding]**
 
 ```
-方程组：
+System of equations:
 {
   x + y = 5  ①
   x - y = 1  ②
 
-方程①的解有无数个：
+Equation ① has infinitely many solutions:
 (1,4), (2,3), (3,2), (4,1)...
 
-方程②的解也有无数个：
+Equation ② also has infinitely many solutions:
 (2,1), (3,2), (4,3), (5,4)...
 
-公共解是什么？
-(3,2) 同时满足两个方程！
+What is the common solution?
+(3,2) satisfies both equations!
 ```
 
-#### 🔍 深入理解：方程组的解
+#### 🔍 In-Depth Understanding: Solution of a System
 
-**【定义】**
+**[Definition]**
 
-> 二元一次方程组的两个方程的公共解，叫做二元一次方程组的解。
+> The common solution of the two equations in a system of linear equations in two variables is called the solution of the system.
 
-**【几何理解】**
+**[Geometric Understanding]**
 
 ```
-方程①：x + y = 5 → 一条直线
-方程②：x - y = 1 → 另一条直线
+Equation ①: x + y = 5 → a line
+Equation ②: x - y = 1 → another line
 
-两条直线的交点坐标
-就是方程组的解！
+The coordinates of the intersection point
+of the two lines is the solution of the system!
 
       y
       ↑
-      3* 交点(3,2)
+      3* Intersection (3,2)
       /│\
      / │ \
   ①/  │  \②
@@ -346,92 +347,92 @@ x + y = 5，x - y = 1
      O │
       │
 
-交点是唯一的（除非平行）
-所以解通常只有一个！
+The intersection is unique (unless parallel)
+So there is usually only one solution!
 ```
 
-**【特殊情况】**
+**[Special Cases]**
 
-| 情况 | 几何意义 | 解的情况 |
-|------|---------|---------|
-| 两条直线相交 | 有唯一交点 | 唯一解 |
-| 两条直线平行 | 没有交点 | 无解 |
-| 两条直线重合 | 无数个交点 | 无数解 |
+| Case | Geometric Meaning | Solution Status |
+|------|-------------------|-----------------|
+| Two lines intersect | Unique intersection | Unique solution |
+| Two lines are parallel | No intersection | No solution |
+| Two lines coincide | Infinitely many intersections | Infinitely many solutions |
 
-#### ⚠️ 易错点分析
+#### ⚠️ Common Mistakes
 
-**【易错点1：混淆"方程的解"和"方程组的解"**
+**[Mistake 1: Confusing "solution of an equation" with "solution of a system"]**
 
 ```
-方程的解：有无数个
-方程组的解：通常只有一个
+Solution of an equation: Infinitely many
+Solution of a system: Usually only one
 ```
 
-**【易错点2：忘记检验】**
+**[Mistake 2: Forgetting to verify]**
 
-求出解后应该代入两个方程检验！
+After finding the solution, substitute into both equations to verify!
 
-**【易错点3：解的表示不规范】**
+**[Mistake 3: Improper notation]**
 
-✓ 正确：{x = 3, y = 2} 或 {(3, 2)}
+✓ Correct: {x = 3, y = 2} or {(3, 2)}
 
-❌ 错误：x = 3, y = 2（缺少花括号）
+❌ Wrong: x = 3, y = 2 (missing braces)
 
 ---
 
-## 📚 10.2 二元一次方程组的解法
+## 📚 10.2 Methods for Solving Systems of Linear Equations in Two Variables
 
-### 10.2.1 代入消元法
+### 10.2.1 Substitution Method
 
-#### 📖 "消元"的思想
+#### 📖 The Idea of "Elimination"
 
-**【核心思想】**
-
-```
-二元一次方程组（2个未知数）
-      ↓ 消元
-一元一次方程（1个未知数）
-      ↓ 求解
-得出一个未知数的值
-      ↓ 回代
-得出另一个未知数的值
-```
-
-**【为什么要"消元"？**
+**[Core Idea]**
 
 ```
-我们已经会解一元一次方程
-所以把"二元"变成"一元"
-就可以用已知的方法解决
+System of linear equations in two variables (2 unknowns)
+      ↓ Elimination
+Linear equation in one variable (1 unknown)
+      ↓ Solve
+Get the value of one unknown
+      ↓ Back-substitute
+Get the value of the other unknown
 ```
 
-#### 🔍 深入理解：代入消元法的原理
-
-**【基本思想】**
-
-> 将方程组中的一个未知数用含另一个未知数的代数式表示，代入另一个方程，实现消元。
-
-**【具体步骤】**
-
-**步骤1：选取方程，变形**
+**[Why "Eliminate"?]**
 
 ```
-从方程组中选择一个较简单的方程
-将它变形为 y = ax + b 或 x = ay + b 的形式
+We already know how to solve linear equations in one variable
+So by converting "two variables" to "one variable"
+We can use known methods to solve
+```
 
-例子：
+#### 🔍 In-Depth Understanding: Principle of Substitution Method
+
+**[Basic Idea]**
+
+> Express one unknown in terms of the other using an algebraic expression, then substitute into the other equation to eliminate one variable.
+
+**[Detailed Steps]**
+
+**Step 1: Select an equation and transform**
+
+```
+Choose a simpler equation from the system
+Transform it into the form y = ax + b or x = ay + b
+
+Example:
 {
   x + y = 5  ①
   x - y = 1  ②
 
-选择①（较简单），变形为：
+Choose ① (simpler), transform to:
 y = 5 - x  ③
 ```
 
-**步骤2：代入消元**
+**Step 2: Substitute to eliminate**
 
 ```
-将③代入另一个方程②
+Substitute ③ into the other equation ②
 
 x - (5 - x) = 1
 x - 5 + x = 1
@@ -440,218 +441,218 @@ x - 5 + x = 1
 x = 3
 ```
 
-**步骤3：回代求解**
+**Step 3: Back-substitute to solve**
 
 ```
-将 x = 3 代入③
+Substitute x = 3 into ③
 
 y = 5 - 3
 y = 2
 ```
 
-**步骤4：检验（重要！）**
+**Step 4: Verify (Important!)**
 
 ```
-检验：{x = 3, y = 2}
+Verify: {x = 3, y = 2}
 
-代入①：3 + 2 = 5 ✓
-代入②：3 - 2 = 1 ✓
+Substitute into ①: 3 + 2 = 5 ✓
+Substitute into ②: 3 - 2 = 1 ✓
 
-所以方程组的解是 {x = 3, y = 2}
+So the solution of the system is {x = 3, y = 2}
 ```
 
-#### 📊 代入消元法的详细例子
+#### 📊 Detailed Examples of Substitution Method
 
-**【例题1】**
+**[Example 1]**
 
-解方程组：
+Solve the system:
 ```
 {
   y = 2x  ①
   x + y = 6  ②
 ```
 
-**解**：
+**Solution**:
 ```
-步骤1：观察方程
-方程①已经是 y = ax + b 的形式，可以直接用
+Step 1: Observe the equations
+Equation ① is already in the form y = ax + b, can be used directly
 
-步骤2：代入消元
-将①代入②：
+Step 2: Substitute to eliminate
+Substitute ① into ②:
 x + 2x = 6
 3x = 6
 x = 2
 
-步骤3：回代
-将 x = 2 代入①：
+Step 3: Back-substitute
+Substitute x = 2 into ①:
 y = 2 × 2 = 4
 
-步骤4：检验
+Step 4: Verify
 { x = 2, y = 4 }
-①：4 = 2 × 2 ✓
-②：2 + 4 = 6 ✓
+①: 4 = 2 × 2 ✓
+②: 2 + 4 = 6 ✓
 
-答案：{x = 2, y = 4}
+Answer: {x = 2, y = 4}
 ```
 
-**【例题2】**
+**[Example 2]**
 
-解方程组：
+Solve the system:
 ```
 {
   2x + 3y = 7  ①
   x - y = 1  ②
 ```
 
-**解**：
+**Solution**:
 ```
-步骤1：选择方程变形
-方程②较简单，选择②
+Step 1: Choose equation to transform
+Equation ② is simpler, choose ②
 
-步骤2：变形
-由②得：x = y + 1  ③
+Step 2: Transform
+From ②: x = y + 1  ③
 
-步骤3：代入消元
-将③代入①：
+Step 3: Substitute to eliminate
+Substitute ③ into ①:
 2(y + 1) + 3y = 7
 2y + 2 + 3y = 7
 5y + 2 = 7
 5y = 5
 y = 1
 
-步骤4：回代
-将 y = 1 代入③：
+Step 4: Back-substitute
+Substitute y = 1 into ③:
 x = 1 + 1 = 2
 
-步骤5：检验
+Step 5: Verify
 { x = 2, y = 1 }
-①：2 × 2 + 3 × 1 = 7 ✓
-②：2 - 1 = 1 ✓
+①: 2 × 2 + 3 × 1 = 7 ✓
+②: 2 - 1 = 1 ✓
 
-答案：{x = 2, y = 1}
+Answer: {x = 2, y = 1}
 ```
 
-#### 💡 代入消元法的技巧
+#### 💡 Tips for Substitution Method
 
-**【技巧1：选择系数为1的未知数】
+**[Tip 1: Choose the unknown with coefficient 1]**
 
 ```
 {
   2x + y = 5  ①
   3x - 2y = 4  ②
 
-选择变形方程①中的 y（系数为1）
-由①得：y = 5 - 2x
+Choose to transform y in equation ① (coefficient is 1)
+From ①: y = 5 - 2x
 ```
 
-**【技巧2：选择常数项较小的方程】
+**[Tip 2: Choose the equation with smaller constant term]**
 
 ```
 {
   x + y = 5  ①
   3x + 2y = 12  ②
 
-选择方程①（常数项5较小）
-由①得：y = 5 - x
+Choose equation ① (constant term 5 is smaller)
+From ①: y = 5 - x
 ```
 
-**【技巧3：避免分数】
+**[Tip 3: Avoid fractions]**
 
 ```
 {
   3x + 2y = 7  ①
   2x - y = 1  ②
 
-选择变形方程②中的 y
-由②得：y = 2x - 1（没有分数）
+Choose to transform y in equation ②
+From ②: y = 2x - 1 (no fractions)
 
-如果变形方程①：
-3x + 2y = 7 → 2y = 7 - 3x → y = (7 - 3x)/2（有分数！）
+If transforming equation ①:
+3x + 2y = 7 → 2y = 7 - 3x → y = (7 - 3x)/2 (has fractions!)
 ```
 
-#### ⚠️ 易错点分析
+#### ⚠️ Common Mistakes
 
-**【易错点1：忘记加括号】**
+**[Mistake 1: Forgetting parentheses]**
 
-❌ 错误：
-```
-2x + 3y = 7
-x = y + 1
-
-代入：2(y + 1)写成了 2y + 1（漏括号！）
-```
-
-✓ 正确：
+❌ Wrong:
 ```
 2x + 3y = 7
 x = y + 1
 
-代入：2(y + 1) + 3y = 7（注意括号！）
+Substituting: 2(y + 1) written as 2y + 1 (missing parentheses!)
 ```
 
-**【易错点2：代入错误的方程】**
-
-❌ 错误：将变形后的式子代回原方程
-
-✓ 正确：代入另一个方程
-
-**【易错点3：计算错误】**
-
-去括号时注意符号！
+✓ Correct:
 ```
--(y - 1) = -y + 1（不是 -y - 1！）
+2x + 3y = 7
+x = y + 1
+
+Substituting: 2(y + 1) + 3y = 7 (note the parentheses!)
 ```
 
-### 10.2.2 加减消元法
+**[Mistake 2: Substituting into the wrong equation]**
 
-#### 📖 从"代入"到"加减"
+❌ Wrong: Substituting the transformed expression back into the original equation
 
-**【代入法的局限】**
+✓ Correct: Substitute into the other equation
+
+**[Mistake 3: Calculation errors]**
+
+Watch the signs when removing parentheses!
+```
+-(y - 1) = -y + 1 (not -y - 1!)
+```
+
+### 10.2.2 Addition-Subtraction Elimination Method
+
+#### 📖 From "Substitution" to "Addition-Subtraction"
+
+**[Limitations of Substitution Method]**
 
 ```
-方程组：
+System of equations:
 {
   2x + 3y = 7
   2x - y = 1
 }
 
-如果用代入法：
-由②得：x = (y + 1)/2
+If using substitution method:
+From ②: x = (y + 1)/2
 
-出现了分数！计算麻烦！
+Fractions appear! Calculations become tedious!
 ```
 
-**【加减法的优势】**
+**[Advantages of Addition-Subtraction Method]**
 
 ```
-观察上面方程组：
-两个方程中 x 的系数都是 2
+Observe the system above:
+The coefficient of x in both equations is 2
 
-如果相减：2x - 2x = 0
-x 就消掉了！
+If we subtract: 2x - 2x = 0
+x is eliminated!
 
-这就是加减消元法！
+This is the addition-subtraction elimination method!
 ```
 
-#### 🔍 深入理解：加减消元法的原理
+#### 🔍 In-Depth Understanding: Principle of Addition-Subtraction Method
 
-**【基本思想】**
+**[Basic Idea]**
 
-> 通过两方程相加或相减，消去其中一个未知数。
+> Eliminate one unknown by adding or subtracting the two equations.
 
-**【为什么可以这样做？**
+**[Why Can We Do This?]**
 
 ```
-等量加等量，和仍相等
-等量减等量，差仍相等
+Adding equals to equals gives equals
+Subtracting equals from equals gives equals
 
-如果：A = B，C = D
-那么：A ± C = B ± D
+If: A = B, C = D
+Then: A ± C = B ± D
 ```
 
-#### 📊 加减消元法的步骤
+#### 📊 Steps of Addition-Subtraction Method
 
-**【步骤1：观察系数，选择消元对象】**
+**[Step 1: Observe coefficients, choose which variable to eliminate]**
 
 ```
 {
@@ -659,79 +660,79 @@ x 就消掉了！
   3x - 2y = 5   ②
 ```
 
-观察：
-- x 的系数：3和3（相同！）
-- y 的系数：2和-2（互为相反数！）
+Observe:
+- Coefficients of x: 3 and 3 (same!)
+- Coefficients of y: 2 and -2 (opposites!)
 
-选择：消去 y 更方便（直接相加）
+Choose: Eliminating y is more convenient (just add directly)
 
-**【步骤2：变形（如果需要）】**
+**[Step 2: Transform (if needed)]**
 
 ```
-如果要消去的未知数系数相同或互为相反数
-直接跳到步骤3
+If the coefficients of the variable to eliminate are the same or opposites
+Skip directly to Step 3
 
-如果不同，需要变形使系数相同
+If different, transform to make coefficients the same
 
-例子：
+Example:
 {
   2x + 3y = 7
   x + 2y = 5
 }
 
-要消去 x：
-①的系数是2，②的系数是1
+To eliminate x:
+Coefficient in ① is 2, coefficient in ② is 1
 
-将② × 2：
+Multiply ② by 2:
 2x + 4y = 10  ③
 
-现在①和③的 x 系数都是2了
+Now ① and ③ both have coefficient 2 for x
 ```
 
-**【步骤3：相加或相减】**
+**[Step 3: Add or subtract]**
 
 ```
-如果系数互为相反数：相加
-如果系数相同：相减
+If coefficients are opposites: Add
+If coefficients are the same: Subtract
 
-回到原例：
+Back to original example:
 {
   3x + 2y = 13  ①
   3x - 2y = 5   ②
 }
 
-y 的系数是 2 和 -2（互为相反数）
-① + ②：(3x + 3x) + (2y - 2y) = 13 + 5
+Coefficients of y are 2 and -2 (opposites)
+① + ②: (3x + 3x) + (2y - 2y) = 13 + 5
 6x = 18
 x = 3
 ```
 
-**【步骤4：回代求解】**
+**[Step 4: Back-substitute to solve]**
 
 ```
-将 x = 3 代入①：
+Substitute x = 3 into ①:
 3 × 3 + 2y = 13
 9 + 2y = 13
 2y = 4
 y = 2
 ```
 
-**【步骤5：检验】**
+**[Step 5: Verify]**
 
 ```
 { x = 3, y = 2 }
 
-①：3 × 3 + 2 × 2 = 9 + 4 = 13 ✓
-②：3 × 3 - 2 × 2 = 9 - 4 = 5 ✓
+①: 3 × 3 + 2 × 2 = 9 + 4 = 13 ✓
+②: 3 × 3 - 2 × 2 = 9 - 4 = 5 ✓
 
-答案：{x = 3, y = 2}
+Answer: {x = 3, y = 2}
 ```
 
-#### 📊 加减消元法的详细例子
+#### 📊 Detailed Examples of Addition-Subtraction Method
 
-**【例题1：系数相同】**
+**[Example 1: Same coefficients]**
 
-解方程组：
+Solve the system:
 ```
 {
   3x + 2y = 13  ①
@@ -739,24 +740,24 @@ y = 2
 }
 ```
 
-**解**：
+**Solution**:
 ```
-① - ②：
+① - ②:
 (3x - 3x) + (2y - (-2y)) = 13 - 5
 4y = 8
 y = 2
 
-将 y = 2 代入①：
+Substitute y = 2 into ①:
 3x + 4 = 13
 3x = 9
 x = 3
 
-答案：{x = 3, y = 2}
+Answer: {x = 3, y = 2}
 ```
 
-**【例题2：系数互为相反数】**
+**[Example 2: Opposite coefficients]**
 
-解方程组：
+Solve the system:
 ```
 {
   2x + 3y = 7  ①
@@ -764,24 +765,24 @@ x = 3
 }
 ```
 
-**解**：
+**Solution**:
 ```
-① - ②：
+① - ②:
 (2x - 2x) + (3y - (-y)) = 7 - (-3)
 4y = 10
 y = 2.5
 
-将 y = 2.5 代入①：
+Substitute y = 2.5 into ①:
 2x + 7.5 = 7
 2x = -0.5
 x = -0.25
 
-答案：{x = -0.25, y = 2.5}
+Answer: {x = -0.25, y = 2.5}
 ```
 
-**【例题3：系数需要变形】**
+**[Example 3: Coefficients need transformation]**
 
-解方程组：
+Solve the system:
 ```
 {
   2x + 3y = 7  ①
@@ -789,29 +790,29 @@ x = -0.25
 }
 ```
 
-**解**：
+**Solution**:
 ```
-方法：消去 x
+Method: Eliminate x
 
-① × 3：6x + 9y = 21  ③
-② × 2：6x - 4y = 8   ④
+① × 3: 6x + 9y = 21  ③
+② × 2: 6x - 4y = 8   ④
 
-③ - ④：
+③ - ④:
 (6x - 6x) + (9y - (-4y)) = 21 - 8
 13y = 13
 y = 1
 
-将 y = 1 代入①：
+Substitute y = 1 into ①:
 2x + 3 = 7
 2x = 4
 x = 2
 
-答案：{x = 2, y = 1}
+Answer: {x = 2, y = 1}
 ```
 
-#### 💡 加减消元法的技巧
+#### 💡 Tips for Addition-Subtraction Method
 
-**【技巧1：选择系数较简单的未知数】
+**[Tip 1: Choose the unknown with simpler coefficients]**
 
 ```
 {
@@ -819,14 +820,14 @@ x = 2
   4x + 5y = 13
 }
 
-消去 x：
-① × 2：4x + 6y = 14
-②：     4x + 5y = 13
+Eliminate x:
+① × 2: 4x + 6y = 14
+②:     4x + 5y = 13
 
-相减：y = 1
+Subtract: y = 1
 ```
 
-**【技巧2：找最小公倍数】**
+**[Tip 2: Find the least common multiple]**
 
 ```
 {
@@ -834,14 +835,14 @@ x = 2
   2x + 3y = 8
 }
 
-消去 x：
-① × 2：6x + 4y = 14
-② × 3：6x + 9y = 24
+Eliminate x:
+① × 2: 6x + 4y = 14
+② × 3: 6x + 9y = 24
 
-2和3的最小公倍数是6
+The LCM of 2 and 3 is 6
 ```
 
-**【技巧3：观察特殊情况】**
+**[Tip 3: Observe special cases]**
 
 ```
 {
@@ -849,68 +850,68 @@ x = 2
   4x + 6y = 15
 }
 
-观察：① × 2 = 4x + 6y = 14
-     ② = 4x + 6y = 15
+Observe: ① × 2 = 4x + 6y = 14
+         ② = 4x + 6y = 15
 
-矛盾！14 ≠ 15
-无解！
+Contradiction! 14 ≠ 15
+No solution!
 ```
 
-#### ⚠️ 易错点分析
+#### ⚠️ Common Mistakes
 
-**【易错点1：加减符号错误】**
+**[Mistake 1: Sign errors in addition/subtraction]**
 
 ```
-① - ② 时，注意②的所有项都要变号！
+When doing ① - ②, all terms in ② must change sign!
 
 (3x + 2y) - (3x - 2y)
-= 3x + 2y - 3x + 2y（不是 -2y！）
+= 3x + 2y - 3x + 2y (not -2y!)
 ```
 
-**【易错点2：忘记变形所有项】**
+**[Mistake 2: Forgetting to transform all terms]**
 
 ```
-方程 × k 时，等号两边都要乘！
+When multiplying equation by k, both sides must be multiplied!
 
 2x + 3y = 7
 
-乘以3：
-6x + 9y = 21（不是21！是7×3）
+Multiply by 3:
+6x + 9y = 21 (not 21! it's 7×3)
 ```
 
-**【易错点3：选择消元对象不当】**
+**[Mistake 3: Poor choice of elimination target]**
 
-选择系数有倍数关系或绝对值较小的未知数
+Choose unknowns with coefficients that have a multiple relationship or smaller absolute values
 
-### 10.2.3 两种解法的选择
+### 10.2.3 Choosing Between the Two Methods
 
-#### 🎯 什么时候用代入法？
+#### 🎯 When to Use Substitution Method?
 
-**【适用情况】**
+**[Applicable Situations]**
 
-1. **有一个方程中某个未知数的系数是1或-1**
-2. **有一个方程可以直接表示出某个未知数**
+1. **One equation has an unknown with coefficient 1 or -1**
+2. **One equation can directly express one unknown**
 
-**【例子】**
+**[Example]**
 
 ```
 {
-  y = 2x + 1  ① （已经表示出 y）
+  y = 2x + 1  ① (y is already expressed)
   3x + 2y = 5  ②
 }
 
-→ 适合用代入法
+→ Suitable for substitution method
 ```
 
-#### 🎯 什么时候用加减法？
+#### 🎯 When to Use Addition-Subtraction Method?
 
-**【适用情况】**
+**[Applicable Situations]**
 
-1. **两个方程中，同一个未知数的系数相同或互为相反数**
-2. **系数成整数倍关系**
-3. **系数绝对值较小**
+1. **Same unknown has identical or opposite coefficients in both equations**
+2. **Coefficients have integer multiple relationships**
+3. **Coefficients have small absolute values**
 
-**【例子】**
+**[Example]**
 
 ```
 {
@@ -918,495 +919,495 @@ x = 2
   3x - y = 1   ②
 }
 
-→ x 的系数相同，适合用加减法
+→ Coefficients of x are the same, suitable for addition-subtraction method
 ```
 
-#### 📊 方法选择总结
+#### 📊 Method Selection Summary
 
-| 情况 | 推荐方法 | 原因 |
-|------|---------|------|
-| 有系数为±1的项 | 代入法 | 直接变形，避免分数 |
-| 系数相同或互为相反数 | 加减法 | 直接消元 |
-| 系数成倍数关系 | 加减法 | 变形后消元 |
-| 系数复杂 | 加减法 | 计算相对简单 |
+| Situation | Recommended Method | Reason |
+|-----------|-------------------|--------|
+| Term with coefficient ±1 | Substitution | Direct transformation, avoids fractions |
+| Same or opposite coefficients | Addition-Subtraction | Direct elimination |
+| Multiple relationship in coefficients | Addition-Subtraction | Eliminate after transformation |
+| Complex coefficients | Addition-Subtraction | Relatively simpler calculations |
 
 ---
 
-## 📚 10.3 实际问题与二元一次方程组
+## 📚 10.3 Real-World Problems and Systems of Linear Equations
 
-### 10.3.1 列方程组解应用题的一般步骤
+### 10.3.1 General Steps for Solving Word Problems with Systems
 
-#### 📖 从实际问题到数学模型
+#### 📖 From Real Problems to Mathematical Models
 
-**【完整的解题流程】**
-
-```
-实际问题
-   ↓ 审题、设未知数
-数学语言
-   ↓ 找等量关系
-方程组
-   ↓ 求解
-方程组的解
-   ↓ 检验
-实际问题的答案
-```
-
-#### 🔍 详细步骤讲解
-
-**【步骤1：审题（最重要！）】**
+**[Complete Problem-Solving Process]**
 
 ```
-理解题意，明确：
-- 已知什么？
-- 求什么？
-- 有哪些数量关系？
+Real-world problem
+   ↓ Analyze, set unknowns
+Mathematical language
+   ↓ Find equality relationships
+System of equations
+   ↓ Solve
+Solution of the system
+   ↓ Verify
+Answer to the real problem
 ```
 
-**【步骤2：设未知数】**
+#### 🔍 Detailed Step Explanation
+
+**[Step 1: Analyze the Problem (Most Important!)]**
 
 ```
-用字母表示未知数
-
-原则：
-- 设直接的未知量
-- 通常设两个未知数
-- 要带单位
-
-例子：
-"设鸡有x只，兔有y只"
-不是：
-"设x只鸡，y只兔"
+Understand the problem, clarify:
+- What is known?
+- What is being asked?
+- What quantity relationships exist?
 ```
 
-**【步骤3：找等量关系】**
+**[Step 2: Set Unknowns]**
 
 ```
-找出两个独立的等量关系
+Use letters to represent unknowns
 
-方法：
-- 抓关键词："共"、"比"、"多"、"少"
-- 利用公式：路程=速度×时间，总价=单价×数量等
+Principles:
+- Set direct unknown quantities
+- Usually set two unknowns
+- Include units
+
+Example:
+"Let there be x chickens and y rabbits"
+Not:
+"Let x chickens, y rabbits"
 ```
 
-**【步骤4：列方程组】**
+**[Step 3: Find Equality Relationships]**
 
 ```
-根据等量关系列出方程组
+Find two independent equality relationships
 
-注意：
-- 方程两边单位要一致
-- 两个方程要独立
+Methods:
+- Look for keywords: "total", "more than", "less than"
+- Use formulas: distance = speed × time, total price = unit price × quantity, etc.
 ```
 
-**【步骤5：解方程组】**
+**[Step 4: Set Up the System]**
 
 ```
-选择合适的方法求解
+Set up the system based on equality relationships
 
-代入法 or 加减法？
+Note:
+- Units must be consistent on both sides
+- The two equations must be independent
 ```
 
-**【步骤6：检验】**
+**[Step 5: Solve the System]**
 
 ```
-两方面检验：
-1. 数学检验：代入原方程组
-2. 实际检验：结果是否符合实际意义
+Choose an appropriate method to solve
+
+Substitution or Addition-Subtraction?
 ```
 
-**【步骤7：作答】**
+**[Step 6: Verify]**
 
 ```
-写出完整的答案，包括：
-- 数值
-- 单位
-- 答：...
+Verify in two aspects:
+1. Mathematical verification: Substitute into original system
+2. Practical verification: Does the result make sense in reality?
 ```
 
-### 10.3.2 常见应用题类型
+**[Step 7: Write the Answer]**
 
-由于篇幅限制，这里先完成文档的主要结构改进。实际的题型应用部分已经在原文档中有基础内容，可以参考前面章节的详细讲解方式进行扩展。
+```
+Write a complete answer, including:
+- Numerical value
+- Units
+- Answer: ...
+```
 
-**例子**：甲、乙两人同时从相距100km的两地相向而行，甲的速度为15km/h，乙的速度为10km/h，经过几小时两人相遇？相遇时各自行驶了多少路程？
+### 10.3.2 Common Types of Word Problems
 
-**解答**：
-设经过x小时两人相遇
-甲行驶的路程：15x km
-乙行驶的路程：10x km
-根据题意：15x + 10x = 100
+Due to space limitations, we'll complete the main structural improvements here. The actual problem type applications are already covered in the original document and can be expanded following the detailed explanation style of previous sections.
+
+**Example**: Person A and Person B start simultaneously from two places 100km apart, traveling toward each other. A's speed is 15km/h, B's speed is 10km/h. After how many hours will they meet? How far has each traveled when they meet?
+
+**Solution**:
+Let them meet after x hours
+Distance traveled by A: 15x km
+Distance traveled by B: 10x km
+According to the problem: 15x + 10x = 100
 25x = 100
 x = 4
 
-甲行驶路程：15 × 4 = 60（km）
-乙行驶路程：10 × 4 = 40（km）
+Distance traveled by A: 15 × 4 = 60 (km)
+Distance traveled by B: 10 × 4 = 40 (km)
 
-答：经过4小时两人相遇，甲行驶了60km，乙行驶了40km。
+Answer: They meet after 4 hours. A traveled 60km, B traveled 40km.
 
 ---
 
-**类型三：工程问题**
+**Type Three: Work Problems**
 
-**例子**：某项工程，甲单独做需要10天完成，乙单独做需要15天完成，两人合作需要多少天完成？
+**Example**: A project takes 10 days for Worker A alone and 15 days for Worker B alone. How many days will it take if they work together?
 
-**解答**：
-设两人合作需要x天完成
-甲的效率：1/10
-乙的效率：1/15
-根据题意：x/10 + x/15 = 1
+**Solution**:
+Let them complete the work in x days together
+A's efficiency: 1/10
+B's efficiency: 1/15
+According to the problem: x/10 + x/15 = 1
 
-去分母（同乘30），得：3x + 2x = 30
+Multiply by 30 to clear denominators: 3x + 2x = 30
 5x = 30
 x = 6
 
-答：两人合作需要6天完成。
+Answer: Working together, they will complete the project in 6 days.
 
 ---
 
-**类型四：配套问题**
+**Type Four: Matching Problems**
 
-**例子**：某车间有工人50人，一个工人每天平均生产螺栓12个或螺母18个，应分配多少人生产螺栓，多少人生产螺母，才能使螺栓和螺母配套（1个螺栓配2个螺母）？
+**Example**: A workshop has 50 workers. Each worker produces an average of 12 bolts or 18 nuts per day. How many workers should produce bolts and how many should produce nuts so that bolts and nuts match (1 bolt requires 2 nuts)?
 
-**解答**：
-设x人生产螺栓，y人生产螺母
-根据题意：
+**Solution**:
+Let x workers produce bolts and y workers produce nuts
+According to the problem:
 ```
 x + y = 50  ①
 12x × 2 = 18y  ②
 ```
 
-由②得：24x = 18y，即 4x = 3y，y = 4x/3 ③
-将③代入①，得：x + 4x/3 = 50
+From ②: 24x = 18y, i.e., 4x = 3y, y = 4x/3 ③
+Substitute ③ into ①: x + 4x/3 = 50
 7x/3 = 50
 x = 150/7 ≈ 21.4
 
-这不是整数，需要调整人数。
+This is not an integer, the allocation needs adjustment.
 
 ---
 
-## 🎯 重点难点
+## 🎯 Key Points and Difficulties
 
-### 重点
-1. 二元一次方程（组）的概念
-2. 二元一次方程组的解的概念
-3. 代入消元法
-4. 加减消元法
-5. 列方程组解应用题
+### Key Points
+1. Concepts of linear equations (systems) in two variables
+2. Concept of solutions to systems of linear equations in two variables
+3. Substitution method
+4. Addition-subtraction elimination method
+5. Solving word problems using systems of equations
 
-### 难点
-1. 选择合适的消元方法
-2. 确定应用题中的等量关系
-3. 根据实际意义检验解的合理性
-
----
-
-## 📖 典型例题
-
-### 例题1：判断二元一次方程
-
-**题目**：下列方程中，哪些是二元一次方程？
-（1）2x + 3y = 7
-（2）x² + y = 5
-（3）x + y + z = 10
-（4）xy + z = 6
-
-**解答**：
-二元一次方程有：**（1）2x + 3y = 7**
-
-不是二元一次方程的是：
-- （2）x² + y = 5（x的次数是2）
-- （3）x + y + z = 10（有三个未知数）
-- （4）xy + z = 6（xy的次数是2）
+### Difficulties
+1. Choosing the appropriate elimination method
+2. Identifying equality relationships in word problems
+3. Verifying the reasonableness of solutions based on practical meaning
 
 ---
 
-### 例题2：代入消元法
+## 📖 Typical Examples
 
-**题目**：解方程组
+### Example 1: Identifying Linear Equations in Two Variables
+
+**Problem**: Which of the following equations are linear equations in two variables?
+(1) 2x + 3y = 7
+(2) x² + y = 5
+(3) x + y + z = 10
+(4) xy + z = 6
+
+**Solution**:
+Linear equation in two variables: **(1) 2x + 3y = 7**
+
+Not linear equations in two variables:
+- (2) x² + y = 5 (x has degree 2)
+- (3) x + y + z = 10 (has three unknowns)
+- (4) xy + z = 6 (xy has degree 2)
+
+---
+
+### Example 2: Substitution Method
+
+**Problem**: Solve the system
 ```
 y = 2x  ①
 x + y = 6  ②
 ```
 
-**解答**：
-将①代入②，得：x + 2x = 6
+**Solution**:
+Substitute ① into ②: x + 2x = 6
 3x = 6
 x = 2
 
-将 x = 2 代入①，得：y = 2 × 2 = 4
+Substitute x = 2 into ①: y = 2 × 2 = 4
 
-所以方程组的解是：**{x = 2, y = 4}**
+The solution is: **{x = 2, y = 4}**
 
 ---
 
-### 例题3：加减消元法
+### Example 3: Addition-Subtraction Method
 
-**题目**：解方程组
+**Problem**: Solve the system
 ```
 2x + 3y = 7  ①
 3x - 2y = 4  ②
 ```
 
-**解答**：
-① × 2，得：4x + 6y = 14  ③
-② × 3，得：9x - 6y = 12  ④
+**Solution**:
+① × 2: 4x + 6y = 14  ③
+② × 3: 9x - 6y = 12  ④
 
-③ + ④，得：13x = 26
+③ + ④: 13x = 26
 x = 2
 
-将 x = 2 代入①，得：2 × 2 + 3y = 7
+Substitute x = 2 into ①: 2 × 2 + 3y = 7
 4 + 3y = 7
 3y = 3
 y = 1
 
-所以方程组的解是：**{x = 2, y = 1}**
+The solution is: **{x = 2, y = 1}**
 
 ---
 
-### 例题4：选择合适的解法
+### Example 4: Choosing the Appropriate Method
 
-**题目**：选择合适的方法解下列方程组
-（1）
+**Problem**: Choose an appropriate method to solve the following systems
+(1)
 ```
 x + y = 5
 x - y = 1
 ```
 
-（2）
+(2)
 ```
 y = 2x - 1
 3x + y = 9
 ```
 
-**解答**：
-（1）用加减消元法：
-两式相加，得：2x = 6，x = 3
-将 x = 3 代入第一个方程，得：y = 2
-解：**{x = 3, y = 2}**
+**Solution**:
+(1) Using addition-subtraction method:
+Adding the two equations: 2x = 6, x = 3
+Substitute x = 3 into the first equation: y = 2
+Solution: **{x = 3, y = 2}**
 
-（2）用代入消元法：
-将 y = 2x - 1 代入第二个方程，得：3x + (2x - 1) = 9
+(2) Using substitution method:
+Substitute y = 2x - 1 into the second equation: 3x + (2x - 1) = 9
 5x - 1 = 9
 5x = 10
 x = 2
-将 x = 2 代入第一个方程，得：y = 3
-解：**{x = 2, y = 3}**
+Substitute x = 2 into the first equation: y = 3
+Solution: **{x = 2, y = 3}**
 
 ---
 
-### 例题5：和差问题
+### Example 5: Sum and Difference Problem
 
-**题目**：某数的和是10，差是2，求这两个数。
+**Problem**: The sum of two numbers is 10, and their difference is 2. Find these two numbers.
 
-**解答**：
-设这两个数分别是x和y（x > y）
-根据题意：
+**Solution**:
+Let the two numbers be x and y (x > y)
+According to the problem:
 ```
 x + y = 10  ①
 x - y = 2  ②
 ```
 
-① + ②，得：2x = 12，x = 6
-将 x = 6 代入①，得：y = 4
+① + ②: 2x = 12, x = 6
+Substitute x = 6 into ①: y = 4
 
-答：这两个数是6和4。
+Answer: The two numbers are 6 and 4.
 
 ---
 
-### 例题6：配套问题
+### Example 6: Matching Problem
 
-**题目**：某车间有男工人5人，女工人4人，一天共生产螺栓和螺母若干，已知1个螺栓配2个螺母，每人每天生产螺栓20个或螺母30个，应如何分配才能使螺栓和螺母配套？
+**Problem**: A workshop has 5 male workers and 4 female workers. They produce bolts and nuts daily. Given that 1 bolt requires 2 nuts, and each person produces 20 bolts or 30 nuts per day, how should they be assigned so that bolts and nuts match?
 
-**解答**：
-设x个男工生产螺栓，y个女工生产螺母
-根据题意：
+**Solution**:
+Let x male workers produce bolts and y female workers produce nuts
+According to the problem:
 ```
 x + y = 9  ①
 20x × 2 = 30y  ②
 ```
 
-由②得：40x = 30y，即 4x = 3y
-所以 x : y = 3 : 4
+From ②: 40x = 30y, i.e., 4x = 3y
+So x : y = 3 : 4
 
-设 x = 3k，y = 4k
-代入①，得：3k + 4k = 9，k = 9/7
-这不是整数，需要调整分配方案。
+Let x = 3k, y = 4k
+Substitute into ①: 3k + 4k = 9, k = 9/7
+This is not an integer, the allocation plan needs adjustment.
 
 ---
 
-### 例题7：行程问题
+### Example 7: Distance Problem
 
-**题目**：A、B两地相距100km，甲从A地出发，速度为15km/h，乙从B地同时出发，速度为10km/h，相向而行，经过几小时两人相遇？
+**Problem**: Places A and B are 100km apart. Person A departs from A at 15km/h, and Person B departs from B simultaneously at 10km/h, traveling toward each other. After how many hours will they meet?
 
-**解答**：
-设经过x小时两人相遇
-甲行驶的路程：15x km
-乙行驶的路程：10x km
-根据题意：15x + 10x = 100
+**Solution**:
+Let them meet after x hours
+Distance traveled by A: 15x km
+Distance traveled by B: 10x km
+According to the problem: 15x + 10x = 100
 25x = 100
 x = 4
 
-答：经过4小时两人相遇。
+Answer: They will meet after 4 hours.
 
 ---
 
-### 例题8：综合应用
+### Example 8: Comprehensive Application
 
-**题目**：某商店用两种价格分别为每千克18元和每千克10元的糖果混合成售价为每千克15元的什锦糖果100kg，求需要两种糖果各多少千克？
+**Problem**: A store mixes two types of candy priced at 18 yuan/kg and 10 yuan/kg to make 100kg of assorted candy priced at 15 yuan/kg. How many kilograms of each type of candy are needed?
 
-**解答**：
-设需要18元的糖果x kg，10元的糖果y kg
-根据题意：
+**Solution**:
+Let x kg of 18-yuan candy and y kg of 10-yuan candy be needed
+According to the problem:
 ```
 x + y = 100  ①
 18x + 10y = 15 × 100  ②
 ```
 
-由①得：y = 100 - x ③
-将③代入②，得：18x + 10(100 - x) = 1500
+From ①: y = 100 - x ③
+Substitute ③ into ②: 18x + 10(100 - x) = 1500
 18x + 1000 - 10x = 1500
 8x = 500
 x = 62.5
 
-将 x = 62.5 代入③，得：y = 37.5
+Substitute x = 62.5 into ③: y = 37.5
 
-答：需要18元的糖果62.5kg，10元的糖果37.5kg。
+Answer: 62.5kg of 18-yuan candy and 37.5kg of 10-yuan candy are needed.
 
 ---
 
-## 📝 练习题
+## 📝 Practice Problems
 
-### 基础题
+### Basic Problems
 
-**一、填空题**
+**I. Fill in the Blanks**
 
-1. 二元一次方程 2x + 3y = 7 的正整数解有____组
+1. The linear equation 2x + 3y = 7 has ____ positive integer solutions
 
-2. 已知 x = 2, y = 1 是方程 2x + ay = 5 的解，则 a = ____
+2. Given x = 2, y = 1 is a solution of 2x + ay = 5, then a = ____
 
-3. 方程组
+3. The solution of the system
 ```
 x + y = 5
 x - y = 1
 ```
-的解是 ____
+is ____
 
-4. 若 2x + 3y = 7，则当 x = 1 时，y = ____
+4. If 2x + 3y = 7, then when x = 1, y = ____
 
-5. 甲、乙两数之和为10，甲、乙两数之差为2，则甲 = ____，乙 = ____
+5. The sum of two numbers A and B is 10, their difference is 2, then A = ____, B = ____
 
-**二、选择题**
+**II. Multiple Choice**
 
-6. 下列方程中，是二元一次方程的是（  ）
+6. Which of the following is a linear equation in two variables? (  )
    A. 2x + 3 = 7
    B. x² + y = 5
    C. 2x + 3y = 7
    D. x + y + z = 10
 
-7. 方程组
+7. The solution of the system
 ```
 x + y = 5
 x - y = 1
 ```
-的解是（  ）
+is (  )
    A. x = 2, y = 3
    B. x = 3, y = 2
    C. x = 4, y = 1
    D. x = 1, y = 4
 
-8. 已知 x = 2, y = 1 是方程组
+8. Given x = 2, y = 1 is a solution of the system
 ```
 ax + y = 5
 x + by = 4
 ```
-的解，则 a, b 的值是（  ）
+then the values of a and b are (  )
    A. a = 2, b = 1
    B. a = 3, b = 1
    C. a = 2, b = 2
    D. a = 3, b = 2
 
-9. 若 x + y = 5，x - y = 1，则 2x + 3y =（  ）
+9. If x + y = 5, x - y = 1, then 2x + 3y = (  )
    A. 10
    B. 11
    C. 12
    D. 13
 
-10. 用加减消元法解方程组
+10. Using addition-subtraction method to solve the system
 ```
 3x + 2y = 7
 3x - 2y = 5
 ```
-应选择消去（  ）
+which variable should be eliminated? (  )
     A. x
     B. y
-    C. x或y都可以
-    D. 无法消元
+    C. Either x or y works
+    D. Cannot eliminate
 
-**三、解答题**
+**III. Word Problems**
 
-11. 用代入消元法解方程组：
+11. Use substitution method to solve the system:
 ```
 y = 2x
 x + y = 6
 ```
 
-12. 用加减消元法解方程组：
+12. Use addition-subtraction method to solve the system:
 ```
 2x + 3y = 7
 3x - 2y = 4
 ```
 
-13. 某班共有学生50人，其中男生比女生多10人，求男生和女生各有多少人？
+13. A class has 50 students in total, with 10 more boys than girls. How many boys and girls are there?
 
-14. 甲、乙两数之和为10，甲数的2倍等于乙数的3倍，求这两个数。
+14. The sum of two numbers A and B is 10, and twice A equals three times B. Find these two numbers.
 
-### 提高题
+### Advanced Problems
 
-15. 解方程组：
+15. Solve the system:
 ```
 3x + 2y + z = 13
 x + y + z = 7
 2x + 3y - z = 12
 ```
 
-16. 某车间有工人50人，一个工人每天平均生产螺栓12个或螺母18个，应分配多少人生产螺栓，多少人生产螺母，才能使螺栓和螺母刚好配套（1个螺栓配2个螺母）？
+16. A workshop has 50 workers. Each worker produces an average of 12 bolts or 18 nuts per day. How many workers should produce bolts and how many should produce nuts so that bolts and nuts exactly match (1 bolt requires 2 nuts)?
 
-17. A、B两地相距100km，甲从A地出发，速度为15km/h，同时乙从B地出发，速度为10km/h，相向而行，经过几小时两人相遇？相遇时各自行驶了多少路程？
+17. Places A and B are 100km apart. Person A departs from A at 15km/h, and Person B departs from B simultaneously at 10km/h, traveling toward each other. After how many hours will they meet? How far has each traveled when they meet?
 
-18. 已知 |x - 2| + (y + 3)² = 0，求 x 和 y 的值。
+18. Given |x - 2| + (y + 3)² = 0, find the values of x and y.
 
 ---
 
-## 💡 知识结构图
+## 💡 Knowledge Structure Diagram
 
 ```
-二元一次方程组
-├── 概念
-│   ├── 二元一次方程
-│   └── 二元一次方程组
+Systems of Linear Equations in Two Variables
+├── Concepts
+│   ├── Linear equation in two variables
+│   └── System of linear equations in two variables
 │
-├── 解法
-│   ├── 代入消元法
-│   └── 加减消元法
+├── Solution Methods
+│   ├── Substitution method
+│   └── Addition-subtraction elimination method
 │
-└── 应用
-    ├── 和差倍分问题
-    ├── 行程问题
-    ├── 工程问题
-    └── 配套问题
+└── Applications
+    ├── Sum and difference problems
+    ├── Distance problems
+    ├── Work problems
+    └── Matching problems
 ```
 
 ---
 
-## 📚 学习建议
+## 📚 Study Suggestions
 
-1. **理解概念**：明确二元一次方程（组）的概念
-2. **掌握解法**：熟练掌握代入消元法和加减消元法
-3. **选择方法**：根据方程组的特点选择合适的解法
-4. **检验答案**：解方程组后要检验答案是否正确
-5. **分析等量关系**：解应用题时，关键是找出两个等量关系
-6. **合理设未知数**：设未知数时要考虑方便列方程
+1. **Understand concepts**: Clarify the concepts of linear equations (systems) in two variables
+2. **Master solution methods**: Become proficient in substitution and addition-subtraction elimination methods
+3. **Choose methods wisely**: Select appropriate methods based on the characteristics of the system
+4. **Verify answers**: Always verify answers after solving systems
+5. **Analyze equality relationships**: The key to word problems is finding two equality relationships
+6. **Set unknowns reasonably**: Consider convenience when setting up equations
 
 ---
 
-**下一章学习预告**：第十一章 不等式与不等式组
+**Next Chapter Preview**: Chapter 11 - Inequalities and Systems of Inequalities
