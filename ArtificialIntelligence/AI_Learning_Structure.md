@@ -159,25 +159,25 @@ ArtificialIntelligence/
 │       ├── DataPipeline/                    # 数据流水线：ETL、数据清洗、特征存储
 │       └── DataVersioning/                  # 数据版本控制：DVC、数据血缘、数据治理
 │
-└── 08_Resources/                            # 学习资源
-    ├── Papers/                              # 论文资源
-    │   ├── Classic/                         # 经典论文：AlexNet、ResNet、Transformer等
-    │   ├── Recent/                          # 最新研究：前沿技术、新方法
-    │   └── ReadingNotes/                    # 论文笔记：理解与总结
-    ├── Books/                               # 书籍资源
-    │   ├── MachineLearning/                 # 机器学习书籍：周志华《机器学习》等
-    │   ├── DeepLearning/                    # 深度学习书籍：Goodfellow《深度学习》等
-    │   └── Notes/                           # 读书笔记：章节总结、知识点整理
-    ├── Tutorials/                           # 教程资源
-    │   ├── OnlineCourses/                   # 在线课程：Coursera、edX、Udacity
-    │   ├── VideoLectures/                   # 视频讲座：Stanford CS231n、CS224n
-    │   └── Blogs/                           # 技术博客：Medium、知乎、CSDN
-    └── Tools/                               # 工具资源
-        ├── Frameworks/                      # 深度学习框架：TensorFlow、PyTorch、Keras
-        ├── Libraries/                       # 常用库：NumPy、Pandas、Scikit-learn、Matplotlib
-        └── Datasets/                        # 数据集资源：Kaggle、UCI、ImageNet、COCO
-
-09_LLMs/                                     # 大语言模型（专题深入）
+├── 08_Resources/                            # 学习资源
+│   ├── Papers/                              # 论文资源
+│   │   ├── Classic/                         # 经典论文：AlexNet、ResNet、Transformer等
+│   │   ├── Recent/                          # 最新研究：前沿技术、新方法
+│   │   └── ReadingNotes/                    # 论文笔记：理解与总结
+│   ├── Books/                               # 书籍资源
+│   │   ├── MachineLearning/                 # 机器学习书籍：周志华《机器学习》等
+│   │   ├── DeepLearning/                    # 深度学习书籍：Goodfellow《深度学习》等
+│   │   └── Notes/                           # 读书笔记：章节总结、知识点整理
+│   ├── Tutorials/                           # 教程资源
+│   │   ├── OnlineCourses/                   # 在线课程：Coursera、edX、Udacity
+│   │   ├── VideoLectures/                   # 视频讲座：Stanford CS231n、CS224n
+│   │   └── Blogs/                           # 技术博客：Medium、知乎、CSDN
+│   └── Tools/                               # 工具资源
+│       ├── Frameworks/                      # 深度学习框架：TensorFlow、PyTorch、Keras
+│       ├── Libraries/                       # 常用库：NumPy、Pandas、Scikit-learn、Matplotlib
+│       └── Datasets/                        # 数据集资源：Kaggle、UCI、ImageNet、COCO
+│
+└── 09_LLMs/                                 # 大语言模型（专题深入）
 ├── Foundations/                             # LLM理论基础
 │   ├── Tokenization/                        # 分词技术：BPE、SentencePiece、tiktoken
 │   ├── PretrainingObjectives/               # 预训练目标：MLM、CLM、Seq2Seq、Instruction Tuning
