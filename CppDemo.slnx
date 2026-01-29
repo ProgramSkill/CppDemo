@@ -4,6 +4,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="ArtificialIntelligence/ArtificialIntelligence.csproj" Id="642fb590-7215-4eab-bc60-b9311d0d40b1" />
   <Project Path="Chinese/Chinese.csproj" Id="d7580441-caf9-465d-ab63-28e2e2b45e65" />
   <Project Path="CPPAlgorithm/CPPAlgorithm.vcxproj" Id="416a2ec7-66d3-4104-ae76-5544a6c6739b" />
   <Project Path="CppDemo/CppDemo.vcxproj" Id="7944ecc6-b809-4ea8-9b45-78aae9cb1858" />
