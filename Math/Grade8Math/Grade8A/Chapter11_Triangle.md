@@ -995,7 +995,7 @@ Number of sides $n = 360° \div 45° = 8$
 
 ---
 
-## 3.5 Congruent Triangles (全等三角形)
+## 3.5 Congruent Triangles
 
 ### 3.5.1 Definition of Congruence
 
@@ -1090,7 +1090,7 @@ Therefore △ABD ≅ △ACD (AAS)
 Therefore AB = AC (corresponding sides of congruent triangles)
 ```
 
-**This proves**: Equal angles are opposite to equal sides (等角对等边)
+**This proves**: Equal angles are opposite to equal sides
 
 ### 3.5.10 Common Proof Strategies
 
@@ -1101,7 +1101,7 @@ Therefore AB = AC (corresponding sides of congruent triangles)
 
 ---
 
-## 3.6 Similar Triangles (相似三角形)
+## 3.6 Similar Triangles
 
 ### 3.6.1 Definition of Similarity
 
@@ -1183,7 +1183,7 @@ Therefore CD² = AD · DB
 
 ---
 
-## 3.7 The Pythagorean Theorem (勾股定理)
+## 3.7 The Pythagorean Theorem
 
 ### 3.7.1 Statement of the Theorem
 
@@ -1268,7 +1268,7 @@ Since $41 < 49$, we have $a^2 + b^2 < c^2$
 
 ---
 
-## 3.8 Angle Bisector Theorem (角平分线定理)
+## 3.8 Angle Bisector Theorem
 
 ### 3.8.1 Statement of the Theorem
 
@@ -1535,9 +1535,9 @@ $a \approx 6.34$ cm
 
 ---
 
-## 4.2 National Junior High Math League Level Problems (联赛级真题)
+## 4.2 National Junior High Math League Level Problems
 
-### Problem 9 (Congruence Proof - 全等证明)
+### Problem 9 (Congruence Proof)
 
 > In $\triangle ABC$, $AB = AC$, $D$ is on $AB$, $E$ is on $AC$, and $BD = CE$. Prove that $\triangle BEC \cong \triangle CDB$.
 
@@ -1575,7 +1575,7 @@ Therefore △BEC ≅ △CDB (SAS)
 
 ---
 
-### Problem 10 (Similar Triangles Application - 相似三角形应用)
+### Problem 10 (Similar Triangles Application)
 
 > In $\triangle ABC$, $\angle ACB = 90°$, $CD \perp AB$ at $D$. If $AD = 4$ and $BD = 9$, find $CD$.
 
@@ -1597,7 +1597,7 @@ So $CD^2 = AD \cdot BD$
 
 ---
 
-### Problem 11 (Pythagorean Theorem - 勾股定理综合)
+### Problem 11 (Pythagorean Theorem)
 
 > In $\triangle ABC$, $\angle C = 90°$, $AC = 3$, $BC = 4$. Point $D$ is on $AB$ such that $CD \perp AB$. Find $CD$.
 
@@ -1622,7 +1622,7 @@ $CD = \frac{12}{5} = 2.4$
 
 ---
 
-### Problem 12 (Competition Classic - 联赛经典)
+### Problem 12 (Competition Classic)
 
 > In $\triangle ABC$, $AB = 13$, $BC = 14$, $CA = 15$. Find the area of $\triangle ABC$.
 
@@ -1641,7 +1641,7 @@ $S = 84$
 
 ---
 
-### Problem 13 (Angle Bisector Theorem - 角平分线定理)
+### Problem 13 (Angle Bisector Theorem)
 
 > In $\triangle ABC$, $AB = 10$, $AC = 8$, $BC = 6$. The angle bisector from $A$ meets $BC$ at $D$. Find $BD$ and $DC$.
 
@@ -1664,7 +1664,7 @@ $DC = 4 \times \frac{2}{3} = \frac{8}{3}$
 
 ---
 
-### Problem 14 (Integer Triangle Counting - 整数三角形计数)
+### Problem 14 (Integer Triangle Counting)
 
 > How many triangles with integer sides have perimeter 15?
 
@@ -1691,7 +1691,7 @@ Also $c \geq b \geq a \geq 1$ and $a + b = 15 - c$
 
 ---
 
-### Problem 15 (Midsegment Application - 中位线应用)
+### Problem 15 (Midsegment Application)
 
 > In $\triangle ABC$, $D$, $E$, $F$ are midpoints of $BC$, $CA$, $AB$ respectively. If the perimeter of $\triangle DEF$ is 12, find the perimeter of $\triangle ABC$.
 
@@ -1710,7 +1710,7 @@ Perimeter of $\triangle ABC = 24$
 
 ---
 
-### Problem 16 (Competition Problem - 综合证明)
+### Problem 16 (Competition Problem)
 
 > In $\triangle ABC$, $\angle BAC = 90°$, $AD \perp BC$ at $D$. Prove that $\frac{1}{AD^2} = \frac{1}{AB^2} + \frac{1}{AC^2}$.
 
