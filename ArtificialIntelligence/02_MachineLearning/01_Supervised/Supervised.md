@@ -1251,8 +1251,8 @@ public static double[,] StandardizeFeatures(double[,] X)
 
 **One-Hot Encoding**:
 ```
-Color: [Red, Blue, Green]
-→
+Color: [Red, Blue, Green] →
+
 Red:   [1, 0, 0]
 Blue:  [0, 1, 0]
 Green: [0, 0, 1]
