@@ -45,6 +45,11 @@ ArtificialIntelligence/
 │   │   ├── Bagging/                         # Bagging：随机森林、Bootstrap
 │   │   ├── Boosting/                        # Boosting：AdaBoost、XGBoost、LightGBM
 │   │   └── Stacking/                        # 模型堆叠：元学习器、多层集成
+│   ├── RecommendationSystems/               # 推荐系统基础
+│   │   ├── CollaborativeFiltering/          # 协同过滤：用户CF、物品CF、矩阵分解
+│   │   ├── ContentBased/                    # 基于内容：特征匹配、TF-IDF、用户画像
+│   │   ├── HybridMethods/                   # 混合方法：加权、切换、特征组合
+│   │   └── Evaluation/                      # 评估指标：准确率、召回率、NDCG、多样性
 │   ├── FeatureEngineering/                  # 特征工程
 │   │   ├── Scaling/                         # 特征缩放：标准化、归一化、鲁棒缩放
 │   │   ├── Encoding/                        # 特征编码：独热编码、标签编码、目标编码
@@ -85,6 +90,10 @@ ArtificialIntelligence/
 │   │   ├── GraphBasics/                     # 图基础：图表示、邻接矩阵、图遍历
 │   │   ├── MessagePassing/                  # 消息传递：GCN、GraphSAGE、GAT
 │   │   └── Applications/                    # 应用场景：社交网络、分子预测、知识图谱
+│   ├── DeepRecommenders/                    # 深度推荐系统
+│   │   ├── NeuralCF/                        # 神经协同过滤：NCF、DeepFM、Wide&Deep
+│   │   ├── SequenceModels/                  # 序列推荐：GRU4Rec、SASRec、BERT4Rec
+│   │   └── GraphBased/                      # 图推荐：PinSage、LightGCN、NGCF
 │   ├── Regularization_Optimization/         # 正则化与优化
 │   │   ├── Regularization/                  # 正则化：Dropout、L1/L2正则、Early Stopping
 │   │   ├── Normalization/                   # 归一化：BatchNorm、LayerNorm、GroupNorm
