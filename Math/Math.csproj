@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include=".claude\rules\" />
+    <None Include=".claude\rules\math-formatting.md" />
   </ItemGroup>
 
 </Project>
