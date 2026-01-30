@@ -117,3 +117,53 @@ Proof: In △ADE and △CFE:
 ```
 
 This displays correctly everywhere because Unicode symbols are plain text characters.
+
+## Geometry Diagrams: SVG vs ASCII
+
+### Problem
+
+ASCII art diagrams are limited in precision and visual quality:
+
+```
+    A
+   /\
+  /  \
+ /    \
+B------C
+```
+
+### Solution
+
+Use inline SVG for clearer, scalable geometry diagrams:
+
+```html
+<svg width="340" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="60,20 20,100 100,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="55" y="15" font-size="14">A</text>
+  <text x="8" y="115" font-size="14">B</text>
+  <text x="98" y="115" font-size="14">C</text>
+</svg>
+```
+
+### Advantages
+
+| Feature | ASCII | SVG |
+|---------|-------|-----|
+| Precision | Low | High |
+| Scalability | No | Yes |
+| GitHub/VS Code support | Yes | Yes |
+| Angle markers | Difficult | Easy |
+| Right angle symbols | Limited | Native |
+
+### SVG Tips
+
+1. Use `<polygon>` for triangles and closed shapes
+2. Use `<rect>` with small size for right angle markers
+3. Use `<text>` for vertex labels
+4. Set `fill="none"` and `stroke="black"` for outline shapes
+5. Common triangle coordinates: `points="60,20 20,100 100,100"` (apex at top)
+
+### When to Use Each
+
+- **ASCII**: Simple proof format templates, flowcharts
+- **SVG**: Geometric figures (triangles, angles, parallel lines)
