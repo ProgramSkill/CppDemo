@@ -1,6 +1,6 @@
 namespace ClaudeAssist
 {
-    public partial class Form1 : Form
+    public partial class Form1 : ModernForm
     {
         public Form1()
         {
