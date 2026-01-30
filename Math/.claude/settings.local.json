@@ -11,7 +11,9 @@
       "Bash(wc:*)",
       "Bash(git mv:*)",
       "WebFetch(domain:github.com)",
-      "Bash(gh api:*)"
+      "Bash(gh api:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:www.docin.com)"
     ]
   }
 }
