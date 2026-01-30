@@ -13,7 +13,12 @@
       "Bash(echo:*)",
       "Bash(git push)",
       "Bash(findstr:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git checkout:*)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Csf\\\\source\\\\repos\\\\CppDemo\" -Recurse -Filter \"*.md\")",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh api:*)"
     ]
   }
 }
