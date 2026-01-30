@@ -71,16 +71,18 @@ In simpler terms: congruent triangles are triangles that are exactly the same.
 
 We write: $\triangle ABC \cong \triangle DEF$
 
-```
-    A                       D
-   /\                      /\
-  /  \                    /  \
- /    \                  /    \
-B------C                E------F
+<svg width="340" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="60,20 20,100 100,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="55" y="15" font-size="14">A</text>
+  <text x="8" y="115" font-size="14">B</text>
+  <text x="98" y="115" font-size="14">C</text>
+  <polygon points="230,20 190,100 270,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="225" y="15" font-size="14">D</text>
+  <text x="178" y="115" font-size="14">E</text>
+  <text x="268" y="115" font-size="14">F</text>
+</svg>
 
-△ABC ≅ △DEF means:
-A↔D, B↔E, C↔F
-```
+△ABC ≅ △DEF means: A↔D, B↔E, C↔F
 
 **Important**: The order of vertices tells us which parts correspond!
 
@@ -195,16 +197,21 @@ Let's explore each criterion in detail.
 
 > **SSS Criterion**: If three sides of one triangle are equal to three sides of another triangle, then the two triangles are congruent.
 
-```
-    A                       D
-   /\                      /\
-  /  \  AB=DE             /  \
- /    \ AC=DF            /    \
-B------C                E------F
-  BC=EF
+<svg width="380" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="60,20 20,100 100,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="55" y="15" font-size="14">A</text>
+  <text x="8" y="115" font-size="14">B</text>
+  <text x="98" y="115" font-size="14">C</text>
+  <text x="105" y="50" font-size="12">AB=DE</text>
+  <text x="105" y="68" font-size="12">AC=DF</text>
+  <text x="40" y="115" font-size="12">BC=EF</text>
+  <polygon points="260,20 220,100 300,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="255" y="15" font-size="14">D</text>
+  <text x="208" y="115" font-size="14">E</text>
+  <text x="298" y="115" font-size="14">F</text>
+</svg>
 
-SSS: Three pairs of equal sides → Congruent
-```
+**SSS**: Three pairs of equal sides → Congruent
 
 ### 2.2.2 Why SSS Works
 
@@ -252,16 +259,20 @@ $\therefore \angle A = \angle C$ (CPCTC)
 
 > **SAS Criterion**: If two sides and the **included angle** of one triangle are equal to two sides and the included angle of another triangle, then the two triangles are congruent.
 
-```
-    A                       D
-   /\                      /\
-  /  \                    /  \
- /∠A  \                  /∠D  \
-B------C                E------F
+<svg width="340" height="120" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="60,20 20,100 100,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="55" y="15" font-size="14">A</text>
+  <text x="8" y="115" font-size="14">B</text>
+  <text x="98" y="115" font-size="14">C</text>
+  <text x="38" y="55" font-size="11">∠A</text>
+  <polygon points="230,20 190,100 270,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="225" y="15" font-size="14">D</text>
+  <text x="178" y="115" font-size="14">E</text>
+  <text x="268" y="115" font-size="14">F</text>
+  <text x="208" y="55" font-size="11">∠D</text>
+</svg>
 
-SAS: AB=DE, ∠A=∠D, AC=DF → Congruent
-(∠A is the included angle between AB and AC)
-```
+**SAS**: AB=DE, ∠A=∠D, AC=DF → Congruent (∠A is the included angle between AB and AC)
 
 ### 2.3.2 Critical Warning
 
@@ -315,17 +326,22 @@ $\therefore AB = AC$ (CPCTC)
 
 > **ASA Criterion**: If two angles and the **included side** of one triangle are equal to two angles and the included side of another triangle, then the two triangles are congruent.
 
-```
-    A                       D
-   /\                      /\
-  /  \                    /  \
- /    \                  /    \
-B------C                E------F
-∠B    ∠C                ∠E    ∠F
+<svg width="340" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="60,20 20,100 100,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="55" y="15" font-size="14">A</text>
+  <text x="8" y="115" font-size="14">B</text>
+  <text x="98" y="115" font-size="14">C</text>
+  <text x="25" y="95" font-size="11">∠B</text>
+  <text x="80" y="95" font-size="11">∠C</text>
+  <polygon points="230,20 190,100 270,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="225" y="15" font-size="14">D</text>
+  <text x="178" y="115" font-size="14">E</text>
+  <text x="268" y="115" font-size="14">F</text>
+  <text x="195" y="95" font-size="11">∠E</text>
+  <text x="250" y="95" font-size="11">∠F</text>
+</svg>
 
-ASA: ∠B=∠E, BC=EF, ∠C=∠F → Congruent
-(BC is the included side between ∠B and ∠C)
-```
+**ASA**: ∠B=∠E, BC=EF, ∠C=∠F → Congruent (BC is the included side between ∠B and ∠C)
 
 ### 2.4.2 Why ASA Works
 
@@ -367,17 +383,22 @@ $\therefore \triangle ABC \cong \triangle DEF$ (ASA)
 
 > **AAS Criterion**: If two angles and a **non-included side** of one triangle are equal to two angles and the corresponding non-included side of another triangle, then the two triangles are congruent.
 
-```
-    A                       D
-   /\                      /\
-  /  \                    /  \
- /∠A  \                  /∠D  \
-B------C                E------F
-∠B                      ∠E
+<svg width="340" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="60,20 20,100 100,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="55" y="15" font-size="14">A</text>
+  <text x="8" y="115" font-size="14">B</text>
+  <text x="98" y="115" font-size="14">C</text>
+  <text x="38" y="55" font-size="11">∠A</text>
+  <text x="25" y="95" font-size="11">∠B</text>
+  <polygon points="230,20 190,100 270,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="225" y="15" font-size="14">D</text>
+  <text x="178" y="115" font-size="14">E</text>
+  <text x="268" y="115" font-size="14">F</text>
+  <text x="208" y="55" font-size="11">∠D</text>
+  <text x="195" y="95" font-size="11">∠E</text>
+</svg>
 
-AAS: ∠A=∠D, ∠B=∠E, BC=EF → Congruent
-(BC is opposite to ∠A, not between ∠A and ∠B)
-```
+**AAS**: ∠A=∠D, ∠B=∠E, BC=EF → Congruent (BC is opposite to ∠A)
 
 ### 2.5.2 AAS is a Consequence of ASA
 
@@ -417,18 +438,24 @@ $\therefore \triangle ABC \cong \triangle DEF$ (AAS)
 
 > **HL Criterion**: If the **hypotenuse** and one **leg** of a right triangle are equal to the hypotenuse and one leg of another right triangle, then the two triangles are congruent.
 
-```
-A                       D
-|\                      |\
-| \                     | \
-|  \ hypotenuse        |  \ hypotenuse
-|   \                   |   \
-|____\                  |____\
-B    C                  E    F
- leg                     leg
+<svg width="340" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="20,20 20,100 80,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <rect x="20" y="90" width="10" height="10" fill="none" stroke="black" stroke-width="1"/>
+  <text x="15" y="15" font-size="14">A</text>
+  <text x="8" y="115" font-size="14">B</text>
+  <text x="78" y="115" font-size="14">C</text>
+  <text x="5" y="65" font-size="10">leg</text>
+  <text x="45" y="55" font-size="9">hypotenuse</text>
+  <polygon points="190,20 190,100 250,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <rect x="190" y="90" width="10" height="10" fill="none" stroke="black" stroke-width="1"/>
+  <text x="185" y="15" font-size="14">D</text>
+  <text x="178" y="115" font-size="14">E</text>
+  <text x="248" y="115" font-size="14">F</text>
+  <text x="175" y="65" font-size="10">leg</text>
+  <text x="215" y="55" font-size="9">hypotenuse</text>
+</svg>
 
-HL: ∠B=∠E=90°, AC=DF (hypotenuse), AB=DE (leg) → Congruent
-```
+**HL**: ∠B=∠E=90°, AC=DF (hypotenuse), AB=DE (leg) → Congruent
 
 ### 2.6.2 Important Restriction
 
