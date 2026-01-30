@@ -511,19 +511,29 @@ $\therefore AB = AC$ (sides opposite equal angles)
 
 **Counterexample**: Consider $AB = 5$, $BC = 4$, $\angle A = 30°$.
 
-```
-SSA Ambiguous Case:
-        C₁                    C₂
-       /|                      \
-      / |                       \
-   4 /  |                     4  \
-    /   |                         \
-   /30° |                      30° \
-  A-----B                     A-----B
-     5                           5
+<svg width="340" height="120" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="15" font-size="12" font-weight="bold">SSA Ambiguous Case:</text>
+  <line x1="20" y1="100" x2="90" y2="100" stroke="black" stroke-width="1.5"/>
+  <line x1="20" y1="100" x2="70" y2="40" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="40" x2="70" y2="100" stroke="black" stroke-width="1.5"/>
+  <text x="68" y="35" font-size="12">C₁</text>
+  <text x="10" y="112" font-size="12">A</text>
+  <text x="88" y="112" font-size="12">B</text>
+  <text x="30" y="95" font-size="10">30°</text>
+  <text x="35" y="65" font-size="10">4</text>
+  <text x="50" y="112" font-size="10">5</text>
+  <line x1="180" y1="100" x2="250" y2="100" stroke="black" stroke-width="1.5"/>
+  <line x1="180" y1="100" x2="230" y2="40" stroke="black" stroke-width="1.5"/>
+  <line x1="230" y1="40" x2="250" y2="100" stroke="black" stroke-width="1.5"/>
+  <text x="228" y="35" font-size="12">C₂</text>
+  <text x="170" y="112" font-size="12">A</text>
+  <text x="248" y="112" font-size="12">B</text>
+  <text x="190" y="95" font-size="10">30°</text>
+  <text x="195" y="65" font-size="10">4</text>
+  <text x="210" y="112" font-size="10">5</text>
+</svg>
 
 Same AB, BC, ∠A → Two different triangles!
-```
 
 Two different triangles can satisfy these conditions - one acute and one obtuse.
 
@@ -535,19 +545,23 @@ Two different triangles can satisfy these conditions - one acute and one obtuse.
 
 **Counterexample**: A small equilateral triangle and a large equilateral triangle both have angles 60°, 60°, 60°, but they are not congruent.
 
-```
-AAA Fails - Similar but NOT Congruent:
-
-  Small          Large
-    A              A
-   /\             /\
-  /  \           /  \
- /60°\          /60° \
-B----C         /      \
-              B--------C
+<svg width="300" height="130" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="15" font-size="12" font-weight="bold">AAA Fails - Similar but NOT Congruent:</text>
+  <text x="30" y="40" font-size="11">Small</text>
+  <polygon points="45,55 25,95 65,95" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="40" y="50" font-size="11">A</text>
+  <text x="15" y="108" font-size="11">B</text>
+  <text x="63" y="108" font-size="11">C</text>
+  <text x="35" y="75" font-size="9">60°</text>
+  <text x="170" y="40" font-size="11">Large</text>
+  <polygon points="200,45 160,115 240,115" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="195" y="40" font-size="11">A</text>
+  <text x="148" y="125" font-size="11">B</text>
+  <text x="238" y="125" font-size="11">C</text>
+  <text x="185" y="75" font-size="9">60°</text>
+</svg>
 
 Same angles (60°,60°,60°) → Similar, NOT congruent
-```
 
 ### 2.7.3 Summary Table
 
@@ -685,19 +699,20 @@ Do you have 2 angles + any side? ─Yes→ Use AAS
 
 > **Definition**: An angle bisector is a ray that divides an angle into two equal parts.
 
-```
-        A
-       /
-      /
-     /∠1
-    O-------C (bisector)
-     \∠2
-      \
-       \
-        B
+<svg width="180" height="140" xmlns="http://www.w3.org/2000/svg">
+  <line x1="50" y1="70" x2="20" y2="20" stroke="black" stroke-width="1.5"/>
+  <line x1="50" y1="70" x2="150" y2="70" stroke="black" stroke-width="1.5"/>
+  <line x1="50" y1="70" x2="20" y2="120" stroke="black" stroke-width="1.5"/>
+  <text x="12" y="15" font-size="12">A</text>
+  <text x="38" y="78" font-size="12">O</text>
+  <text x="152" y="75" font-size="12">C</text>
+  <text x="12" y="130" font-size="12">B</text>
+  <text x="55" y="55" font-size="10">∠1</text>
+  <text x="55" y="90" font-size="10">∠2</text>
+  <text x="100" y="60" font-size="10">(bisector)</text>
+</svg>
 
 ∠1 = ∠2 = ½∠AOB
-```
 
 If ray $OC$ bisects $\angle AOB$, then $\angle AOC = \angle COB = \frac{1}{2}\angle AOB$.
 
@@ -709,18 +724,23 @@ If ray $OC$ bisects $\angle AOB$, then $\angle AOC = \angle COB = \frac{1}{2}\an
 
 > **Theorem**: A point on the angle bisector is equidistant from the two sides of the angle.
 
-```
-      A
-     /
-    /D
-   / |
-  /  |PD
- /   P----PE----E
-O-----------------B
+<svg width="200" height="130" xmlns="http://www.w3.org/2000/svg">
+  <line x1="20" y1="110" x2="60" y2="20" stroke="black" stroke-width="1.5"/>
+  <line x1="20" y1="110" x2="180" y2="110" stroke="black" stroke-width="1.5"/>
+  <line x1="20" y1="110" x2="100" y2="60" stroke="black" stroke-width="1" stroke-dasharray="4"/>
+  <circle cx="70" cy="75" r="2" fill="black"/>
+  <line x1="70" y1="75" x2="52" y2="48" stroke="black" stroke-width="1"/>
+  <line x1="70" y1="75" x2="70" y2="110" stroke="black" stroke-width="1"/>
+  <rect x="66" y="100" width="8" height="8" fill="none" stroke="black" stroke-width="0.8"/>
+  <text x="10" y="118" font-size="11">O</text>
+  <text x="55" y="15" font-size="11">A</text>
+  <text x="175" y="108" font-size="11">B</text>
+  <text x="72" y="72" font-size="11">P</text>
+  <text x="42" y="45" font-size="10">D</text>
+  <text x="72" y="108" font-size="10">E</text>
+</svg>
 
-P on bisector → PD = PE
-(PD⊥OA, PE⊥OB)
-```
+P on bisector → PD = PE (PD⊥OA, PE⊥OB)
 
 **In symbols**: If $P$ is on the bisector of $\angle AOB$, and $PD \perp OA$, $PE \perp OB$, then $PD = PE$.
 
@@ -799,14 +819,39 @@ By the angle bisector property theorem: $DF = DE = 4$ cm.
 
 ## 5.1 Common Auxiliary Lines
 
-```
-1. Connect points    2. Extend line    3. Perpendicular   4. Parallel
-   A-----B              A                  A                 A----B
-   |\    |              |                  |                 |    |
-   | \   |              |                  |⊥                |    |
-   |  \  |              B----C             B----C            C----D
-   D----C                                                   (AB∥CD)
-```
+<svg width="420" height="100" xmlns="http://www.w3.org/2000/svg">
+  <text x="5" y="15" font-size="10">1. Connect points</text>
+  <polygon points="20,30 70,30 70,80 20,80" fill="none" stroke="black" stroke-width="1.2"/>
+  <line x1="20" y1="30" x2="70" y2="80" stroke="black" stroke-width="1.2"/>
+  <text x="15" y="28" font-size="10">A</text>
+  <text x="72" y="28" font-size="10">B</text>
+  <text x="15" y="90" font-size="10">D</text>
+  <text x="72" y="90" font-size="10">C</text>
+  <text x="105" y="15" font-size="10">2. Extend line</text>
+  <line x1="130" y1="30" x2="130" y2="60" stroke="black" stroke-width="1.2"/>
+  <line x1="130" y1="60" x2="180" y2="60" stroke="black" stroke-width="1.2"/>
+  <line x1="130" y1="60" x2="130" y2="80" stroke="black" stroke-width="1.2" stroke-dasharray="3"/>
+  <text x="125" y="28" font-size="10">A</text>
+  <text x="125" y="72" font-size="10">B</text>
+  <text x="182" y="65" font-size="10">C</text>
+  <text x="215" y="15" font-size="10">3. Perpendicular</text>
+  <line x1="240" y1="30" x2="240" y2="80" stroke="black" stroke-width="1.2"/>
+  <line x1="240" y1="80" x2="290" y2="80" stroke="black" stroke-width="1.2"/>
+  <rect x="240" y="70" width="8" height="8" fill="none" stroke="black" stroke-width="0.8"/>
+  <text x="235" y="28" font-size="10">A</text>
+  <text x="235" y="92" font-size="10">B</text>
+  <text x="292" y="85" font-size="10">C</text>
+  <text x="325" y="15" font-size="10">4. Parallel</text>
+  <line x1="340" y1="35" x2="400" y2="35" stroke="black" stroke-width="1.2"/>
+  <line x1="340" y1="75" x2="400" y2="75" stroke="black" stroke-width="1.2"/>
+  <line x1="340" y1="35" x2="340" y2="75" stroke="black" stroke-width="1.2"/>
+  <line x1="400" y1="35" x2="400" y2="75" stroke="black" stroke-width="1.2"/>
+  <text x="335" y="32" font-size="10">A</text>
+  <text x="402" y="32" font-size="10">B</text>
+  <text x="335" y="88" font-size="10">C</text>
+  <text x="402" y="88" font-size="10">D</text>
+  <text x="350" y="60" font-size="9">AB∥CD</text>
+</svg>
 
 ### 5.1.1 Connecting Two Points
 
@@ -887,16 +932,23 @@ Rotation is one of the most powerful techniques in competition geometry. The ide
 - The rotated triangle becomes congruent to another triangle in the figure
 - This reveals hidden relationships
 
-```
-90° Rotation around point O:
-
-Before:          After:
-    A               A----A'
-    |               |   /
-    |               |  /
-    O----B          O-B'
-                   (B rotates to B')
-```
+<svg width="280" height="100" xmlns="http://www.w3.org/2000/svg">
+  <text x="5" y="15" font-size="11" font-weight="bold">90° Rotation around point O:</text>
+  <text x="20" y="35" font-size="10">Before:</text>
+  <line x1="50" y1="45" x2="50" y2="85" stroke="black" stroke-width="1.5"/>
+  <line x1="50" y1="85" x2="90" y2="85" stroke="black" stroke-width="1.5"/>
+  <text x="45" y="42" font-size="10">A</text>
+  <text x="45" y="95" font-size="10">O</text>
+  <text x="92" y="90" font-size="10">B</text>
+  <text x="150" y="35" font-size="10">After:</text>
+  <line x1="180" y1="45" x2="180" y2="85" stroke="black" stroke-width="1.5"/>
+  <line x1="180" y1="45" x2="220" y2="45" stroke="black" stroke-width="1.5"/>
+  <line x1="180" y1="85" x2="220" y2="45" stroke="black" stroke-width="1" stroke-dasharray="3"/>
+  <text x="175" y="42" font-size="10">A</text>
+  <text x="222" y="48" font-size="10">A'</text>
+  <text x="175" y="95" font-size="10">O</text>
+  <text x="222" y="90" font-size="10">B'</text>
+</svg>
 
 ### 5.4.2 When to Use Rotation
 
@@ -954,18 +1006,19 @@ $\therefore EF = AE + AF = DF + DE$
 
 When a problem involves a **median** of a triangle, a powerful technique is to **extend the median to double its length**.
 
-```
-      A
-     /|\
-    / | \
-   /  |  \
-  B---M---C
-      |
-      |  (extend AM to D, MD=AM)
-      D
+<svg width="160" height="150" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="80,20 30,80 130,80" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="80" y1="20" x2="80" y2="130" stroke="black" stroke-width="1.5"/>
+  <line x1="80" y1="80" x2="80" y2="130" stroke="black" stroke-width="1.5" stroke-dasharray="4"/>
+  <text x="75" y="15" font-size="12">A</text>
+  <text x="18" y="90" font-size="12">B</text>
+  <text x="132" y="90" font-size="12">C</text>
+  <text x="85" y="78" font-size="12">M</text>
+  <text x="85" y="140" font-size="12">D</text>
+  <text x="90" y="110" font-size="9">MD=AM</text>
+</svg>
 
 △AMB ≅ △DMC (SAS)
-```
 
 **Construction**: If $M$ is the midpoint of $BC$, and $AM$ is the median:
 - Extend $AM$ to point $D$ such that $MD = AM$
@@ -1003,12 +1056,21 @@ When proving $AB = CD + EF$ or $AB > CD$:
 - **Cut**: On the longer segment, mark a point to create a piece equal to a shorter segment
 - **Patch**: Extend a shorter segment to match another
 
-```
-Cut (截长):              Patch (补短):
-A----E----B              A----B
-     ↑                        \
-  AE=CD                        C (extend AB to C)
-```
+<svg width="280" height="70" xmlns="http://www.w3.org/2000/svg">
+  <text x="5" y="15" font-size="10">Cut (截长):</text>
+  <line x1="20" y1="35" x2="100" y2="35" stroke="black" stroke-width="1.5"/>
+  <circle cx="60" cy="35" r="2" fill="black"/>
+  <text x="15" y="50" font-size="10">A</text>
+  <text x="55" y="50" font-size="10">E</text>
+  <text x="95" y="50" font-size="10">B</text>
+  <text x="45" y="65" font-size="9">AE=CD</text>
+  <text x="155" y="15" font-size="10">Patch (补短):</text>
+  <line x1="170" y1="35" x2="230" y2="35" stroke="black" stroke-width="1.5"/>
+  <line x1="230" y1="35" x2="260" y2="55" stroke="black" stroke-width="1" stroke-dasharray="3"/>
+  <text x="165" y="50" font-size="10">A</text>
+  <text x="225" y="50" font-size="10">B</text>
+  <text x="258" y="65" font-size="10">C</text>
+</svg>
 
 ### 5.6.2 Example 12
 
@@ -1106,16 +1168,19 @@ $\therefore \angle ADB = \angle ADC = 90°$ (AD $\perp$ BC)
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $D$ is the midpoint of $BC$. $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Prove $DE = DF$.
 
-```
-      A
-     /|\
-    / | \
-   E  |  F
-   |\ | /|
-   | \|/ |
-   |  D  |
-   B-----C
-```
+<svg width="140" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,15 20,115 120,115" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="15" x2="70" y2="115" stroke="black" stroke-width="1"/>
+  <line x1="40" y1="55" x2="70" y2="85" stroke="black" stroke-width="1"/>
+  <line x1="100" y1="55" x2="70" y2="85" stroke="black" stroke-width="1"/>
+  <circle cx="70" cy="85" r="2" fill="black"/>
+  <text x="65" y="10" font-size="11">A</text>
+  <text x="8" y="125" font-size="11">B</text>
+  <text x="118" y="125" font-size="11">C</text>
+  <text x="72" y="92" font-size="11">D</text>
+  <text x="28" y="55" font-size="11">E</text>
+  <text x="102" y="55" font-size="11">F</text>
+</svg>
 
 **Solution**:
 
@@ -1139,15 +1204,21 @@ $\therefore DE = DF$ (CPCTC)
 2. Take points $C$, $D$ on $BF$ such that $CD = BC$
 3. Draw $DE \perp BF$ such that $A$, $C$, $E$ are collinear
 
-```
-A (other bank)
-|
-|  river
-|
-B---C---D---E
-    |       |
-   BF      DE
-```
+<svg width="200" height="120" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="30" width="200" height="25" fill="#e0f0ff" stroke="none"/>
+  <text x="85" y="47" font-size="10" fill="#666">river</text>
+  <line x1="30" y1="20" x2="30" y2="55" stroke="black" stroke-width="1.5"/>
+  <line x1="30" y1="55" x2="170" y2="55" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="55" x2="70" y2="100" stroke="black" stroke-width="1"/>
+  <line x1="150" y1="55" x2="150" y2="100" stroke="black" stroke-width="1"/>
+  <text x="22" y="15" font-size="11">A</text>
+  <text x="25" y="68" font-size="11">B</text>
+  <text x="65" y="68" font-size="11">C</text>
+  <text x="105" y="68" font-size="11">D</text>
+  <text x="145" y="68" font-size="11">E</text>
+  <text x="55" y="85" font-size="9">BC</text>
+  <text x="155" y="85" font-size="9">DE</text>
+</svg>
 
 Prove that $DE = AB$.
 
@@ -1171,15 +1242,19 @@ $\therefore AB = ED$ (CPCTC)
 
 **Problem**: In $\triangle ABC$, $AD$ bisects $\angle BAC$, $DE \perp AB$ at $E$, $DF \perp AC$ at $F$. Prove that $\triangle AEF$ is isosceles.
 
-```
-      A
-     /|\
-    / | \
-   E  D  F
-   | /|\ |
-   |/ | \|
-   B  |  C
-```
+<svg width="140" height="120" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,15 20,105 120,105" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="15" x2="70" y2="75" stroke="black" stroke-width="1"/>
+  <line x1="40" y1="50" x2="70" y2="75" stroke="black" stroke-width="1"/>
+  <line x1="100" y1="50" x2="70" y2="75" stroke="black" stroke-width="1"/>
+  <circle cx="70" cy="75" r="2" fill="black"/>
+  <text x="65" y="10" font-size="11">A</text>
+  <text x="8" y="115" font-size="11">B</text>
+  <text x="118" y="115" font-size="11">C</text>
+  <text x="72" y="82" font-size="11">D</text>
+  <text x="28" y="50" font-size="11">E</text>
+  <text x="102" y="50" font-size="11">F</text>
+</svg>
 
 **Solution**:
 
@@ -1201,15 +1276,16 @@ $\therefore \triangle AEF$ is isosceles.
 
 **Problem**: In $\triangle ABC$, $\angle BAC = 90°$, $AB = AC$. $D$ is a point on line $BC$, $BD \perp DE$ at $D$, $CE \perp DE$ at $E$. Prove $DE = BD + CE$.
 
-```
-        A
-       /|\
-      / | \
-     /  |  \
-    B---D---C
-        |
-        E
-```
+<svg width="140" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,15 20,85 120,85" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="15" x2="70" y2="85" stroke="black" stroke-width="1"/>
+  <line x1="70" y1="85" x2="70" y2="120" stroke="black" stroke-width="1"/>
+  <text x="65" y="10" font-size="11">A</text>
+  <text x="8" y="95" font-size="11">B</text>
+  <text x="118" y="95" font-size="11">C</text>
+  <text x="75" y="82" font-size="11">D</text>
+  <text x="75" y="125" font-size="11">E</text>
+</svg>
 
 **Solution**:
 
@@ -1242,17 +1318,19 @@ $\therefore DE = DA + AE = CE + BD$
 
 **Problem**: In $\triangle ABC$, $AD$ bisects $\angle BAC$, $AB > AC$. Prove $BD > CD$.
 
-```
-      A
-     /|\
-    / | \
-   /  |  \
-  E   |   C
-   \  |  /
-    \ | /
-     \|/
-  B---D
-```
+<svg width="140" height="130" xmlns="http://www.w3.org/2000/svg">
+  <line x1="70" y1="15" x2="20" y2="115" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="15" x2="110" y2="75" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="15" x2="70" y2="95" stroke="black" stroke-width="1"/>
+  <line x1="20" y1="115" x2="70" y2="95" stroke="black" stroke-width="1.5"/>
+  <line x1="110" y1="75" x2="70" y2="95" stroke="black" stroke-width="1.5"/>
+  <line x1="35" y1="85" x2="70" y2="95" stroke="black" stroke-width="1" stroke-dasharray="3"/>
+  <text x="65" y="10" font-size="11">A</text>
+  <text x="8" y="125" font-size="11">B</text>
+  <text x="112" y="80" font-size="11">C</text>
+  <text x="75" y="100" font-size="11">D</text>
+  <text x="22" y="82" font-size="11">E</text>
+</svg>
 
 **Solution**:
 
@@ -1277,15 +1355,15 @@ $\therefore BD > CD$
 
 **Problem**: In $\triangle ABC$, $M$ is the midpoint of $BC$. Prove $AB + AC > 2AM$.
 
-```
-      A
-     /|\
-    / | \
-   /  |  \
-  B---M---C
-      |
-      D
-```
+<svg width="140" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,15 20,80 120,80" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="15" x2="70" y2="115" stroke="black" stroke-width="1"/>
+  <text x="65" y="10" font-size="11">A</text>
+  <text x="8" y="90" font-size="11">B</text>
+  <text x="118" y="90" font-size="11">C</text>
+  <text x="75" y="78" font-size="11">M</text>
+  <text x="75" y="120" font-size="11">D</text>
+</svg>
 
 **Solution**:
 
@@ -1309,16 +1387,17 @@ $\therefore AB + AC > 2AM$
 
 **Problem**: In the figure, $OA = OB$, $OC = OD$, $\angle AOC = \angle BOD$. Prove $AC = BD$.
 
-```
-    A       B
-     \     /
-      \   /
-       \ /
-        O
-       / \
-      /   \
-     C     D
-```
+<svg width="140" height="120" xmlns="http://www.w3.org/2000/svg">
+  <line x1="30" y1="20" x2="70" y2="60" stroke="black" stroke-width="1.5"/>
+  <line x1="110" y1="20" x2="70" y2="60" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="60" x2="30" y2="100" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="60" x2="110" y2="100" stroke="black" stroke-width="1.5"/>
+  <text x="22" y="18" font-size="11">A</text>
+  <text x="108" y="18" font-size="11">B</text>
+  <text x="72" y="58" font-size="11">O</text>
+  <text x="22" y="110" font-size="11">C</text>
+  <text x="108" y="110" font-size="11">D</text>
+</svg>
 
 **Solution**:
 
@@ -1486,18 +1565,18 @@ When you see an **isosceles right triangle** with $\angle A = 90°$, $AB = AC$:
 - Rotating by 90° around $A$ maps $B$ to $C$ (or $C$ to $B$)
 - Any point $P$ maps to $P'$ with $AP = AP'$ and $\angle PAP' = 90°$
 
-```
-    C
-    |\
-    | \
-    |  \P'
-    |   \
-    A----B
-        /
-       P
-
-Rotate 90° around A: B→C, P→P'
-```
+<svg width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="30,20 30,100 110,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="30" y1="100" x2="70" y2="50" stroke="black" stroke-width="1" stroke-dasharray="3"/>
+  <line x1="110" y1="100" x2="110" y2="130" stroke="black" stroke-width="1"/>
+  <circle cx="110" cy="130" r="3" fill="black"/>
+  <text x="22" y="15" font-size="11">C</text>
+  <text x="18" y="108" font-size="11">A</text>
+  <text x="108" y="95" font-size="11">B</text>
+  <text x="72" y="48" font-size="11">P'</text>
+  <text x="112" y="135" font-size="11">P</text>
+  <text x="45" y="130" font-size="9">Rotate 90° around A</text>
+</svg>
 
 ### 7.2.2 Example: The Classic "Butterfly" Problem
 
@@ -1552,17 +1631,18 @@ When you see an **equilateral triangle** $ABC$:
 - Rotating by 60° around any vertex maps one side to another
 - Rotating around $A$ by 60° maps $B$ to $C$
 
-```
-      A
-     /|\
-    / | \
-   /  P' \
-  / · P   \
- B---------C
+<svg width="160" height="130" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="80,15 20,110 140,110" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="70" cy="70" r="2" fill="black"/>
+  <circle cx="90" cy="55" r="2" fill="black"/>
+  <text x="75" y="10" font-size="11">A</text>
+  <text x="8" y="120" font-size="11">B</text>
+  <text x="138" y="120" font-size="11">C</text>
+  <text x="55" y="75" font-size="11">P</text>
+  <text x="92" y="52" font-size="11">P'</text>
+</svg>
 
-Rotate 60° around A: B→C, P→P'
-△APP' is equilateral (AP=AP', ∠PAP'=60°)
-```
+Rotate 60° around A: B→C, P→P'. △APP' is equilateral (AP=AP', ∠PAP'=60°)
 
 ### 7.3.2 Example
 
@@ -1613,16 +1693,17 @@ $\angle APB = \angle AP'C = \angle AP'P + \angle PP'C = 60° + 90° = 150°$
 
 > **Definition**: A reflection flips a figure over a line (axis of reflection).
 
-```
-    P
-    |
-    |  axis
-----+----
-    |
-    P'
+<svg width="120" height="100" xmlns="http://www.w3.org/2000/svg">
+  <line x1="10" y1="50" x2="110" y2="50" stroke="black" stroke-width="1.5"/>
+  <line x1="60" y1="15" x2="60" y2="85" stroke="black" stroke-width="1" stroke-dasharray="3"/>
+  <circle cx="60" cy="20" r="3" fill="black"/>
+  <circle cx="60" cy="80" r="3" fill="black"/>
+  <text x="65" y="22" font-size="11">P</text>
+  <text x="65" y="85" font-size="11">P'</text>
+  <text x="85" y="45" font-size="10">axis</text>
+</svg>
 
 P and P' are mirror images across the axis
-```
 
 **Properties**:
 - Each point and its image are equidistant from the axis
@@ -1649,14 +1730,16 @@ The minimum distance is $|P_1P_2|$.
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $\angle BAC = 100°$. Point $D$ is inside the triangle such that $\angle DBC = 30°$, $\angle DCB = 20°$. Find $\angle DAC$.
 
-```
-      A
-     /|\
-    / | \
-   / ·D· \
-  /  / \  \
- B---------C
-```
+<svg width="140" height="110" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,15 20,100 120,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="70" cy="60" r="2" fill="black"/>
+  <line x1="70" y1="60" x2="20" y2="100" stroke="black" stroke-width="0.8" stroke-dasharray="2"/>
+  <line x1="70" y1="60" x2="120" y2="100" stroke="black" stroke-width="0.8" stroke-dasharray="2"/>
+  <text x="65" y="10" font-size="11">A</text>
+  <text x="8" y="110" font-size="11">B</text>
+  <text x="118" y="110" font-size="11">C</text>
+  <text x="72" y="58" font-size="11">D</text>
+</svg>
 
 **Solution**:
 
@@ -1707,15 +1790,19 @@ $$\therefore x = 80°$$
 
 **Problem**: In $\triangle ABC$, $\angle ACB = 90°$, $AC = BC$, $D$ is on $AC$, $E$ is on the extension of $BC$, $CE = CD$. Connect $AE$ and $BD$. Prove $AE \perp BD$.
 
-```
-A
-|\
-| \
-D  \
-|   \
-|    B---E
-C
-```
+<svg width="130" height="110" xmlns="http://www.w3.org/2000/svg">
+  <line x1="20" y1="15" x2="20" y2="90" stroke="black" stroke-width="1.5"/>
+  <line x1="20" y1="90" x2="80" y2="90" stroke="black" stroke-width="1.5"/>
+  <line x1="20" y1="15" x2="80" y2="90" stroke="black" stroke-width="1.5"/>
+  <line x1="80" y1="90" x2="120" y2="90" stroke="black" stroke-width="1.5"/>
+  <line x1="20" y1="15" x2="120" y2="90" stroke="black" stroke-width="1" stroke-dasharray="3"/>
+  <line x1="20" y1="50" x2="80" y2="90" stroke="black" stroke-width="1" stroke-dasharray="3"/>
+  <text x="12" y="12" font-size="11">A</text>
+  <text x="12" y="55" font-size="11">D</text>
+  <text x="12" y="100" font-size="11">C</text>
+  <text x="75" y="100" font-size="11">B</text>
+  <text x="118" y="100" font-size="11">E</text>
+</svg>
 
 **Solution**:
 
@@ -1748,15 +1835,16 @@ $\therefore AE \perp BD$
 
 **Problem**: In $\triangle ABC$, $\angle BAC = 40°$, $\angle ABC = 60°$. $D$ is on $BC$ such that $AD$ bisects $\angle BAC$. $E$ is on $AB$ such that $\angle ADE = 20°$. Find $\angle DEB$.
 
-```
-      A
-     /|\
-    / | \
-   E  |  \
-    \ |   \
-     \|    \
-  B---D-----C
-```
+<svg width="150" height="110" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,15 20,95 130,95" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="70" y1="15" x2="55" y2="95" stroke="black" stroke-width="1"/>
+  <line x1="35" y1="70" x2="55" y2="95" stroke="black" stroke-width="1" stroke-dasharray="3"/>
+  <text x="65" y="10" font-size="11">A</text>
+  <text x="8" y="105" font-size="11">B</text>
+  <text x="128" y="105" font-size="11">C</text>
+  <text x="50" y="105" font-size="11">D</text>
+  <text x="22" y="68" font-size="11">E</text>
+</svg>
 
 **Solution**:
 
@@ -1774,14 +1862,16 @@ In $\triangle BDE$: $\angle DEB = 180° - 60° - 80° = 40°$
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $\angle A = 20°$. $D$ is on $AB$, $E$ is on $AC$, $\angle DBC = 60°$, $\angle ECB = 50°$. Find $\angle BDE$.
 
-```
-    A
-   /|\
-  D | E
-  | | |
-  | | |
-  B---C
-```
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="50,10 20,90 80,90" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="32" cy="40" r="2" fill="black"/>
+  <circle cx="68" cy="40" r="2" fill="black"/>
+  <text x="45" y="8" font-size="11">A</text>
+  <text x="8" y="100" font-size="11">B</text>
+  <text x="78" y="100" font-size="11">C</text>
+  <text x="18" y="40" font-size="11">D</text>
+  <text x="72" y="40" font-size="11">E</text>
+</svg>
 
 **Solution**:
 
@@ -1835,14 +1925,16 @@ After careful calculation: $\angle BDE = 30°$
 
 **Problem**: In $\triangle ABC$, $M$ is the midpoint of $BC$. $P$ is a point such that $PA = PB = PC = PM$. Find $\angle BAC$.
 
-```
-      A
-     /|\
-    / | \
-   /  P  \
-  /  /|\  \
- B--M-+---C
-```
+<svg width="140" height="100" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,10 20,85 120,85" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="70" cy="55" r="3" fill="black"/>
+  <line x1="70" y1="55" x2="70" y2="85" stroke="black" stroke-width="1" stroke-dasharray="2"/>
+  <text x="65" y="8" font-size="11">A</text>
+  <text x="8" y="95" font-size="11">B</text>
+  <text x="118" y="95" font-size="11">C</text>
+  <text x="75" y="55" font-size="11">P</text>
+  <text x="65" y="95" font-size="11">M</text>
+</svg>
 
 **Solution**:
 
@@ -1870,14 +1962,17 @@ $\therefore \angle BAC = \frac{\angle BPC}{2} = 45°$
 
 **Problem**: In $\triangle ABC$, $\angle BAC = 80°$, $\angle ABC = 60°$. $D$ is on $BC$ such that $\angle CAD = 20°$. $E$ is on $AC$ such that $\angle ABE = 20°$. Find $\angle AED$.
 
-```
-      A
-     /|\
-    / | \
-   /  |  E
-  /   | /
- B----D--C
-```
+<svg width="130" height="100" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="60,10 20,85 110,85" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="60" y1="10" x2="55" y2="85" stroke="black" stroke-width="1" stroke-dasharray="2"/>
+  <circle cx="85" cy="55" r="2" fill="black"/>
+  <line x1="85" y1="55" x2="55" y2="85" stroke="black" stroke-width="1" stroke-dasharray="2"/>
+  <text x="55" y="8" font-size="11">A</text>
+  <text x="8" y="95" font-size="11">B</text>
+  <text x="108" y="95" font-size="11">C</text>
+  <text x="50" y="95" font-size="11">D</text>
+  <text x="88" y="55" font-size="11">E</text>
+</svg>
 
 **Solution**:
 
@@ -1929,14 +2024,15 @@ The answer is $\angle AED = 30°$.
 
 **Problem**: In $\triangle ABC$, $AB = AC$, $\angle BAC = 80°$. $D$ is inside the triangle such that $\angle DAC = 10°$, $\angle DCA = 30°$. Find $\angle ADB$.
 
-```
-      A
-     /|\
-    / | \
-   / ·D· \
-  /   |   \
- B---------C
-```
+<svg width="140" height="110" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,15 20,100 120,100" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="70" cy="60" r="2" fill="black"/>
+  <line x1="70" y1="60" x2="70" y2="15" stroke="black" stroke-width="0.8" stroke-dasharray="2"/>
+  <text x="65" y="10" font-size="11">A</text>
+  <text x="8" y="110" font-size="11">B</text>
+  <text x="118" y="110" font-size="11">C</text>
+  <text x="72" y="58" font-size="11">D</text>
+</svg>
 
 **Solution**:
 
@@ -1999,16 +2095,16 @@ After careful geometric analysis: $\angle ADB = 70°$.
 
 **Problem**: In $\triangle ABC$, $\angle A = 90°$, $AB = AC$. $D$ is on $BC$, $E$ is on the extension of $CA$ beyond $A$, $BD = CE$. Prove $DE = \sqrt{2} \cdot AD$.
 
-```
-E
-|
-A
-|\
-| \
-|  D
-|   \
-C----B
-```
+<svg width="110" height="130" xmlns="http://www.w3.org/2000/svg">
+  <line x1="30" y1="10" x2="30" y2="40" stroke="black" stroke-width="1.5"/>
+  <polygon points="30,40 30,110 100,110" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="65" cy="75" r="2" fill="black"/>
+  <text x="22" y="15" font-size="11">E</text>
+  <text x="18" y="45" font-size="11">A</text>
+  <text x="18" y="118" font-size="11">C</text>
+  <text x="98" y="118" font-size="11">B</text>
+  <text x="68" y="72" font-size="11">D</text>
+</svg>
 
 **Solution**:
 
@@ -2036,14 +2132,16 @@ $\therefore DE = \sqrt{AD^2 + AE^2} = \sqrt{2AD^2} = \sqrt{2} \cdot AD$
 
 **Problem**: In $\triangle ABC$, $\angle ACB = 90°$, $CA = CB$. $D$ is on $AB$, $E$ is on the extension of $BC$, $AD = CE$. Prove $\angle DCE = 45°$.
 
-```
-    A
-    |\
-    | \
-    |  D
-    |   \
-    C----B--E
-```
+<svg width="130" height="100" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="20,15 20,80 80,80" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="80" y1="80" x2="115" y2="80" stroke="black" stroke-width="1.5"/>
+  <circle cx="50" cy="48" r="2" fill="black"/>
+  <text x="12" y="12" font-size="11">A</text>
+  <text x="12" y="92" font-size="11">C</text>
+  <text x="75" y="92" font-size="11">B</text>
+  <text x="112" y="92" font-size="11">E</text>
+  <text x="52" y="45" font-size="11">D</text>
+</svg>
 
 **Solution**:
 
@@ -2328,16 +2426,40 @@ Competition:
 
 ## 12.1 Congruence Criteria at a Glance
 
-```
-Five Congruence Criteria:
-
-SSS          SAS          ASA          AAS          HL
- A            A            A            A           A
-/|\          /|\          /|\          /|\          |\
-===          =∠=          ∠=∠          ∠∠=          | \
-B-C          B-C          B-C          B-C          |__\
-                                                   B  C
-```
+<svg width="450" height="90" xmlns="http://www.w3.org/2000/svg">
+  <text x="5" y="15" font-size="11" font-weight="bold">Five Congruence Criteria:</text>
+  <text x="20" y="35" font-size="10">SSS</text>
+  <polygon points="35,45 20,75 50,75" fill="none" stroke="black" stroke-width="1.2"/>
+  <text x="30" y="42" font-size="9">A</text>
+  <text x="15" y="85" font-size="9">B</text>
+  <text x="48" y="85" font-size="9">C</text>
+  <text x="105" y="35" font-size="10">SAS</text>
+  <polygon points="120,45 105,75 135,75" fill="none" stroke="black" stroke-width="1.2"/>
+  <text x="115" y="42" font-size="9">A</text>
+  <text x="100" y="85" font-size="9">B</text>
+  <text x="133" y="85" font-size="9">C</text>
+  <text x="112" y="55" font-size="8">∠</text>
+  <text x="190" y="35" font-size="10">ASA</text>
+  <polygon points="205,45 190,75 220,75" fill="none" stroke="black" stroke-width="1.2"/>
+  <text x="200" y="42" font-size="9">A</text>
+  <text x="185" y="85" font-size="9">B</text>
+  <text x="218" y="85" font-size="9">C</text>
+  <text x="192" y="72" font-size="8">∠</text>
+  <text x="212" y="72" font-size="8">∠</text>
+  <text x="275" y="35" font-size="10">AAS</text>
+  <polygon points="290,45 275,75 305,75" fill="none" stroke="black" stroke-width="1.2"/>
+  <text x="285" y="42" font-size="9">A</text>
+  <text x="270" y="85" font-size="9">B</text>
+  <text x="303" y="85" font-size="9">C</text>
+  <text x="282" y="55" font-size="8">∠</text>
+  <text x="277" y="72" font-size="8">∠</text>
+  <text x="365" y="35" font-size="10">HL</text>
+  <polygon points="365,45 365,75 395,75" fill="none" stroke="black" stroke-width="1.2"/>
+  <rect x="365" y="67" width="6" height="6" fill="none" stroke="black" stroke-width="0.8"/>
+  <text x="360" y="42" font-size="9">A</text>
+  <text x="360" y="85" font-size="9">B</text>
+  <text x="393" y="85" font-size="9">C</text>
+</svg>
 
 | Criterion | What You Need | Remember |
 |-----------|---------------|----------|
