@@ -1,0 +1,17 @@
+{
+  "development": {
+    "name": "glm-me",
+    "ANTHROPIC_AUTH_TOKEN": "bb1544f00c264c76b88e36073e5323ff.yUnyvMLmr5YTh6Om",
+    "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/anthropic"
+  },
+  "staging": {
+    "name": "glm_taobao",
+    "ANTHROPIC_AUTH_TOKEN": "cf4e3d40476241fda5052be93d42d2d5.fvJU5JPwJC9Je9cN",
+    "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/anthropic"
+  },
+  "production": {
+    "name": "any",
+    "ANTHROPIC_AUTH_TOKEN": "sk-ant-oat01-RQE3J49epmnb6PAgQVD1mUKnWaRO_qNKFWFgJsM_Kho26HMqRr2EbqTnKefbsBai4oreuPb4wYCbLxqIKCv1FrR7FIr1UAA",
+    "ANTHROPIC_BASE_URL": "https://dm-fox.rjj.cc/claude/droid"
+  }
+}

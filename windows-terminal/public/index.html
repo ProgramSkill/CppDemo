@@ -28,6 +28,84 @@
             text-align: center;
         }
         
+        .env-selector {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        
+        .env-selector-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .env-selector h3 {
+            color: #e94560;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .toggle-btn {
+            background: rgba(233, 69, 96, 0.2);
+            border: 1px solid #e94560;
+            color: #e94560;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-btn:hover {
+            background: rgba(233, 69, 96, 0.3);
+        }
+        
+        .env-options {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .env-options.expanded {
+            display: flex;
+        }
+        
+        .current-env {
+            color: #27ca40;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .env-option {
+            background: rgba(233, 69, 96, 0.1);
+            border: 1px solid #e94560;
+            color: #e94560;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .env-option:hover {
+            background: rgba(233, 69, 96, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .env-option.selected {
+            background: #e94560;
+            color: white;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
         .header h1 {
             font-size: 2rem;
             font-weight: 600;
@@ -127,7 +205,17 @@
         <p>Powered by xterm.js + node-pty</p>
     </div>
     
-    <div class="terminal-container">
+    <div class="env-selector" id="envSelector">
+        <div class="env-selector-header">
+            <h3>环境配置 <span class="current-env" id="currentEnv">未选择</span></h3>
+            <button class="toggle-btn" id="toggleBtn">切换</button>
+        </div>
+        <div class="env-options" id="envOptions">
+            <!-- 环境选项将通过JavaScript动态生成 -->
+        </div>
+    </div>
+    
+    <div class="terminal-container" id="terminalContainer">
         <div class="terminal-header">
             <div class="terminal-buttons">
                 <div class="terminal-btn btn-close"></div>
@@ -150,104 +238,202 @@
     <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.8.0/lib/xterm-addon-fit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.9.0/lib/xterm-addon-web-links.min.js"></script>
     <script>
-        const terminal = new Terminal({
-            theme: {
-                background: '#0c0c0c',
-                foreground: '#cccccc',
-                cursor: '#ffffff',
-                cursorAccent: '#000000',
-                selection: 'rgba(255, 255, 255, 0.3)',
-                black: '#0c0c0c',
-                red: '#c50f1f',
-                green: '#13a10e',
-                yellow: '#c19c00',
-                blue: '#0037da',
-                magenta: '#881798',
-                cyan: '#3a96dd',
-                white: '#cccccc',
-                brightBlack: '#767676',
-                brightRed: '#e74856',
-                brightGreen: '#16c60c',
-                brightYellow: '#f9f1a5',
-                brightBlue: '#3b78ff',
-                brightMagenta: '#b4009e',
-                brightCyan: '#61d6d6',
-                brightWhite: '#f2f2f2'
-            },
-            fontFamily: 'Cascadia Code, Consolas, monospace',
-            fontSize: 14,
-            cursorBlink: true,
-            cursorStyle: 'bar',
-            allowTransparency: true
-        });
+        let selectedEnv = null;
+        let terminalInstance = null;
+        let wsConnection = null;
+        let envDisplayNames = {};
 
-        const fitAddon = new FitAddon.FitAddon();
-        const webLinksAddon = new WebLinksAddon.WebLinksAddon();
-        
-        terminal.loadAddon(fitAddon);
-        terminal.loadAddon(webLinksAddon);
-        terminal.open(document.getElementById('terminal'));
-        fitAddon.fit();
-
-        const statusDot = document.getElementById('statusDot');
-        const statusText = document.getElementById('statusText');
-
-        function updateStatus(connected) {
-            if (connected) {
-                statusDot.classList.remove('disconnected');
-                statusText.textContent = 'Connected';
-            } else {
-                statusDot.classList.add('disconnected');
-                statusText.textContent = 'Disconnected';
+        // 从API加载环境配置
+        async function loadEnvConfigs() {
+            try {
+                const response = await fetch('/api/env-configs');
+                const configs = await response.json();
+                
+                // 生成显示名称映射
+                envDisplayNames = {};
+                Object.keys(configs).forEach(key => {
+                    envDisplayNames[key] = configs[key].name;
+                });
+                
+                // 动态生成环境选项
+                const envOptionsContainer = document.getElementById('envOptions');
+                envOptionsContainer.innerHTML = '';
+                
+                Object.keys(configs).forEach(key => {
+                    const option = document.createElement('div');
+                    option.className = 'env-option';
+                    option.dataset.env = key;
+                    option.textContent = configs[key].name;
+                    envOptionsContainer.appendChild(option);
+                });
+                
+                // 绑定点击事件
+                document.querySelectorAll('.env-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        const env = this.dataset.env;
+                        selectEnvironment(env);
+                        
+                        // 收起选择器
+                        document.getElementById('envOptions').classList.remove('expanded');
+                        document.getElementById('toggleBtn').textContent = '切换';
+                    });
+                });
+                
+                console.log('Environment configurations loaded:', envDisplayNames);
+            } catch (error) {
+                console.error('Failed to load environment configurations:', error);
             }
         }
 
-        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const ws = new WebSocket(`${protocol}//${window.location.host}`);
+        // 初始化终端
+        function initializeTerminal() {
+            terminalInstance = new Terminal({
+                theme: {
+                    background: '#0c0c0c',
+                    foreground: '#cccccc',
+                    cursor: '#ffffff',
+                    cursorAccent: '#000000',
+                    selection: 'rgba(255, 255, 255, 0.3)',
+                    black: '#0c0c0c',
+                    red: '#c50f1f',
+                    green: '#13a10e',
+                    yellow: '#c19c00',
+                    blue: '#0037da',
+                    magenta: '#881798',
+                    cyan: '#3a96dd',
+                    white: '#cccccc',
+                    brightBlack: '#767676',
+                    brightRed: '#e74856',
+                    brightGreen: '#16c60c',
+                    brightYellow: '#f9f1a5',
+                    brightBlue: '#3b78ff',
+                    brightMagenta: '#b4009e',
+                    brightCyan: '#61d6d6',
+                    brightWhite: '#f2f2f2'
+                },
+                fontFamily: 'Cascadia Code, Consolas, monospace',
+                fontSize: 14,
+                cursorBlink: true,
+                cursorStyle: 'bar',
+                allowTransparency: true
+            });
 
-        ws.onopen = () => {
-            console.log('WebSocket connected');
-            updateStatus(true);
+            const fitAddon = new FitAddon.FitAddon();
+            const webLinksAddon = new WebLinksAddon.WebLinksAddon();
             
-            ws.send(JSON.stringify({
-                type: 'resize',
-                cols: terminal.cols,
-                rows: terminal.rows
-            }));
-        };
-
-        ws.onmessage = (event) => {
-            const msg = JSON.parse(event.data);
-            if (msg.type === 'output') {
-                terminal.write(msg.data);
-            }
-        };
-
-        ws.onclose = () => {
-            console.log('WebSocket disconnected');
-            updateStatus(false);
-            terminal.write('\r\n\x1b[31m[Connection closed]\x1b[0m\r\n');
-        };
-
-        ws.onerror = (error) => {
-            console.error('WebSocket error:', error);
-            updateStatus(false);
-        };
-
-        terminal.onData((data) => {
-            if (ws.readyState === WebSocket.OPEN) {
-                ws.send(JSON.stringify({ type: 'input', data }));
-            }
-        });
-
-        terminal.onResize(({ cols, rows }) => {
-            if (ws.readyState === WebSocket.OPEN) {
-                ws.send(JSON.stringify({ type: 'resize', cols, rows }));
-            }
-        });
-
-        window.addEventListener('resize', () => {
+            terminalInstance.loadAddon(fitAddon);
+            terminalInstance.loadAddon(webLinksAddon);
+            terminalInstance.open(document.getElementById('terminal'));
             fitAddon.fit();
+
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+
+            function updateStatus(connected) {
+                if (connected) {
+                    statusDot.classList.remove('disconnected');
+                    statusText.textContent = 'Connected';
+                } else {
+                    statusDot.classList.add('disconnected');
+                    statusText.textContent = 'Disconnected';
+                }
+            }
+
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            wsConnection = new WebSocket(`${protocol}//${window.location.host}`);
+
+            wsConnection.onopen = () => {
+                console.log('WebSocket connected');
+                updateStatus(true);
+                
+                // 立即初始化终端（不带环境变量）
+                wsConnection.send(JSON.stringify({
+                    type: 'init'
+                }));
+                
+                wsConnection.send(JSON.stringify({
+                    type: 'resize',
+                    cols: terminalInstance.cols,
+                    rows: terminalInstance.rows
+                }));
+            };
+
+            wsConnection.onmessage = (event) => {
+                const msg = JSON.parse(event.data);
+                if (msg.type === 'output') {
+                    terminalInstance.write(msg.data);
+                } else if (msg.type === 'envSet') {
+                    terminalInstance.write(`\r\n\x1b[32m${msg.message}\x1b[0m\r\n`);
+                } else if (msg.type === 'error') {
+                    terminalInstance.write(`\r\n\x1b[31mError: ${msg.message}\x1b[0m\r\n`);
+                }
+            };
+
+            wsConnection.onclose = () => {
+                console.log('WebSocket disconnected');
+                updateStatus(false);
+                terminalInstance.write('\r\n\x1b[31m[Connection closed]\x1b[0m\r\n');
+            };
+
+            wsConnection.onerror = (error) => {
+                console.error('WebSocket error:', error);
+                updateStatus(false);
+            };
+
+            terminalInstance.onData((data) => {
+                if (wsConnection.readyState === WebSocket.OPEN) {
+                    wsConnection.send(JSON.stringify({ type: 'input', data }));
+                }
+            });
+
+            terminalInstance.onResize(({ cols, rows }) => {
+                if (wsConnection.readyState === WebSocket.OPEN) {
+                    wsConnection.send(JSON.stringify({ type: 'resize', cols, rows }));
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                fitAddon.fit();
+            });
+        }
+
+        function selectEnvironment(env) {
+            selectedEnv = env;
+            const envName = envDisplayNames[env];
+            
+            // 更新UI显示
+            document.getElementById('currentEnv').textContent = envName;
+            document.querySelector('.terminal-title').textContent = `PowerShell - ${envName}`;
+            
+            // 更新网页标题
+            document.title = `${envName}`;
+            
+            // 更新选中状态
+            document.querySelectorAll('.env-option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelector(`[data-env="${env}"]`).classList.add('selected');
+            
+            // 发送环境切换请求到服务器
+            if (wsConnection && wsConnection.readyState === WebSocket.OPEN) {
+                wsConnection.send(JSON.stringify({
+                    type: 'switchEnv',
+                    env: env
+                }));
+            }
+        }
+
+        // 环境选择器功能
+        document.getElementById('toggleBtn').addEventListener('click', function() {
+            const envOptions = document.getElementById('envOptions');
+            envOptions.classList.toggle('expanded');
+            this.textContent = envOptions.classList.contains('expanded') ? '收起' : '切换';
+        });
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 先加载环境配置，然后初始化终端
+            loadEnvConfigs().then(() => {
+                initializeTerminal();
+            });
         });
     </script>
 </body>
