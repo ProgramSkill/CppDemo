@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pandoc:*)",
+      "Bash(xelatex:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(pdfinfo:*)",
+      "Bash(pdffonts:*)"
+    ]
+  }
+}
