@@ -427,6 +427,35 @@ In many practical problems, we need **integer solutions** (you can't have 2.5 ch
 
 > **Theorem**: The equation $ax + by = c$ has integer solutions if and only if $\gcd(a, b) | c$.
 
+**Proof (Why this theorem is true)**:
+
+Let $d = \gcd(a, b)$.
+
+**Part 1: Necessity (If solutions exist, then $d | c$)**
+
+Suppose integers $x_0, y_0$ satisfy $ax_0 + by_0 = c$.
+
+Since $d | a$ and $d | b$, we can write $a = d \cdot a'$ and $b = d \cdot b'$ for some integers $a', b'$.
+
+Then:
+$$c = ax_0 + by_0 = d \cdot a' \cdot x_0 + d \cdot b' \cdot y_0 = d(a'x_0 + b'y_0)$$
+
+Since $a'x_0 + b'y_0$ is an integer, we have $d | c$. ✓
+
+**Part 2: Sufficiency (If $d | c$, then solutions exist)**
+
+By **Bezout's Identity** (proven in Part III), there exist integers $x_1, y_1$ such that:
+$$ax_1 + by_1 = d$$
+
+Since $d | c$, we can write $c = d \cdot k$ for some integer $k$.
+
+Multiply both sides of Bezout's equation by $k$:
+$$a(kx_1) + b(ky_1) = dk = c$$
+
+So $x_0 = kx_1$ and $y_0 = ky_1$ is an integer solution. ✓
+
+**QED** ∎
+
 **Examples**:
 - $6x + 9y = 12$: $\gcd(6, 9) = 3$, and $3 | 12$ ✓ Solutions exist
 - $6x + 9y = 10$: $\gcd(6, 9) = 3$, and $3 \nmid 10$ ✗ No integer solutions
@@ -434,6 +463,49 @@ In many practical problems, we need **integer solutions** (you can't have 2.5 ch
 ### 2.3.3 Finding All Integer Solutions
 
 **Method**: Find one particular solution, then add the general solution.
+
+**Theorem (General Solution Formula)**:
+
+If $(x_0, y_0)$ is one particular solution to $ax + by = c$, then **all** integer solutions are:
+$$x = x_0 + \frac{b}{d}t, \quad y = y_0 - \frac{a}{d}t \quad (t \in \mathbb{Z})$$
+
+where $d = \gcd(a, b)$.
+
+**Proof (Why this formula works)**:
+
+**Step 1: Verify these are solutions**
+
+Substitute into the equation:
+$$a\left(x_0 + \frac{b}{d}t\right) + b\left(y_0 - \frac{a}{d}t\right)$$
+$$= ax_0 + \frac{ab}{d}t + by_0 - \frac{ab}{d}t$$
+$$= ax_0 + by_0 = c \quad \checkmark$$
+
+**Step 2: Prove these are ALL solutions**
+
+Suppose $(x_1, y_1)$ is any solution. We need to show it has the form above.
+
+Since both $(x_0, y_0)$ and $(x_1, y_1)$ are solutions:
+$$ax_0 + by_0 = c$$
+$$ax_1 + by_1 = c$$
+
+Subtracting:
+$$a(x_1 - x_0) + b(y_1 - y_0) = 0$$
+$$a(x_1 - x_0) = -b(y_1 - y_0) = b(y_0 - y_1)$$
+
+Let $a = da'$ and $b = db'$ where $\gcd(a', b') = 1$:
+$$da'(x_1 - x_0) = db'(y_0 - y_1)$$
+$$a'(x_1 - x_0) = b'(y_0 - y_1)$$
+
+Since $\gcd(a', b') = 1$ and $b' | a'(x_1 - x_0)$, we must have $b' | (x_1 - x_0)$.
+
+So $x_1 - x_0 = b't$ for some integer $t$, meaning $x_1 = x_0 + b't = x_0 + \frac{b}{d}t$.
+
+Similarly, from $a'(x_1 - x_0) = b'(y_0 - y_1)$:
+$$a' \cdot b't = b'(y_0 - y_1)$$
+$$y_0 - y_1 = a't$$
+$$y_1 = y_0 - a't = y_0 - \frac{a}{d}t$$
+
+**QED** ∎
 
 **Example**: Find all integer solutions to $3x + 5y = 7$
 
