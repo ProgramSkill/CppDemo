@@ -386,6 +386,178 @@
                 }
             });
 
+            // 添加键盘事件处理，支持智能 Ctrl+C
+            terminalInstance.textarea.addEventListener('keydown', (e) => {
+                // Ctrl+C 或 Cmd+C 智能处理
+                if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+                    // 检查是否有选中文本
+                    const selection = terminalInstance.getSelection();
+                    if (selection) {
+                        // 有选中文本，执行复制
+                        e.preventDefault();
+                        navigator.clipboard.writeText(selection).then(() => {
+                            console.log('Text copied to clipboard');
+                        }).catch(err => {
+                            console.error('Failed to copy text:', err);
+                        });
+                        return;
+                    }
+                    // 没有选中文本，让 Ctrl+C 传递给终端（发送中断信号）
+                }
+            });
+
+            // 添加右键复制支持
+            terminalInstance.textarea.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                
+                const selection = terminalInstance.getSelection();
+                if (selection && selection.trim()) {
+                    // 使用传统方法复制到剪贴板
+                    const textArea = document.createElement('textarea');
+                    textArea.value = selection;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    textArea.style.top = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    
+                    try {
+                        document.execCommand('copy');
+                        console.log('Text copied to clipboard via right-click');
+                        // 静默复制，不显示提示信息
+                    } catch (err) {
+                        console.error('Failed to copy text:', err);
+                        // 降级到现代API
+                        navigator.clipboard.writeText(selection).then(() => {
+                            console.log('Text copied using fallback method');
+                        }).catch(fallbackErr => {
+                            console.error('Fallback also failed:', fallbackErr);
+                            terminalInstance.write('\r\n\x1b[31m[Failed to copy text]\x1b[0m\r\n');
+                        });
+                    } finally {
+                        document.body.removeChild(textArea);
+                    }
+                    return false;
+                } else {
+                    // 如果没有选中文本，执行粘贴操作
+                    console.log('No text selected, attempting to paste');
+                    
+                    navigator.clipboard.readText().then(text => {
+                        if (text && text.trim()) {
+                            console.log('Pasting text:', text);
+                            if (wsConnection && wsConnection.readyState === WebSocket.OPEN) {
+                                wsConnection.send(JSON.stringify({ type: 'input', data: text }));
+                            }
+                        } else {
+                            console.log('Clipboard is empty or contains only whitespace');
+                        }
+                    }).catch(err => {
+                        console.error('Failed to read clipboard:', err);
+                        // 降级到传统方法
+                        const textArea = document.createElement('textarea');
+                        textArea.style.position = 'fixed';
+                        textArea.style.left = '-999999px';
+                        textArea.style.top = '-999999px';
+                        document.body.appendChild(textArea);
+                        textArea.focus();
+                        
+                        try {
+                            textArea.select();
+                            const successful = document.execCommand('paste');
+                            if (successful && textArea.value.trim()) {
+                                console.log('Pasting using fallback method:', textArea.value);
+                                if (wsConnection && wsConnection.readyState === WebSocket.OPEN) {
+                                    wsConnection.send(JSON.stringify({ type: 'input', data: textArea.value }));
+                                }
+                            } else {
+                                console.log('No content to paste or paste failed');
+                            }
+                        } catch (fallbackErr) {
+                            console.error('Fallback paste also failed:', fallbackErr);
+                        } finally {
+                            document.body.removeChild(textArea);
+                        }
+                    });
+                }
+            });
+
+            // 额外阻止右键菜单
+            terminalInstance.textarea.oncontextmenu = function() {
+                return false;
+            };
+
+            // 在终端容器上也阻止右键菜单
+            document.getElementById('terminal').addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                
+                const selection = terminalInstance.getSelection();
+                console.log('Selected text:', JSON.stringify(selection)); // 调试输出
+                
+                if (selection && selection.trim().length > 0) {
+                    console.log('Attempting to copy:', selection); // 调试输出
+                    
+                    // 使用传统方法复制到剪贴板
+                    const textArea = document.createElement('textarea');
+                    textArea.value = selection;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    textArea.style.top = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    
+                    try {
+                        const successful = document.execCommand('copy');
+                        console.log('Copy command successful:', successful); // 调试输出
+                        
+                        if (successful) {
+                            // 验证剪贴板内容
+                            textArea.select();
+                            const copiedText = document.execCommand('paste') ? textArea.value : 'Unable to verify';
+                            console.log('Copied text verification:', copiedText);
+                            
+                            // 静默复制，不显示提示信息
+                        } else {
+                            throw new Error('execCommand failed');
+                        }
+                    } catch (err) {
+                        console.error('Failed to copy text:', err);
+                        // 降级到现代API
+                        navigator.clipboard.writeText(selection).then(() => {
+                            console.log('Text copied using fallback method');
+                        }).catch(fallbackErr => {
+                            console.error('Fallback also failed:', fallbackErr);
+                            terminalInstance.write('\r\n\x1b[31m[Failed to copy text]\x1b[0m\r\n');
+                        });
+                    } finally {
+                        document.body.removeChild(textArea);
+                    }
+                } else {
+                    console.log('No text selected or selection is empty, attempting to paste');
+                    
+                    navigator.clipboard.readText().then(text => {
+                        if (text && text.trim()) {
+                            console.log('Pasting text:', text);
+                            if (wsConnection && wsConnection.readyState === WebSocket.OPEN) {
+                                wsConnection.send(JSON.stringify({ type: 'input', data: text }));
+                            }
+                        } else {
+                            console.log('Clipboard is empty or contains only whitespace');
+                        }
+                    }).catch(err => {
+                        console.error('Failed to read clipboard:', err);
+                        // 降级到传统方法（注意：execCommand('paste') 在现代浏览器中可能不工作）
+                        console.log('Modern clipboard API failed, unable to paste');
+                    });
+                }
+                return false;
+            });
+
             terminalInstance.onResize(({ cols, rows }) => {
                 if (wsConnection.readyState === WebSocket.OPEN) {
                     wsConnection.send(JSON.stringify({ type: 'resize', cols, rows }));
