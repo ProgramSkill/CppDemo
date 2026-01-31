@@ -31,7 +31,8 @@
             components = new System.ComponentModel.Container();
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Text = "Form1";
+            Text = "ClaudeAssist";
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         #endregion
