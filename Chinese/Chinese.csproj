@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="孟子\" />
-    <Folder Include="论语\" />
   </ItemGroup>
 
 </Project>
