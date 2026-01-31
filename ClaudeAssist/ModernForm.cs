@@ -181,8 +181,7 @@ namespace ClaudeAssist
                 }
                 else
                 {
-                    // 处理窗口调整大小
-                    HandleResize(e.Location);
+                    // 调整大小由 WndProc 处理
                 }
             }
         }
@@ -276,32 +275,92 @@ namespace ClaudeAssist
             return Cursors.Default;
         }
 
-        private void HandleResize(Point p)
+        ///
+        protected override void WndProc(ref Message m)
         {
-            if (_isMaximized) return;
+            base.WndProc(ref m);
 
-            const int HTLEFT = 10, HTRIGHT = 11, HTTOP = 12, HTBOTTOM = 15;
-            const int HTTOPLEFT = 13, HTTOPRIGHT = 14, HTBOTTOMLEFT = 16, HTBOTTOMRIGHT = 17;
+            /*
+            WM_NCHITTEST 是以下内容的缩写：
+            WM - Windows Message NC - Non-Client（非客户区） HIT - Hit（命中/点击检测） TEST - Test（测试）
+            完整含义： Windows Message Non-Client Hit Test
+            解释：
+            Windows Message: Windows系统的消息机制
+            Non-Client: 指窗口的非客户区域（标题栏、边框、菜单栏等），区别于客户区域（Client Area，即程序内容显示区域）
+            Hit Test: 命中测试，检测鼠标点击或悬停的位置
+            为什么叫"非客户区"？ 在Windows窗口架构中：
+            客户区(Client Area): 程序可以自由绘制内容的区域
+            非客户区(Non-Client Area): 系统负责管理的区域（标题栏、边框、滚动条等）
+            所以 WM_NCHITTEST 就是"Windows消息：非客户区命中测试"，用来确定鼠标在窗口非客户区的具体位置。
 
-            bool left = p.X < RESIZE_BORDER;
-            bool right = p.X > Width - RESIZE_BORDER;
-            bool top = p.Y < RESIZE_BORDER;
-            bool bottom = p.Y > Height - RESIZE_BORDER;
+            屏幕坐标 (Screen Coordinates):
+            以整个屏幕左上角为原点 (0,0)
+            WM_NCHITTEST 消息中的坐标就是屏幕坐标
+            不受窗口位置影响
 
-            int hit = 0;
-            if (left && top) hit = HTTOPLEFT;
-            else if (right && top) hit = HTTOPRIGHT;
-            else if (left && bottom) hit = HTBOTTOMLEFT;
-            else if (right && bottom) hit = HTBOTTOMRIGHT;
-            else if (left) hit = HTLEFT;
-            else if (right) hit = HTRIGHT;
-            else if (top) hit = HTTOP;
-            else if (bottom) hit = HTBOTTOM;
-
-            if (hit != 0)
+            客户端坐标 (Client Coordinates):
+            以窗口客户区左上角为原点 (0,0)
+            受窗口位置影响
+            用于窗口内部绘制和交互
+             */
+            if (m.Msg == 0x84) // WM_NCHITTEST
             {
-                ReleaseCapture();
-                SendMessage(Handle, 0x112, (IntPtr)(0xF000 + hit), IntPtr.Zero);
+                /*
+                LParam 的结构：
+                LParam 是一个32位整数
+                低16位 (0-15位)：存储 X 坐标
+                高16位 (16-31位)：存储 Y 坐标
+                 */
+                Point p = new Point(m.LParam.ToInt32() & 0xFFFF, m.LParam.ToInt32() >> 16);
+                p = PointToClient(p);//将屏幕坐标转换为客户端坐标
+
+                if (_isMaximized) return;
+                
+                bool left = p.X < RESIZE_BORDER;
+                bool right = p.X > Width - RESIZE_BORDER;
+                bool top = p.Y < RESIZE_BORDER;
+                bool bottom = p.Y > Height - RESIZE_BORDER;
+
+                //HTLEFT(10) 到 HTBOTTOMRIGHT(17) 实现八方向调整大小
+                if (left && top) m.Result = (IntPtr)13; // HTTOPLEFT 左上角	对角调整 ↖↘
+                else if (right && top) m.Result = (IntPtr)14; // HTTOPRIGHT
+                else if (left && bottom) m.Result = (IntPtr)16; // HTBOTTOMLEFT
+                else if (right && bottom) m.Result = (IntPtr)17; // HTBOTTOMRIGHT
+                else if (left) m.Result = (IntPtr)10; // HTLEFT
+                else if (right) m.Result = (IntPtr)11; // HTRIGHT
+                else if (top) m.Result = (IntPtr)12; // HTTOP
+                else if (bottom) m.Result = (IntPtr)15; // HTBOTTOM
+                else if (p.Y < TITLE_HEIGHT) m.Result = (IntPtr)2; // HTCAPTION 拖动移动窗口
+
+
+                /*
+                 WM_NCHITTEST 返回值完整表格
+                返回值	常量名	含义	Windows 自动行为
+                0	HTERROR	错误	播放错误提示音
+                1	HTCLIENT	客户区	正常鼠标事件
+                2	HTCAPTION	标题栏	拖动移动窗口
+                3	HTSYSMENU	系统菜单	显示系统菜单
+                4	HTGROWBOX	大小调整框	同 HTSIZE
+                5	HTMENU	菜单栏	激活菜单
+                6	HTHSCROLL	水平滚动条	滚动操作
+                7	HTVSCROLL	垂直滚动条	滚动操作
+                8	HTMINBUTTON	最小化按钮	最小化窗口
+                9	HTMAXBUTTON	最大化按钮	最大化/还原窗口
+                10	HTLEFT	左边框	向左调整宽度 ↔
+                11	HTRIGHT	右边框	向右调整宽度 ↔
+                12	HTTOP	上边框	向上调整高度 ↕
+                13	HTTOPLEFT	左上角	对角调整 ↖↘
+                14	HTTOPRIGHT	右上角	对角调整 ↗↙
+                15	HTBOTTOM	下边框	向下调整高度 ↕
+                16	HTBOTTOMLEFT	左下角	对角调整 ↙↗
+                17	HTBOTTOMRIGHT	右下角	对角调整 ↘↖
+                18	HTBORDER	不可调整边框	无操作
+                19	HTOBJECT	对象	-
+                20	HTCLOSE	关闭按钮	关闭窗口
+                21	HTHELP	帮助按钮	进入帮助模式
+                -1	HTNOWHERE	不在窗口上	忽略
+                -2	HTTRANSPARENT	透明区域	穿透到下层窗口
+                 */
             }
         }
 
