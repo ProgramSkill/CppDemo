@@ -60,12 +60,47 @@ pandoc [输入文件] -o [输出文件] [选项...]
 
 设置 LaTeX 模板变量。格式：`-V key=value`
 
-#### 字体相关
+#### `-V CJKmainfont` 详细解释
+
+- `-V` = **Variable**（设置变量）
+- `CJK` = **Chinese, Japanese, Korean**（中日韩文字）
+- `mainfont` = **main font**（主字体）
+
+**为什么需要这个参数？**
+
+XeLaTeX 默认使用 Latin 字体，不支持中文字符。如果不指定，中文会显示成方块 `□□□`。
+
+**工作原理**：
+
+```
+Markdown 文件包含中文
+         ↓
+pandoc 转换为 LaTeX
+         ↓
+XeLaTeX 编译时查找 CJKmainfont 指定的字体
+         ↓
+使用该字体渲染所有中日韩字符
+```
+
+**字体相关
 
 ```bash
 -V CJKmainfont="Microsoft YaHei"    # 中文字体
 -V CJKmainfont="SimSun"             # 宋体
 -V mainfont="Times New Roman"       # 英文字体
+```
+
+| 参数 | 控制范围 | 示例值 |
+|------|----------|--------|
+| `CJKmainfont` | 中文、日文、韩文字符 | Microsoft YaHei, SimSun |
+| `mainfont` | 英文/拉丁文字符 | Times New Roman, Arial |
+| `monofont` | 等宽字体（代码块） | Consolas, Courier New |
+| `mathfont` | 数学公式 | Latin Modern Math |
+
+**示例：同时指定多种字体**
+
+```bash
+-V CJKmainfont="Microsoft YaHei" -V mainfont="Times New Roman" -V monofont="Consolas"
 ```
 
 #### 字号相关
@@ -170,6 +205,20 @@ pandoc "input.md" -o "output.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Pro
 -V CJKmainfont="SimSun"             # 宋体
 -V CJKmainfont="SimHei"             # 黑体
 ```
+
+**如何查看系统可用字体？**
+
+Windows 系统字体路径：
+```
+C:\Windows\Fonts\
+```
+
+常用内置字体：
+- `Microsoft YaHei` - 微软雅黑（推荐）
+- `SimSun` - 宋体
+- `SimHei` - 黑体
+- `KaiTi` - 楷体
+- `FangSong` - 仿宋
 
 ### 问题：`permission denied`
 
