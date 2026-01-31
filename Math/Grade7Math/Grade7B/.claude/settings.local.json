@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(pandoc:*)",
-      "Bash(xelatex:*)"
+      "Bash(xelatex:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
