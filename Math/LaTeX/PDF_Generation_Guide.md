@@ -13,11 +13,13 @@
 C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe
 ```
 
-## 完整命令
+## 完整命令（推荐 - 支持特殊符号）
 
 ```bash
-cd "C:\Users\Jason\source\repos\ProgramSkill\CppDemo\Math\Grade7Math\Grade7B" && pandoc "Chapter10_SystemsOfBinaryLinearEquations.md" -o "Chapter10_SystemsOfBinaryLinearEquations_Compact.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V fontsize=10pt -V geometry:margin=1cm --number-sections
+cd "C:\Users\Jason\source\repos\ProgramSkill\CppDemo\Math\Grade7Math\Grade7B" && pandoc "Chapter10_SystemsOfBinaryLinearEquations.md" -o "Chapter10_SystemsOfBinaryLinearEquations_Compact.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V mainfont="Segoe UI Symbol" -V fontsize=10pt -V geometry:margin=1cm --number-sections
 ```
+
+**关键参数**：`-V mainfont="Segoe UI Symbol"` 支持特殊字符（✓ ✗ ①②③④⑤ ≥ ≠ ≤ 等）
 
 ---
 
@@ -38,6 +40,7 @@ pandoc [输入文件] -o [输出文件] [选项...]
 | `-o "Chapter10_SystemsOfBinaryLinearEquations_Compact.pdf"` | 输出 PDF 文件名 |
 | `--pdf-engine="..."` | 指定 PDF 生成引擎 (XeLaTeX) |
 | `-V CJKmainfont="Microsoft YaHei"` | 中文字体设为微软雅黑 |
+| `-V mainfont="Segoe UI Symbol"` | 英文字体，支持特殊符号 ✓✗①②③ |
 | `-V fontsize=10pt` | 字体大小 10pt (紧凑) |
 | `-V geometry:margin=1cm` | 页边距 1cm (紧凑) |
 | `--number-sections` | 章节自动编号 |
@@ -162,22 +165,22 @@ XeLaTeX 编译时查找 CJKmainfont 指定的字体
 
 ## 常用组合示例
 
-### 紧凑型 (小字 + 小边距)
+### 紧凑型 (小字 + 小边距 + 支持特殊符号) **推荐**
 
 ```bash
-pandoc "input.md" -o "output.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V fontsize=10pt -V geometry:margin=1cm
+pandoc "input.md" -o "output.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V mainfont="Segoe UI Symbol" -V fontsize=10pt -V geometry:margin=1cm --number-sections
 ```
 
 ### 标准型
 
 ```bash
-pandoc "input.md" -o "output.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V fontsize=11pt -V geometry:margin=2cm --toc
+pandoc "input.md" -o "output.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V mainfont="Segoe UI Symbol" -V fontsize=11pt -V geometry:margin=2cm --toc
 ```
 
 ### 带目录和链接
 
 ```bash
-pandoc "input.md" -o "output.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V fontsize=11pt -V geometry:margin=2cm --toc --number-sections -V colorlinks=true -V linkcolor=blue
+pandoc "input.md" -o "output.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V mainfont="Segoe UI Symbol" -V fontsize=11pt -V geometry:margin=2cm --toc --number-sections -V colorlinks=true -V linkcolor=blue
 ```
 
 ---
@@ -230,11 +233,29 @@ C:\Windows\Fonts\
 
 ```
 WARNING: Missing character: There is no ✓ (U+2713) in font
+WARNING: Missing character: There is no ① (U+2460) in font
 ```
 
-**原因**：Latin Math 字体不支持某些 Unicode 符号
+**原因**：默认字体不支持某些 Unicode 符号
 
-**影响**：仅影响特殊符号，数学公式和主要内容正常
+**影响**：特殊符号显示为空白或方块
+
+**解决方案**：指定支持符号的字体
+
+```bash
+# 方法一：使用 Segoe UI Symbol（推荐，无警告）
+-V mainfont="Segoe UI Symbol"
+
+# 完整命令示例
+pandoc "input.md" -o "output.pdf" --pdf-engine="C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe" -V CJKmainfont="Microsoft YaHei" -V mainfont="Segoe UI Symbol" -V fontsize=10pt -V geometry:margin=1cm --number-sections
+```
+
+**Segoe UI Symbol 支持的符号**：
+- ✓ ✗ ✔ ✘ （勾选/叉号）
+- ① ② ③ ④ ⑤ ⑥ （带圈数字）
+- ≥ ≠ ≤ ≈ ≅ ≠ （数学符号）
+- → ← ↑ ↓ ↔ （箭头）
+- ± × ÷ （运算符号）
 
 ---
 
@@ -260,7 +281,7 @@ set INPUT=%1
 set OUTPUT=%~n1.pdf
 set XELATEX=C:\Users\Jason\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe
 
-pandoc "%INPUT%" -o "%OUTPUT%" --pdf-engine="%XELATEX%" -V CJKmainfont="Microsoft YaHei" -V fontsize=10pt -V geometry:margin=1cm --number-sections
+pandoc "%INPUT%" -o "%OUTPUT%" --pdf-engine="%XELATEX%" -V CJKmainfont="Microsoft YaHei" -V mainfont="Segoe UI Symbol" -V fontsize=10pt -V geometry:margin=1cm --number-sections
 
 echo PDF generated: %OUTPUT%
 ```
