@@ -275,7 +275,6 @@ namespace ClaudeAssist
             return Cursors.Default;
         }
 
-        ///
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -363,11 +362,5 @@ namespace ClaudeAssist
                  */
             }
         }
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        private static extern bool ReleaseCapture();
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
     }
 }
